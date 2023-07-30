@@ -6,13 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://github.com/Veni222987/Veni222987.github.io.git">
-  <title>Archives: 2023/7 | Hexo</title>
+  <title>Go语言常用命令 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="https://github.com/Veni222987/Veni222987.github.io.git/archives/2023/07/index.html">
+  <meta name="description" content="Go语言命令总结Go语言自带有一整套完整的命令操作指令，可以在命令行中执行go查看所有指令，比如 123456789101112131415161718192021222324252627C:\Users\19481&gt;goGo is a tool for managing Go source code.Usage:        go &lt;command&gt; [arguments]">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Go语言常用命令">
+<meta property="og:url" content="https://github.com/Veni222987/Veni222987.github.io.git/2023/07/30/Go%E8%AF%AD%E8%A8%80%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Go语言命令总结Go语言自带有一整套完整的命令操作指令，可以在命令行中执行go查看所有指令，比如 123456789101112131415161718192021222324252627C:\Users\19481&gt;goGo is a tool for managing Go source code.Usage:        go &lt;command&gt; [arguments]">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-07-30T13:05:13.000Z">
+<meta property="article:modified_time" content="2023-07-30T13:06:30.607Z">
 <meta property="article:author" content="Veni">
 <meta name="twitter:card" content="summary">
   
@@ -150,76 +154,192 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-Go语言常用命令" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      Go语言常用命令
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/Veni222987/Veni222987.github.io.git/archives/2023" class="archive-year">2023</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Veni222987/Veni222987.github.io.git/2023/07/30/Go%E8%AF%AD%E8%A8%80%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="archive-article-date">
+
+        
+        <a href="/Veni222987/Veni222987.github.io.git/2023/07/30/Go%E8%AF%AD%E8%A8%80%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="archive-article-date">
   	<time datetime="2023-07-30T13:05:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-07-30</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Veni222987/Veni222987.github.io.git/2023/07/30/Go%E8%AF%AD%E8%A8%80%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">Go语言常用命令</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Go语言命令总结"><a href="#Go语言命令总结" class="headerlink" title=" Go语言命令总结"></a><center> Go语言命令总结</h1><p>Go语言自带有一整套完整的命令操作指令，可以在命令行中执行<code>go</code>查看所有指令，比如</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\19481&gt;go</span><br><span class="line">Go is a tool <span class="keyword">for</span> managing Go <span class="built_in">source</span> code.</span><br><span class="line"></span><br><span class="line">Usage:</span><br><span class="line"></span><br><span class="line">        go &lt;<span class="built_in">command</span>&gt; [arguments]</span><br><span class="line"></span><br><span class="line">The commands are:</span><br><span class="line"></span><br><span class="line">        bug         start a bug report</span><br><span class="line">        build       compile packages and dependencies</span><br><span class="line">        clean       remove object files and cached files</span><br><span class="line">        doc         show documentation <span class="keyword">for</span> package or symbol</span><br><span class="line">        <span class="built_in">env</span>         <span class="built_in">print</span> Go environment information</span><br><span class="line">        fix         update packages to use new APIs</span><br><span class="line">        <span class="built_in">fmt</span>         gofmt (reformat) package sources</span><br><span class="line">        generate    generate Go files by processing <span class="built_in">source</span></span><br><span class="line">        get         add dependencies to current module and install them</span><br><span class="line">        install     compile and install packages and dependencies</span><br><span class="line">        list        list packages or modules</span><br><span class="line">        mod         module maintenance</span><br><span class="line">        work        workspace maintenance</span><br><span class="line">        run         compile and run Go program</span><br><span class="line">        <span class="built_in">test</span>        <span class="built_in">test</span> packages</span><br><span class="line">        tool        run specified go tool</span><br><span class="line">        version     <span class="built_in">print</span> Go version</span><br><span class="line">        vet         report likely mistakes <span class="keyword">in</span> packages</span><br></pre></td></tr></table></figure>
 
-        <div class="article-info info-on-right">
-          
-          
+<p>这里只截取指令部分的展示结果，将选取其中最常用的几个指令，做一次系统的整理与回顾。</p>
+<h2 id="go-run"><a href="#go-run" class="headerlink" title="go run"></a>go run</h2><p>编译并运行go程序。使用<code>go run</code>命令运行Go程序时，编译的结果并不会被保存在磁盘上。而是将源代码编译为二进制文件，并直接在内存中执行。可以说，刷OJ最常用就是他了。</p>
+<h2 id="go-test"><a href="#go-test" class="headerlink" title="go test"></a>go test</h2><p>go test指令最常用于单元测试，使用方法如下：</p>
+<ul>
+<li>确保测试程序以_test.go结尾，这是Go语言的约定形式，别问为啥。</li>
+<li>在终端中使用以下命令运行测试：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">go test -run TestFunctionName</span><br></pre></td></tr></table></figure>
 
+<p>其中，<code>TestFunctionName</code>是你要运行的测试函数的名称。注意，测试函数的名称必须以<code>Test</code>开头，且函数签名必须符合以下形式：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">TestFunctionName</span><span class="params">(t *testing.T)</span></span> &#123;</span><br><span class="line">    <span class="comment">// 测试逻辑</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>运行测试后，你将在终端中看到测试结果的输出，包括通过的测试用例数量、失败的测试用例数量以及测试的覆盖率等信息。</li>
+</ul>
+<p>如不指定测试运行的程序，那么go test就会把当前目录下所有的_test.go程序都执行一遍。</p>
+<h2 id="go-build"><a href="#go-build" class="headerlink" title="go build"></a>go build</h2><p>这个命令用于测试编译，在包的编译过程中，若有需要，则会同时编译与之相关的包。下面用一个简单的程序测试一下，具体语法是：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">go build &lt;go源代码&gt;</span><br></pre></td></tr></table></figure>
+
+<p>比如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">PS D:\Desktop\MyProjects\ByteTech&gt; go build Course1.go</span><br><span class="line">PS D:\Desktop\MyProjects\ByteTech&gt; <span class="built_in">ls</span></span><br><span class="line">    目录: D:\Desktop\MyProjects\ByteTech</span><br><span class="line">Mode                 LastWriteTime         Length Name</span><br><span class="line">----                 -------------         ------ ----</span><br><span class="line">d-----         2023/7/30     10:57                .idea</span><br><span class="line">-a----         2023/7/30     10:57        2159104 Course1.exe</span><br><span class="line">-a----         2023/7/25     22:25            528 Course1.go</span><br><span class="line">-a----         2023/7/25      9:50             25 go.mod</span><br></pre></td></tr></table></figure>
+
+<p>命令执行完成之后，会在原目录下生成一个同名的可执行文件，双击即可运行程序。这个过程就好像使用g++编译C++源代码。当然你也可以用<code>go build -o &lt;文件名&gt;</code>指定生成的文件类型和路径。如果<code>go build</code>之后不接任何参数，则该命令会默认编译当前目录下所有的go文件。</p>
+<ul>
+<li><code>go build</code>会忽略目录下以’_’和’.’开头的文件。</li>
+</ul>
+<h2 id="go-install"><a href="#go-install" class="headerlink" title="go install"></a>go install</h2><p><code>go install</code>命令做了两件事情，一件是把源代码编译成为结果文件（可执行文件或.a包），然后将其放到了<code>$GOPATH</code>里面的bin或pkg目录下。</p>
+<h2 id="go-clean"><a href="#go-clean" class="headerlink" title="go clean"></a>go clean</h2><p>这个命令用来清除当前源码包里面编译生成的一些文件，比如go build和go test生成的.exe文件等等。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">PS D:\Desktop\MyProjects\ByteTech&gt; go clean</span><br><span class="line">PS D:\Desktop\MyProjects\ByteTech&gt; <span class="built_in">ls</span></span><br><span class="line">    目录: D:\Desktop\MyProjects\ByteTech</span><br><span class="line">Mode                 LastWriteTime         Length Name</span><br><span class="line">----                 -------------         ------ ----</span><br><span class="line">d-----         2023/7/30     10:57                .idea</span><br><span class="line">-a----         2023/7/25     22:25            528 Course1.go</span><br><span class="line">-a----         2023/7/25      9:50             25 go.mod</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>可以看到，刚才生成的exe文件已经被清除掉了。这个命令可以用在远程仓库管理的时候，一般来说github上面只存代码，不存编译结果，所以可以先执行<code>go clean</code>之后在执行<code>git push</code>命令。要是我的话直接用<code>gitignore</code>比这个方便多了。</p>
+<h2 id="go-fmt"><a href="#go-fmt" class="headerlink" title="go fmt"></a>go fmt</h2><p>这个命令是用来格式化go语言代码的，一些格式错误可能会导致过不了编译，比如else要跟在上一个右大括号后面，左大括号必须跟在上一行的结尾等等。好在一般的IDE都会在保存的时候帮我们执行这条指令。要是使用vim或者记事本编辑的话可就得手动执行这条指令了。</p>
+<h2 id="go-get"><a href="#go-get" class="headerlink" title="go get"></a>go get</h2><p>这个命令是用来动态获取远程代码包的，支持了GitHub,BitBucket,Google Code等。使用的时候需要下载相对应的工具（比如git），一般比较少用，毕竟git都有了那就直接用git好了。</p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>其他的指令使用频率相对较低，比如<code>go doc</code>（官方文档），<code>go version</code>（版本号），需要的时候运行一下<code>go help &lt;指令&gt;</code>即可</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://github.com/Veni222987/Veni222987.github.io.git/2023/07/30/Go%E8%AF%AD%E8%A8%80%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Veni222987/Veni222987.github.io.git/2023/07/30/hello-world/" class="archive-article-date">
-  	<time datetime="2023-07-30T12:51:16.569Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-07-30</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/Veni222987/Veni222987.github.io.git/2023/07/30/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hello World</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Veni222987/Veni222987.github.io.git/2023/07/30/hello-world/">Hello World</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -242,8 +362,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
