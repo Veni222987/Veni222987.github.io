@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="https://Veni222987.github.io">
   <title>【学习笔记】redis | VenisBlog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、初识Redisredis基本理解redis可以一个特殊的数据库，它运行在内存之中，只有两个字段：键和值。其中的值可以是多种数据类型.">
+  <meta name="description" content="RedisRedis（Remote Dictionary Server）是一个开源的内存数据存储系统，也可以被看作是一个键值（key-value）存储数据库。它支持多种数据结构，如字符串（String）、哈希（Hash）、列表（List）、集合（Set）、有序集合（Sorted Set）等，并且提供了丰富的操作命令。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【学习笔记】redis">
 <meta property="og:url" content="https://veni222987.github.io/2023/08/02/%E3%80%90%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%91redis/index.html">
 <meta property="og:site_name" content="VenisBlog">
-<meta property="og:description" content="一、初识Redisredis基本理解redis可以一个特殊的数据库，它运行在内存之中，只有两个字段：键和值。其中的值可以是多种数据类型.">
+<meta property="og:description" content="RedisRedis（Remote Dictionary Server）是一个开源的内存数据存储系统，也可以被看作是一个键值（key-value）存储数据库。它支持多种数据结构，如字符串（String）、哈希（Hash）、列表（List）、集合（Set）、有序集合（Sorted Set）等，并且提供了丰富的操作命令。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-08-02T06:54:53.000Z">
-<meta property="article:modified_time" content="2023-08-05T11:10:49.570Z">
+<meta property="article:modified_time" content="2023-08-05T14:34:14.229Z">
 <meta property="article:author" content="Veni">
 <meta property="article:tag" content="笔记">
 <meta property="article:tag" content="redis">
@@ -158,9 +158,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="一、初识Redis"><a href="#一、初识Redis" class="headerlink" title=" 一、初识Redis"></a><center> 一、初识Redis</h1><h2 id="redis基本理解"><a href="#redis基本理解" class="headerlink" title="redis基本理解"></a>redis基本理解</h2><p>redis可以一个特殊的数据库，它运行在内存之中，只有两个字段：键和值。其中的值可以是多种数据类型.</p>
-<span id="more"></span>
-
+        <h1 id="Redis"><a href="#Redis" class="headerlink" title=" Redis"></a><center> Redis</h1><p>Redis（Remote Dictionary Server）是一个开源的内存数据存储系统，也可以被看作是一个键值（key-value）存储数据库。它支持多种数据结构，如字符串（String）、哈希（Hash）、列表（List）、集合（Set）、有序集合（Sorted Set）等，并且提供了丰富的操作命令。<span id="more"></span></p>
+<h2 id="redis基本理解"><a href="#redis基本理解" class="headerlink" title="redis基本理解"></a>redis基本理解</h2><p>redis可以一个特殊的数据库，它运行在内存之中，只有两个字段：键和值。其中的值可以是多种数据类型。</p>
 <p>redis和数据库一样，都需要配置访问权限，默认的访问权限为本地主机，即127.0.0.1，默认端口是6379。</p>
 <h2 id="配置，启动，操作，关闭redis"><a href="#配置，启动，操作，关闭redis" class="headerlink" title="配置，启动，操作，关闭redis"></a>配置，启动，操作，关闭redis</h2><h3 id="redis配置"><a href="#redis配置" class="headerlink" title="redis配置"></a>redis配置</h3><ul>
 <li><p>控制访问权限：在配置文件中修改bind属性，配置文件位于&#x2F;etc&#x2F;redis.conf</p>
@@ -375,7 +374,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%88%9D%E8%AF%86Redis"><span class="toc-number">1.</span> <span class="toc-text"> 一、初识Redis</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#redis%E5%9F%BA%E6%9C%AC%E7%90%86%E8%A7%A3"><span class="toc-number">1.1.</span> <span class="toc-text">redis基本理解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%EF%BC%8C%E5%90%AF%E5%8A%A8%EF%BC%8C%E6%93%8D%E4%BD%9C%EF%BC%8C%E5%85%B3%E9%97%ADredis"><span class="toc-number">1.2.</span> <span class="toc-text">配置，启动，操作，关闭redis</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#redis%E9%85%8D%E7%BD%AE"><span class="toc-number">1.2.1.</span> <span class="toc-text">redis配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#redis%E5%90%AF%E5%8A%A8"><span class="toc-number">1.2.2.</span> <span class="toc-text">redis启动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#redis%E6%93%8D%E4%BD%9C"><span class="toc-number">1.2.3.</span> <span class="toc-text">redis操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#redis%E5%85%B3%E9%97%AD"><span class="toc-number">1.2.4.</span> <span class="toc-text">redis关闭</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%81API%E7%90%86%E8%A7%A3%E4%B8%8E%E4%BD%BF%E7%94%A8"><span class="toc-number">2.</span> <span class="toc-text"> 二、API理解与使用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86"><span class="toc-number">2.1.</span> <span class="toc-text">预备知识</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%A8%E5%B1%80%E5%91%BD%E4%BB%A4"><span class="toc-number">2.1.1.</span> <span class="toc-text">全局命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E5%86%85%E9%83%A8%E7%BC%96%E7%A0%81"><span class="toc-number">2.1.2.</span> <span class="toc-text">数据结构与内部编码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E7%BA%BF%E7%A8%8B%E6%9E%B6%E6%9E%84%EF%BC%88%E9%87%8D%E7%82%B9%EF%BC%89"><span class="toc-number">2.1.3.</span> <span class="toc-text">单线程架构（重点）</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Redis"><span class="toc-number">1.</span> <span class="toc-text"> Redis</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#redis%E5%9F%BA%E6%9C%AC%E7%90%86%E8%A7%A3"><span class="toc-number">1.1.</span> <span class="toc-text">redis基本理解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%EF%BC%8C%E5%90%AF%E5%8A%A8%EF%BC%8C%E6%93%8D%E4%BD%9C%EF%BC%8C%E5%85%B3%E9%97%ADredis"><span class="toc-number">1.2.</span> <span class="toc-text">配置，启动，操作，关闭redis</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#redis%E9%85%8D%E7%BD%AE"><span class="toc-number">1.2.1.</span> <span class="toc-text">redis配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#redis%E5%90%AF%E5%8A%A8"><span class="toc-number">1.2.2.</span> <span class="toc-text">redis启动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#redis%E6%93%8D%E4%BD%9C"><span class="toc-number">1.2.3.</span> <span class="toc-text">redis操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#redis%E5%85%B3%E9%97%AD"><span class="toc-number">1.2.4.</span> <span class="toc-text">redis关闭</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%81API%E7%90%86%E8%A7%A3%E4%B8%8E%E4%BD%BF%E7%94%A8"><span class="toc-number">2.</span> <span class="toc-text"> 二、API理解与使用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86"><span class="toc-number">2.1.</span> <span class="toc-text">预备知识</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%A8%E5%B1%80%E5%91%BD%E4%BB%A4"><span class="toc-number">2.1.1.</span> <span class="toc-text">全局命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E5%86%85%E9%83%A8%E7%BC%96%E7%A0%81"><span class="toc-number">2.1.2.</span> <span class="toc-text">数据结构与内部编码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E7%BA%BF%E7%A8%8B%E6%9E%B6%E6%9E%84%EF%BC%88%E9%87%8D%E7%82%B9%EF%BC%89"><span class="toc-number">2.1.3.</span> <span class="toc-text">单线程架构（重点）</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -508,10 +507,6 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">后端</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Go</a>
               </li>
              
@@ -520,15 +515,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">后端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
               </li>
             
             <div class="clearfix"></div>
