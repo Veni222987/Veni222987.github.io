@@ -6,15 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://Veni222987.github.io">
-  <title>Archives: 2023/7 | VenisBlog</title>
+  <title>Go语言开发——Gin框架 | VenisBlog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="VenisBlog">
-<meta property="og:url" content="https://veni222987.github.io/archives/2023/07/index.html">
+  <meta name="description" content="Go语言开发——Gin框架Gin是一个用Go语言编写的高性能Web框架，它简洁、快速，并具有良好的路由和中间件支持。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Go语言开发——Gin框架">
+<meta property="og:url" content="https://veni222987.github.io/2023/08/05/Go%E8%AF%AD%E8%A8%80%E5%BC%80%E5%8F%91%E2%80%94%E2%80%94gin%E6%A1%86%E6%9E%B6/index.html">
 <meta property="og:site_name" content="VenisBlog">
+<meta property="og:description" content="Go语言开发——Gin框架Gin是一个用Go语言编写的高性能Web框架，它简洁、快速，并具有良好的路由和中间件支持。">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202308071127195.webp">
+<meta property="article:published_time" content="2023-08-05T14:40:28.000Z">
+<meta property="article:modified_time" content="2023-08-07T10:41:45.336Z">
 <meta property="article:author" content="Veni">
+<meta property="article:tag" content="go">
+<meta property="article:tag" content="后端">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202308071127195.webp">
   
     <link rel="alternative" href="/atom.xml" title="VenisBlog" type="application/atom+xml">
   
@@ -132,102 +140,244 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Go语言开发——gin框架" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2023" class="archive-year">2023</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/07/31/%E5%AE%9E%E8%B7%B5%E9%80%89%E9%A2%98%EF%BC%9AGit-%E7%9A%84%E6%AD%A3%E7%A1%AE%E4%BD%BF%E7%94%A8%E5%A7%BF%E5%8A%BF%E4%B8%8E%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" class="archive-article-date">
-  	<time datetime="2023-07-31T12:21:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-07-31</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/07/31/%E5%AE%9E%E8%B7%B5%E9%80%89%E9%A2%98%EF%BC%9AGit-%E7%9A%84%E6%AD%A3%E7%A1%AE%E4%BD%BF%E7%94%A8%E5%A7%BF%E5%8A%BF%E4%B8%8E%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/">实践选题：Git 的正确使用姿势与最佳实践</a>
+    <h1 class="article-title" itemprop="name">
+      Go语言开发——Gin框架
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2023/08/05/Go%E8%AF%AD%E8%A8%80%E5%BC%80%E5%8F%91%E2%80%94%E2%80%94gin%E6%A1%86%E6%9E%B6/" class="archive-article-date">
+  	<time datetime="2023-08-05T14:40:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-08-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Go语言开发——Gin框架"><a href="#Go语言开发——Gin框架" class="headerlink" title=" Go语言开发——Gin框架"></a><center> Go语言开发——Gin框架</h1><p>Gin是一个用Go语言编写的高性能Web框架，它简洁、快速，并具有良好的路由和中间件支持。<span id="more"></span></p>
+<h2 id="为什么使用Gin"><a href="#为什么使用Gin" class="headerlink" title="为什么使用Gin"></a>为什么使用Gin</h2><p>我们使用Gin的原因很直接也很简单，那就是Gin很强大也很简单。Gin框架具有如下的有点：</p>
+<ul>
+<li><strong>高性能</strong>：Gin框架使用了基于Radix树的路由匹配算法，使得路由查找非常快速。同时，Gin框架基于HTTP标准库进行开发，具有低内存占用和高并发处理能力。</li>
+<li><strong>简单易用</strong>：Gin框架提供了简洁的API和易于理解的代码结构，使得开发者能够快速上手并编写清晰、可维护的代码。</li>
+<li><strong>路由和中间件支持</strong>：Gin框架提供了灵活的路由定义方式，支持参数路由、分组路由等。同时，Gin框架内置了丰富的中间件支持，如日志、认证、CORS等，可以方便地实现各种功能和扩展需求。</li>
+<li><strong>JSON解析和输出</strong>：Gin框架内置了强大的JSON解析和输出功能，可以方便地处理请求数据和生成响应。同时，Gin框架还支持其他格式的数据解析和输出，如XML、YAML等。</li>
+<li><strong>插件生态丰富</strong>：Gin框架有着活跃的社区和丰富的插件生态，可以方便地集成其他常用库和组件，如数据库ORM、缓存库、验证库等。</li>
+</ul>
+<p>这些看一下就好，以后会体会到Go的高并发和JSON解析等强大功能的。</p>
+<h2 id="Gin框架的入门"><a href="#Gin框架的入门" class="headerlink" title="Gin框架的入门"></a>Gin框架的入门</h2><h3 id="下载Gin依赖"><a href="#下载Gin依赖" class="headerlink" title="下载Gin依赖"></a>下载Gin依赖</h3><p>执行以下命令，下载和安装Gin依赖：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">go get -u github.com/gin-gonic/gin</span><br></pre></td></tr></table></figure>
+
+<p>以下指令会把Gin安装在GOPATH里面的src文件夹中。</p>
+<h3 id="第一个Gin应用"><a href="#第一个Gin应用" class="headerlink" title="第一个Gin应用"></a>第一个Gin应用</h3><p>我们先写一个Gin应用，打开Gin的世界。新建一个main.go文件，敲进去这样的代码：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;github.com/gin-gonic/gin&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    r := gin.Default()</span><br><span class="line">	r.GET(<span class="string">&quot;/hello&quot;</span>, <span class="function"><span class="keyword">func</span><span class="params">(c *gin.Context)</span></span> &#123;</span><br><span class="line">		c.JSON(<span class="number">200</span>, gin.H&#123;</span><br><span class="line">			<span class="string">&quot;message&quot;</span>: <span class="string">&quot;Veni&quot;</span>,</span><br><span class="line">		&#125;)</span><br><span class="line">	&#125;)</span><br><span class="line">	r.Run(<span class="string">&quot;:8888&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后运行一下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">go run main.go</span><br></pre></td></tr></table></figure>
+
+<p>打开浏览器，输入：<code>localhost:8888/hello</code>，结果返回为<code>&quot;message&quot;:&quot;Veni&quot;</code>，证明第一个Gin应用完美运行。</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202308071127195.webp" alt="image-20230807112709050"></p>
+<h3 id="代码解析"><a href="#代码解析" class="headerlink" title="代码解析"></a>代码解析</h3><p>package和import就不说了，从main函数开始。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">r := gin.Default()</span><br></pre></td></tr></table></figure>
+
+<p>这一段代码用来创建一个默认的Gin引擎的实例并赋值给r，该实例已经配置了一些常用的中间件和默认的设置，比如默认使用Logger中间件用于记录请求日志，默认使用Recovery中间件用于恢复panic。还有默认的错误信息处理，默认请求路由器等等。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">r.GET(<span class="string">&quot;/hello&quot;</span>, <span class="function"><span class="keyword">func</span><span class="params">(c *gin.Context)</span></span> &#123;</span><br><span class="line">		c.JSON(<span class="number">200</span>, gin.H&#123;</span><br><span class="line">			<span class="string">&quot;message&quot;</span>: <span class="string">&quot;Veni&quot;</span>,</span><br><span class="line">		&#125;)</span><br><span class="line">	&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>r.GET()用于创建一个GET请求的处理函数，请求的路由是”&#x2F;hello”，然后绑定了一个处理函数func。func函数的参数是<code>c *gin.Context</code>，这是Gin框架里面的上下文对象，它封装了每个http请求的信息和操作方法，用于处理请求和响应。为什么要使用指针<code>*</code>呢？因为这里面需要对这个上下文进行修改，因此采用指针传递才能在函数中修改变量的值。Gin.Context有许多用法，比如：</p>
+<ul>
+<li><code>c.Request</code>：获取原始的 http.Request 对象。</li>
+<li><code>c.Writer</code>：获取原始的 http.ResponseWriter 对象。</li>
+<li><code>c.Param(key)</code>：获取路由参数值。</li>
+<li><code>c.Query(key)</code>：获取查询参数值。</li>
+<li><code>c.PostForm(key)</code>：获取表单参数值。</li>
+<li><code>c.JSON(code int, obj interface&#123;&#125;)</code>：以 JSON 格式返回数据。</li>
+<li><code>c.HTML(code int, name string, data interface&#123;&#125;)</code>：渲染 HTML 模板并返回。</li>
+<li><code>c.Set(key string, value interface&#123;&#125;)</code>：设置上下文的键值对。</li>
+<li><code>c.Get(key string) interface&#123;&#125;</code>：获取上下文中的值。</li>
+</ul>
+<p>所以，上面的c.JSON的作用就是以JSON格式返回数据，函数的第一个参数是整形返回码，interface可以是任意类型的对象。</p>
+<p>gin.H{}是Gin框架中用来创建JSON或HTML相应的方式，可以创建一个 map [string] interface类型的对象。使用方法如下：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">data := gin.H&#123;</span><br><span class="line">			<span class="string">&quot;message&quot;</span>: <span class="string">&quot;Hello, World!&quot;</span>,</span><br><span class="line">			<span class="string">&quot;count&quot;</span>:   <span class="number">10</span>,</span><br><span class="line">			<span class="string">&quot;success&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">		&#125;</span><br><span class="line">c.JSON(<span class="number">200</span>, data)</span><br></pre></td></tr></table></figure>
+
+<p>在实际开发中，一般的返回JSON都命名成data，符合前后端开发的习惯。</p>
+<h3 id="Gin项目结构"><a href="#Gin项目结构" class="headerlink" title="Gin项目结构"></a>Gin项目结构</h3><p>一个典型的Gin项目结构一般长这样：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">- main.go</span><br><span class="line">- router.go</span><br><span class="line">- handlers/</span><br><span class="line">  - user_handler.go</span><br><span class="line">  - auth_handler.go</span><br><span class="line">- models/</span><br><span class="line">  - user.go</span><br><span class="line">  - auth.go</span><br><span class="line">- service/</span><br><span class="line">  - message.go</span><br><span class="line">- utils/</span><br><span class="line">  - database.go</span><br><span class="line">- test/</span><br><span class="line">  - unit_test.go</span><br></pre></td></tr></table></figure>
+
+<h3 id="命名规范"><a href="#命名规范" class="headerlink" title="命名规范"></a>命名规范</h3><ul>
+<li>类型名和方法名使用大驼峰</li>
+<li></li>
+</ul>
+<h3 id="Gin框架开发实例——抖声服务端"><a href="#Gin框架开发实例——抖声服务端" class="headerlink" title="Gin框架开发实例——抖声服务端"></a>Gin框架开发实例——抖声服务端</h3>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>打赏一个小雪糕<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/07/30/Go%E8%AF%AD%E8%A8%80%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="archive-article-date">
-  	<time datetime="2023-07-30T13:05:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-07-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/07/30/Go%E8%AF%AD%E8%A8%80%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">Go语言常用命令</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">后端</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">go</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Go</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">后端</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://veni222987.github.io/2023/08/05/Go%E8%AF%AD%E8%A8%80%E5%BC%80%E5%8F%91%E2%80%94%E2%80%94gin%E6%A1%86%E6%9E%B6/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2023/08/07/%E3%80%90%E5%86%8D%E5%AD%A6%E7%BD%91%E7%BB%9C%E3%80%91http%E5%8E%9F%E7%90%86%E4%B8%8E%E5%AE%9E%E8%B7%B5/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          【再学网络】http原理与实践
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2023/08/05/%E3%80%90%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%91%E7%BD%91%E7%BB%9C%E6%8E%A5%E5%85%A5/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">【学习笔记】网络接入</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Go%E8%AF%AD%E8%A8%80%E5%BC%80%E5%8F%91%E2%80%94%E2%80%94Gin%E6%A1%86%E6%9E%B6"><span class="toc-number">1.</span> <span class="toc-text"> Go语言开发——Gin框架</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%BF%E7%94%A8Gin"><span class="toc-number">1.1.</span> <span class="toc-text">为什么使用Gin</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Gin%E6%A1%86%E6%9E%B6%E7%9A%84%E5%85%A5%E9%97%A8"><span class="toc-number">1.2.</span> <span class="toc-text">Gin框架的入门</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BDGin%E4%BE%9D%E8%B5%96"><span class="toc-number">1.2.1.</span> <span class="toc-text">下载Gin依赖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E4%B8%AAGin%E5%BA%94%E7%94%A8"><span class="toc-number">1.2.2.</span> <span class="toc-text">第一个Gin应用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E8%A7%A3%E6%9E%90"><span class="toc-number">1.2.3.</span> <span class="toc-text">代码解析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Gin%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84"><span class="toc-number">1.2.4.</span> <span class="toc-text">Gin项目结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83"><span class="toc-number">1.2.5.</span> <span class="toc-text">命名规范</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Gin%E6%A1%86%E6%9E%B6%E5%BC%80%E5%8F%91%E5%AE%9E%E4%BE%8B%E2%80%94%E2%80%94%E6%8A%96%E5%A3%B0%E6%9C%8D%E5%8A%A1%E7%AB%AF"><span class="toc-number">1.2.6.</span> <span class="toc-text">Gin框架开发实例——抖声服务端</span></a></li></ol></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -250,8 +400,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,

@@ -16,10 +16,10 @@
 <meta property="og:description" content="Go语言常用命令Go语言自带有一整套完整的命令操作指令，可以在命令行中执行go查看所有指令">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-07-30T13:05:13.000Z">
-<meta property="article:modified_time" content="2023-08-05T14:32:31.507Z">
+<meta property="article:modified_time" content="2023-08-07T03:09:06.006Z">
 <meta property="article:author" content="Veni">
-<meta property="article:tag" content="Go">
 <meta property="article:tag" content="后端">
+<meta property="article:tag" content="Go">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="VenisBlog" type="application/atom+xml">
@@ -181,7 +181,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">go build &lt;go源代码&gt;</span><br></pre></td></tr></table></figure>
 
 <p>比如：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">PS D:\Desktop\MyProjects\ByteTech&gt; go build Course1.go</span><br><span class="line">PS D:\Desktop\MyProjects\ByteTech&gt; <span class="built_in">ls</span></span><br><span class="line">    目录: D:\Desktop\MyProjects\ByteTech</span><br><span class="line">Mode                 LastWriteTime         Length Name</span><br><span class="line">----                 -------------         ------ ----</span><br><span class="line">d-----         2023/7/30     10:57                .idea</span><br><span class="line">-a----         2023/7/30     10:57        2159104 Course1.exe</span><br><span class="line">-a----         2023/7/25     22:25            528 Course1.go</span><br><span class="line">-a----         2023/7/25      9:50             25 go.mod</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">PS D:\Desktop\MyProjects\ByteTech&gt; go build Course1.go</span><br><span class="line">PS D:\Desktop\MyProjects\ByteTech&gt; ls</span><br><span class="line">    目录: D:\Desktop\MyProjects\ByteTech</span><br><span class="line">Mode                 LastWriteTime         Length Name</span><br><span class="line">----                 -------------         ------ ----</span><br><span class="line">d-----         2023/7/30     10:57                .idea</span><br><span class="line">-a----         2023/7/30     10:57        2159104 Course1.exe</span><br><span class="line">-a----         2023/7/25     22:25            528 Course1.go</span><br><span class="line">-a----         2023/7/25      9:50             25 go.mod</span><br></pre></td></tr></table></figure>
 
 <p>命令执行完成之后，会在原目录下生成一个同名的可执行文件，双击即可运行程序。这个过程就好像使用g++编译C++源代码。当然你也可以用<code>go build -o &lt;文件名&gt;</code>指定生成的文件类型和路径。如果<code>go build</code>之后不接任何参数，则该命令会默认编译当前目录下所有的go文件。</p>
 <ul>
@@ -189,11 +189,14 @@
 </ul>
 <h2 id="go-install"><a href="#go-install" class="headerlink" title="go install"></a>go install</h2><p><code>go install</code>命令做了两件事情，一件是把源代码编译成为结果文件（可执行文件或.a包），然后将其放到了<code>$GOPATH</code>里面的bin或pkg目录下。</p>
 <h2 id="go-clean"><a href="#go-clean" class="headerlink" title="go clean"></a>go clean</h2><p>这个命令用来清除当前源码包里面编译生成的一些文件，比如go build和go test生成的.exe文件等等。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">PS D:\Desktop\MyProjects\ByteTech&gt; go clean</span><br><span class="line">PS D:\Desktop\MyProjects\ByteTech&gt; <span class="built_in">ls</span></span><br><span class="line">    目录: D:\Desktop\MyProjects\ByteTech</span><br><span class="line">Mode                 LastWriteTime         Length Name</span><br><span class="line">----                 -------------         ------ ----</span><br><span class="line">d-----         2023/7/30     10:57                .idea</span><br><span class="line">-a----         2023/7/25     22:25            528 Course1.go</span><br><span class="line">-a----         2023/7/25      9:50             25 go.mod</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">PS D:\Desktop\MyProjects\ByteTech&gt; go clean</span><br><span class="line">PS D:\Desktop\MyProjects\ByteTech&gt; ls</span><br><span class="line">    目录: D:\Desktop\MyProjects\ByteTech</span><br><span class="line">Mode                 LastWriteTime         Length Name</span><br><span class="line">----                 -------------         ------ ----</span><br><span class="line">d-----         2023/7/30     10:57                .idea</span><br><span class="line">-a----         2023/7/25     22:25            528 Course1.go</span><br><span class="line">-a----         2023/7/25      9:50             25 go.mod</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p>可以看到，刚才生成的exe文件已经被清除掉了。这个命令可以用在远程仓库管理的时候，一般来说github上面只存代码，不存编译结果，所以可以先执行<code>go clean</code>之后在执行<code>git push</code>命令。要是我的话直接用<code>gitignore</code>比这个方便多了。</p>
 <h2 id="go-fmt"><a href="#go-fmt" class="headerlink" title="go fmt"></a>go fmt</h2><p>这个命令是用来格式化go语言代码的，一些格式错误可能会导致过不了编译，比如else要跟在上一个右大括号后面，左大括号必须跟在上一行的结尾等等。好在一般的IDE都会在保存的时候帮我们执行这条指令。要是使用vim或者记事本编辑的话可就得手动执行这条指令了。</p>
-<h2 id="go-get"><a href="#go-get" class="headerlink" title="go get"></a>go get</h2><p>这个命令是用来动态获取远程代码包的，支持了GitHub,BitBucket,Google Code等。使用的时候需要下载相对应的工具（比如git）。</p>
+<h2 id="go-get"><a href="#go-get" class="headerlink" title="go get"></a>go get</h2><p>这个命令是用来动态获取远程代码包或第三方依赖库的，支持了GitHub,BitBucket,Google Code等，使用的时候需要下载相对应的工具（比如git）。使用的方法如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">go get github.com/gin-gonic/gin</span><br></pre></td></tr></table></figure>
+
+<p>使用go get命令下载第三方依赖的时候，下载的依赖包会放置在$GOPATH&#x2F;src目录下。</p>
 <h2 id="go-env"><a href="#go-env" class="headerlink" title="go env"></a>go env</h2><h3 id="查看设置"><a href="#查看设置" class="headerlink" title="查看设置"></a>查看设置</h3><p><code>go env</code>用于设置和查看go语言的环境，其中直接执行<code>go env</code>可以查看当前机器的GOPATH，GOPROXY之类的设置，执行结果如下：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">PS D:\Desktop&gt; go env</span><br><span class="line">set GO111MODULE=on</span><br><span class="line">set GOARCH=amd64</span><br><span class="line">...</span><br><span class="line">set PKG_CONFIG=pkg-config</span><br><span class="line">set GOGCCFLAGS=-m64 -mthreads -Wl,--no-gc-sections -fmessage-length=0 -fdebug-prefix-map=C:\Users\19481\AppData\Local\Temp\go-build1674882432=/tmp/go-build -gno-record-gcc-switches</span><br></pre></td></tr></table></figure>
 
@@ -207,6 +210,14 @@
 <li>“auto”：根据当前工作目录下是否存在go.mod文件来决定是否启用Go模块支持。如果存在go.mod文件，则启用模块支持；否则，禁用模块支持。</li>
 </ul>
 <p>另外一个GOPROXY后面的值是阿里云镜像的地址。-w是writable，表明该变量是可写的。</p>
+<h2 id="go-mod"><a href="#go-mod" class="headerlink" title="go mod"></a>go mod</h2><p>go mod是Go语言中对于第三方库和插件的依赖管理工具。使用go mod可以方便地管理Go语言的各种依赖，下面将展示如何使用go mod管理依赖。</p>
+<h3 id="go-mod-init"><a href="#go-mod-init" class="headerlink" title="go mod init"></a>go mod init</h3><p><code>go mod init</code>指令用于初始化go.mod文件，该指令会在工程根目录下创建一个go.mod文件，一个go.mod文件的常见结构如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">module GinusThaiBeauty</span><br><span class="line"></span><br><span class="line">go 1.20</span><br><span class="line"></span><br><span class="line">require (</span><br><span class="line">	//这里写你要下载的依赖</span><br><span class="line">	github.com/gin-gonic/gin v1.9.1</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="go-mod-download"><a href="#go-mod-download" class="headerlink" title="go mod download"></a>go mod download</h3><p>使用<code>go mod download</code>命令的时候，依赖库会被下载到全局的Go Modules缓存中，而非项目的GOPATH。在项目配置中必须要勾选<code>Index entire GOPATH</code>才会扫描全局Go Modules。</p>
+<h3 id="go-mod-vendor"><a href="#go-mod-vendor" class="headerlink" title="go mod vendor"></a>go mod vendor</h3><p>在1.11版本之前，Go语言的主要依赖管理工具是go vendor。Golang 1.11之后，由于引入了Module功能，在运行go build时，优先引用的是Module依赖包的逻辑，所以Vendor目录就被“无视”了，进而可能发生编译错误， moudle 说还是很想他，于是提供了 go mod vendor命令用来生成 vendor目录。</p>
 <h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>其他的指令使用频率相对较低，比如<code>go doc</code>（官方文档），<code>go version</code>（版本号），需要的时候运行一下<code>go help &lt;指令&gt;</code>即可。</p>
 
       
@@ -242,11 +253,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Go</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">后端</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">后端</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Go</a>
         		</li>
       		
 		</ul>
@@ -349,7 +360,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Go%E8%AF%AD%E8%A8%80%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-number">1.</span> <span class="toc-text"> Go语言常用命令</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#go-run"><span class="toc-number">1.1.</span> <span class="toc-text">go run</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#go-test"><span class="toc-number">1.2.</span> <span class="toc-text">go test</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#go-build"><span class="toc-number">1.3.</span> <span class="toc-text">go build</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#go-install"><span class="toc-number">1.4.</span> <span class="toc-text">go install</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#go-clean"><span class="toc-number">1.5.</span> <span class="toc-text">go clean</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#go-fmt"><span class="toc-number">1.6.</span> <span class="toc-text">go fmt</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#go-get"><span class="toc-number">1.7.</span> <span class="toc-text">go get</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#go-env"><span class="toc-number">1.8.</span> <span class="toc-text">go env</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E8%AE%BE%E7%BD%AE"><span class="toc-number">1.8.1.</span> <span class="toc-text">查看设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#go-env%E8%AE%BE%E7%BD%AE%E4%BB%A3%E7%90%86"><span class="toc-number">1.8.2.</span> <span class="toc-text">go env设置代理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B6%E4%BB%96"><span class="toc-number">1.9.</span> <span class="toc-text">其他</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Go%E8%AF%AD%E8%A8%80%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-number">1.</span> <span class="toc-text"> Go语言常用命令</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#go-run"><span class="toc-number">1.1.</span> <span class="toc-text">go run</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#go-test"><span class="toc-number">1.2.</span> <span class="toc-text">go test</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#go-build"><span class="toc-number">1.3.</span> <span class="toc-text">go build</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#go-install"><span class="toc-number">1.4.</span> <span class="toc-text">go install</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#go-clean"><span class="toc-number">1.5.</span> <span class="toc-text">go clean</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#go-fmt"><span class="toc-number">1.6.</span> <span class="toc-text">go fmt</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#go-get"><span class="toc-number">1.7.</span> <span class="toc-text">go get</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#go-env"><span class="toc-number">1.8.</span> <span class="toc-text">go env</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E8%AE%BE%E7%BD%AE"><span class="toc-number">1.8.1.</span> <span class="toc-text">查看设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#go-env%E8%AE%BE%E7%BD%AE%E4%BB%A3%E7%90%86"><span class="toc-number">1.8.2.</span> <span class="toc-text">go env设置代理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#go-mod"><span class="toc-number">1.9.</span> <span class="toc-text">go mod</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#go-mod-init"><span class="toc-number">1.9.1.</span> <span class="toc-text">go mod init</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#go-mod-download"><span class="toc-number">1.9.2.</span> <span class="toc-text">go mod download</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#go-mod-vendor"><span class="toc-number">1.9.3.</span> <span class="toc-text">go mod vendor</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B6%E4%BB%96"><span class="toc-number">1.10.</span> <span class="toc-text">其他</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -482,6 +493,14 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">go</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">后端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Go</a>
               </li>
              
@@ -494,15 +513,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">后端</a>
+                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
               </li>
             
             <div class="clearfix"></div>
