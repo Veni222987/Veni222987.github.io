@@ -6,22 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://Veni222987.github.io">
-  <title>【学习笔记】网络接入 | VenisBlog</title>
+  <title>RPC框架的原理与设计 | VenisBlog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="网络接入一台服务器要想给前端提供服务，就不可避免地需要利用计算机网络。So，本文主要讲讲网络接入那些事儿。">
+  <meta name="description" content="RPC框架的原理与设计RPC（Remote Procedure Call）是一种通信协议，用于实现跨网络的远程方法调用。RPC框架提供了一套封装好的API和协议，使得开发者可以方便地进行远程方法调用。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【学习笔记】网络接入">
-<meta property="og:url" content="https://veni222987.github.io/2023/08/05/%E3%80%90%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%91%E7%BD%91%E7%BB%9C%E6%8E%A5%E5%85%A5/index.html">
+<meta property="og:title" content="RPC框架的原理与设计">
+<meta property="og:url" content="https://veni222987.github.io/2023/08/08/RPC%E6%A1%86%E6%9E%B6%E7%9A%84%E5%8E%9F%E7%90%86%E4%B8%8E%E8%AE%BE%E8%AE%A1/index.html">
 <meta property="og:site_name" content="VenisBlog">
-<meta property="og:description" content="网络接入一台服务器要想给前端提供服务，就不可避免地需要利用计算机网络。So，本文主要讲讲网络接入那些事儿。">
+<meta property="og:description" content="RPC框架的原理与设计RPC（Remote Procedure Call）是一种通信协议，用于实现跨网络的远程方法调用。RPC框架提供了一套封装好的API和协议，使得开发者可以方便地进行远程方法调用。">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-08-05T06:35:54.000Z">
-<meta property="article:modified_time" content="2023-08-05T14:33:04.561Z">
+<meta property="og:image" content="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202308081029262.webp">
+<meta property="article:published_time" content="2023-08-08T02:03:56.000Z">
+<meta property="article:modified_time" content="2023-08-08T03:19:18.409Z">
 <meta property="article:author" content="Veni">
 <meta property="article:tag" content="后端">
-<meta property="article:tag" content="笔记">
-<meta property="article:tag" content="计算机网络">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202308081029262.webp">
   
     <link rel="alternative" href="/atom.xml" title="VenisBlog" type="application/atom+xml">
   
@@ -139,58 +139,88 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-【学习笔记】网络接入" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-RPC框架的原理与设计" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      【学习笔记】网络接入
+      RPC框架的原理与设计
     </h1>
   
 
         
-        <a href="/2023/08/05/%E3%80%90%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%91%E7%BD%91%E7%BB%9C%E6%8E%A5%E5%85%A5/" class="archive-article-date">
-  	<time datetime="2023-08-05T06:35:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-08-05</time>
+        <a href="/2023/08/08/RPC%E6%A1%86%E6%9E%B6%E7%9A%84%E5%8E%9F%E7%90%86%E4%B8%8E%E8%AE%BE%E8%AE%A1/" class="archive-article-date">
+  	<time datetime="2023-08-08T02:03:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-08-08</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="网络接入"><a href="#网络接入" class="headerlink" title="网络接入"></a><center>网络接入</h1><p>一台服务器要想给前端提供服务，就不可避免地需要利用计算机网络。So，本文主要讲讲网络接入那些事儿。<span id="more"></span></p>
-<h2 id="域名系统"><a href="#域名系统" class="headerlink" title="域名系统"></a>域名系统</h2><h3 id="Host管理"><a href="#Host管理" class="headerlink" title="Host管理"></a>Host管理</h3><p>M公司有许多个网站，对应着不同的ip和域名。保存在一个文件中，每次都人工同步该文件夹。效果差。</p>
-<h3 id="使用域名系统"><a href="#使用域名系统" class="headerlink" title="使用域名系统"></a>使用域名系统</h3><ul>
-<li>域名空间：分为四个等级：顶级域名，二级域名，三级域名，四级域名。</li>
+        <h1 id="RPC框架的原理与设计"><a href="#RPC框架的原理与设计" class="headerlink" title=" RPC框架的原理与设计"></a><center> RPC框架的原理与设计</h1><p>RPC（Remote Procedure Call）是一种通信协议，用于实现跨网络的远程方法调用。RPC框架提供了一套封装好的API和协议，使得开发者可以方便地进行远程方法调用。<span id="more"></span></p>
+<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><h3 id="远程函数调用"><a href="#远程函数调用" class="headerlink" title="远程函数调用"></a>远程函数调用</h3><p>RPC需要解决的问题：函数映射，数据转换字节流，网络传输。</p>
+<h3 id="RPC概念模型"><a href="#RPC概念模型" class="headerlink" title="RPC概念模型"></a>RPC概念模型</h3><p>1984年Nelson发表论文提出RPC过程由五个模型组成：<code>User, User-Stub, RPC-Runtime, Server-Stub, Server</code>。</p>
+<h3 id="一次RPC的完整过程。"><a href="#一次RPC的完整过程。" class="headerlink" title="一次RPC的完整过程。"></a>一次RPC的完整过程。</h3><ul>
+<li><p>IDL文件：接口定义文件</p>
+</li>
+<li><p>生成代码：通过编译器把IDL转换成本地链接库</p>
+</li>
+<li><p>编解码：序列化与反序列化</p>
+</li>
+<li><p>通信协议：</p>
+</li>
+<li><p>网络传输：基于成熟的UDP或TCP传输</p>
+</li>
 </ul>
-<h3 id="域名购买与配置迁移"><a href="#域名购买与配置迁移" class="headerlink" title="域名购买与配置迁移"></a>域名购买与配置迁移</h3><p>域名购买可以直接到云服务厂商查询并购买。</p>
-<h2 id="自建DNS服务器"><a href="#自建DNS服务器" class="headerlink" title="自建DNS服务器"></a>自建DNS服务器</h2><h3 id="问题背景"><a href="#问题背景" class="headerlink" title="问题背景"></a>问题背景</h3><ul>
-<li>内网域名解析也需要到公网去获取，效率低下</li>
-<li>外部用户能看到内网地址，容易被攻击</li>
+<h3 id="RPC的好处"><a href="#RPC的好处" class="headerlink" title="RPC的好处"></a>RPC的好处</h3><ul>
+<li>单一职责，有利于分工协作和运维开发</li>
+<li>可扩展性强，资源使用率更优</li>
+<li>故障隔离，服务的整体可靠性更高</li>
 </ul>
-<h3 id="DNS查询过程"><a href="#DNS查询过程" class="headerlink" title="DNS查询过程"></a>DNS查询过程</h3><h3 id="DNS记录类型"><a href="#DNS记录类型" class="headerlink" title="DNS记录类型"></a>DNS记录类型</h3><ul>
-<li>A&#x2F;AAAA：IP指向记录，用于指向IP，前者为ipv4，后者为ipv6。</li>
-<li>CNAME：别名记录，相当于把一个域名解析到另外一个域名，比如github网站解析。</li>
-<li>TXT：文本记录，购买证书时需要</li>
-<li>其他：MX，NS，SOA等等</li>
+<h3 id="RPC带来的问题"><a href="#RPC带来的问题" class="headerlink" title="RPC带来的问题"></a>RPC带来的问题</h3><p>服务宕机、网络异常、请求量突增。</p>
+<h2 id="分层设计"><a href="#分层设计" class="headerlink" title="分层设计"></a>分层设计</h2><p>RPC框架主要分为三层实现：编解码层，协议层，网络通信层。</p>
+<h3 id="编解码层"><a href="#编解码层" class="headerlink" title="编解码层"></a>编解码层</h3><h4 id="生成代码"><a href="#生成代码" class="headerlink" title="生成代码"></a>生成代码</h4><p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202308081029262.webp" alt="image-20230808102918445"></p>
+<h4 id="数据格式"><a href="#数据格式" class="headerlink" title="数据格式"></a>数据格式</h4><ul>
+<li>语言特定格式：编程语言内建的将对象编码为字节序列的支持，如Java有java.io.Serializable。</li>
+<li>文本格式：JSON，XML，CSV，缺点是无法格式化，比如指定小数位数。</li>
+<li>二进制编码：BinaryProtocol, Protobuf等</li>
 </ul>
-<h3 id="常见的开源DNS：bind-nsd-knot-coredns"><a href="#常见的开源DNS：bind-nsd-knot-coredns" class="headerlink" title="常见的开源DNS：bind,nsd,knot,coredns"></a>常见的开源DNS：bind,nsd,knot,coredns</h3><h2 id="接入https协议"><a href="#接入https协议" class="headerlink" title="接入https协议"></a>接入https协议</h2><h3 id="问题背景-1"><a href="#问题背景-1" class="headerlink" title="问题背景"></a>问题背景</h3><ul>
-<li>出现白页面</li>
-<li>返回403</li>
-<li>搜索不了东西</li>
-<li>搜索问题夹带私货，页面多次刷新</li>
+<h4 id="二进制编码"><a href="#二进制编码" class="headerlink" title="二进制编码"></a>二进制编码</h4><p>TLV编码：Tag, Length, Value。</p>
+<h4 id="选型"><a href="#选型" class="headerlink" title="选型"></a>选型</h4><p>需要考虑三个角度：</p>
+<ul>
+<li><p>兼容性：增加新字段而不影响老服务</p>
+</li>
+<li><p>通用性：支持跨平台，跨语言</p>
+</li>
+<li><p>性能：从空间和实践两个维度考虑，也就是编码后的数据大小和编码耗费时长。</p>
+</li>
 </ul>
-<p>原因都是http协议是明文传输，容易被抓取，修改请求内容和相应内容，并通过刷新掩盖。</p>
-<h3 id="加密算法"><a href="#加密算法" class="headerlink" title="加密算法"></a>加密算法</h3><h3 id="SSL通信过程"><a href="#SSL通信过程" class="headerlink" title="SSL通信过程"></a>SSL通信过程</h3><h3 id="证书链"><a href="#证书链" class="headerlink" title="证书链"></a>证书链</h3><h3 id="静态加速CDN"><a href="#静态加速CDN" class="headerlink" title="静态加速CDN"></a>静态加速CDN</h3><p>缓存，加速访问</p>
-<h2 id="负载均衡"><a href="#负载均衡" class="headerlink" title="负载均衡"></a>负载均衡</h2><h3 id="四层负载均衡概念"><a href="#四层负载均衡概念" class="headerlink" title="四层负载均衡概念"></a>四层负载均衡概念</h3><p>四层负载均衡，就是基于IP+端口，利用某种算法将报文转发给某个后端服务器，实现负载均衡地落到后端服务器上。</p>
-<h3 id="常见实现方式-FULLNAT"><a href="#常见实现方式-FULLNAT" class="headerlink" title="常见实现方式 FULLNAT"></a>常见实现方式 FULLNAT</h3><h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><ul>
-<li>大部分都是通过dpdk技术实现</li>
-<li>纯用户态协议栈，kernel bypass，消除协议栈瓶颈</li>
-<li>无缓存，零拷贝，大页内存</li>
-<li>仅对四层数据包转发，小包转发可达到限速，可承受高cps</li>
+<h3 id="协议层"><a href="#协议层" class="headerlink" title="协议层"></a>协议层</h3><h4 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h4><p>协议层规定了传输的内容是如何组织的，传输的消息如何分割和读取。常见的有以下两种协议：</p>
+<ul>
+<li><p>特殊结束符：使用特殊字符作为每个协议单元结束的标识。比如<code>|message|\r\n|message|\r\n|</code>。</p>
+</li>
+<li><p>变长协议：以定长加不定长的部分组成，其中定长的部分需要描述不定长的内容长度。比如<code>|length|message|length|message|</code>。</p>
+</li>
 </ul>
-<h3 id="七层负载均衡"><a href="#七层负载均衡" class="headerlink" title="七层负载均衡"></a>七层负载均衡</h3><h2 id="网络接入实践"><a href="#网络接入实践" class="headerlink" title="网络接入实践"></a>网络接入实践</h2><h3 id="DNS服务器搭建"><a href="#DNS服务器搭建" class="headerlink" title="DNS服务器搭建"></a>DNS服务器搭建</h3><h3 id="负载均衡实验：Nginx"><a href="#负载均衡实验：Nginx" class="headerlink" title="负载均衡实验：Nginx"></a>负载均衡实验：Nginx</h3><h3 id="SSL自签证书实验"><a href="#SSL自签证书实验" class="headerlink" title="SSL自签证书实验"></a>SSL自签证书实验</h3><h3 id="如何将本地服务开放外网访问"><a href="#如何将本地服务开放外网访问" class="headerlink" title="如何将本地服务开放外网访问"></a>如何将本地服务开放外网访问</h3>
+<h4 id="协议工作过程"><a href="#协议工作过程" class="headerlink" title="协议工作过程"></a>协议工作过程</h4><ul>
+<li>协议构造</li>
+<li>协议解析：</li>
+</ul>
+<h3 id="网络通信层"><a href="#网络通信层" class="headerlink" title="网络通信层"></a>网络通信层</h3><h4 id="Sockets-API"><a href="#Sockets-API" class="headerlink" title="Sockets API"></a>Sockets API</h4><h4 id="网络库"><a href="#网络库" class="headerlink" title="网络库"></a>网络库</h4><ul>
+<li>提供简单易用的API：</li>
+<li>功能：协议支持，优雅退出</li>
+<li>性能：应用层buffer减少copy</li>
+</ul>
+<h2 id="RPC关键指标"><a href="#RPC关键指标" class="headerlink" title="RPC关键指标"></a>RPC关键指标</h2><ul>
+<li>稳定性</li>
+<li>易用性</li>
+<li>扩展性</li>
+<li>观测性</li>
+<li>高性能</li>
+</ul>
+<h2 id="RPC实例"><a href="#RPC实例" class="headerlink" title="RPC实例"></a>RPC实例</h2><h3 id="整体架构——Kitex架构"><a href="#整体架构——Kitex架构" class="headerlink" title="整体架构——Kitex架构"></a>整体架构——Kitex架构</h3><h3 id="自研网络库——Netpoll"><a href="#自研网络库——Netpoll" class="headerlink" title="自研网络库——Netpoll"></a>自研网络库——Netpoll</h3><h3 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h3>
       
 
       
@@ -225,14 +255,6 @@
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">后端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机网络</a>
         		</li>
       		
 		</ul>
@@ -288,7 +310,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://veni222987.github.io/2023/08/05/%E3%80%90%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%91%E7%BD%91%E7%BB%9C%E6%8E%A5%E5%85%A5/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://veni222987.github.io/2023/08/08/RPC%E6%A1%86%E6%9E%B6%E7%9A%84%E5%8E%9F%E7%90%86%E4%B8%8E%E8%AE%BE%E8%AE%A1/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -302,18 +324,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2023/08/05/Go%E8%AF%AD%E8%A8%80%E5%BC%80%E5%8F%91%E2%80%94%E2%80%94gin%E6%A1%86%E6%9E%B6/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2023/08/10/%E5%AE%9E%E8%B7%B5%E9%80%89%E9%A2%98%EF%BC%9AGORM%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%E4%B8%8E%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Go语言开发——Gin框架
+          实践选题：GORM入门教程与最佳实践
         
       </div>
     </a>
   
   
-    <a href="/2023/08/02/%E3%80%90%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%91redis/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">【学习笔记】redis</div>
+    <a href="/2023/08/07/%E3%80%90%E5%86%8D%E5%AD%A6%E7%BD%91%E7%BB%9C%E3%80%91http%E5%8E%9F%E7%90%86%E4%B8%8E%E5%AE%9E%E8%B7%B5/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">【再学网络】http原理与实践</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -340,7 +362,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E6%8E%A5%E5%85%A5"><span class="toc-number">1.</span> <span class="toc-text">网络接入</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%9F%E5%90%8D%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.1.</span> <span class="toc-text">域名系统</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Host%E7%AE%A1%E7%90%86"><span class="toc-number">1.1.1.</span> <span class="toc-text">Host管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%9F%9F%E5%90%8D%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.1.2.</span> <span class="toc-text">使用域名系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%9F%E5%90%8D%E8%B4%AD%E4%B9%B0%E4%B8%8E%E9%85%8D%E7%BD%AE%E8%BF%81%E7%A7%BB"><span class="toc-number">1.1.3.</span> <span class="toc-text">域名购买与配置迁移</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E5%BB%BADNS%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">1.2.</span> <span class="toc-text">自建DNS服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E8%83%8C%E6%99%AF"><span class="toc-number">1.2.1.</span> <span class="toc-text">问题背景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DNS%E6%9F%A5%E8%AF%A2%E8%BF%87%E7%A8%8B"><span class="toc-number">1.2.2.</span> <span class="toc-text">DNS查询过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DNS%E8%AE%B0%E5%BD%95%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.2.3.</span> <span class="toc-text">DNS记录类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84%E5%BC%80%E6%BA%90DNS%EF%BC%9Abind-nsd-knot-coredns"><span class="toc-number">1.2.4.</span> <span class="toc-text">常见的开源DNS：bind,nsd,knot,coredns</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A5%E5%85%A5https%E5%8D%8F%E8%AE%AE"><span class="toc-number">1.3.</span> <span class="toc-text">接入https协议</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E8%83%8C%E6%99%AF-1"><span class="toc-number">1.3.1.</span> <span class="toc-text">问题背景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95"><span class="toc-number">1.3.2.</span> <span class="toc-text">加密算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SSL%E9%80%9A%E4%BF%A1%E8%BF%87%E7%A8%8B"><span class="toc-number">1.3.3.</span> <span class="toc-text">SSL通信过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%81%E4%B9%A6%E9%93%BE"><span class="toc-number">1.3.4.</span> <span class="toc-text">证书链</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%99%E6%80%81%E5%8A%A0%E9%80%9FCDN"><span class="toc-number">1.3.5.</span> <span class="toc-text">静态加速CDN</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1"><span class="toc-number">1.4.</span> <span class="toc-text">负载均衡</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B%E5%B1%82%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E6%A6%82%E5%BF%B5"><span class="toc-number">1.4.1.</span> <span class="toc-text">四层负载均衡概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F-FULLNAT"><span class="toc-number">1.4.2.</span> <span class="toc-text">常见实现方式 FULLNAT</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E7%82%B9"><span class="toc-number">1.4.3.</span> <span class="toc-text">特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%83%E5%B1%82%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1"><span class="toc-number">1.4.4.</span> <span class="toc-text">七层负载均衡</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E6%8E%A5%E5%85%A5%E5%AE%9E%E8%B7%B5"><span class="toc-number">1.5.</span> <span class="toc-text">网络接入实践</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#DNS%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA"><span class="toc-number">1.5.1.</span> <span class="toc-text">DNS服务器搭建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E5%AE%9E%E9%AA%8C%EF%BC%9ANginx"><span class="toc-number">1.5.2.</span> <span class="toc-text">负载均衡实验：Nginx</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SSL%E8%87%AA%E7%AD%BE%E8%AF%81%E4%B9%A6%E5%AE%9E%E9%AA%8C"><span class="toc-number">1.5.3.</span> <span class="toc-text">SSL自签证书实验</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%B0%86%E6%9C%AC%E5%9C%B0%E6%9C%8D%E5%8A%A1%E5%BC%80%E6%94%BE%E5%A4%96%E7%BD%91%E8%AE%BF%E9%97%AE"><span class="toc-number">1.5.4.</span> <span class="toc-text">如何将本地服务开放外网访问</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#RPC%E6%A1%86%E6%9E%B6%E7%9A%84%E5%8E%9F%E7%90%86%E4%B8%8E%E8%AE%BE%E8%AE%A1"><span class="toc-number">1.</span> <span class="toc-text"> RPC框架的原理与设计</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-number">1.1.</span> <span class="toc-text">基本概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9C%E7%A8%8B%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8"><span class="toc-number">1.1.1.</span> <span class="toc-text">远程函数调用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RPC%E6%A6%82%E5%BF%B5%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.1.2.</span> <span class="toc-text">RPC概念模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E6%AC%A1RPC%E7%9A%84%E5%AE%8C%E6%95%B4%E8%BF%87%E7%A8%8B%E3%80%82"><span class="toc-number">1.1.3.</span> <span class="toc-text">一次RPC的完整过程。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RPC%E7%9A%84%E5%A5%BD%E5%A4%84"><span class="toc-number">1.1.4.</span> <span class="toc-text">RPC的好处</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RPC%E5%B8%A6%E6%9D%A5%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-number">1.1.5.</span> <span class="toc-text">RPC带来的问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E5%B1%82%E8%AE%BE%E8%AE%A1"><span class="toc-number">1.2.</span> <span class="toc-text">分层设计</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E8%A7%A3%E7%A0%81%E5%B1%82"><span class="toc-number">1.2.1.</span> <span class="toc-text">编解码层</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E4%BB%A3%E7%A0%81"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">生成代码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F"><span class="toc-number">1.2.1.2.</span> <span class="toc-text">数据格式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8C%E8%BF%9B%E5%88%B6%E7%BC%96%E7%A0%81"><span class="toc-number">1.2.1.3.</span> <span class="toc-text">二进制编码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%89%E5%9E%8B"><span class="toc-number">1.2.1.4.</span> <span class="toc-text">选型</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%8F%E8%AE%AE%E5%B1%82"><span class="toc-number">1.2.2.</span> <span class="toc-text">协议层</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-number">1.2.2.1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%8F%E8%AE%AE%E5%B7%A5%E4%BD%9C%E8%BF%87%E7%A8%8B"><span class="toc-number">1.2.2.2.</span> <span class="toc-text">协议工作过程</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1%E5%B1%82"><span class="toc-number">1.2.3.</span> <span class="toc-text">网络通信层</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Sockets-API"><span class="toc-number">1.2.3.1.</span> <span class="toc-text">Sockets API</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%BA%93"><span class="toc-number">1.2.3.2.</span> <span class="toc-text">网络库</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RPC%E5%85%B3%E9%94%AE%E6%8C%87%E6%A0%87"><span class="toc-number">1.3.</span> <span class="toc-text">RPC关键指标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RPC%E5%AE%9E%E4%BE%8B"><span class="toc-number">1.4.</span> <span class="toc-text">RPC实例</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B4%E4%BD%93%E6%9E%B6%E6%9E%84%E2%80%94%E2%80%94Kitex%E6%9E%B6%E6%9E%84"><span class="toc-number">1.4.1.</span> <span class="toc-text">整体架构——Kitex架构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E7%A0%94%E7%BD%91%E7%BB%9C%E5%BA%93%E2%80%94%E2%80%94Netpoll"><span class="toc-number">1.4.2.</span> <span class="toc-text">自研网络库——Netpoll</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96"><span class="toc-number">1.4.3.</span> <span class="toc-text">性能优化</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>

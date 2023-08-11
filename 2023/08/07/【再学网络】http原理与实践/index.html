@@ -19,8 +19,9 @@
 <meta property="og:image" content="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202308071529415.webp">
 <meta property="og:image" content="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202308071539103.webp">
 <meta property="og:image" content="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202308071547735.webp">
+<meta property="og:image" content="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202308081136485.webp">
 <meta property="article:published_time" content="2023-08-07T06:27:51.000Z">
-<meta property="article:modified_time" content="2023-08-07T11:08:04.749Z">
+<meta property="article:modified_time" content="2023-08-10T07:57:30.499Z">
 <meta property="article:author" content="Veni">
 <meta property="article:tag" content="计算机网络">
 <meta name="twitter:card" content="summary">
@@ -181,7 +182,7 @@
 <p>一个HTTP请求包含请求行、请求头和请求体，如上图中的第一段报文，请求行中的方法名为POST，请求体为邀请小姐姐看电影的话。而一个http响应包含状态行、响应头和响应体三部分，比如上文中的第二段报文。</p>
 <p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202308071529415.webp" alt="image-20230807152944203"></p>
 <h3 id="HTTP请求流程"><a href="#HTTP请求流程" class="headerlink" title="HTTP请求流程"></a>HTTP请求流程</h3><p>一个HTTP请求是以客户端的应用层的封装开始，到服务端的应用层的解封装结束。一个HTTP响应则相反，从服务端的封装开始，客户端的解封装结束。一个HTTP请求需要经过中间件，路由和编码解码等层级才能达到服务器。举个简单的例子，一个请求的请求路由是&#x2F;hello，那么在route层就会对其做一次检验，只有正确的路由才会放行；假设middleware层有一个登录验证的中间件，那么这一层就会把携带不正确身份信息的请求过滤掉。</p>
-<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202308071539103.webp" alt="image-20230807153927945"></p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202308071539103.webp" alt="  "></p>
 <p>下图则详细描述了每一层的具体内容：</p>
 <p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202308071547735.webp" alt="image-20230807154713491"></p>
 <h3 id="中间件"><a href="#中间件" class="headerlink" title="中间件"></a>中间件</h3><p>HTTP 中间件提供了一个方便的机制来过滤进入应用程序的 HTTP 请求，例如，Auth 中间件验证用户的身份，如果用户未通过身份验证，中间件将会把用户导向登录页面，反之，当用户通过了身份验证，中间件将会通过此请求并接着往下执行。当然，除了身份验证之外，中间件也可以被用来运行各式各样的任务，如：CORS 中间件负责替所有即将离开程序的响应加入适当的标头；而日志中间件则可以记录所有传入应用程序的请求。</p>
@@ -191,7 +192,15 @@
 <li>路由参数是指实际的请求路由随着不同的参数值而改变的路由，比如不同的用户登录某个博客网站，博客网站为他们分配了不同的路由，比如<code>/blog/123,/blog/456</code>，匹配模式为：<code>/blog/:id</code>。在</li>
 </ul>
 <h2 id="HTTP实战"><a href="#HTTP实战" class="headerlink" title="HTTP实战"></a>HTTP实战</h2><p>下面我们将以Go语言为例，将HTTP应用在实战项目中。</p>
-<h3 id="请求方式"><a href="#请求方式" class="headerlink" title="请求方式"></a>请求方式</h3><h4 id="GET请求"><a href="#GET请求" class="headerlink" title="GET请求"></a>GET请求</h4><p>GET请求用于从服务器获取数据，</p>
+<h3 id="请求方式"><a href="#请求方式" class="headerlink" title="请求方式"></a>请求方式</h3><h4 id="GET请求"><a href="#GET请求" class="headerlink" title="GET请求"></a>GET请求</h4><p>GET请求用于从服务器获取数据。下面以一个简单的获取账户密码的例子来说明GET请求的实现：</p>
+<p>首先定义一个实体User，它仅有两个字段：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> User <span class="keyword">struct</span> &#123;</span><br><span class="line">	Name     <span class="type">string</span></span><br><span class="line">	Password <span class="type">string</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后我们测试通过GET传递用户名为参数获取密码：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">GetUserInfo</span><span class="params">(c *gin.Context)</span></span> &#123;</span><br><span class="line">	name := c.Query(<span class="string">&quot;Name&quot;</span>)</span><br><span class="line">	<span class="comment">//此处仅作演示，实际开发中不会把密码返回，而是把密码加密存到数据库中</span></span><br><span class="line">	user := models.User&#123;name, <span class="string">&quot;123456&quot;</span>&#125;</span><br><span class="line">	c.JSON(<span class="number">200</span>, user)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>测试一下：</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202308081136485.webp" alt="image-20230808113646280"></p>
 <h4 id="POST请求"><a href="#POST请求" class="headerlink" title="POST请求"></a>POST请求</h4>
       
 
@@ -295,6 +304,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2023/08/08/RPC%E6%A1%86%E6%9E%B6%E7%9A%84%E5%8E%9F%E7%90%86%E4%B8%8E%E8%AE%BE%E8%AE%A1/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          RPC框架的原理与设计
+        
+      </div>
+    </a>
   
   
     <a href="/2023/08/05/Go%E8%AF%AD%E8%A8%80%E5%BC%80%E5%8F%91%E2%80%94%E2%80%94gin%E6%A1%86%E6%9E%B6/" id="article-nav-older" class="article-nav-link-wrap">
@@ -474,11 +492,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
+                <a href="javascript:void(0)" class="js-tag color5">GORM</a>
               </li>
              
               <li class="article-tag-list-item">
