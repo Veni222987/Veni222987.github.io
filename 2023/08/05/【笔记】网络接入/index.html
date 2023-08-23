@@ -6,20 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://Veni222987.github.io">
-  <title>Go语言常用命令 | VenisBlog</title>
+  <title>【学习笔记】网络接入 | VenisBlog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Go语言常用命令Go语言自带有一整套完整的命令操作指令，可以在命令行中执行go查看所有指令">
+  <meta name="description" content="网络接入一台服务器要想给前端提供服务，就不可避免地需要利用计算机网络。So，本文主要讲讲网络接入那些事儿。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Go语言常用命令">
-<meta property="og:url" content="https://veni222987.github.io/2023/07/30/Go%E8%AF%AD%E8%A8%80%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/index.html">
+<meta property="og:title" content="【学习笔记】网络接入">
+<meta property="og:url" content="https://veni222987.github.io/2023/08/05/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91%E7%BD%91%E7%BB%9C%E6%8E%A5%E5%85%A5/index.html">
 <meta property="og:site_name" content="VenisBlog">
-<meta property="og:description" content="Go语言常用命令Go语言自带有一整套完整的命令操作指令，可以在命令行中执行go查看所有指令">
+<meta property="og:description" content="网络接入一台服务器要想给前端提供服务，就不可避免地需要利用计算机网络。So，本文主要讲讲网络接入那些事儿。">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-07-30T13:05:13.000Z">
-<meta property="article:modified_time" content="2023-08-07T03:09:06.006Z">
+<meta property="article:published_time" content="2023-08-05T06:35:54.000Z">
+<meta property="article:modified_time" content="2023-08-17T11:30:38.325Z">
 <meta property="article:author" content="Veni">
-<meta property="article:tag" content="Go">
+<meta property="article:tag" content="笔记">
 <meta property="article:tag" content="后端">
+<meta property="article:tag" content="计算机网络">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="VenisBlog" type="application/atom+xml">
@@ -138,88 +139,58 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Go语言常用命令" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-【笔记】网络接入" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Go语言常用命令
+      【学习笔记】网络接入
     </h1>
   
 
         
-        <a href="/2023/07/30/Go%E8%AF%AD%E8%A8%80%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="archive-article-date">
-  	<time datetime="2023-07-30T13:05:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-07-30</time>
+        <a href="/2023/08/05/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91%E7%BD%91%E7%BB%9C%E6%8E%A5%E5%85%A5/" class="archive-article-date">
+  	<time datetime="2023-08-05T06:35:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-08-05</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Go语言常用命令"><a href="#Go语言常用命令" class="headerlink" title=" Go语言常用命令"></a><center> Go语言常用命令</h1><p>Go语言自带有一整套完整的命令操作指令，可以在命令行中执行<code>go</code>查看所有指令<span id="more"></span>，比如</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\19481&gt;go</span><br><span class="line">Go is a tool <span class="keyword">for</span> managing Go <span class="built_in">source</span> code.</span><br><span class="line"></span><br><span class="line">Usage:</span><br><span class="line"></span><br><span class="line">        go &lt;<span class="built_in">command</span>&gt; [arguments]</span><br><span class="line"></span><br><span class="line">The commands are:</span><br><span class="line"></span><br><span class="line">        bug         start a bug report</span><br><span class="line">        build       compile packages and dependencies</span><br><span class="line">        clean       remove object files and cached files</span><br><span class="line">        doc         show documentation <span class="keyword">for</span> package or symbol</span><br><span class="line">        <span class="built_in">env</span>         <span class="built_in">print</span> Go environment information</span><br><span class="line">        fix         update packages to use new APIs</span><br><span class="line">        <span class="built_in">fmt</span>         gofmt (reformat) package sources</span><br><span class="line">        generate    generate Go files by processing <span class="built_in">source</span></span><br><span class="line">        get         add dependencies to current module and install them</span><br><span class="line">        install     compile and install packages and dependencies</span><br><span class="line">        list        list packages or modules</span><br><span class="line">        mod         module maintenance</span><br><span class="line">        work        workspace maintenance</span><br><span class="line">        run         compile and run Go program</span><br><span class="line">        <span class="built_in">test</span>        <span class="built_in">test</span> packages</span><br><span class="line">        tool        run specified go tool</span><br><span class="line">        version     <span class="built_in">print</span> Go version</span><br><span class="line">        vet         report likely mistakes <span class="keyword">in</span> packages</span><br></pre></td></tr></table></figure>
-
-<p>这里只截取指令部分的展示结果，将选取其中最常用的几个指令，做一次系统的整理与回顾。</p>
-<h2 id="go-run"><a href="#go-run" class="headerlink" title="go run"></a>go run</h2><p>编译并运行go程序。使用<code>go run</code>命令运行Go程序时，编译的结果并不会被保存在磁盘上。而是将源代码编译为二进制文件，并直接在内存中执行。可以说，刷OJ最常用就是他了。</p>
-<h2 id="go-test"><a href="#go-test" class="headerlink" title="go test"></a>go test</h2><p>go test指令最常用于单元测试，使用方法如下：</p>
-<ul>
-<li>确保测试程序以_test.go结尾，这是Go语言的约定形式，别问为啥。</li>
-<li>在终端中使用以下命令运行测试：</li>
+        <h1 id="网络接入"><a href="#网络接入" class="headerlink" title="网络接入"></a><center>网络接入</h1><p>一台服务器要想给前端提供服务，就不可避免地需要利用计算机网络。So，本文主要讲讲网络接入那些事儿。<span id="more"></span></p>
+<h2 id="域名系统"><a href="#域名系统" class="headerlink" title="域名系统"></a>域名系统</h2><h3 id="Host管理"><a href="#Host管理" class="headerlink" title="Host管理"></a>Host管理</h3><p>M公司有许多个网站，对应着不同的ip和域名。保存在一个文件中，每次都人工同步该文件夹。效果差。</p>
+<h3 id="使用域名系统"><a href="#使用域名系统" class="headerlink" title="使用域名系统"></a>使用域名系统</h3><ul>
+<li>域名空间：分为四个等级：顶级域名，二级域名，三级域名，四级域名。</li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">go test -run TestFunctionName</span><br></pre></td></tr></table></figure>
-
-<p>其中，<code>TestFunctionName</code>是你要运行的测试函数的名称。注意，测试函数的名称必须以<code>Test</code>开头，且函数签名必须符合以下形式：</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">TestFunctionName</span><span class="params">(t *testing.T)</span></span> &#123;</span><br><span class="line">    <span class="comment">// 测试逻辑</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>运行测试后，你将在终端中看到测试结果的输出，包括通过的测试用例数量、失败的测试用例数量以及测试的覆盖率等信息。</li>
+<h3 id="域名购买与配置迁移"><a href="#域名购买与配置迁移" class="headerlink" title="域名购买与配置迁移"></a>域名购买与配置迁移</h3><p>域名购买可以直接到云服务厂商查询并购买。</p>
+<h2 id="自建DNS服务器"><a href="#自建DNS服务器" class="headerlink" title="自建DNS服务器"></a>自建DNS服务器</h2><h3 id="问题背景"><a href="#问题背景" class="headerlink" title="问题背景"></a>问题背景</h3><ul>
+<li>内网域名解析也需要到公网去获取，效率低下</li>
+<li>外部用户能看到内网地址，容易被攻击</li>
 </ul>
-<p>如不指定测试运行的程序，那么go test就会把当前目录下所有的_test.go程序都执行一遍。</p>
-<h2 id="go-build"><a href="#go-build" class="headerlink" title="go build"></a>go build</h2><p>这个命令用于测试编译，在包的编译过程中，若有需要，则会同时编译与之相关的包。下面用一个简单的程序测试一下，具体语法是：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">go build &lt;go源代码&gt;</span><br></pre></td></tr></table></figure>
-
-<p>比如：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">PS D:\Desktop\MyProjects\ByteTech&gt; go build Course1.go</span><br><span class="line">PS D:\Desktop\MyProjects\ByteTech&gt; ls</span><br><span class="line">    目录: D:\Desktop\MyProjects\ByteTech</span><br><span class="line">Mode                 LastWriteTime         Length Name</span><br><span class="line">----                 -------------         ------ ----</span><br><span class="line">d-----         2023/7/30     10:57                .idea</span><br><span class="line">-a----         2023/7/30     10:57        2159104 Course1.exe</span><br><span class="line">-a----         2023/7/25     22:25            528 Course1.go</span><br><span class="line">-a----         2023/7/25      9:50             25 go.mod</span><br></pre></td></tr></table></figure>
-
-<p>命令执行完成之后，会在原目录下生成一个同名的可执行文件，双击即可运行程序。这个过程就好像使用g++编译C++源代码。当然你也可以用<code>go build -o &lt;文件名&gt;</code>指定生成的文件类型和路径。如果<code>go build</code>之后不接任何参数，则该命令会默认编译当前目录下所有的go文件。</p>
-<ul>
-<li><code>go build</code>会忽略目录下以’_’和’.’开头的文件。</li>
+<h3 id="DNS查询过程"><a href="#DNS查询过程" class="headerlink" title="DNS查询过程"></a>DNS查询过程</h3><h3 id="DNS记录类型"><a href="#DNS记录类型" class="headerlink" title="DNS记录类型"></a>DNS记录类型</h3><ul>
+<li>A&#x2F;AAAA：IP指向记录，用于指向IP，前者为ipv4，后者为ipv6。</li>
+<li>CNAME：别名记录，相当于把一个域名解析到另外一个域名，比如github网站解析。</li>
+<li>TXT：文本记录，购买证书时需要</li>
+<li>其他：MX，NS，SOA等等</li>
 </ul>
-<h2 id="go-install"><a href="#go-install" class="headerlink" title="go install"></a>go install</h2><p><code>go install</code>命令做了两件事情，一件是把源代码编译成为结果文件（可执行文件或.a包），然后将其放到了<code>$GOPATH</code>里面的bin或pkg目录下。</p>
-<h2 id="go-clean"><a href="#go-clean" class="headerlink" title="go clean"></a>go clean</h2><p>这个命令用来清除当前源码包里面编译生成的一些文件，比如go build和go test生成的.exe文件等等。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">PS D:\Desktop\MyProjects\ByteTech&gt; go clean</span><br><span class="line">PS D:\Desktop\MyProjects\ByteTech&gt; ls</span><br><span class="line">    目录: D:\Desktop\MyProjects\ByteTech</span><br><span class="line">Mode                 LastWriteTime         Length Name</span><br><span class="line">----                 -------------         ------ ----</span><br><span class="line">d-----         2023/7/30     10:57                .idea</span><br><span class="line">-a----         2023/7/25     22:25            528 Course1.go</span><br><span class="line">-a----         2023/7/25      9:50             25 go.mod</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>可以看到，刚才生成的exe文件已经被清除掉了。这个命令可以用在远程仓库管理的时候，一般来说github上面只存代码，不存编译结果，所以可以先执行<code>go clean</code>之后在执行<code>git push</code>命令。要是我的话直接用<code>gitignore</code>比这个方便多了。</p>
-<h2 id="go-fmt"><a href="#go-fmt" class="headerlink" title="go fmt"></a>go fmt</h2><p>这个命令是用来格式化go语言代码的，一些格式错误可能会导致过不了编译，比如else要跟在上一个右大括号后面，左大括号必须跟在上一行的结尾等等。好在一般的IDE都会在保存的时候帮我们执行这条指令。要是使用vim或者记事本编辑的话可就得手动执行这条指令了。</p>
-<h2 id="go-get"><a href="#go-get" class="headerlink" title="go get"></a>go get</h2><p>这个命令是用来动态获取远程代码包或第三方依赖库的，支持了GitHub,BitBucket,Google Code等，使用的时候需要下载相对应的工具（比如git）。使用的方法如下：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">go get github.com/gin-gonic/gin</span><br></pre></td></tr></table></figure>
-
-<p>使用go get命令下载第三方依赖的时候，下载的依赖包会放置在$GOPATH&#x2F;src目录下。</p>
-<h2 id="go-env"><a href="#go-env" class="headerlink" title="go env"></a>go env</h2><h3 id="查看设置"><a href="#查看设置" class="headerlink" title="查看设置"></a>查看设置</h3><p><code>go env</code>用于设置和查看go语言的环境，其中直接执行<code>go env</code>可以查看当前机器的GOPATH，GOPROXY之类的设置，执行结果如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">PS D:\Desktop&gt; go env</span><br><span class="line">set GO111MODULE=on</span><br><span class="line">set GOARCH=amd64</span><br><span class="line">...</span><br><span class="line">set PKG_CONFIG=pkg-config</span><br><span class="line">set GOGCCFLAGS=-m64 -mthreads -Wl,--no-gc-sections -fmessage-length=0 -fdebug-prefix-map=C:\Users\19481\AppData\Local\Temp\go-build1674882432=/tmp/go-build -gno-record-gcc-switches</span><br></pre></td></tr></table></figure>
-
-<h3 id="go-env设置代理"><a href="#go-env设置代理" class="headerlink" title="go env设置代理"></a>go env设置代理</h3><p>大家使用<code>go get</code>下载包的时候，可能会遇到无法连接等情况，这时候可以把GOPROXY设置为国内的阿里云镜像：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">go env -w GO111MODULE=on</span><br><span class="line">go env -w GOPROXY=https://mirrors.aliyun.com/goproxy/,direct</span><br></pre></td></tr></table></figure>
-
-<p>其中<code>GO111MODULE</code>是一个用于控制Go模块支持的环境变量，待选值为：on, off, auto。</p>
-<ul>
-<li>“off”：禁用Go模块支持。在这种模式下，Go将继续使用旧的GOPATH和vendor目录来管理依赖关系。</li>
-<li>“on”：启用Go模块支持。在这种模式下，Go将使用go.mod和go.sum文件来管理依赖关系，并将依赖项下载到模块缓存中。</li>
-<li>“auto”：根据当前工作目录下是否存在go.mod文件来决定是否启用Go模块支持。如果存在go.mod文件，则启用模块支持；否则，禁用模块支持。</li>
+<h3 id="常见的开源DNS：bind-nsd-knot-coredns"><a href="#常见的开源DNS：bind-nsd-knot-coredns" class="headerlink" title="常见的开源DNS：bind,nsd,knot,coredns"></a>常见的开源DNS：bind,nsd,knot,coredns</h3><h2 id="接入https协议"><a href="#接入https协议" class="headerlink" title="接入https协议"></a>接入https协议</h2><h3 id="问题背景-1"><a href="#问题背景-1" class="headerlink" title="问题背景"></a>问题背景</h3><ul>
+<li>出现白页面</li>
+<li>返回403</li>
+<li>搜索不了东西</li>
+<li>搜索问题夹带私货，页面多次刷新</li>
 </ul>
-<p>另外一个GOPROXY后面的值是阿里云镜像的地址。-w是writable，表明该变量是可写的。</p>
-<h2 id="go-mod"><a href="#go-mod" class="headerlink" title="go mod"></a>go mod</h2><p>go mod是Go语言中对于第三方库和插件的依赖管理工具。使用go mod可以方便地管理Go语言的各种依赖，下面将展示如何使用go mod管理依赖。</p>
-<h3 id="go-mod-init"><a href="#go-mod-init" class="headerlink" title="go mod init"></a>go mod init</h3><p><code>go mod init</code>指令用于初始化go.mod文件，该指令会在工程根目录下创建一个go.mod文件，一个go.mod文件的常见结构如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">module GinusThaiBeauty</span><br><span class="line"></span><br><span class="line">go 1.20</span><br><span class="line"></span><br><span class="line">require (</span><br><span class="line">	//这里写你要下载的依赖</span><br><span class="line">	github.com/gin-gonic/gin v1.9.1</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="go-mod-download"><a href="#go-mod-download" class="headerlink" title="go mod download"></a>go mod download</h3><p>使用<code>go mod download</code>命令的时候，依赖库会被下载到全局的Go Modules缓存中，而非项目的GOPATH。在项目配置中必须要勾选<code>Index entire GOPATH</code>才会扫描全局Go Modules。</p>
-<h3 id="go-mod-vendor"><a href="#go-mod-vendor" class="headerlink" title="go mod vendor"></a>go mod vendor</h3><p>在1.11版本之前，Go语言的主要依赖管理工具是go vendor。Golang 1.11之后，由于引入了Module功能，在运行go build时，优先引用的是Module依赖包的逻辑，所以Vendor目录就被“无视”了，进而可能发生编译错误， moudle 说还是很想他，于是提供了 go mod vendor命令用来生成 vendor目录。</p>
-<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>其他的指令使用频率相对较低，比如<code>go doc</code>（官方文档），<code>go version</code>（版本号），需要的时候运行一下<code>go help &lt;指令&gt;</code>即可。</p>
-
+<p>原因都是http协议是明文传输，容易被抓取，修改请求内容和相应内容，并通过刷新掩盖。</p>
+<h3 id="加密算法"><a href="#加密算法" class="headerlink" title="加密算法"></a>加密算法</h3><h3 id="SSL通信过程"><a href="#SSL通信过程" class="headerlink" title="SSL通信过程"></a>SSL通信过程</h3><h3 id="证书链"><a href="#证书链" class="headerlink" title="证书链"></a>证书链</h3><h3 id="静态加速CDN"><a href="#静态加速CDN" class="headerlink" title="静态加速CDN"></a>静态加速CDN</h3><p>缓存，加速访问</p>
+<h2 id="负载均衡"><a href="#负载均衡" class="headerlink" title="负载均衡"></a>负载均衡</h2><h3 id="四层负载均衡概念"><a href="#四层负载均衡概念" class="headerlink" title="四层负载均衡概念"></a>四层负载均衡概念</h3><p>四层负载均衡，就是基于IP+端口，利用某种算法将报文转发给某个后端服务器，实现负载均衡地落到后端服务器上。</p>
+<h3 id="常见实现方式-FULLNAT"><a href="#常见实现方式-FULLNAT" class="headerlink" title="常见实现方式 FULLNAT"></a>常见实现方式 FULLNAT</h3><h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><ul>
+<li>大部分都是通过dpdk技术实现</li>
+<li>纯用户态协议栈，kernel bypass，消除协议栈瓶颈</li>
+<li>无缓存，零拷贝，大页内存</li>
+<li>仅对四层数据包转发，小包转发可达到限速，可承受高cps</li>
+</ul>
+<h3 id="七层负载均衡"><a href="#七层负载均衡" class="headerlink" title="七层负载均衡"></a>七层负载均衡</h3><h2 id="网络接入实践"><a href="#网络接入实践" class="headerlink" title="网络接入实践"></a>网络接入实践</h2><h3 id="DNS服务器搭建"><a href="#DNS服务器搭建" class="headerlink" title="DNS服务器搭建"></a>DNS服务器搭建</h3><h3 id="负载均衡实验：Nginx"><a href="#负载均衡实验：Nginx" class="headerlink" title="负载均衡实验：Nginx"></a>负载均衡实验：Nginx</h3><h3 id="SSL自签证书实验"><a href="#SSL自签证书实验" class="headerlink" title="SSL自签证书实验"></a>SSL自签证书实验</h3><h3 id="如何将本地服务开放外网访问"><a href="#如何将本地服务开放外网访问" class="headerlink" title="如何将本地服务开放外网访问"></a>如何将本地服务开放外网访问</h3>
       
 
       
@@ -253,11 +224,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Go</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">后端</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机网络</a>
         		</li>
       		
 		</ul>
@@ -313,7 +288,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://veni222987.github.io/2023/07/30/Go%E8%AF%AD%E8%A8%80%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://veni222987.github.io/2023/08/05/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91%E7%BD%91%E7%BB%9C%E6%8E%A5%E5%85%A5/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -327,15 +302,20 @@
   
 <nav id="article-nav">
   
-    <a href="/2023/07/31/%E5%AE%9E%E8%B7%B5%E9%80%89%E9%A2%98%EF%BC%9AGit-%E7%9A%84%E6%AD%A3%E7%A1%AE%E4%BD%BF%E7%94%A8%E5%A7%BF%E5%8A%BF%E4%B8%8E%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2023/08/05/Go%E8%AF%AD%E8%A8%80%E5%BC%80%E5%8F%91%E2%80%94%E2%80%94gin%E6%A1%86%E6%9E%B6/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          实践选题：Git 的正确使用姿势与最佳实践
+          Go语言开发——Gin框架
         
       </div>
     </a>
   
+  
+    <a href="/2023/08/02/%EF%BC%88%E5%AE%8C%EF%BC%89%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91redis/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">【学习笔记】redis</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
@@ -360,7 +340,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Go%E8%AF%AD%E8%A8%80%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-number">1.</span> <span class="toc-text"> Go语言常用命令</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#go-run"><span class="toc-number">1.1.</span> <span class="toc-text">go run</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#go-test"><span class="toc-number">1.2.</span> <span class="toc-text">go test</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#go-build"><span class="toc-number">1.3.</span> <span class="toc-text">go build</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#go-install"><span class="toc-number">1.4.</span> <span class="toc-text">go install</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#go-clean"><span class="toc-number">1.5.</span> <span class="toc-text">go clean</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#go-fmt"><span class="toc-number">1.6.</span> <span class="toc-text">go fmt</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#go-get"><span class="toc-number">1.7.</span> <span class="toc-text">go get</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#go-env"><span class="toc-number">1.8.</span> <span class="toc-text">go env</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E8%AE%BE%E7%BD%AE"><span class="toc-number">1.8.1.</span> <span class="toc-text">查看设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#go-env%E8%AE%BE%E7%BD%AE%E4%BB%A3%E7%90%86"><span class="toc-number">1.8.2.</span> <span class="toc-text">go env设置代理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#go-mod"><span class="toc-number">1.9.</span> <span class="toc-text">go mod</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#go-mod-init"><span class="toc-number">1.9.1.</span> <span class="toc-text">go mod init</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#go-mod-download"><span class="toc-number">1.9.2.</span> <span class="toc-text">go mod download</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#go-mod-vendor"><span class="toc-number">1.9.3.</span> <span class="toc-text">go mod vendor</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B6%E4%BB%96"><span class="toc-number">1.10.</span> <span class="toc-text">其他</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E6%8E%A5%E5%85%A5"><span class="toc-number">1.</span> <span class="toc-text">网络接入</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%9F%E5%90%8D%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.1.</span> <span class="toc-text">域名系统</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Host%E7%AE%A1%E7%90%86"><span class="toc-number">1.1.1.</span> <span class="toc-text">Host管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%9F%9F%E5%90%8D%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.1.2.</span> <span class="toc-text">使用域名系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%9F%E5%90%8D%E8%B4%AD%E4%B9%B0%E4%B8%8E%E9%85%8D%E7%BD%AE%E8%BF%81%E7%A7%BB"><span class="toc-number">1.1.3.</span> <span class="toc-text">域名购买与配置迁移</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E5%BB%BADNS%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">1.2.</span> <span class="toc-text">自建DNS服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E8%83%8C%E6%99%AF"><span class="toc-number">1.2.1.</span> <span class="toc-text">问题背景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DNS%E6%9F%A5%E8%AF%A2%E8%BF%87%E7%A8%8B"><span class="toc-number">1.2.2.</span> <span class="toc-text">DNS查询过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DNS%E8%AE%B0%E5%BD%95%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.2.3.</span> <span class="toc-text">DNS记录类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84%E5%BC%80%E6%BA%90DNS%EF%BC%9Abind-nsd-knot-coredns"><span class="toc-number">1.2.4.</span> <span class="toc-text">常见的开源DNS：bind,nsd,knot,coredns</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A5%E5%85%A5https%E5%8D%8F%E8%AE%AE"><span class="toc-number">1.3.</span> <span class="toc-text">接入https协议</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E8%83%8C%E6%99%AF-1"><span class="toc-number">1.3.1.</span> <span class="toc-text">问题背景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95"><span class="toc-number">1.3.2.</span> <span class="toc-text">加密算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SSL%E9%80%9A%E4%BF%A1%E8%BF%87%E7%A8%8B"><span class="toc-number">1.3.3.</span> <span class="toc-text">SSL通信过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%81%E4%B9%A6%E9%93%BE"><span class="toc-number">1.3.4.</span> <span class="toc-text">证书链</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%99%E6%80%81%E5%8A%A0%E9%80%9FCDN"><span class="toc-number">1.3.5.</span> <span class="toc-text">静态加速CDN</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1"><span class="toc-number">1.4.</span> <span class="toc-text">负载均衡</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B%E5%B1%82%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E6%A6%82%E5%BF%B5"><span class="toc-number">1.4.1.</span> <span class="toc-text">四层负载均衡概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F-FULLNAT"><span class="toc-number">1.4.2.</span> <span class="toc-text">常见实现方式 FULLNAT</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E7%82%B9"><span class="toc-number">1.4.3.</span> <span class="toc-text">特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%83%E5%B1%82%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1"><span class="toc-number">1.4.4.</span> <span class="toc-text">七层负载均衡</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E6%8E%A5%E5%85%A5%E5%AE%9E%E8%B7%B5"><span class="toc-number">1.5.</span> <span class="toc-text">网络接入实践</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#DNS%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA"><span class="toc-number">1.5.1.</span> <span class="toc-text">DNS服务器搭建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E5%AE%9E%E9%AA%8C%EF%BC%9ANginx"><span class="toc-number">1.5.2.</span> <span class="toc-text">负载均衡实验：Nginx</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SSL%E8%87%AA%E7%AD%BE%E8%AF%81%E4%B9%A6%E5%AE%9E%E9%AA%8C"><span class="toc-number">1.5.3.</span> <span class="toc-text">SSL自签证书实验</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%B0%86%E6%9C%AC%E5%9C%B0%E6%9C%8D%E5%8A%A1%E5%BC%80%E6%94%BE%E5%A4%96%E7%BD%91%E8%AE%BF%E9%97%AE"><span class="toc-number">1.5.4.</span> <span class="toc-text">如何将本地服务开放外网访问</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -501,11 +481,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">后端</a>
+                <a href="javascript:void(0)" class="js-tag color3">go</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">go</a>
+                <a href="javascript:void(0)" class="js-tag color3">后端</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -513,7 +493,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+                <a href="javascript:void(0)" class="js-tag color5">GORM</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -521,7 +501,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">GORM</a>
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
             
             <div class="clearfix"></div>
