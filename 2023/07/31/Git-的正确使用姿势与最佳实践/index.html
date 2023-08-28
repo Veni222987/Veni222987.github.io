@@ -6,23 +6,43 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://Veni222987.github.io">
-  <title>Go语言常用命令 | VenisBlog</title>
+  <title>Git 的正确使用姿势与最佳实践 | VeniceBlog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Go语言常用命令Go语言自带有一整套完整的命令操作指令，可以在命令行中执行go查看所有指令">
+  <meta name="description" content="Git 的正确使用姿势与最佳实践先问一下屏幕前的你，是不是还在使用压缩包传代码？是不是还在重命名一个“_备份”文件来保存修改，又或者说，对git的使用只停留在IDE的GUI上。当然作为一个合格的大一新生，这些事情估计都是常态。那么话不多说，我们直接开始——Git的正确使用姿势和最佳实践。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Go语言常用命令">
-<meta property="og:url" content="https://veni222987.github.io/2023/07/30/%EF%BC%88%E5%AE%8C%EF%BC%89Go%E8%AF%AD%E8%A8%80%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/index.html">
-<meta property="og:site_name" content="VenisBlog">
-<meta property="og:description" content="Go语言常用命令Go语言自带有一整套完整的命令操作指令，可以在命令行中执行go查看所有指令">
+<meta property="og:title" content="Git 的正确使用姿势与最佳实践">
+<meta property="og:url" content="https://veni222987.github.io/2023/07/31/Git-%E7%9A%84%E6%AD%A3%E7%A1%AE%E4%BD%BF%E7%94%A8%E5%A7%BF%E5%8A%BF%E4%B8%8E%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/index.html">
+<meta property="og:site_name" content="VeniceBlog">
+<meta property="og:description" content="Git 的正确使用姿势与最佳实践先问一下屏幕前的你，是不是还在使用压缩包传代码？是不是还在重命名一个“_备份”文件来保存修改，又或者说，对git的使用只停留在IDE的GUI上。当然作为一个合格的大一新生，这些事情估计都是常态。那么话不多说，我们直接开始——Git的正确使用姿势和最佳实践。">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-07-30T13:05:13.000Z">
-<meta property="article:modified_time" content="2023-08-07T03:09:06.006Z">
+<meta property="og:image" content="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202308021410465.webp">
+<meta property="og:image" content="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202308021513783.webp">
+<meta property="og:image" content="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202308021523361.webp">
+<meta property="og:image" content="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202308021525433.webp">
+<meta property="og:image" content="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202308030945337.webp">
+<meta property="og:image" content="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202308030954198.webp">
+<meta property="og:image" content="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202308031017260.webp">
+<meta property="og:image" content="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202308031025317.webp">
+<meta property="og:image" content="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202308031029096.webp">
+<meta property="og:image" content="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202308031031132.webp">
+<meta property="og:image" content="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202308031247530.webp">
+<meta property="og:image" content="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202308031257570.webp">
+<meta property="og:image" content="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202308031326922.webp">
+<meta property="og:image" content="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202308031336488.webp">
+<meta property="og:image" content="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202308031346455.webp">
+<meta property="og:image" content="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202308040925411.webp">
+<meta property="og:image" content="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202308040948792.webp">
+<meta property="og:image" content="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202308040950461.webp">
+<meta property="og:image" content="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202308040954824.webp">
+<meta property="og:image" content="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202308040959347.webp">
+<meta property="article:published_time" content="2023-07-31T12:21:47.000Z">
+<meta property="article:modified_time" content="2023-08-25T07:54:01.424Z">
 <meta property="article:author" content="Veni">
-<meta property="article:tag" content="Go">
-<meta property="article:tag" content="后端">
+<meta property="article:tag" content="git">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202308021410465.webp">
   
-    <link rel="alternative" href="/atom.xml" title="VenisBlog" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="VeniceBlog" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -138,87 +158,190 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-（完）Go语言常用命令" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Git-的正确使用姿势与最佳实践" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Go语言常用命令
+      Git 的正确使用姿势与最佳实践
     </h1>
   
 
         
-        <a href="/2023/07/30/%EF%BC%88%E5%AE%8C%EF%BC%89Go%E8%AF%AD%E8%A8%80%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="archive-article-date">
-  	<time datetime="2023-07-30T13:05:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-07-30</time>
+        <a href="/2023/07/31/Git-%E7%9A%84%E6%AD%A3%E7%A1%AE%E4%BD%BF%E7%94%A8%E5%A7%BF%E5%8A%BF%E4%B8%8E%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" class="archive-article-date">
+  	<time datetime="2023-07-31T12:21:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-07-31</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Go语言常用命令"><a href="#Go语言常用命令" class="headerlink" title=" Go语言常用命令"></a><center> Go语言常用命令</h1><p>Go语言自带有一整套完整的命令操作指令，可以在命令行中执行<code>go</code>查看所有指令<span id="more"></span>，比如</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\19481&gt;go</span><br><span class="line">Go is a tool <span class="keyword">for</span> managing Go <span class="built_in">source</span> code.</span><br><span class="line"></span><br><span class="line">Usage:</span><br><span class="line"></span><br><span class="line">        go &lt;<span class="built_in">command</span>&gt; [arguments]</span><br><span class="line"></span><br><span class="line">The commands are:</span><br><span class="line"></span><br><span class="line">        bug         start a bug report</span><br><span class="line">        build       compile packages and dependencies</span><br><span class="line">        clean       remove object files and cached files</span><br><span class="line">        doc         show documentation <span class="keyword">for</span> package or symbol</span><br><span class="line">        <span class="built_in">env</span>         <span class="built_in">print</span> Go environment information</span><br><span class="line">        fix         update packages to use new APIs</span><br><span class="line">        <span class="built_in">fmt</span>         gofmt (reformat) package sources</span><br><span class="line">        generate    generate Go files by processing <span class="built_in">source</span></span><br><span class="line">        get         add dependencies to current module and install them</span><br><span class="line">        install     compile and install packages and dependencies</span><br><span class="line">        list        list packages or modules</span><br><span class="line">        mod         module maintenance</span><br><span class="line">        work        workspace maintenance</span><br><span class="line">        run         compile and run Go program</span><br><span class="line">        <span class="built_in">test</span>        <span class="built_in">test</span> packages</span><br><span class="line">        tool        run specified go tool</span><br><span class="line">        version     <span class="built_in">print</span> Go version</span><br><span class="line">        vet         report likely mistakes <span class="keyword">in</span> packages</span><br></pre></td></tr></table></figure>
+        <h1 id="Git-的正确使用姿势与最佳实践"><a href="#Git-的正确使用姿势与最佳实践" class="headerlink" title=" Git 的正确使用姿势与最佳实践"></a><center> Git 的正确使用姿势与最佳实践</h1><p>先问一下屏幕前的你，是不是还在使用压缩包传代码？是不是还在重命名一个“_备份”文件来保存修改，又或者说，对git的使用只停留在IDE的GUI上。当然作为一个合格的大一新生，这些事情估计都是常态。那么话不多说，我们直接开始——Git的正确使用姿势和最佳实践。<span id="more"></span></p>
+<h2 id="什么是git"><a href="#什么是git" class="headerlink" title="什么是git"></a>什么是git</h2><p>先来看看百度百科的介绍：</p>
+<p>Git（读音为&#x2F;gɪt&#x2F;）是一个<strong>开源</strong>的<strong>分布式版本控制系统</strong>，可以有效、高速地处理从很小到非常大的项目版本管理。也是Linus Torvalds为了帮助管理Linux内核开发而开发的一个开放源码的版本控制软件。</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202308021410465.webp" alt="image-20230802141015329"></p>
+<p>简单点说，就是一套开源的版本控制系统。有了它，把代码改崩了也不害怕。</p>
+<h2 id="git下载安装"><a href="#git下载安装" class="headerlink" title="git下载安装"></a>git下载安装</h2><h3 id="windows操作系统"><a href="#windows操作系统" class="headerlink" title="windows操作系统"></a>windows操作系统</h3><p>打开<a target="_blank" rel="noopener" href="https://git-scm.com/">git官网</a>，找到右边的Download for Windows，进去之后选择对应的版本即可。下载之后打开下载器，一定安装git bash，一直点next，最后就安装完成了，当然也可以进行个性化安装。我的建议是一开始直接next到底即可，反正你自己也不知道哪个有没有用，等自己用熟悉了git之后，重装系统或者换电脑的时候你就信手拈来了。</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202308021513783.webp" alt="image-20230802151343476"></p>
+<h3 id="Linux操作系统（以Debian为例）"><a href="#Linux操作系统（以Debian为例）" class="headerlink" title="Linux操作系统（以Debian为例）"></a>Linux操作系统（以Debian为例）</h3><p>更新软件库：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br></pre></td></tr></table></figure>
 
-<p>这里只截取指令部分的展示结果，将选取其中最常用的几个指令，做一次系统的整理与回顾。</p>
-<h2 id="go-run"><a href="#go-run" class="headerlink" title="go run"></a>go run</h2><p>编译并运行go程序。使用<code>go run</code>命令运行Go程序时，编译的结果并不会被保存在磁盘上。而是将源代码编译为二进制文件，并直接在内存中执行。可以说，刷OJ最常用就是他了。</p>
-<h2 id="go-test"><a href="#go-test" class="headerlink" title="go test"></a>go test</h2><p>go test指令最常用于单元测试，使用方法如下：</p>
+<p>下载git：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install git</span><br></pre></td></tr></table></figure>
+
+<h3 id="检查是否安装成功"><a href="#检查是否安装成功" class="headerlink" title="检查是否安装成功"></a>检查是否安装成功</h3><p>在windows系统下，右键打开git bash，就是一个黑框框，输入指令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git --version</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202308021523361.webp" alt="image-20230802152339257"></p>
+<p>有出现版本号就代表安装成功。在Linux操作系统下同理：</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202308021525433.webp" alt="image-20230802152509361"></p>
+<h2 id="git配置"><a href="#git配置" class="headerlink" title="git配置"></a>git配置</h2><h3 id="个人信息配置"><a href="#个人信息配置" class="headerlink" title="个人信息配置"></a>个人信息配置</h3><p>在git安装完成之后，需要先进行一些基本的配置操作，个人信息配置主要包括用户名，账号邮箱，账号密码三部分。</p>
+<p>配置方法如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;Veni&quot;</span></span><br><span class="line"></span><br><span class="line">git config --global user.email <span class="string">&quot;123456789@qq.com&quot;</span></span><br><span class="line"></span><br><span class="line">git config --global user.password <span class="string">&quot;123456&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>把email和密码换成自己github注册的时候使用的邮箱和密码，这样做有两个原因：</p>
 <ul>
-<li>确保测试程序以_test.go结尾，这是Go语言的约定形式，别问为啥。</li>
-<li>在终端中使用以下命令运行测试：</li>
+<li>如果正确设置了账号密码，每次clone和pull自己的私有分支的时候就不用再输入一次，没设置好的话操作远程分支会很麻烦。</li>
+<li>设置好了邮箱，github上面的contributions才能正确统计，如果没设置，哪怕你干了活人家github也不知道是你干的，就不会帮你统计提交了。</li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">go test -run TestFunctionName</span><br></pre></td></tr></table></figure>
-
-<p>其中，<code>TestFunctionName</code>是你要运行的测试函数的名称。注意，测试函数的名称必须以<code>Test</code>开头，且函数签名必须符合以下形式：</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">TestFunctionName</span><span class="params">(t *testing.T)</span></span> &#123;</span><br><span class="line">    <span class="comment">// 测试逻辑</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<p>另外，设置用户名主要是为了仓库管理员可以清楚地看到每个人修改了什么，发生错误的时候可以正常回退，然后抓出来问一顿，bug说不定就解决了。</p>
+<h3 id="代理配置"><a href="#代理配置" class="headerlink" title="代理配置"></a>代理配置</h3><p>有些小朋友总是说github同步代码速度慢，这里有两种方法，一种是使用魔法（施法工具得自己找），另一种是使用国内的gitee。当使用魔法的时候，就需要对git的代理进行设置。</p>
 <ul>
-<li>运行测试后，你将在终端中看到测试结果的输出，包括通过的测试用例数量、失败的测试用例数量以及测试的覆盖率等信息。</li>
+<li>首先看看自己的代理ip和端口号，一般长这样：</li>
 </ul>
-<p>如不指定测试运行的程序，那么go test就会把当前目录下所有的_test.go程序都执行一遍。</p>
-<h2 id="go-build"><a href="#go-build" class="headerlink" title="go build"></a>go build</h2><p>这个命令用于测试编译，在包的编译过程中，若有需要，则会同时编译与之相关的包。下面用一个简单的程序测试一下，具体语法是：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">go build &lt;go源代码&gt;</span><br></pre></td></tr></table></figure>
-
-<p>比如：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">PS D:\Desktop\MyProjects\ByteTech&gt; go build Course1.go</span><br><span class="line">PS D:\Desktop\MyProjects\ByteTech&gt; ls</span><br><span class="line">    目录: D:\Desktop\MyProjects\ByteTech</span><br><span class="line">Mode                 LastWriteTime         Length Name</span><br><span class="line">----                 -------------         ------ ----</span><br><span class="line">d-----         2023/7/30     10:57                .idea</span><br><span class="line">-a----         2023/7/30     10:57        2159104 Course1.exe</span><br><span class="line">-a----         2023/7/25     22:25            528 Course1.go</span><br><span class="line">-a----         2023/7/25      9:50             25 go.mod</span><br></pre></td></tr></table></figure>
-
-<p>命令执行完成之后，会在原目录下生成一个同名的可执行文件，双击即可运行程序。这个过程就好像使用g++编译C++源代码。当然你也可以用<code>go build -o &lt;文件名&gt;</code>指定生成的文件类型和路径。如果<code>go build</code>之后不接任何参数，则该命令会默认编译当前目录下所有的go文件。</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202308030945337.webp" alt="image-20230803094551162"></p>
 <ul>
-<li><code>go build</code>会忽略目录下以’_’和’.’开头的文件。</li>
+<li>然后设置全局的http和https代理：</li>
 </ul>
-<h2 id="go-install"><a href="#go-install" class="headerlink" title="go install"></a>go install</h2><p><code>go install</code>命令做了两件事情，一件是把源代码编译成为结果文件（可执行文件或.a包），然后将其放到了<code>$GOPATH</code>里面的bin或pkg目录下。</p>
-<h2 id="go-clean"><a href="#go-clean" class="headerlink" title="go clean"></a>go clean</h2><p>这个命令用来清除当前源码包里面编译生成的一些文件，比如go build和go test生成的.exe文件等等。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">PS D:\Desktop\MyProjects\ByteTech&gt; go clean</span><br><span class="line">PS D:\Desktop\MyProjects\ByteTech&gt; ls</span><br><span class="line">    目录: D:\Desktop\MyProjects\ByteTech</span><br><span class="line">Mode                 LastWriteTime         Length Name</span><br><span class="line">----                 -------------         ------ ----</span><br><span class="line">d-----         2023/7/30     10:57                .idea</span><br><span class="line">-a----         2023/7/25     22:25            528 Course1.go</span><br><span class="line">-a----         2023/7/25      9:50             25 go.mod</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git config --global http.proxy http://127.0.0.1:7890</span><br><span class="line"></span><br><span class="line">git config --global https.proxy https://127.0.0.1:7890</span><br></pre></td></tr></table></figure>
 
-<p>可以看到，刚才生成的exe文件已经被清除掉了。这个命令可以用在远程仓库管理的时候，一般来说github上面只存代码，不存编译结果，所以可以先执行<code>go clean</code>之后在执行<code>git push</code>命令。要是我的话直接用<code>gitignore</code>比这个方便多了。</p>
-<h2 id="go-fmt"><a href="#go-fmt" class="headerlink" title="go fmt"></a>go fmt</h2><p>这个命令是用来格式化go语言代码的，一些格式错误可能会导致过不了编译，比如else要跟在上一个右大括号后面，左大括号必须跟在上一行的结尾等等。好在一般的IDE都会在保存的时候帮我们执行这条指令。要是使用vim或者记事本编辑的话可就得手动执行这条指令了。</p>
-<h2 id="go-get"><a href="#go-get" class="headerlink" title="go get"></a>go get</h2><p>这个命令是用来动态获取远程代码包或第三方依赖库的，支持了GitHub,BitBucket,Google Code等，使用的时候需要下载相对应的工具（比如git）。使用的方法如下：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">go get github.com/gin-gonic/gin</span><br></pre></td></tr></table></figure>
-
-<p>使用go get命令下载第三方依赖的时候，下载的依赖包会放置在$GOPATH&#x2F;src目录下。</p>
-<h2 id="go-env"><a href="#go-env" class="headerlink" title="go env"></a>go env</h2><h3 id="查看设置"><a href="#查看设置" class="headerlink" title="查看设置"></a>查看设置</h3><p><code>go env</code>用于设置和查看go语言的环境，其中直接执行<code>go env</code>可以查看当前机器的GOPATH，GOPROXY之类的设置，执行结果如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">PS D:\Desktop&gt; go env</span><br><span class="line">set GO111MODULE=on</span><br><span class="line">set GOARCH=amd64</span><br><span class="line">...</span><br><span class="line">set PKG_CONFIG=pkg-config</span><br><span class="line">set GOGCCFLAGS=-m64 -mthreads -Wl,--no-gc-sections -fmessage-length=0 -fdebug-prefix-map=C:\Users\19481\AppData\Local\Temp\go-build1674882432=/tmp/go-build -gno-record-gcc-switches</span><br></pre></td></tr></table></figure>
-
-<h3 id="go-env设置代理"><a href="#go-env设置代理" class="headerlink" title="go env设置代理"></a>go env设置代理</h3><p>大家使用<code>go get</code>下载包的时候，可能会遇到无法连接等情况，这时候可以把GOPROXY设置为国内的阿里云镜像：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">go env -w GO111MODULE=on</span><br><span class="line">go env -w GOPROXY=https://mirrors.aliyun.com/goproxy/,direct</span><br></pre></td></tr></table></figure>
-
-<p>其中<code>GO111MODULE</code>是一个用于控制Go模块支持的环境变量，待选值为：on, off, auto。</p>
+<p>把–global去掉之后就是只设置当前仓库的代理，原理是只修改当前仓库.git&#x2F;config文件里面的配置，而使用全局设置之后就是直接修改git安装目录下的.gitconfig文件。</p>
 <ul>
-<li>“off”：禁用Go模块支持。在这种模式下，Go将继续使用旧的GOPATH和vendor目录来管理依赖关系。</li>
-<li>“on”：启用Go模块支持。在这种模式下，Go将使用go.mod和go.sum文件来管理依赖关系，并将依赖项下载到模块缓存中。</li>
-<li>“auto”：根据当前工作目录下是否存在go.mod文件来决定是否启用Go模块支持。如果存在go.mod文件，则启用模块支持；否则，禁用模块支持。</li>
+<li>当你当前仓库使用了代理之后，那么你就必须一直开着魔法工具才能正常使用，否则会报错。</li>
 </ul>
-<p>另外一个GOPROXY后面的值是阿里云镜像的地址。-w是writable，表明该变量是可写的。</p>
-<h2 id="go-mod"><a href="#go-mod" class="headerlink" title="go mod"></a>go mod</h2><p>go mod是Go语言中对于第三方库和插件的依赖管理工具。使用go mod可以方便地管理Go语言的各种依赖，下面将展示如何使用go mod管理依赖。</p>
-<h3 id="go-mod-init"><a href="#go-mod-init" class="headerlink" title="go mod init"></a>go mod init</h3><p><code>go mod init</code>指令用于初始化go.mod文件，该指令会在工程根目录下创建一个go.mod文件，一个go.mod文件的常见结构如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">module GinusThaiBeauty</span><br><span class="line"></span><br><span class="line">go 1.20</span><br><span class="line"></span><br><span class="line">require (</span><br><span class="line">	//这里写你要下载的依赖</span><br><span class="line">	github.com/gin-gonic/gin v1.9.1</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<h3 id="查看配置"><a href="#查看配置" class="headerlink" title="查看配置"></a>查看配置</h3><p>想要看自己设置有没有打错，可以自行查看一下，命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global --list</span><br></pre></td></tr></table></figure>
 
+<p>出来的结果长这样：</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202308030954198.webp" alt="image-20230803095444121"></p>
+<p>如果检查完毕之后没什么问题，那就可以愉快地使用了。</p>
+<h2 id="git使用"><a href="#git使用" class="headerlink" title="git使用"></a>git使用</h2><p>这里用git的常用命令组织文章结构，这样写的好处是应用性较强。我推荐看看<a target="_blank" rel="noopener" href="https://www.liaoxuefeng.com/wiki/896043488029600">廖雪峰的git教程</a>，他使用一个仓库管理的实例和故事性的结构讲述git，我认为十分通俗易懂。</p>
+<h3 id="git-init"><a href="#git-init" class="headerlink" title="git init"></a>git init</h3><p>在项目的根目录下创建一个git仓库，git会对整个目录范围内的代码进行管理。比如，我在桌面创建一个example目录，然后打开目录，右键Open Git Bash here，输入指令<code>git init</code>即可初始化一个git仓库。初始化完成之后，可以打开.git隐藏文件夹，里面就有一些文件是记录当前仓库的信息的，比如config记录当前仓库设置，HEAD记录代码提交。</p>
+<p>这个文件里面的东西不需要自己写！！！</p>
+<p>这个文件里面的东西不需要自己写！！！</p>
+<p>这个文件里面的东西不需要自己写！！！</p>
+<p>重要的事情说三遍，不要自己修改把仓库玩坏了，一般来说是不用打开.git目录的。</p>
+<h3 id="git-add"><a href="#git-add" class="headerlink" title="git add"></a>git add</h3><p><code>git add</code>指令的作用是将文件或者目录添加到暂存区，包括新增的，删除的，修改的。这里以刚刚创建的example文件夹为例，我创建了一个hello_world.txt文件，里面写上hello world。然后保存退出。使用git add指令将其添加到暂存区：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br></pre></td></tr></table></figure>
 
+<p>.表示当前目录，它会自动把当前目录的所有文件及其子目录里面的文件都加入暂存区，执行结果如下：</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202308031017260.webp" alt="image-20230803101729190"></p>
+<p>是的，你没有看错，它什么也没有发生。</p>
+<h3 id="git-commit"><a href="#git-commit" class="headerlink" title="git commit"></a>git commit</h3><p>刚才使用的<code>git add</code>指令只是将其添加到git暂存区，而不是提交修改到仓库。也就是说，你自己<code>git add</code>多少次都没有影响仓库里面的东西，那么要提交的话就需要使用<code>git commit</code>指令。</p>
+<p><code>git commit</code>指令将缓存区提交到了仓库，仓库会为当前修改创建一个节点，每一次的commit都是仓库版本回退的节点，那些add但是没有commit的修改是不能回退的。使用方法：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m<span class="string">&quot;hello world&quot;</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="go-mod-download"><a href="#go-mod-download" class="headerlink" title="go mod download"></a>go mod download</h3><p>使用<code>go mod download</code>命令的时候，依赖库会被下载到全局的Go Modules缓存中，而非项目的GOPATH。在项目配置中必须要勾选<code>Index entire GOPATH</code>才会扫描全局Go Modules。</p>
-<h3 id="go-mod-vendor"><a href="#go-mod-vendor" class="headerlink" title="go mod vendor"></a>go mod vendor</h3><p>在1.11版本之前，Go语言的主要依赖管理工具是go vendor。Golang 1.11之后，由于引入了Module功能，在运行go build时，优先引用的是Module依赖包的逻辑，所以Vendor目录就被“无视”了，进而可能发生编译错误， moudle 说还是很想他，于是提供了 go mod vendor命令用来生成 vendor目录。</p>
-<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>其他的指令使用频率相对较低，比如<code>go doc</code>（官方文档），<code>go version</code>（版本号），需要的时候运行一下<code>go help &lt;指令&gt;</code>即可。</p>
+<p>-m后面的双引号就是本次提交的消息，一般用来记录修改了什么，执行结果如下：</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202308031025317.webp" alt="image-20230803102546243"></p>
+<p>接下来我们修改一下hello_world.txt里面的内容，再提交一次，修改的内容为：</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hello world!</span><br><span class="line">hello git!</span><br></pre></td></tr></table></figure>
+
+<p>然后执行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m<span class="string">&quot;hello git&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>结果如下：</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202308031029096.webp" alt="image-20230803102954025"></p>
+<p>那么接下来我们看一下自己的这两次修改：打开.git&#x2F;log&#x2F;HEAD，里面有我们的修改记录：</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202308031031132.webp" alt="image-20230803103148007"></p>
+<p>当然这些东西直接使用<code>git log</code>指令也可以直接看到：</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202308031247530.webp" alt="image-20230803124739397"></p>
+<p>commit后面的十六进制数字串就是版本号，后面是修改人的名字和邮箱，修改日期以及修改评语等。后面可以根据这个版本号直接回退到彼时的仓库状态。</p>
+<h3 id="git-reset"><a href="#git-reset" class="headerlink" title="git reset"></a>git reset</h3><p>如果再某一次的修改中，代码直接崩掉无法运作了，就可以使用<code>git reset</code>指令，坐上时光机回到过去。</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202308031257570.webp" alt="image-20230803125719486"></p>
+<p>使用的时候它也会提醒你”Unstaged changes after reset:”，这个时候是仓库工作区（也就是代码内容）并没有回退成功的，只是撤销了最后一次提交，并且将HEAD指针移动到上一次更改，这个时候你可以加上<code>--hard</code>指令强制整个仓库（包括工作区）回退到指定的版本号。但是有一点需要注意，这个时光机是不能带着未来的东西回去的。也就是说，你后面写的代码都会被丢失，使用reset –hard指令之后，整个仓库都会回到过去的一个commit的状态。你可以打开文件看看是不是回去了。</p>
+<p>此外，如果只是要回退一个版本号，那么不需要查版本号，只需要：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard HEAD^</span><br></pre></td></tr></table></figure>
+
+<p>HEAD^代替了上一个版本号。</p>
+<h3 id="git-push"><a href="#git-push" class="headerlink" title="git push"></a>git push</h3><p>上面讲的都是在本地仓库使用Git的操作，接下来我们来用一下远程仓库，这里以Github为例。</p>
+<ul>
+<li>首先，新建一个空仓库，建完之后长这样：</li>
+</ul>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202308031326922.webp" alt="image-20230803132631654"></p>
+<p>如果使用了模板创建的话，仓库在创建之初就会有一些文件，比如README.md，.gitignore等等。</p>
+<ul>
+<li>将本地仓库与远程仓库进行关联：</li>
+</ul>
+<p>每一个仓库都会有一个个人地址，将地址copy下来之后，在控制台输入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin https://github.com/Veni222987/example.git</span><br></pre></td></tr></table></figure>
+
+<p>然后使用<code>git remote</code>指令可以查看所有远程仓库。</p>
+<ul>
+<li>将本地仓库上面的东西上传到远程仓库：</li>
+</ul>
+<p>使用<code>git push</code>指令可以将本地仓库上面的东西推送到远程仓库中，比如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin main</span><br></pre></td></tr></table></figure>
+
+<p>执行结果长这样：</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202308031336488.webp" alt="image-20230803133602402"></p>
+<p>之后到github上面就可以看到东西已经提交上去了。</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202308031346455.webp" alt="image-20230803134614334"></p>
+<p>细心的朋友可能会发现，这次提交的东西怎么是hello world呢？后来不是写了个hello git吗？这是因为，我们在上一步的时候把版本回退到了第一个版本，也就是整个仓库都是第一次提交的状态，那么push上去自然也就是那个时候的状态了。</p>
+<h3 id="git-pull"><a href="#git-pull" class="headerlink" title="git pull"></a>git pull</h3><p><code>git pull</code>指令用于把远程仓库上的代码拉取到本地仓库，执行pull指令需要注意：</p>
+<ul>
+<li><code>git pull</code>指令相当于<code>git fetch</code>和<code>git merge</code>指令，会把远程分支和本地分支进行合并，如果远程分支包含本地分支的修改，即远程分支比本地分支先进，就会更新本地分支。</li>
+</ul>
+<p>首先，在txt文件中加一行hello remote1，然后commit的消息为”add remote1”，再在txt文件中加一行hello remote2，然后commit消息”add remote2”，此时的文件应该是：</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hello world</span><br><span class="line">hello remote1</span><br><span class="line">hello remote2</span><br></pre></td></tr></table></figure>
+
+<p>将add remote2的commit推送给到远程仓库：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin main</span><br></pre></td></tr></table></figure>
+
+<p>然后版本回退到remote1：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard HEAD^</span><br></pre></td></tr></table></figure>
+
+<p>此时仓库的状态是远程分支领先当前分支一个commit，使用pull可以将远程仓库的更新拉下来并且自动更新本地工作区：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull origin main</span><br></pre></td></tr></table></figure>
+
+<p>下图展示了一个单分支模型的pull过程：</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202308040925411.webp" alt="image-20230804092501173"></p>
+<ul>
+<li>当远程仓库和本地仓库处在两个不同的分支时，在merge的时候就可能会出现冲突：</li>
+</ul>
+<p>在刚才的修改基础上，我们再退回去：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard HEAD^</span><br></pre></td></tr></table></figure>
+
+<p>然后添加一行：hello remote3，即文件变成了：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hello world</span><br><span class="line">hello remote1</span><br><span class="line">hello remote3</span><br></pre></td></tr></table></figure>
+
+<p>commit当前修改:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m<span class="string">&quot;add remote3&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>这个时候，本地分支比远程分支领先1个commit，落后1个commit，而且修改的是同一个文件的同一行，会引发合并冲突：</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202308040948792.webp" alt="image-20230804094839690"></p>
+<p>此时需要我们手动合并冲突。出现合并冲突窗口后，不要急着关闭bash窗口，查看所有的CONFICT所在的文件，打开之后找到带有分隔符（&lt;&lt;&lt;，&#x3D;&#x3D;&#x3D;以及&gt;&gt;&gt;）的代码段或文本段：</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202308040950461.webp" alt="image-20230804095051321"></p>
+<p>选择一种方案保留，（推荐使用vscode打开，可以一键选择），我这里选择了保留当前更改，然后回到git bash，此时的仓库处于MERGING状态，需要手动修改完所有冲突文件之后再commit一次才能退出该状态，然后将此修改推送到远程仓库，此时两个仓库又处于同步状态了。</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202308040954824.webp" alt="image-20230804095453725"></p>
+<p>本次合并的示意图如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 合并分支示意图</span><br><span class="line">---</span><br><span class="line">gitGraph</span><br><span class="line">   commit id: &quot;init&quot;</span><br><span class="line">   commit id: &quot;add remote1&quot;</span><br><span class="line"></span><br><span class="line">   branch origin_main</span><br><span class="line">   checkout origin_main</span><br><span class="line">   commit id: &quot;add remote2&quot;</span><br><span class="line">   checkout main</span><br><span class="line"></span><br><span class="line">   commit id: &quot;add remote3&quot;</span><br><span class="line">   merge origin_main</span><br><span class="line">   commit id: &quot;merge confict&quot;</span><br></pre></td></tr></table></figure>
+
+<p>如果将本地分支push到远程分支，则会将远程分支的HEAD指针指向merge conflict：</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202308040959347.webp" alt="image-20230804095928183"></p>
+<h3 id="git-checkout"><a href="#git-checkout" class="headerlink" title="git checkout"></a>git checkout</h3><p>git checkout用于切换仓库的工作状态，比如切换到指定分支或指定提交。常见的用法如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout &lt;branch_name&gt;</span><br></pre></td></tr></table></figure>
+
+<p>上述指令用于切换到指定分支。一般来说，在实际开发中，一个仓库会有不同的分支，不同的人管理不同的分支。使用<code>git chekout -b &lt;branch_name&gt;</code>可以以当前分支为基础创建并切换到新的分支；使用<code>git branch -a</code>显示所有分支。</p>
+<p>当在不同分支工作的时候，可以相互合并分支的代码，比如本地main分支合并远程dev分支（默认为origin&#x2F;dev），则可以在main分支下使用以下指令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull origin dev</span><br></pre></td></tr></table></figure>
+
+<p>前面我们说过，<code>git pull</code>相当于<code>git fetch+git merge</code>，<code>git fetch</code>指令就是将远程分支中的内容取到本地，而git merge则用于合并。一般情况下，git会使用自带的合并策略自动完成合并，出现冲突则需要手动处理并重新提交。</p>
+<p>如果是本地分支合并另一个分支的代码，则无需使用pull指令，而是直接使用<code>git merge</code>。比如主分支合并本地dev分支，在main分支下执行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git merge dev</span><br></pre></td></tr></table></figure>
+
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>git还有其他的用法，比如<code>git checkout</code>，<code>git merge</code>等等，实际上掌握了上面的常用指令之后就可以满足日常的合作开发需求了。学习git的最佳实践就是反复练习使用上面的指令，最终能够达到还没执行指令就知道会发生什么的境界，那就代表自己是真的理解了。</p>
 
       
 
@@ -253,11 +376,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Go</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">后端</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
         		</li>
       		
 		</ul>
@@ -313,7 +432,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://veni222987.github.io/2023/07/30/%EF%BC%88%E5%AE%8C%EF%BC%89Go%E8%AF%AD%E8%A8%80%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://veni222987.github.io/2023/07/31/Git-%E7%9A%84%E6%AD%A3%E7%A1%AE%E4%BD%BF%E7%94%A8%E5%A7%BF%E5%8A%BF%E4%B8%8E%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -327,15 +446,20 @@
   
 <nav id="article-nav">
   
-    <a href="/2023/07/31/%EF%BC%88%E5%AE%8C%EF%BC%89Git-%E7%9A%84%E6%AD%A3%E7%A1%AE%E4%BD%BF%E7%94%A8%E5%A7%BF%E5%8A%BF%E4%B8%8E%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2023/08/02/Go%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Git 的正确使用姿势与最佳实践
+          Go语言基础语法
         
       </div>
     </a>
   
+  
+    <a href="/2023/07/30/Go%E8%AF%AD%E8%A8%80%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Go语言常用命令</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
@@ -360,7 +484,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Go%E8%AF%AD%E8%A8%80%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-number">1.</span> <span class="toc-text"> Go语言常用命令</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#go-run"><span class="toc-number">1.1.</span> <span class="toc-text">go run</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#go-test"><span class="toc-number">1.2.</span> <span class="toc-text">go test</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#go-build"><span class="toc-number">1.3.</span> <span class="toc-text">go build</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#go-install"><span class="toc-number">1.4.</span> <span class="toc-text">go install</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#go-clean"><span class="toc-number">1.5.</span> <span class="toc-text">go clean</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#go-fmt"><span class="toc-number">1.6.</span> <span class="toc-text">go fmt</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#go-get"><span class="toc-number">1.7.</span> <span class="toc-text">go get</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#go-env"><span class="toc-number">1.8.</span> <span class="toc-text">go env</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E8%AE%BE%E7%BD%AE"><span class="toc-number">1.8.1.</span> <span class="toc-text">查看设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#go-env%E8%AE%BE%E7%BD%AE%E4%BB%A3%E7%90%86"><span class="toc-number">1.8.2.</span> <span class="toc-text">go env设置代理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#go-mod"><span class="toc-number">1.9.</span> <span class="toc-text">go mod</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#go-mod-init"><span class="toc-number">1.9.1.</span> <span class="toc-text">go mod init</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#go-mod-download"><span class="toc-number">1.9.2.</span> <span class="toc-text">go mod download</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#go-mod-vendor"><span class="toc-number">1.9.3.</span> <span class="toc-text">go mod vendor</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B6%E4%BB%96"><span class="toc-number">1.10.</span> <span class="toc-text">其他</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Git-%E7%9A%84%E6%AD%A3%E7%A1%AE%E4%BD%BF%E7%94%A8%E5%A7%BF%E5%8A%BF%E4%B8%8E%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5"><span class="toc-number">1.</span> <span class="toc-text"> Git 的正确使用姿势与最佳实践</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFgit"><span class="toc-number">1.1.</span> <span class="toc-text">什么是git</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85"><span class="toc-number">1.2.</span> <span class="toc-text">git下载安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#windows%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.2.1.</span> <span class="toc-text">windows操作系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%EF%BC%88%E4%BB%A5Debian%E4%B8%BA%E4%BE%8B%EF%BC%89"><span class="toc-number">1.2.2.</span> <span class="toc-text">Linux操作系统（以Debian为例）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A3%80%E6%9F%A5%E6%98%AF%E5%90%A6%E5%AE%89%E8%A3%85%E6%88%90%E5%8A%9F"><span class="toc-number">1.2.3.</span> <span class="toc-text">检查是否安装成功</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git%E9%85%8D%E7%BD%AE"><span class="toc-number">1.3.</span> <span class="toc-text">git配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%AA%E4%BA%BA%E4%BF%A1%E6%81%AF%E9%85%8D%E7%BD%AE"><span class="toc-number">1.3.1.</span> <span class="toc-text">个人信息配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%90%86%E9%85%8D%E7%BD%AE"><span class="toc-number">1.3.2.</span> <span class="toc-text">代理配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E9%85%8D%E7%BD%AE"><span class="toc-number">1.3.3.</span> <span class="toc-text">查看配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git%E4%BD%BF%E7%94%A8"><span class="toc-number">1.4.</span> <span class="toc-text">git使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#git-init"><span class="toc-number">1.4.1.</span> <span class="toc-text">git init</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git-add"><span class="toc-number">1.4.2.</span> <span class="toc-text">git add</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git-commit"><span class="toc-number">1.4.3.</span> <span class="toc-text">git commit</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git-reset"><span class="toc-number">1.4.4.</span> <span class="toc-text">git reset</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git-push"><span class="toc-number">1.4.5.</span> <span class="toc-text">git push</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git-pull"><span class="toc-number">1.4.6.</span> <span class="toc-text">git pull</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git-checkout"><span class="toc-number">1.4.7.</span> <span class="toc-text">git checkout</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">1.5.</span> <span class="toc-text">总结</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -493,7 +617,7 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Go</a>
+                <a href="javascript:void(0)" class="js-tag color3">后端</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -501,19 +625,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">go</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">后端</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">go</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">GORM</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Go</a>
               </li>
              
               <li class="article-tag-list-item">

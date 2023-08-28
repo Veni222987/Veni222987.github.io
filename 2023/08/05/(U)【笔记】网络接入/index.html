@@ -6,23 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://Veni222987.github.io">
-  <title>架构初探与微服务架构 | VenisBlog</title>
+  <title>【学习笔记】网络接入 | VeniceBlog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="架构初探架构（特指软件架构），是有关软件整体结构与组件的抽象描述，用于指导软件系统的各个方面的设计。">
+  <meta name="description" content="网络接入一台服务器要想给前端提供服务，就不可避免地需要利用计算机网络。So，本文主要讲讲网络接入那些事儿。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="架构初探与微服务架构">
-<meta property="og:url" content="https://veni222987.github.io/2023/08/20/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84/index.html">
-<meta property="og:site_name" content="VenisBlog">
-<meta property="og:description" content="架构初探架构（特指软件架构），是有关软件整体结构与组件的抽象描述，用于指导软件系统的各个方面的设计。">
+<meta property="og:title" content="【学习笔记】网络接入">
+<meta property="og:url" content="https://veni222987.github.io/2023/08/05/(U)%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91%E7%BD%91%E7%BB%9C%E6%8E%A5%E5%85%A5/index.html">
+<meta property="og:site_name" content="VeniceBlog">
+<meta property="og:description" content="网络接入一台服务器要想给前端提供服务，就不可避免地需要利用计算机网络。So，本文主要讲讲网络接入那些事儿。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202308201023273.webp">
-<meta property="article:published_time" content="2023-08-20T02:12:20.000Z">
-<meta property="article:modified_time" content="2023-08-22T06:53:13.144Z">
+<meta property="article:published_time" content="2023-08-05T06:35:54.000Z">
+<meta property="article:modified_time" content="2023-08-17T11:30:38.325Z">
 <meta property="article:author" content="Veni">
+<meta property="article:tag" content="后端">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="计算机网络">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202308201023273.webp">
   
-    <link rel="alternative" href="/atom.xml" title="VenisBlog" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="VeniceBlog" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -138,109 +139,58 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-微服务架构" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-(U)【笔记】网络接入" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      架构初探与微服务架构
+      【学习笔记】网络接入
     </h1>
   
 
         
-        <a href="/2023/08/20/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84/" class="archive-article-date">
-  	<time datetime="2023-08-20T02:12:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-08-20</time>
+        <a href="/2023/08/05/(U)%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91%E7%BD%91%E7%BB%9C%E6%8E%A5%E5%85%A5/" class="archive-article-date">
+  	<time datetime="2023-08-05T06:35:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-08-05</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="架构初探"><a href="#架构初探" class="headerlink" title=" 架构初探"></a><center> 架构初探</h1><p>架构（特指软件架构），是有关软件整体结构与组件的抽象描述，用于指导软件系统的各个方面的设计。<span id="more"></span></p>
-<h2 id="架构历史"><a href="#架构历史" class="headerlink" title="架构历史"></a>架构历史</h2><ul>
-<li>单体架构——功能写在同一个文件里</li>
-<li>垂直应用架构——分成不同的功能的单体架构</li>
-<li>分布式架构——抽出与业务无关的公共模块</li>
-<li>SOA架构——面向服务的架构</li>
-<li>微服务架构——彻底服务化</li>
+        <h1 id="网络接入"><a href="#网络接入" class="headerlink" title="网络接入"></a><center>网络接入</h1><p>一台服务器要想给前端提供服务，就不可避免地需要利用计算机网络。So，本文主要讲讲网络接入那些事儿。<span id="more"></span></p>
+<h2 id="域名系统"><a href="#域名系统" class="headerlink" title="域名系统"></a>域名系统</h2><h3 id="Host管理"><a href="#Host管理" class="headerlink" title="Host管理"></a>Host管理</h3><p>M公司有许多个网站，对应着不同的ip和域名。保存在一个文件中，每次都人工同步该文件夹。效果差。</p>
+<h3 id="使用域名系统"><a href="#使用域名系统" class="headerlink" title="使用域名系统"></a>使用域名系统</h3><ul>
+<li>域名空间：分为四个等级：顶级域名，二级域名，三级域名，四级域名。</li>
 </ul>
-<h2 id="架构的垂直切分与水平切分"><a href="#架构的垂直切分与水平切分" class="headerlink" title="架构的垂直切分与水平切分"></a>架构的垂直切分与水平切分</h2><ul>
-<li>水平切分——把流量分配到功能相同的服务器上</li>
+<h3 id="域名购买与配置迁移"><a href="#域名购买与配置迁移" class="headerlink" title="域名购买与配置迁移"></a>域名购买与配置迁移</h3><p>域名购买可以直接到云服务厂商查询并购买。</p>
+<h2 id="自建DNS服务器"><a href="#自建DNS服务器" class="headerlink" title="自建DNS服务器"></a>自建DNS服务器</h2><h3 id="问题背景"><a href="#问题背景" class="headerlink" title="问题背景"></a>问题背景</h3><ul>
+<li>内网域名解析也需要到公网去获取，效率低下</li>
+<li>外部用户能看到内网地址，容易被攻击</li>
 </ul>
-<p>水平切分指的是将系统的工作负载分散到多个相同或相似的实例上。也就是说，将整个系统复制多次，并让每个实例处理不同的请求。例如，在Web应用程序中，可以通过增加Web服务器的数量来实现水平切分。每个Web服务器处理一部分用户请求，从而提高整体系统的吞吐量。</p>
-<ul>
-<li>垂直切分——把请求分配到不同功能的服务器上</li>
+<h3 id="DNS查询过程"><a href="#DNS查询过程" class="headerlink" title="DNS查询过程"></a>DNS查询过程</h3><h3 id="DNS记录类型"><a href="#DNS记录类型" class="headerlink" title="DNS记录类型"></a>DNS记录类型</h3><ul>
+<li>A&#x2F;AAAA：IP指向记录，用于指向IP，前者为ipv4，后者为ipv6。</li>
+<li>CNAME：别名记录，相当于把一个域名解析到另外一个域名，比如github网站解析。</li>
+<li>TXT：文本记录，购买证书时需要</li>
+<li>其他：MX，NS，SOA等等</li>
 </ul>
-<p>垂直切分指的是将系统的工作负载分散到不同的功能单元或层次上。也就是说，将系统的各个组件拆分为不同的服务或模块，每个模块负责不同的功能。例如，在一个复杂的应用程序中，可以将数据库、业务逻辑和用户界面分别部署在不同的服务器上，从而实现垂直切分。</p>
-<h2 id="架构实例"><a href="#架构实例" class="headerlink" title="架构实例"></a>架构实例</h2><h3 id="云计算"><a href="#云计算" class="headerlink" title="云计算"></a>云计算</h3><p>云计算是指通过软件自动化管理，提供计算资源的服务网络，是现代互联网大规模分析和存储的基石。</p>
-<ul>
-<li><p><code>IaaS(Infrastructure as a Service)</code>：提供了基础设施层面的资源，如虚拟机、存储、网络等。用户可以在这些基础设施上构建和管理自己的应用程序、操作系统和中间件。</p>
-</li>
-<li><p><code>PaaS(Platform as a Service)</code>：提供了应用程序开发和部署所需的平台和工具。用户可以通过 PaaS 提供的平台来开发、测试、部署和管理应用程序，而无需关注底层的基础设施。</p>
-</li>
-<li><p><code>SaaS(Software as a Service)</code>：提供了基于云的软件应用程序。用户可以通过互联网访问和使用这些应用程序，而无需安装、维护或更新软件。</p>
-</li>
-<li><p><code>FaaS(Function as a Service)</code>：允许开发人员在云中部署单个函数或代码块作为服务，这些函数在需要时会自动触发执行，无需关心底层的服务器或基础设施。</p>
-</li>
-<li><p><code>MaaS(Model as a Service)</code>：通常用于指代将机器学习和数据分析模型作为服务提供的模式。这种模型服务可以为开发人员和企业提供可用的预训练模型，以便于数据分析、预测和决策。</p>
-</li>
+<h3 id="常见的开源DNS：bind-nsd-knot-coredns"><a href="#常见的开源DNS：bind-nsd-knot-coredns" class="headerlink" title="常见的开源DNS：bind,nsd,knot,coredns"></a>常见的开源DNS：bind,nsd,knot,coredns</h3><h2 id="接入https协议"><a href="#接入https协议" class="headerlink" title="接入https协议"></a>接入https协议</h2><h3 id="问题背景-1"><a href="#问题背景-1" class="headerlink" title="问题背景"></a>问题背景</h3><ul>
+<li>出现白页面</li>
+<li>返回403</li>
+<li>搜索不了东西</li>
+<li>搜索问题夹带私货，页面多次刷新</li>
 </ul>
-<h3 id="云原生"><a href="#云原生" class="headerlink" title="云原生"></a>云原生</h3><p>云原生（Cloud-Native）是一种软件开发和部署的方法论，旨在充分利用云计算的优势，构建高度可扩展、可靠、弹性和可管理的应用程序。云原生应用程序设计考虑了云环境的动态性和复杂性，采用一系列的最佳实践和模式，以最大程度地发挥云基础设施的能力。</p>
-<p>云原生包括以下几个层面的特征：</p>
-<ul>
-<li><p>弹性计算资源、弹性存储资源：云原生应用程序能够根据负载的变化自动扩展或缩减资源。这种弹性可以保障应用程序在高负载或峰值时仍然保持高性能。</p>
-</li>
-<li><p>DevOps：云原生时代软件的交付利器，贯穿整个软件的开发周期，结合自动化流程，提高软件开发和交付效率。</p>
-</li>
-<li><p>微服务架构：应用程序被拆分为一组小型、松耦合的微服务，每个微服务负责特定的功能。这样可以提高开发、测试和部署的灵活性，也更容易实现扩展和维护。</p>
-</li>
-<li><p>声明性API：应用程序的配置和管理应尽量使用声明性的方式，以减少手动操作和配置错误。</p>
-</li>
+<p>原因都是http协议是明文传输，容易被抓取，修改请求内容和相应内容，并通过刷新掩盖。</p>
+<h3 id="加密算法"><a href="#加密算法" class="headerlink" title="加密算法"></a>加密算法</h3><h3 id="SSL通信过程"><a href="#SSL通信过程" class="headerlink" title="SSL通信过程"></a>SSL通信过程</h3><h3 id="证书链"><a href="#证书链" class="headerlink" title="证书链"></a>证书链</h3><h3 id="静态加速CDN"><a href="#静态加速CDN" class="headerlink" title="静态加速CDN"></a>静态加速CDN</h3><p>缓存，加速访问</p>
+<h2 id="负载均衡"><a href="#负载均衡" class="headerlink" title="负载均衡"></a>负载均衡</h2><h3 id="四层负载均衡概念"><a href="#四层负载均衡概念" class="headerlink" title="四层负载均衡概念"></a>四层负载均衡概念</h3><p>四层负载均衡，就是基于IP+端口，利用某种算法将报文转发给某个后端服务器，实现负载均衡地落到后端服务器上。</p>
+<h3 id="常见实现方式-FULLNAT"><a href="#常见实现方式-FULLNAT" class="headerlink" title="常见实现方式 FULLNAT"></a>常见实现方式 FULLNAT</h3><h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><ul>
+<li>大部分都是通过dpdk技术实现</li>
+<li>纯用户态协议栈，kernel bypass，消除协议栈瓶颈</li>
+<li>无缓存，零拷贝，大页内存</li>
+<li>仅对四层数据包转发，小包转发可达到限速，可承受高cps</li>
 </ul>
-<h1 id="微服务架构"><a href="#微服务架构" class="headerlink" title=" 微服务架构"></a><center> 微服务架构</h1><p>微服务架构是一种软件设计和开发方法，它将应用程序拆分成一组小型、独立的服务。这些服务可以独立开发、部署和扩展，从而提高开发效率、灵活性和可维护性。微服务架构的核心思想是将复杂的单块应用拆分成更小、更可管理的部分，每个部分都可以独立开发和维护。</p>
-<h2 id="微服务架构基础"><a href="#微服务架构基础" class="headerlink" title="微服务架构基础"></a>微服务架构基础</h2><h3 id="微服务架构图"><a href="#微服务架构图" class="headerlink" title="微服务架构图"></a>微服务架构图</h3><p>如下：</p>
-<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202308201023273.webp" alt="image-20230820102312905"></p>
-<h3 id="微服务的基本概念"><a href="#微服务的基本概念" class="headerlink" title="微服务的基本概念"></a>微服务的基本概念</h3><ul>
-<li><p>服务：一组具有相同逻辑的运行实体</p>
-</li>
-<li><p>实例：一个服务中，每一个运行的实体即为一个实例</p>
-</li>
-<li><p>集群：通常指服务内部的逻辑划分，包含多个实例</p>
-</li>
-<li><p>常见的实例承载形式：进程，VM，k8s pod</p>
-</li>
-<li><p>有状态和无状态的服务：取决于是否有持久化的设备</p>
-</li>
-<li><p>服务间通信：</p>
-</li>
-</ul>
-<p>对于单体服务，不同模块的通信只是简单的函数调用。</p>
-<p>对于微服务，服务间通信意味着网络传输。</p>
-<h3 id="微服务核心要素"><a href="#微服务核心要素" class="headerlink" title="微服务核心要素"></a>微服务核心要素</h3><ul>
-<li>服务治理：</li>
-<li>可观测性：</li>
-<li>安全：</li>
-</ul>
-<h3 id="微服务实现"><a href="#微服务实现" class="headerlink" title="微服务实现"></a>微服务实现</h3><h4 id="服务注册与发现"><a href="#服务注册与发现" class="headerlink" title="服务注册与发现"></a>服务注册与发现</h4><p>在代码层面如何调用一个目标服务的地址？新增一个统一的<strong>服务注册中心</strong>，用于存储服务名到服务实例的映射。即直接通过名字调用某个特定的服务。</p>
-<h4 id="服务的上线与下线"><a href="#服务的上线与下线" class="headerlink" title="服务的上线与下线"></a>服务的上线与下线</h4><p>既要修改自身，又要修改服务注册中心。</p>
-<h4 id="流量特征"><a href="#流量特征" class="headerlink" title="流量特征"></a>流量特征</h4><p>统一的网关入口，内网通信多采用RPC，网状调用链路。</p>
-<h3 id="核心服务治理"><a href="#核心服务治理" class="headerlink" title="核心服务治理"></a>核心服务治理</h3><h4 id="服务发布"><a href="#服务发布" class="headerlink" title="服务发布"></a>服务发布</h4><p>即让一个服务运行新的代码的过程，比如代码的更新和重新上线的过程。</p>
-<h5 id="服务发布的难点"><a href="#服务发布的难点" class="headerlink" title="服务发布的难点"></a>服务发布的难点</h5><ul>
-<li>服务不可用——短暂时间不可用，比如停服更新。</li>
-<li>服务抖动——流量不稳定或丢失，比如打游戏打到一半卡了说升级成功。</li>
-<li>服务回滚——之前的代码没问题，新代码有bug，回滚就会调回上一个版本的服务，类似git reset。</li>
-</ul>
-<h5 id="服务发布方法"><a href="#服务发布方法" class="headerlink" title="服务发布方法"></a>服务发布方法</h5><ul>
-<li>蓝绿部署：有两个集群：蓝集群和绿集群部署，优点是简单稳定，缺点是需要两倍的资源。</li>
-<li>金丝雀发布：矿工下矿之前放一只金丝雀检测是否有危险。逐个上线服务，没问题再放下一个服务。</li>
-</ul>
-<h4 id="流量治理"><a href="#流量治理" class="headerlink" title="流量治理"></a>流量治理</h4><p>在微服务架构下，我们可以基于地区，集群，实例，请求等维度，对端到端的流量路由进行精确控制。</p>
-<h4 id="负载均衡（Load-Balance）"><a href="#负载均衡（Load-Balance）" class="headerlink" title="负载均衡（Load Balance）"></a>负载均衡（Load Balance）</h4><p>LB概念</p>
-<p>LB策略</p>
-<h4 id="稳定性治理"><a href="#稳定性治理" class="headerlink" title="稳定性治理"></a>稳定性治理</h4><p>线上服务总会出问题，这与程序的正确性无关。比如网络攻击，机房停电，机器故障等等。微服务架构中稳定性治理的方法：限流、熔断、过载保护、降级。</p>
-
+<h3 id="七层负载均衡"><a href="#七层负载均衡" class="headerlink" title="七层负载均衡"></a>七层负载均衡</h3><h2 id="网络接入实践"><a href="#网络接入实践" class="headerlink" title="网络接入实践"></a>网络接入实践</h2><h3 id="DNS服务器搭建"><a href="#DNS服务器搭建" class="headerlink" title="DNS服务器搭建"></a>DNS服务器搭建</h3><h3 id="负载均衡实验：Nginx"><a href="#负载均衡实验：Nginx" class="headerlink" title="负载均衡实验：Nginx"></a>负载均衡实验：Nginx</h3><h3 id="SSL自签证书实验"><a href="#SSL自签证书实验" class="headerlink" title="SSL自签证书实验"></a>SSL自签证书实验</h3><h3 id="如何将本地服务开放外网访问"><a href="#如何将本地服务开放外网访问" class="headerlink" title="如何将本地服务开放外网访问"></a>如何将本地服务开放外网访问</h3>
       
 
       
@@ -269,6 +219,25 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">后端</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机网络</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -319,7 +288,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://veni222987.github.io/2023/08/20/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://veni222987.github.io/2023/08/05/(U)%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91%E7%BD%91%E7%BB%9C%E6%8E%A5%E5%85%A5/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -333,18 +302,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2023/08/29/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E7%9A%84%E5%8E%9F%E7%90%86%E4%B8%8E%E5%AE%9E%E8%B7%B5/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2023/08/05/Gin%E6%A1%86%E6%9E%B6%E5%85%A5%E9%97%A8%E7%BA%A7%E6%95%99%E7%A8%8B%E4%B8%8E%E5%AE%9E%E8%B7%B5/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          消息队列的原理与实践
+          Gin框架入门级教程与实践
         
       </div>
     </a>
   
   
-    <a href="/2023/08/10/%EF%BC%88%E5%AE%8C%EF%BC%89GORM%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%E4%B8%8E%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">GORM入门教程与最佳实践</div>
+    <a href="/2023/08/02/Redis%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%E2%80%94%E2%80%94%E4%BF%9D%E5%A7%86%E7%BA%A7/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Redis入门教程——保姆级</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -371,7 +340,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9E%B6%E6%9E%84%E5%88%9D%E6%8E%A2"><span class="toc-number">1.</span> <span class="toc-text"> 架构初探</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9E%B6%E6%9E%84%E5%8E%86%E5%8F%B2"><span class="toc-number">1.1.</span> <span class="toc-text">架构历史</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9E%B6%E6%9E%84%E7%9A%84%E5%9E%82%E7%9B%B4%E5%88%87%E5%88%86%E4%B8%8E%E6%B0%B4%E5%B9%B3%E5%88%87%E5%88%86"><span class="toc-number">1.2.</span> <span class="toc-text">架构的垂直切分与水平切分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9E%B6%E6%9E%84%E5%AE%9E%E4%BE%8B"><span class="toc-number">1.3.</span> <span class="toc-text">架构实例</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%91%E8%AE%A1%E7%AE%97"><span class="toc-number">1.3.1.</span> <span class="toc-text">云计算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%91%E5%8E%9F%E7%94%9F"><span class="toc-number">1.3.2.</span> <span class="toc-text">云原生</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84"><span class="toc-number">2.</span> <span class="toc-text"> 微服务架构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%E5%9F%BA%E7%A1%80"><span class="toc-number">2.1.</span> <span class="toc-text">微服务架构基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%E5%9B%BE"><span class="toc-number">2.1.1.</span> <span class="toc-text">微服务架构图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-number">2.1.2.</span> <span class="toc-text">微服务的基本概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%A0%B8%E5%BF%83%E8%A6%81%E7%B4%A0"><span class="toc-number">2.1.3.</span> <span class="toc-text">微服务核心要素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%AE%9E%E7%8E%B0"><span class="toc-number">2.1.4.</span> <span class="toc-text">微服务实现</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E4%B8%8E%E5%8F%91%E7%8E%B0"><span class="toc-number">2.1.4.1.</span> <span class="toc-text">服务注册与发现</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E7%9A%84%E4%B8%8A%E7%BA%BF%E4%B8%8E%E4%B8%8B%E7%BA%BF"><span class="toc-number">2.1.4.2.</span> <span class="toc-text">服务的上线与下线</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%81%E9%87%8F%E7%89%B9%E5%BE%81"><span class="toc-number">2.1.4.3.</span> <span class="toc-text">流量特征</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E6%9C%8D%E5%8A%A1%E6%B2%BB%E7%90%86"><span class="toc-number">2.1.5.</span> <span class="toc-text">核心服务治理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E5%8F%91%E5%B8%83"><span class="toc-number">2.1.5.1.</span> <span class="toc-text">服务发布</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E5%8F%91%E5%B8%83%E7%9A%84%E9%9A%BE%E7%82%B9"><span class="toc-number">2.1.5.1.1.</span> <span class="toc-text">服务发布的难点</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E5%8F%91%E5%B8%83%E6%96%B9%E6%B3%95"><span class="toc-number">2.1.5.1.2.</span> <span class="toc-text">服务发布方法</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%81%E9%87%8F%E6%B2%BB%E7%90%86"><span class="toc-number">2.1.5.2.</span> <span class="toc-text">流量治理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%EF%BC%88Load-Balance%EF%BC%89"><span class="toc-number">2.1.5.3.</span> <span class="toc-text">负载均衡（Load Balance）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A8%B3%E5%AE%9A%E6%80%A7%E6%B2%BB%E7%90%86"><span class="toc-number">2.1.5.4.</span> <span class="toc-text">稳定性治理</span></a></li></ol></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E6%8E%A5%E5%85%A5"><span class="toc-number">1.</span> <span class="toc-text">网络接入</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%9F%E5%90%8D%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.1.</span> <span class="toc-text">域名系统</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Host%E7%AE%A1%E7%90%86"><span class="toc-number">1.1.1.</span> <span class="toc-text">Host管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%9F%9F%E5%90%8D%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.1.2.</span> <span class="toc-text">使用域名系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%9F%E5%90%8D%E8%B4%AD%E4%B9%B0%E4%B8%8E%E9%85%8D%E7%BD%AE%E8%BF%81%E7%A7%BB"><span class="toc-number">1.1.3.</span> <span class="toc-text">域名购买与配置迁移</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E5%BB%BADNS%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">1.2.</span> <span class="toc-text">自建DNS服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E8%83%8C%E6%99%AF"><span class="toc-number">1.2.1.</span> <span class="toc-text">问题背景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DNS%E6%9F%A5%E8%AF%A2%E8%BF%87%E7%A8%8B"><span class="toc-number">1.2.2.</span> <span class="toc-text">DNS查询过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DNS%E8%AE%B0%E5%BD%95%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.2.3.</span> <span class="toc-text">DNS记录类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84%E5%BC%80%E6%BA%90DNS%EF%BC%9Abind-nsd-knot-coredns"><span class="toc-number">1.2.4.</span> <span class="toc-text">常见的开源DNS：bind,nsd,knot,coredns</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A5%E5%85%A5https%E5%8D%8F%E8%AE%AE"><span class="toc-number">1.3.</span> <span class="toc-text">接入https协议</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E8%83%8C%E6%99%AF-1"><span class="toc-number">1.3.1.</span> <span class="toc-text">问题背景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95"><span class="toc-number">1.3.2.</span> <span class="toc-text">加密算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SSL%E9%80%9A%E4%BF%A1%E8%BF%87%E7%A8%8B"><span class="toc-number">1.3.3.</span> <span class="toc-text">SSL通信过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%81%E4%B9%A6%E9%93%BE"><span class="toc-number">1.3.4.</span> <span class="toc-text">证书链</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%99%E6%80%81%E5%8A%A0%E9%80%9FCDN"><span class="toc-number">1.3.5.</span> <span class="toc-text">静态加速CDN</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1"><span class="toc-number">1.4.</span> <span class="toc-text">负载均衡</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B%E5%B1%82%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E6%A6%82%E5%BF%B5"><span class="toc-number">1.4.1.</span> <span class="toc-text">四层负载均衡概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F-FULLNAT"><span class="toc-number">1.4.2.</span> <span class="toc-text">常见实现方式 FULLNAT</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E7%82%B9"><span class="toc-number">1.4.3.</span> <span class="toc-text">特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%83%E5%B1%82%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1"><span class="toc-number">1.4.4.</span> <span class="toc-text">七层负载均衡</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E6%8E%A5%E5%85%A5%E5%AE%9E%E8%B7%B5"><span class="toc-number">1.5.</span> <span class="toc-text">网络接入实践</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#DNS%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA"><span class="toc-number">1.5.1.</span> <span class="toc-text">DNS服务器搭建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E5%AE%9E%E9%AA%8C%EF%BC%9ANginx"><span class="toc-number">1.5.2.</span> <span class="toc-text">负载均衡实验：Nginx</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SSL%E8%87%AA%E7%AD%BE%E8%AF%81%E4%B9%A6%E5%AE%9E%E9%AA%8C"><span class="toc-number">1.5.3.</span> <span class="toc-text">SSL自签证书实验</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%B0%86%E6%9C%AC%E5%9C%B0%E6%9C%8D%E5%8A%A1%E5%BC%80%E6%94%BE%E5%A4%96%E7%BD%91%E8%AE%BF%E9%97%AE"><span class="toc-number">1.5.4.</span> <span class="toc-text">如何将本地服务开放外网访问</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -504,7 +473,7 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Go</a>
+                <a href="javascript:void(0)" class="js-tag color3">后端</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -512,19 +481,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">go</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">后端</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">go</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">GORM</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Go</a>
               </li>
              
               <li class="article-tag-list-item">

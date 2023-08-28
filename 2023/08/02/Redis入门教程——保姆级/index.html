@@ -6,25 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://Veni222987.github.io">
-  <title>Go语言开发——Gin框架 | VenisBlog</title>
+  <title>Redis入门教程——保姆级 | VeniceBlog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Go语言开发——Gin框架Gin是一个用Go语言编写的高性能Web框架，它简洁、快速，并具有良好的路由和中间件支持。">
+  <meta name="description" content="Redis入门教程——保姆级Redis（Remote Dictionary Server）是一个开源的内存数据存储系统，也可以被看作是一个键值（key-value）存储数据库。它支持多种数据结构，如字符串（String）、哈希（Hash）、列表（List）、集合（Set）、有序集合（Sorted Set）等，并且提供了丰富的操作命令。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Go语言开发——Gin框架">
-<meta property="og:url" content="https://veni222987.github.io/2023/08/05/Go%E8%AF%AD%E8%A8%80%E5%BC%80%E5%8F%91%E2%80%94%E2%80%94gin%E6%A1%86%E6%9E%B6/index.html">
-<meta property="og:site_name" content="VenisBlog">
-<meta property="og:description" content="Go语言开发——Gin框架Gin是一个用Go语言编写的高性能Web框架，它简洁、快速，并具有良好的路由和中间件支持。">
+<meta property="og:title" content="Redis入门教程——保姆级">
+<meta property="og:url" content="https://veni222987.github.io/2023/08/02/Redis%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%E2%80%94%E2%80%94%E4%BF%9D%E5%A7%86%E7%BA%A7/index.html">
+<meta property="og:site_name" content="VeniceBlog">
+<meta property="og:description" content="Redis入门教程——保姆级Redis（Remote Dictionary Server）是一个开源的内存数据存储系统，也可以被看作是一个键值（key-value）存储数据库。它支持多种数据结构，如字符串（String）、哈希（Hash）、列表（List）、集合（Set）、有序集合（Sorted Set）等，并且提供了丰富的操作命令。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202308071127195.webp">
-<meta property="article:published_time" content="2023-08-05T14:40:28.000Z">
-<meta property="article:modified_time" content="2023-08-23T08:23:37.803Z">
+<meta property="article:published_time" content="2023-08-02T06:54:53.000Z">
+<meta property="article:modified_time" content="2023-08-24T06:52:26.763Z">
 <meta property="article:author" content="Veni">
-<meta property="article:tag" content="go">
-<meta property="article:tag" content="后端">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="redis">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202308071127195.webp">
   
-    <link rel="alternative" href="/atom.xml" title="VenisBlog" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="VeniceBlog" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -140,103 +138,145 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Go语言开发——gin框架" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Redis入门教程——保姆级" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Go语言开发——Gin框架
+      Redis入门教程——保姆级
     </h1>
   
 
         
-        <a href="/2023/08/05/Go%E8%AF%AD%E8%A8%80%E5%BC%80%E5%8F%91%E2%80%94%E2%80%94gin%E6%A1%86%E6%9E%B6/" class="archive-article-date">
-  	<time datetime="2023-08-05T14:40:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-08-05</time>
+        <a href="/2023/08/02/Redis%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%E2%80%94%E2%80%94%E4%BF%9D%E5%A7%86%E7%BA%A7/" class="archive-article-date">
+  	<time datetime="2023-08-02T06:54:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-08-02</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Go语言开发——Gin框架"><a href="#Go语言开发——Gin框架" class="headerlink" title=" Go语言开发——Gin框架"></a><center> Go语言开发——Gin框架</h1><p>Gin是一个用Go语言编写的高性能Web框架，它简洁、快速，并具有良好的路由和中间件支持。<span id="more"></span></p>
-<h2 id="为什么使用Gin"><a href="#为什么使用Gin" class="headerlink" title="为什么使用Gin"></a>为什么使用Gin</h2><p>我们使用Gin的原因很直接也很简单，那就是Gin很强大也很简单。Gin框架具有如下的有点：</p>
-<ul>
-<li><strong>高性能</strong>：Gin框架使用了基于Radix树的路由匹配算法，使得路由查找非常快速。同时，Gin框架基于HTTP标准库进行开发，具有低内存占用和高并发处理能力。</li>
-<li><strong>简单易用</strong>：Gin框架提供了简洁的API和易于理解的代码结构，使得开发者能够快速上手并编写清晰、可维护的代码。</li>
-<li><strong>路由和中间件支持</strong>：Gin框架提供了灵活的路由定义方式，支持参数路由、分组路由等。同时，Gin框架内置了丰富的中间件支持，如日志、认证、CORS等，可以方便地实现各种功能和扩展需求。</li>
-<li><strong>JSON解析和输出</strong>：Gin框架内置了强大的JSON解析和输出功能，可以方便地处理请求数据和生成响应。同时，Gin框架还支持其他格式的数据解析和输出，如XML、YAML等。</li>
-<li><strong>插件生态丰富</strong>：Gin框架有着活跃的社区和丰富的插件生态，可以方便地集成其他常用库和组件，如数据库ORM、缓存库、验证库等。</li>
+        <h1 id="Redis入门教程——保姆级"><a href="#Redis入门教程——保姆级" class="headerlink" title=" Redis入门教程——保姆级"></a><center> Redis入门教程——保姆级</h1><p>Redis（Remote Dictionary Server）是一个开源的内存数据存储系统，也可以被看作是一个键值（key-value）存储数据库。它支持多种数据结构，如字符串（String）、哈希（Hash）、列表（List）、集合（Set）、有序集合（Sorted Set）等，并且提供了丰富的操作命令。<span id="more"></span>另外，出于码字方便以及redis指令均为小写等原因，下文中Redis均写作redis，不喜勿喷。</p>
+<h2 id="redis基本理解和工作原理"><a href="#redis基本理解和工作原理" class="headerlink" title="redis基本理解和工作原理"></a>redis基本理解和工作原理</h2><p>redis可以一个特殊的数据库，它运行在内存之中，只有两个字段：键和值。其中的值可以是多种数据类型。</p>
+<p>redis和数据库一样，都需要配置访问权限，默认的访问权限为本地主机，即127.0.0.1，默认端口是6379。</p>
+<h3 id="redis工作原理"><a href="#redis工作原理" class="headerlink" title="redis工作原理"></a>redis工作原理</h3><ul>
+<li>AOF文件（Append-Only File）：用于实现数据的持久化，包含一系列的Redis命令，每个命令都以一种特定的格式写入到文件中，这些命令表示了Redis服务器接收到的写操作，新的命令会不断地追加到文件末尾。当服务器崩溃时，就可以重放AOF文件恢复数据。</li>
+<li>RDB文件（Redis Database）：将数据库某个时间节点的状态保存到一个二进制文件中，相当于备份。如果服务器崩溃，在最后一次生成 RDB 文件和崩溃之间的数据可能会丢失。这时候就需要AOF文件来进一步保护和恢复数据。</li>
 </ul>
-<p>这些看一下就好，以后会体会到Go的高并发和JSON解析等强大功能的。</p>
-<h2 id="Gin框架的入门"><a href="#Gin框架的入门" class="headerlink" title="Gin框架的入门"></a>Gin框架的入门</h2><h3 id="下载Gin依赖"><a href="#下载Gin依赖" class="headerlink" title="下载Gin依赖"></a>下载Gin依赖</h3><p>执行以下命令，下载和安装Gin依赖：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">go get -u github.com/gin-gonic/gin</span><br></pre></td></tr></table></figure>
-
-<p>以下指令会把Gin安装在GOPATH里面的src文件夹中。</p>
-<h3 id="第一个Gin应用"><a href="#第一个Gin应用" class="headerlink" title="第一个Gin应用"></a>第一个Gin应用</h3><p>我们先写一个Gin应用，打开Gin的世界。新建一个main.go文件，敲进去这样的代码：</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;github.com/gin-gonic/gin&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    r := gin.Default()</span><br><span class="line">	r.GET(<span class="string">&quot;/hello&quot;</span>, <span class="function"><span class="keyword">func</span><span class="params">(c *gin.Context)</span></span> &#123;</span><br><span class="line">		c.JSON(<span class="number">200</span>, gin.H&#123;</span><br><span class="line">			<span class="string">&quot;message&quot;</span>: <span class="string">&quot;Veni&quot;</span>,</span><br><span class="line">		&#125;)</span><br><span class="line">	&#125;)</span><br><span class="line">	r.Run(<span class="string">&quot;:8888&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>然后运行一下：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">go run main.go</span><br></pre></td></tr></table></figure>
-
-<p>打开浏览器，输入：<code>localhost:8888/hello</code>，结果返回为<code>&quot;message&quot;:&quot;Veni&quot;</code>，第一个Gin应用完美运行。</p>
-<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202308071127195.webp" alt="image-20230807112709050"></p>
-<h4 id="代码解析"><a href="#代码解析" class="headerlink" title="代码解析"></a>代码解析</h4><p>package和import就不说了，从main函数开始。</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">r := gin.Default()</span><br></pre></td></tr></table></figure>
-
-<p>这一段代码用来创建一个默认的Gin引擎的实例并赋值给r，该实例已经配置了一些常用的中间件和默认的设置，比如默认使用Logger中间件用于记录请求日志，默认使用Recovery中间件用于恢复panic。还有默认的错误信息处理，默认请求路由器等等。</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">r.GET(<span class="string">&quot;/hello&quot;</span>, <span class="function"><span class="keyword">func</span><span class="params">(c *gin.Context)</span></span> &#123;</span><br><span class="line">		c.JSON(<span class="number">200</span>, gin.H&#123;</span><br><span class="line">			<span class="string">&quot;message&quot;</span>: <span class="string">&quot;Veni&quot;</span>,</span><br><span class="line">		&#125;)</span><br><span class="line">	&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>r.GET()用于创建一个GET请求的处理函数，请求的路由是”&#x2F;hello”，然后绑定了一个处理函数func。func函数的参数是<code>c *gin.Context</code>，这是Gin框架里面的上下文对象，它封装了每个http请求的信息和操作方法，用于处理请求和响应。为什么要使用指针<code>*</code>呢？因为这里面需要对这个上下文进行修改，因此采用指针传递才能在函数中修改变量的值。Gin.Context有许多用法，比如：</p>
-<ul>
-<li><code>c.Request</code>：获取原始的 http.Request 对象。</li>
-<li><code>c.Writer</code>：获取原始的 http.ResponseWriter 对象。</li>
-<li><code>c.Param(key)</code>：获取路由参数值。</li>
-<li><code>c.Query(key)</code>：获取查询参数值。</li>
-<li><code>c.PostForm(key)</code>：获取表单参数值。</li>
-<li><code>c.JSON(code int, obj interface&#123;&#125;)</code>：以 JSON 格式返回数据。</li>
-<li><code>c.HTML(code int, name string, data interface&#123;&#125;)</code>：渲染 HTML 模板并返回。</li>
-<li><code>c.Set(key string, value interface&#123;&#125;)</code>：设置上下文的键值对。</li>
-<li><code>c.Get(key string) interface&#123;&#125;</code>：获取上下文中的值。</li>
+<p>看完上述两个持久化的方法之后，我相信善于思考的你对redis持久化已经有了初步的想法了。其基本工作流程基本如下：</p>
+<p><code>在每一次的写操作中，往AOF文件添加操作记录，当保存了RDB文件之后，就及时清除AOF文件，防止其文件体积过大。当发生崩溃的时候，先加载RDB文件，然后重现AOF文件，最终恢复redis。</code>这个过程就好像数据库的恢复系统，可以比较记忆。</p>
+<h2 id="配置，启动，操作，关闭redis"><a href="#配置，启动，操作，关闭redis" class="headerlink" title="配置，启动，操作，关闭redis"></a>配置，启动，操作，关闭redis</h2><h3 id="redis配置"><a href="#redis配置" class="headerlink" title="redis配置"></a>redis配置</h3><ul>
+<li><p>控制访问权限：在配置文件中修改bind属性，一般来说配置文件位于&#x2F;etc&#x2F;redis.conf</p>
+</li>
+<li><p>redis也可以设置账号密码，在Redis配置文件中，找到并编辑<code>requirepass</code>属性。如果该属性被注释掉了（以<code>#</code>开头），需要取消注释，并在等号后面设置一个密码。例如，可以设置<code>requirepass mypassword</code>，其中<code>mypassword</code>是你想要设置的密码。</p>
+</li>
 </ul>
-<p>所以，上面的c.JSON的作用就是以JSON格式返回数据，函数的第一个参数是整形返回码，interface可以是任意类型的对象。</p>
-<p>gin.H{}是Gin框架中用来创建JSON或HTML相应的方式，可以创建一个 map [string] interface类型的对象。使用方法如下：</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">data := gin.H&#123;</span><br><span class="line">			<span class="string">&quot;message&quot;</span>: <span class="string">&quot;Hello, World!&quot;</span>,</span><br><span class="line">			<span class="string">&quot;count&quot;</span>:   <span class="number">10</span>,</span><br><span class="line">			<span class="string">&quot;success&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">		&#125;</span><br><span class="line">c.JSON(<span class="number">200</span>, data)</span><br></pre></td></tr></table></figure>
+<h3 id="redis启动"><a href="#redis启动" class="headerlink" title="redis启动"></a>redis启动</h3><p>三种方法：默认配置，运行配置，配置文件启动（<strong>推荐使用配置文件使用</strong>）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-server /etc/redis.conf</span><br></pre></td></tr></table></figure>
 
-<p>在实际开发中，一般的返回JSON都命名成data，符合前后端开发的习惯。</p>
-<h3 id="Gin项目结构"><a href="#Gin项目结构" class="headerlink" title="Gin项目结构"></a>Gin项目结构</h3><p>Gin的项目结构可以是因人而异的。Go语言相互调用包的过程很简单，公有变量和私有变量只需要使用大小写区分。受到MVC架构的影响，我一般将项目组织成如下的结构：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">- main.go  </span><br><span class="line">- router.go</span><br><span class="line">- config.yaml</span><br><span class="line">- controller/</span><br><span class="line">  - userController.go</span><br><span class="line">  - authController.go</span><br><span class="line">- model/</span><br><span class="line">  - user.go</span><br><span class="line">- middleware/</span><br><span class="line">  - authMiddleware.go</span><br><span class="line">- service/</span><br><span class="line">  - database.go</span><br><span class="line">  - redis.go</span><br><span class="line">- test/</span><br><span class="line">  - unit_test.go</span><br><span class="line">- utils/</span><br><span class="line">  - time.go</span><br></pre></td></tr></table></figure>
+<h3 id="redis操作"><a href="#redis操作" class="headerlink" title="redis操作"></a>redis操作</h3><p>可以使用redis-cli连接服务器，有如下两种方法：交互式和命令式。</p>
+<ul>
+<li>交互式：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">redis-cli -h 127.0.0.1 -p 6379</span><br><span class="line">&gt;<span class="built_in">set</span> hello world</span><br><span class="line">OK</span><br><span class="line">&gt;get hello</span><br><span class="line"><span class="string">&quot;world&quot;</span></span><br></pre></td></tr></table></figure>
 
 <ul>
-<li>main文件是程序的入口，用于完成初始化，启动Gin等操作；router用于配置路由信息，包括对应路由的处理函数。</li>
-<li>controller目录为控制器层，用于处理路由对应的请求。</li>
-<li>model目录是模型层，对应着数据库的一个关系或者自建的实体模型。</li>
-<li>middleware是中间件层，用于完成权限认证等操作。</li>
-<li>service层存放的是业务逻辑的相关代码，以及调用其他服务或API的代码，可以将DB和Redis等操作代码也放在这一文件夹中。</li>
-<li>test是测试目录，用于完成单元测试等工作。</li>
+<li>命令式：</li>
 </ul>
-<p>在项目的实际开发中，推荐使用的命名方法是：公有类型名和方法名使用大驼峰，私有类型和方法、目录和文件名使用小驼峰。</p>
-<h2 id="Gin项目结构逐层解析"><a href="#Gin项目结构逐层解析" class="headerlink" title="Gin项目结构逐层解析"></a>Gin项目结构逐层解析</h2><p>现在你已经能够启动Gin框架的hello world，并且也了解了Gin的项目结构。下面我们将逐个实现上述结构，让萌新也可以拥有一个完整的项目框架经验。</p>
-<h3 id="package-main"><a href="#package-main" class="headerlink" title="package main"></a>package main</h3><h4 id="main-go"><a href="#main-go" class="headerlink" title="main.go"></a>main.go</h4><p>前文中我们直接在main函数处理了一个GET请求，但是实际开发中是绝对不会把处理函数写在main函数里面的。main函数主要做两件事情：初始化环境和启动Gin。所以，一个简单的main.go文件如下：</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="comment">//初始化引擎</span></span><br><span class="line">	r := gin.Default()</span><br><span class="line">	<span class="comment">//初始化路由器</span></span><br><span class="line">	InitRouter(r)</span><br><span class="line">    <span class="comment">//初始化数据库</span></span><br><span class="line">	service.InitDatabase()</span><br><span class="line">    <span class="comment">//初始化Redis</span></span><br><span class="line">	service.InitRedis()</span><br><span class="line">	<span class="comment">//启动Gin</span></span><br><span class="line">	r.Run(<span class="string">&quot;:8888&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">redis-cli -h 127.0.0.1 -p 6379 get hello</span><br><span class="line">&quot;world&quot;</span><br></pre></td></tr></table></figure>
 
-<h4 id="router-go"><a href="#router-go" class="headerlink" title="router.go"></a>router.go</h4><p>初始化引擎一句之前已经解析过了，下面讲讲InitRouter(r)。这个函数我们写在router.go这个文件中，用于处理路由和相关请求。比如下面的这个文件：</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">InitRouter</span><span class="params">(r *gin.Engine)</span></span> &#123;</span><br><span class="line">    <span class="comment">//静态文件路径</span></span><br><span class="line">    r.Static(<span class="string">&quot;/static&quot;</span>, <span class="string">&quot;./public&quot;</span>)</span><br><span class="line">    <span class="comment">//注册路由组</span></span><br><span class="line">    router := r.Group(<span class="string">&quot;/api&quot;</span>)</span><br><span class="line">    <span class="comment">//在路由组下注册路由</span></span><br><span class="line">    router.POST(<span class="string">&quot;/user/login/&quot;</span>, controller.Login)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果缺省了-h和-p两个参数，那么默认是链接127.0.0.1:6379。</p>
+<h3 id="redis选择数据库"><a href="#redis选择数据库" class="headerlink" title="redis选择数据库"></a>redis选择数据库</h3><p>使用<code>SELECT &lt;index&gt;</code>可以选择某个特定的数据库。redis共有16个数据库可以使用，默认使用DB 0工作。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; <span class="keyword">select</span> 1</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379[1]&gt; keys *</span><br><span class="line">(empty list or <span class="built_in">set</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="redis关闭"><a href="#redis关闭" class="headerlink" title="redis关闭"></a>redis关闭</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-cli shutdown</span><br></pre></td></tr></table></figure>
+
+<p>redis关闭的过程：断开客户端连接，持久化文件生成。这要求我们自己生成持久化文件，redis并不会自动做这件事。这种情况是特殊情况主动关闭redis的操作，就好像关机之前需要保存工作区一样。</p>
+<h2 id="redis使用"><a href="#redis使用" class="headerlink" title="redis使用"></a>redis使用</h2><h3 id="查看所有键"><a href="#查看所有键" class="headerlink" title="查看所有键"></a>查看所有键</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; keys *</span><br><span class="line">1) &quot;backup2&quot;</span><br><span class="line">2) &quot;backup3&quot;</span><br><span class="line">3) &quot;backup4&quot;</span><br><span class="line">4) &quot;backup1&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="键总数"><a href="#键总数" class="headerlink" title="键总数"></a>键总数</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; dbsize</span><br><span class="line">(integer) 4</span><br></pre></td></tr></table></figure>
+
+<h3 id="检查键是否存在"><a href="#检查键是否存在" class="headerlink" title="检查键是否存在"></a>检查键是否存在</h3><p><code>exists [keys]</code>，如果键存在则返回1，否则返回0。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; exists backup1</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; exists backup1 backup5</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; exists backup1 backup2</span><br><span class="line">(integer) 2</span><br></pre></td></tr></table></figure>
+
+<p>可以检查多个键，但是返回值是一个整数，表示查询的键中存在的个数。</p>
+<h3 id="删除键"><a href="#删除键" class="headerlink" title="删除键"></a>删除键</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">del [keys]</span><br></pre></td></tr></table></figure>
+
+<p>返回值是成功删除的键的个数，如果删除失败，返回0，否则返回1。使用的语法和返回结果与上述的exists类似，不加赘述。</p>
+<h3 id="键过期"><a href="#键过期" class="headerlink" title="键过期"></a>键过期</h3><p>redis支持使用<code>expire key seconds</code>对键添加过期时间，当超过过期时间后，会自动删除该键：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; set hello world</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; expire hello 20</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; ttl hello</span><br><span class="line">(integer) 14</span><br></pre></td></tr></table></figure>
+
+<p>使用ttl指令可以查看键的剩余时间。</p>
+<h3 id="键的数据结构类型和具体操作"><a href="#键的数据结构类型和具体操作" class="headerlink" title="键的数据结构类型和具体操作"></a>键的数据结构类型和具体操作</h3><p>前面说过，一个值的数据类型只有五种：string,hash,list,set,zset（有序集合）。下面是这五种数据类型的插入示例:</p>
+<ul>
+<li>字符串string：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SET username <span class="string">&quot;Veni&quot;</span></span><br><span class="line"></span><br><span class="line">127.0.0.1:6379&gt; GET username</span><br><span class="line"><span class="string">&quot;Veni&quot;</span></span><br></pre></td></tr></table></figure>
 
 <ul>
-<li>函数的参数需要带指针*，不然在主函数中调用是不会改变r的值的。</li>
-<li>r.Static用于注册静态文件的路径，比如某些HTML以及图片等，将其指向本地的public文件夹。</li>
-<li>使用r.Group注册路由组，使用路由组可以统一注册中间件，同时也符合树形结构路由的要求。</li>
-<li>router.POST则指定了一个路径下的POST请求及其处理函数（controller.Login）。此时的路径必须加上路由组的路径，即完整的路径为：<code>/api/user/login/</code>。</li>
+<li>哈希hash：</li>
 </ul>
-<h4 id="config-yaml"><a href="#config-yaml" class="headerlink" title="config.yaml"></a>config.yaml</h4><p>该文件用于处理所有重要的配置，比如数据库，Redis等等。使用yaml记录配置十分简洁，可以将字段一一对应到某个go语言的结构体中，内容如下：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">database:</span></span><br><span class="line">  <span class="attr">driver:</span></span><br><span class="line">  <span class="attr">host:</span></span><br><span class="line">  <span class="attr">port:</span></span><br><span class="line">  <span class="attr">username:</span></span><br><span class="line">  <span class="attr">password:</span></span><br><span class="line">  <span class="attr">database:</span></span><br><span class="line"></span><br><span class="line"><span class="attr">redis:</span></span><br><span class="line">  <span class="attr">addr:</span></span><br><span class="line">  <span class="attr">password:</span></span><br><span class="line">  <span class="attr">DB:</span></span><br><span class="line"></span><br><span class="line"><span class="attr">OSS:</span></span><br><span class="line">  <span class="attr">endPoint:</span></span><br><span class="line">  <span class="attr">accessKey:</span></span><br><span class="line">  <span class="attr">accessSecret:</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">HMSET user222 username <span class="string">&quot;Veni&quot;</span> age 20</span><br><span class="line"></span><br><span class="line">127.0.0.1:6379&gt; HGETALL user222</span><br><span class="line">1) <span class="string">&quot;username&quot;</span></span><br><span class="line">2) <span class="string">&quot;Veni&quot;</span></span><br><span class="line">3) <span class="string">&quot;age&quot;</span></span><br><span class="line">4) <span class="string">&quot;20&quot;</span></span><br><span class="line"></span><br><span class="line">127.0.0.1:6379&gt; HGET user222 username</span><br><span class="line"><span class="string">&quot;Veni&quot;</span></span><br></pre></td></tr></table></figure>
 
-<p>每一个层级对应一个结构体，最小的层级对应结构体的一个字段。比如，用来存储database配置的两个结构体如下：</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> DatabaseConfig <span class="keyword">struct</span> &#123;</span><br><span class="line">	Driver   <span class="type">string</span> <span class="string">`yaml:&quot;driver&quot;`</span></span><br><span class="line">	Host     <span class="type">string</span> <span class="string">`yaml:&quot;host&quot;`</span></span><br><span class="line">	Port     <span class="type">int</span>    <span class="string">`yaml:&quot;port&quot;`</span></span><br><span class="line">	Username <span class="type">string</span> <span class="string">`yaml:&quot;username&quot;`</span></span><br><span class="line">	Password <span class="type">string</span> <span class="string">`yaml:&quot;password&quot;`</span></span><br><span class="line">	Database <span class="type">string</span> <span class="string">`yaml:&quot;database&quot;`</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> config <span class="keyword">struct</span> &#123;</span><br><span class="line">	Database DatabaseConfig <span class="string">`yaml:&quot;database&quot;`</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>查询哈希需要使用HGET指令，指令格式为<code>HGET key field</code>获取特定key的某个字段的值。使用<code>HGETALL key</code>可以获取某个key的所有字段。</p>
+<ul>
+<li>列表list：分为左插入和右插入，rpush是在数组的右侧追加，lpush为左侧追加，比如abc使用rpush就是[a b c]，而使用lpush结果是[c b a]。</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">rpush rlist a b c</span><br><span class="line">lpush llist a b c</span><br><span class="line"></span><br><span class="line">127.0.0.1:6379&gt; LRANGE rlist 0 -1</span><br><span class="line">1) <span class="string">&quot;a&quot;</span></span><br><span class="line">2) <span class="string">&quot;b&quot;</span></span><br><span class="line">3) <span class="string">&quot;c&quot;</span></span><br><span class="line"></span><br><span class="line">127.0.0.1:6379&gt; LRANGE llist 0 -1</span><br><span class="line">1) <span class="string">&quot;c&quot;</span></span><br><span class="line">2) <span class="string">&quot;b&quot;</span></span><br><span class="line">3) <span class="string">&quot;a&quot;</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="package-service"><a href="#package-service" class="headerlink" title="package service"></a>package service</h3><h4 id="database-go"><a href="#database-go" class="headerlink" title="database.go"></a>database.go</h4><p>在主函数里面有一个初始化数据库的函数我们没有说，现在我们来讲一讲这个<code>service.InitDatabase()</code>。</p>
+<p>使用<code>LRANGE</code>可以查询list的元素，0到-1表示查询所有值。修改区间起点和区间终点即可查询到不同的值。</p>
+<ul>
+<li>集合set</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">SADD userset <span class="string">&quot;veni&quot;</span> <span class="string">&quot;moss&quot;</span></span><br><span class="line"></span><br><span class="line">127.0.0.1:6379&gt; SMEMBERS userset</span><br><span class="line">1) <span class="string">&quot;moss&quot;</span></span><br><span class="line">2) <span class="string">&quot;veni&quot;</span></span><br><span class="line"></span><br><span class="line">127.0.0.1:6379&gt; SISMEMBER userset <span class="string">&quot;veni&quot;</span></span><br><span class="line">(<span class="built_in">integer</span>) 1</span><br></pre></td></tr></table></figure>
+
+<p>使用<code>SMEMBERS</code>可以查看集合中的所有成员，使用<code>SISMEMBER</code>可以查看某一个元素是否在集合里面。</p>
+<ul>
+<li>有序集合zset：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">ZADD userScore 650 <span class="string">&quot;veni&quot;</span> 625 <span class="string">&quot;moss&quot;</span> 610 <span class="string">&quot;neil&quot;</span></span><br><span class="line"></span><br><span class="line">127.0.0.1:6379&gt; ZRANGE userScore 0 -1</span><br><span class="line">1) <span class="string">&quot;neil&quot;</span></span><br><span class="line">2) <span class="string">&quot;moss&quot;</span></span><br><span class="line">3) <span class="string">&quot;veni&quot;</span></span><br><span class="line"></span><br><span class="line">127.0.0.1:6379&gt; ZSCORE userScore moss</span><br><span class="line"><span class="string">&quot;625&quot;</span></span><br><span class="line"></span><br><span class="line">127.0.0.1:6379&gt; ZREVRANGE userScore 0 -1</span><br><span class="line">1) <span class="string">&quot;veni&quot;</span></span><br><span class="line">2) <span class="string">&quot;moss&quot;</span></span><br><span class="line">3) <span class="string">&quot;neil&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>使用<code>ZRANGE</code>查看有序集合里面的特定一批元素的名称，使用<code>ZSCORE</code>可以某个指定的元素的分数，<code>ZREVRANGE</code>按照分数从大到小列出元素名字。</p>
+<ul>
+<li>查询key的类型：使用type指令可以查看某一个key的类型。</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; <span class="built_in">type</span> userScore</span><br><span class="line">zset</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="数据结构的编码方式"><a href="#数据结构的编码方式" class="headerlink" title="数据结构的编码方式"></a>数据结构的编码方式</h3><p>在redis中，每种数据结构都有多种编码方式。Redis 会根据数据大小、类型以及具体的操作情况来自动选择和转换编码方式，以达到最佳的内存使用和性能效果。一旦有了更高效的编码方式，就可以直接修改内部编码，无需修改外部代码。</p>
+<ol>
+<li><strong>字符串（String）</strong>：<ul>
+<li><code>raw</code>：简单字符串的默认编码，适用于存储一般文本数据。</li>
+<li><code>int</code>：整数编码，用于存储整数类型数据。</li>
+<li><code>embstr</code>：短字符串编码，用于存储较短的字符串数据。</li>
+<li><code>ht</code>：哈希表编码，用于存储较大的字符串数据。</li>
+</ul>
+</li>
+<li><strong>列表（List）</strong>：<ul>
+<li><code>ziplist</code>：紧凑列表编码，适用于较小的列表。</li>
+<li><code>linkedlist</code>：双向链表编码，适用于较大的列表。</li>
+</ul>
+</li>
+<li><strong>哈希（Hash）</strong>：<ul>
+<li><code>ziplist</code>：紧凑哈希编码，适用于较小的哈希。</li>
+<li><code>hashtable</code>：哈希表编码，用于较大的哈希。</li>
+</ul>
+</li>
+<li><strong>集合（Set）</strong>：<ul>
+<li><code>intset</code>：整数集合编码，适用于存储整数类型数据。</li>
+<li><code>hashtable</code>：哈希表编码，用于较大的集合。</li>
+</ul>
+</li>
+<li><strong>有序集合（Sorted Set）</strong>：<ul>
+<li><code>ziplist</code>：紧凑有序集合编码，适用于较小的有序集合。</li>
+<li><code>skiplist</code>：跳跃表编码，用于较大的有序集合。</li>
+</ul>
+</li>
+</ol>
+<h2 id="单线程架构"><a href="#单线程架构" class="headerlink" title="单线程架构"></a>单线程架构</h2><p>当第一次看到redis是单线程架构的时候我惊呆了，但是redis的单线程并没有影响他的高性能。实际上，redis内部使用了多线程来处理不同的任务。首先，redis是单线程这是因为redis的核心是一个<strong>事件循环</strong>，这个单线程循环处理所有客户端请求，数据读写，命令解析等任务。redis的单线程架构使用<strong>非阻塞I&#x2F;O模型</strong>，使用<strong>任务切换</strong>处理事件循环中的不同任务，使用<strong>多路复用技术</strong>监听不同的socket(ip+port)。</p>
 
       
 
@@ -271,11 +311,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">go</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">后端</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">redis</a>
         		</li>
       		
 		</ul>
@@ -331,7 +371,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://veni222987.github.io/2023/08/05/Go%E8%AF%AD%E8%A8%80%E5%BC%80%E5%8F%91%E2%80%94%E2%80%94gin%E6%A1%86%E6%9E%B6/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://veni222987.github.io/2023/08/02/Redis%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%E2%80%94%E2%80%94%E4%BF%9D%E5%A7%86%E7%BA%A7/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -345,18 +385,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2023/08/07/%E3%80%90%E5%86%8D%E5%AD%A6%E7%BD%91%E7%BB%9C%E3%80%91http%E5%8E%9F%E7%90%86%E4%B8%8E%E5%AE%9E%E8%B7%B5/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2023/08/05/(U)%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91%E7%BD%91%E7%BB%9C%E6%8E%A5%E5%85%A5/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          【再学网络】http原理与实践
+          【学习笔记】网络接入
         
       </div>
     </a>
   
   
-    <a href="/2023/08/05/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91%E7%BD%91%E7%BB%9C%E6%8E%A5%E5%85%A5/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">【学习笔记】网络接入</div>
+    <a href="/2023/08/02/Go%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Go语言基础语法</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -383,7 +423,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Go%E8%AF%AD%E8%A8%80%E5%BC%80%E5%8F%91%E2%80%94%E2%80%94Gin%E6%A1%86%E6%9E%B6"><span class="toc-number">1.</span> <span class="toc-text"> Go语言开发——Gin框架</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%BF%E7%94%A8Gin"><span class="toc-number">1.1.</span> <span class="toc-text">为什么使用Gin</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Gin%E6%A1%86%E6%9E%B6%E7%9A%84%E5%85%A5%E9%97%A8"><span class="toc-number">1.2.</span> <span class="toc-text">Gin框架的入门</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BDGin%E4%BE%9D%E8%B5%96"><span class="toc-number">1.2.1.</span> <span class="toc-text">下载Gin依赖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E4%B8%AAGin%E5%BA%94%E7%94%A8"><span class="toc-number">1.2.2.</span> <span class="toc-text">第一个Gin应用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E8%A7%A3%E6%9E%90"><span class="toc-number">1.2.2.1.</span> <span class="toc-text">代码解析</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Gin%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84"><span class="toc-number">1.2.3.</span> <span class="toc-text">Gin项目结构</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Gin%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84%E9%80%90%E5%B1%82%E8%A7%A3%E6%9E%90"><span class="toc-number">1.3.</span> <span class="toc-text">Gin项目结构逐层解析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#package-main"><span class="toc-number">1.3.1.</span> <span class="toc-text">package main</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#main-go"><span class="toc-number">1.3.1.1.</span> <span class="toc-text">main.go</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#router-go"><span class="toc-number">1.3.1.2.</span> <span class="toc-text">router.go</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#config-yaml"><span class="toc-number">1.3.1.3.</span> <span class="toc-text">config.yaml</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#package-service"><span class="toc-number">1.3.2.</span> <span class="toc-text">package service</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#database-go"><span class="toc-number">1.3.2.1.</span> <span class="toc-text">database.go</span></a></li></ol></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Redis%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%E2%80%94%E2%80%94%E4%BF%9D%E5%A7%86%E7%BA%A7"><span class="toc-number">1.</span> <span class="toc-text"> Redis入门教程——保姆级</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#redis%E5%9F%BA%E6%9C%AC%E7%90%86%E8%A7%A3%E5%92%8C%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="toc-number">1.1.</span> <span class="toc-text">redis基本理解和工作原理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#redis%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="toc-number">1.1.1.</span> <span class="toc-text">redis工作原理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%EF%BC%8C%E5%90%AF%E5%8A%A8%EF%BC%8C%E6%93%8D%E4%BD%9C%EF%BC%8C%E5%85%B3%E9%97%ADredis"><span class="toc-number">1.2.</span> <span class="toc-text">配置，启动，操作，关闭redis</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#redis%E9%85%8D%E7%BD%AE"><span class="toc-number">1.2.1.</span> <span class="toc-text">redis配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#redis%E5%90%AF%E5%8A%A8"><span class="toc-number">1.2.2.</span> <span class="toc-text">redis启动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#redis%E6%93%8D%E4%BD%9C"><span class="toc-number">1.2.3.</span> <span class="toc-text">redis操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#redis%E9%80%89%E6%8B%A9%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">1.2.4.</span> <span class="toc-text">redis选择数据库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#redis%E5%85%B3%E9%97%AD"><span class="toc-number">1.2.5.</span> <span class="toc-text">redis关闭</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#redis%E4%BD%BF%E7%94%A8"><span class="toc-number">1.3.</span> <span class="toc-text">redis使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E6%89%80%E6%9C%89%E9%94%AE"><span class="toc-number">1.3.1.</span> <span class="toc-text">查看所有键</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%94%AE%E6%80%BB%E6%95%B0"><span class="toc-number">1.3.2.</span> <span class="toc-text">键总数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A3%80%E6%9F%A5%E9%94%AE%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8"><span class="toc-number">1.3.3.</span> <span class="toc-text">检查键是否存在</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E9%94%AE"><span class="toc-number">1.3.4.</span> <span class="toc-text">删除键</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%94%AE%E8%BF%87%E6%9C%9F"><span class="toc-number">1.3.5.</span> <span class="toc-text">键过期</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%94%AE%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%85%B7%E4%BD%93%E6%93%8D%E4%BD%9C"><span class="toc-number">1.3.6.</span> <span class="toc-text">键的数据结构类型和具体操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9A%84%E7%BC%96%E7%A0%81%E6%96%B9%E5%BC%8F"><span class="toc-number">1.3.7.</span> <span class="toc-text">数据结构的编码方式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%95%E7%BA%BF%E7%A8%8B%E6%9E%B6%E6%9E%84"><span class="toc-number">1.4.</span> <span class="toc-text">单线程架构</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -516,7 +556,7 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Go</a>
+                <a href="javascript:void(0)" class="js-tag color3">后端</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -524,19 +564,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">go</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">后端</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">go</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">GORM</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Go</a>
               </li>
              
               <li class="article-tag-list-item">
