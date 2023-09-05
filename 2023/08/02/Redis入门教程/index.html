@@ -8,15 +8,15 @@
   
     <meta name="keywords" content="Veni,Veni's Blog" />
   
-  <meta name="description" content="Redis入门教程——保姆级Redis（Remote Dictionary Server）是一个开源的内存数据存储系统，也可以被看作是一个键值（key-value）存储数据库。它支持多种数据结构，如字符串（String）、哈希（Hash）、列表（List）、集合（Set）、有序集合（Sorted Set）等，并且提供了丰富的操作命令。">
+  <meta name="description" content="Redis（Remote Dictionary Server）是一个开源的内存数据存储系统，也可以被看作是一个键值（key-value）存储数据库。它支持多种数据结构，如字符串（String）、哈希（Hash）、列表（List）、集合（Set）、有序集合（Sorted Set）等，并且提供了丰富的操作命令。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Redis入门教程——保姆级">
-<meta property="og:url" content="https://veni222987.github.io/2023/08/02/Redis%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%E2%80%94%E2%80%94%E4%BF%9D%E5%A7%86%E7%BA%A7/index.html">
+<meta property="og:url" content="https://veni222987.github.io/2023/08/02/Redis%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/index.html">
 <meta property="og:site_name" content="VeniceBlog">
-<meta property="og:description" content="Redis入门教程——保姆级Redis（Remote Dictionary Server）是一个开源的内存数据存储系统，也可以被看作是一个键值（key-value）存储数据库。它支持多种数据结构，如字符串（String）、哈希（Hash）、列表（List）、集合（Set）、有序集合（Sorted Set）等，并且提供了丰富的操作命令。">
+<meta property="og:description" content="Redis（Remote Dictionary Server）是一个开源的内存数据存储系统，也可以被看作是一个键值（key-value）存储数据库。它支持多种数据结构，如字符串（String）、哈希（Hash）、列表（List）、集合（Set）、有序集合（Sorted Set）等，并且提供了丰富的操作命令。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-08-02T06:54:53.000Z">
-<meta property="article:modified_time" content="2023-08-24T06:52:26.763Z">
+<meta property="article:modified_time" content="2023-09-05T14:33:10.778Z">
 <meta property="article:author" content="Veni">
 <meta property="article:tag" content="笔记">
 <meta property="article:tag" content="redis">
@@ -109,7 +109,7 @@
     </div>
 </header>
       <div class="outer">
-        <section id="main" class="body-wrap"><article id="post-Redis入门教程——保姆级" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main" class="body-wrap"><article id="post-Redis入门教程" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -138,8 +138,8 @@
     <div class="article-entry post-content" itemprop="articleBody">
       
             
-            <h1 id="Redis入门教程——保姆级"><a href="#Redis入门教程——保姆级" class="headerlink" title=" Redis入门教程——保姆级"></a><center> Redis入门教程——保姆级</h1><p>Redis（Remote Dictionary Server）是一个开源的内存数据存储系统，也可以被看作是一个键值（key-value）存储数据库。它支持多种数据结构，如字符串（String）、哈希（Hash）、列表（List）、集合（Set）、有序集合（Sorted Set）等，并且提供了丰富的操作命令。<span id="more"></span>另外，出于码字方便以及redis指令均为小写等原因，下文中Redis均写作redis，不喜勿喷。</p>
-<h2 id="redis基本理解和工作原理"><a href="#redis基本理解和工作原理" class="headerlink" title="redis基本理解和工作原理"></a>redis基本理解和工作原理</h2><p>redis可以一个特殊的数据库，它运行在内存之中，只有两个字段：键和值。其中的值可以是多种数据类型。</p>
+            <p>Redis（Remote Dictionary Server）是一个开源的内存数据存储系统，也可以被看作是一个键值（key-value）存储数据库。它支持多种数据结构，如字符串（String）、哈希（Hash）、列表（List）、集合（Set）、有序集合（Sorted Set）等，并且提供了丰富的操作命令。<span id="more"></span>另外，出于码字方便以及redis指令均为小写等原因，下文中Redis均写作redis，不喜勿喷。</p>
+<h1 id="Redis入门教程"><a href="#Redis入门教程" class="headerlink" title=" Redis入门教程"></a><center> Redis入门教程</h1><h2 id="redis基本理解和工作原理"><a href="#redis基本理解和工作原理" class="headerlink" title="redis基本理解和工作原理"></a>redis基本理解和工作原理</h2><p>redis可以一个特殊的数据库，它运行在内存之中，只有两个字段：键和值。其中的值可以是多种数据类型。</p>
 <p>redis和数据库一样，都需要配置访问权限，默认的访问权限为本地主机，即127.0.0.1，默认端口是6379。</p>
 <h3 id="redis工作原理"><a href="#redis工作原理" class="headerlink" title="redis工作原理"></a>redis工作原理</h3><ul>
 <li>AOF文件（Append-Only File）：用于实现数据的持久化，包含一系列的Redis命令，每个命令都以一种特定的格式写入到文件中，这些命令表示了Redis服务器接收到的写操作，新的命令会不断地追加到文件末尾。当服务器崩溃时，就可以重放AOF文件恢复数据。</li>
@@ -260,8 +260,8 @@
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2023年08月24日 14:52</p>
-        <p>原始链接： <a class="post-url" href="/2023/08/02/Redis%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%E2%80%94%E2%80%94%E4%BF%9D%E5%A7%86%E7%BA%A7/" title="Redis入门教程——保姆级">https://veni222987.github.io/2023/08/02/Redis%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%E2%80%94%E2%80%94%E4%BF%9D%E5%A7%86%E7%BA%A7/</a></p>
+        <p>最后更新： 2023年09月05日 22:33</p>
+        <p>原始链接： <a class="post-url" href="/2023/08/02/Redis%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/" title="Redis入门教程——保姆级">https://veni222987.github.io/2023/08/02/Redis%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/</a></p>
         <footer>
             <a href="https://Veni222987.github.io">
                 <img src="/images/avatar.png" alt="Veni">
@@ -318,7 +318,7 @@
     <div class="post-share-list" id="share-list">
         <ul class="share-icons">
           <li>
-            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://veni222987.github.io/2023/08/02/Redis%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%E2%80%94%E2%80%94%E4%BF%9D%E5%A7%86%E7%BA%A7/&title=《Redis入门教程——保姆级》 — VeniceBlog&pic=https://Veni222987.github.ioimages/avatar.png" data-title="微博">
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://veni222987.github.io/2023/08/02/Redis%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/&title=《Redis入门教程——保姆级》 — VeniceBlog&pic=https://Veni222987.github.ioimages/avatar.png" data-title="微博">
               <i class="fa fa-weibo"></i>
             </a>
           </li>
@@ -328,22 +328,22 @@
             </a>
           </li>
           <li>
-            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://veni222987.github.io/2023/08/02/Redis%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%E2%80%94%E2%80%94%E4%BF%9D%E5%A7%86%E7%BA%A7/&title=《Redis入门教程——保姆级》 — VeniceBlog&source= Redis入门教程——保姆级Redis（Remote Dictionary Server）是一个开源的内存数据存储系统，也可以被看作是一个键值（key-..." data-title="QQ">
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://veni222987.github.io/2023/08/02/Redis%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/&title=《Redis入门教程——保姆级》 — VeniceBlog&source=Redis（Remote Dictionary Server）是一个开源的内存数据存储系统，也可以被看作是一个键值（key-value）存储数据库。它支持..." data-title="QQ">
               <i class="fa fa-qq"></i>
             </a>
           </li>
           <li>
-            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://veni222987.github.io/2023/08/02/Redis%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%E2%80%94%E2%80%94%E4%BF%9D%E5%A7%86%E7%BA%A7/" data-title="Facebook">
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://veni222987.github.io/2023/08/02/Redis%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/" data-title="Facebook">
               <i class="fa fa-facebook"></i>
             </a>
           </li>
           <li>
-            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Redis入门教程——保姆级》 — VeniceBlog&url=https://veni222987.github.io/2023/08/02/Redis%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%E2%80%94%E2%80%94%E4%BF%9D%E5%A7%86%E7%BA%A7/&via=https://Veni222987.github.io" data-title="Twitter">
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Redis入门教程——保姆级》 — VeniceBlog&url=https://veni222987.github.io/2023/08/02/Redis%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/&via=https://Veni222987.github.io" data-title="Twitter">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
           <li>
-            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://veni222987.github.io/2023/08/02/Redis%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%E2%80%94%E2%80%94%E4%BF%9D%E5%A7%86%E7%BA%A7/" data-title="Google+">
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://veni222987.github.io/2023/08/02/Redis%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/" data-title="Google+">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -353,7 +353,7 @@
 <div class="post-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;" id="wxShare-close">×</a>
     <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://veni222987.github.io/2023/08/02/Redis%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%E2%80%94%E2%80%94%E4%BF%9D%E5%A7%86%E7%BA%A7/" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://veni222987.github.io/2023/08/02/Redis%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/" alt="微信分享二维码">
 </div>
 
 <div class="mask"></div>
@@ -380,19 +380,19 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Redis%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%E2%80%94%E2%80%94%E4%BF%9D%E5%A7%86%E7%BA%A7"><span class="post-toc-text"> Redis入门教程——保姆级</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#redis%E5%9F%BA%E6%9C%AC%E7%90%86%E8%A7%A3%E5%92%8C%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="post-toc-text">redis基本理解和工作原理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#redis%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="post-toc-text">redis工作原理</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E9%85%8D%E7%BD%AE%EF%BC%8C%E5%90%AF%E5%8A%A8%EF%BC%8C%E6%93%8D%E4%BD%9C%EF%BC%8C%E5%85%B3%E9%97%ADredis"><span class="post-toc-text">配置，启动，操作，关闭redis</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#redis%E9%85%8D%E7%BD%AE"><span class="post-toc-text">redis配置</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#redis%E5%90%AF%E5%8A%A8"><span class="post-toc-text">redis启动</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#redis%E6%93%8D%E4%BD%9C"><span class="post-toc-text">redis操作</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#redis%E9%80%89%E6%8B%A9%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="post-toc-text">redis选择数据库</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#redis%E5%85%B3%E9%97%AD"><span class="post-toc-text">redis关闭</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#redis%E4%BD%BF%E7%94%A8"><span class="post-toc-text">redis使用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%9F%A5%E7%9C%8B%E6%89%80%E6%9C%89%E9%94%AE"><span class="post-toc-text">查看所有键</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E9%94%AE%E6%80%BB%E6%95%B0"><span class="post-toc-text">键总数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%A3%80%E6%9F%A5%E9%94%AE%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8"><span class="post-toc-text">检查键是否存在</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%88%A0%E9%99%A4%E9%94%AE"><span class="post-toc-text">删除键</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E9%94%AE%E8%BF%87%E6%9C%9F"><span class="post-toc-text">键过期</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E9%94%AE%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%85%B7%E4%BD%93%E6%93%8D%E4%BD%9C"><span class="post-toc-text">键的数据结构类型和具体操作</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9A%84%E7%BC%96%E7%A0%81%E6%96%B9%E5%BC%8F"><span class="post-toc-text">数据结构的编码方式</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%8D%95%E7%BA%BF%E7%A8%8B%E6%9E%B6%E6%9E%84"><span class="post-toc-text">单线程架构</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Redis%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B"><span class="post-toc-text"> Redis入门教程</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#redis%E5%9F%BA%E6%9C%AC%E7%90%86%E8%A7%A3%E5%92%8C%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="post-toc-text">redis基本理解和工作原理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#redis%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="post-toc-text">redis工作原理</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E9%85%8D%E7%BD%AE%EF%BC%8C%E5%90%AF%E5%8A%A8%EF%BC%8C%E6%93%8D%E4%BD%9C%EF%BC%8C%E5%85%B3%E9%97%ADredis"><span class="post-toc-text">配置，启动，操作，关闭redis</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#redis%E9%85%8D%E7%BD%AE"><span class="post-toc-text">redis配置</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#redis%E5%90%AF%E5%8A%A8"><span class="post-toc-text">redis启动</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#redis%E6%93%8D%E4%BD%9C"><span class="post-toc-text">redis操作</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#redis%E9%80%89%E6%8B%A9%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="post-toc-text">redis选择数据库</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#redis%E5%85%B3%E9%97%AD"><span class="post-toc-text">redis关闭</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#redis%E4%BD%BF%E7%94%A8"><span class="post-toc-text">redis使用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%9F%A5%E7%9C%8B%E6%89%80%E6%9C%89%E9%94%AE"><span class="post-toc-text">查看所有键</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E9%94%AE%E6%80%BB%E6%95%B0"><span class="post-toc-text">键总数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%A3%80%E6%9F%A5%E9%94%AE%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8"><span class="post-toc-text">检查键是否存在</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%88%A0%E9%99%A4%E9%94%AE"><span class="post-toc-text">删除键</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E9%94%AE%E8%BF%87%E6%9C%9F"><span class="post-toc-text">键过期</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E9%94%AE%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%85%B7%E4%BD%93%E6%93%8D%E4%BD%9C"><span class="post-toc-text">键的数据结构类型和具体操作</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9A%84%E7%BC%96%E7%A0%81%E6%96%B9%E5%BC%8F"><span class="post-toc-text">数据结构的编码方式</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%8D%95%E7%BA%BF%E7%A8%8B%E6%9E%B6%E6%9E%84"><span class="post-toc-text">单线程架构</span></a></li></ol></li></ol>
         </nav>
     </aside>
     
 
 <nav id="article-nav">
   
-    <a href="/2023/08/05/(U)%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91%E7%BD%91%E7%BB%9C%E6%8E%A5%E5%85%A5/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2023/08/05/Gin%E6%A1%86%E6%9E%B6%E5%85%A5%E9%97%A8%E7%BA%A7%E6%95%99%E7%A8%8B%E4%B8%8E%E5%AE%9E%E8%B7%B5/" id="article-nav-newer" class="article-nav-link-wrap">
 
       <span class="article-nav-title">
         <i class="fa fa-hand-o-left" aria-hidden="true"></i>
         
-          【学习笔记】网络接入
+          Gin框架入门级教程与实践
         
       </span>
     </a>
@@ -452,10 +452,10 @@
 <div class="sidebar-menu-box" id="sidebar-menu-box">
     <div class="sidebar-menu-box-container">
         <div id="sidebar-menu-box-categories">
-            <a class="category-link" href="/categories/notes/">notes</a>
+            
         </div>
         <div id="sidebar-menu-box-tags">
-            <a href="/tags/GORM/" style="font-size: 10px;">GORM</a> <a href="/tags/Go/" style="font-size: 16.67px;">Go</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/go/" style="font-size: 10px;">go</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/tag1/" style="font-size: 10px;">tag1</a> <a href="/tags/%E5%90%8E%E7%AB%AF/" style="font-size: 20px;">后端</a> <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 16.67px;">笔记</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 13.33px;">计算机网络</a>
+            <a href="/tags/GORM/" style="font-size: 10px;">GORM</a> <a href="/tags/Go/" style="font-size: 16.67px;">Go</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/go/" style="font-size: 10px;">go</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/%E5%90%8E%E7%AB%AF/" style="font-size: 20px;">后端</a> <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 13.33px;">笔记</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 10px;">计算机网络</a>
         </div>
     </div>
     <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
@@ -488,7 +488,7 @@
     <div class="mobile-header-tag-container">
         <span class="title">Tags</span>
         <div id="mobile-header-container-tags">
-            <a href="/tags/GORM/" style="font-size: 10px;">GORM</a> <a href="/tags/Go/" style="font-size: 16.67px;">Go</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/go/" style="font-size: 10px;">go</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/tag1/" style="font-size: 10px;">tag1</a> <a href="/tags/%E5%90%8E%E7%AB%AF/" style="font-size: 20px;">后端</a> <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 16.67px;">笔记</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 13.33px;">计算机网络</a>
+            <a href="/tags/GORM/" style="font-size: 10px;">GORM</a> <a href="/tags/Go/" style="font-size: 16.67px;">Go</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/go/" style="font-size: 10px;">go</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/%E5%90%8E%E7%AB%AF/" style="font-size: 20px;">后端</a> <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 13.33px;">笔记</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 10px;">计算机网络</a>
         </div>
     </div>
 </div>

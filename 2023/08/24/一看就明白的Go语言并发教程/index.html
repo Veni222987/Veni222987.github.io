@@ -8,12 +8,12 @@
   
     <meta name="keywords" content="Veni,Veni's Blog" />
   
-  <meta name="description" content="一看就明白的Go语言并发教程Go语言提供了强大的并发编程能力，通过Goroutines、Channels和互斥锁等机制，使得并发编程变得简单和高效。本文将使用通俗的语言和简单的案例讲述Go语言并发编程的那些事儿。">
+  <meta name="description" content="Go语言提供了强大的并发编程能力，通过Goroutines、Channels和互斥锁等机制，使得并发编程变得简单和高效。本文将使用通俗的语言和简单的案例讲述Go语言并发编程的那些事儿。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="一看就明白的Go语言并发教程">
 <meta property="og:url" content="https://veni222987.github.io/2023/08/24/%E4%B8%80%E7%9C%8B%E5%B0%B1%E6%98%8E%E7%99%BD%E7%9A%84Go%E8%AF%AD%E8%A8%80%E5%B9%B6%E5%8F%91%E6%95%99%E7%A8%8B/index.html">
 <meta property="og:site_name" content="VeniceBlog">
-<meta property="og:description" content="一看就明白的Go语言并发教程Go语言提供了强大的并发编程能力，通过Goroutines、Channels和互斥锁等机制，使得并发编程变得简单和高效。本文将使用通俗的语言和简单的案例讲述Go语言并发编程的那些事儿。">
+<meta property="og:description" content="Go语言提供了强大的并发编程能力，通过Goroutines、Channels和互斥锁等机制，使得并发编程变得简单和高效。本文将使用通俗的语言和简单的案例讲述Go语言并发编程的那些事儿。">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202308241954085.webp">
 <meta property="og:image" content="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202308021453324.webp">
@@ -24,7 +24,7 @@
 <meta property="og:image" content="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202308302051036.webp">
 <meta property="og:image" content="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202309032029555.webp">
 <meta property="article:published_time" content="2023-08-24T10:57:33.000Z">
-<meta property="article:modified_time" content="2023-09-05T13:39:26.982Z">
+<meta property="article:modified_time" content="2023-09-05T14:32:46.597Z">
 <meta property="article:author" content="Veni">
 <meta property="article:tag" content="后端">
 <meta property="article:tag" content="Go">
@@ -147,8 +147,8 @@
     <div class="article-entry post-content" itemprop="articleBody">
       
             
-            <h1 id="一看就明白的Go语言并发教程"><a href="#一看就明白的Go语言并发教程" class="headerlink" title=" 一看就明白的Go语言并发教程"></a><center> 一看就明白的Go语言并发教程</h1><p>Go语言提供了强大的并发编程能力，通过Goroutines、Channels和互斥锁等机制，使得并发编程变得简单和高效。本文将使用通俗的语言和简单的案例讲述Go语言并发编程的那些事儿。<span id="more"></span></p>
-<h2 id="Go线程实现原理"><a href="#Go线程实现原理" class="headerlink" title="Go线程实现原理"></a>Go线程实现原理</h2><h3 id="Go线程模型的三要素"><a href="#Go线程模型的三要素" class="headerlink" title="Go线程模型的三要素"></a>Go线程模型的三要素</h3><ul>
+            <p>Go语言提供了强大的并发编程能力，通过Goroutines、Channels和互斥锁等机制，使得并发编程变得简单和高效。本文将使用通俗的语言和简单的案例讲述Go语言并发编程的那些事儿。<span id="more"></span></p>
+<h1 id="一看就明白的Go语言并发教程"><a href="#一看就明白的Go语言并发教程" class="headerlink" title="一看就明白的Go语言并发教程"></a>一看就明白的Go语言并发教程</h1><h2 id="Go线程实现原理"><a href="#Go线程实现原理" class="headerlink" title="Go线程实现原理"></a>Go线程实现原理</h2><h3 id="Go线程模型的三要素"><a href="#Go线程模型的三要素" class="headerlink" title="Go线程模型的三要素"></a>Go线程模型的三要素</h3><ul>
 <li>M(machine)：一个M代表一个内核级线程，或称“工作线程”，在Go语言中，Machine通常对应于一个操作系统线程，它可以在CPU上执行指令。</li>
 <li>P(processor)：一个P代表一个Go语言代码片段所需要的资源（或称上下文环境），它是Go调度器自己实现的一种调度单元。</li>
 <li>G(goroutine)：一个G代表一个Go语言的代码片段，G是对Go代码段的封装。</li>
@@ -276,7 +276,7 @@
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2023年09月05日 21:39</p>
+        <p>最后更新： 2023年09月05日 22:32</p>
         <p>原始链接： <a class="post-url" href="/2023/08/24/%E4%B8%80%E7%9C%8B%E5%B0%B1%E6%98%8E%E7%99%BD%E7%9A%84Go%E8%AF%AD%E8%A8%80%E5%B9%B6%E5%8F%91%E6%95%99%E7%A8%8B/" title="一看就明白的Go语言并发教程">https://veni222987.github.io/2023/08/24/%E4%B8%80%E7%9C%8B%E5%B0%B1%E6%98%8E%E7%99%BD%E7%9A%84Go%E8%AF%AD%E8%A8%80%E5%B9%B6%E5%8F%91%E6%95%99%E7%A8%8B/</a></p>
         <footer>
             <a href="https://Veni222987.github.io">
@@ -344,7 +344,7 @@
             </a>
           </li>
           <li>
-            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://veni222987.github.io/2023/08/24/%E4%B8%80%E7%9C%8B%E5%B0%B1%E6%98%8E%E7%99%BD%E7%9A%84Go%E8%AF%AD%E8%A8%80%E5%B9%B6%E5%8F%91%E6%95%99%E7%A8%8B/&title=《一看就明白的Go语言并发教程》 — VeniceBlog&source= 一看就明白的Go语言并发教程Go语言提供了强大的并发编程能力，通过Goroutines、Channels和互斥锁等机制，使得并发编程变得简单和高效。本文..." data-title="QQ">
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://veni222987.github.io/2023/08/24/%E4%B8%80%E7%9C%8B%E5%B0%B1%E6%98%8E%E7%99%BD%E7%9A%84Go%E8%AF%AD%E8%A8%80%E5%B9%B6%E5%8F%91%E6%95%99%E7%A8%8B/&title=《一看就明白的Go语言并发教程》 — VeniceBlog&source=Go语言提供了强大的并发编程能力，通过Goroutines、Channels和互斥锁等机制，使得并发编程变得简单和高效。本文将使用通俗的语言和简单的案例讲..." data-title="QQ">
               <i class="fa fa-qq"></i>
             </a>
           </li>
@@ -396,26 +396,16 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E4%B8%80%E7%9C%8B%E5%B0%B1%E6%98%8E%E7%99%BD%E7%9A%84Go%E8%AF%AD%E8%A8%80%E5%B9%B6%E5%8F%91%E6%95%99%E7%A8%8B"><span class="post-toc-text"> 一看就明白的Go语言并发教程</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Go%E7%BA%BF%E7%A8%8B%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86"><span class="post-toc-text">Go线程实现原理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Go%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E4%B8%89%E8%A6%81%E7%B4%A0"><span class="post-toc-text">Go线程模型的三要素</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Go%E8%B0%83%E5%BA%A6%E5%99%A8"><span class="post-toc-text">Go调度器</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%8D%8F%E7%A8%8B-Goroutine"><span class="post-toc-text">并发与协程(Goroutine)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Goroutine%E7%AE%80%E4%BB%8B"><span class="post-toc-text">Goroutine简介</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#GO%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0%E5%8D%8F%E7%A8%8B"><span class="post-toc-text">GO语言实现协程</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%8D%8F%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1"><span class="post-toc-text">协程间通信</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Channel"><span class="post-toc-text">Channel</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%BA%BF%E7%A8%8B%E5%90%8C%E6%AD%A5WaitGroup"><span class="post-toc-text">线程同步WaitGroup</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Go%E8%AF%AD%E8%A8%80%E5%90%8C%E6%AD%A5"><span class="post-toc-text">Go语言同步</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E9%94%81"><span class="post-toc-text">锁</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E4%BA%92%E6%96%A5%E9%94%81Mutex"><span class="post-toc-text">互斥锁Mutex</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E8%AF%BB%E5%86%99%E9%94%81RWMutex"><span class="post-toc-text">读写锁RWMutex</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%9D%A1%E4%BB%B6%E5%8F%98%E9%87%8FCond"><span class="post-toc-text">条件变量Cond</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Cond%E7%AE%80%E4%BB%8B"><span class="post-toc-text">Cond简介</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Cond%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="post-toc-text">Cond使用场景</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Go%E8%AF%AD%E8%A8%80sync-Cond"><span class="post-toc-text">Go语言sync.Cond</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%8E%9F%E5%AD%90%E6%93%8D%E4%BD%9C"><span class="post-toc-text">原子操作</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%8E%9F%E5%AD%90%E5%A2%9E-%E5%87%8F"><span class="post-toc-text">原子增&#x2F;减</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E6%AF%94%E8%BE%83%E5%92%8C%E4%BA%A4%E6%8D%A2CAS"><span class="post-toc-text">比较和交换CAS</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%8E%9F%E5%AD%90%E8%BD%BD%E5%85%A5-%E5%AD%98%E5%82%A8"><span class="post-toc-text">原子载入&#x2F;存储</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%80%BB%E7%BB%93"><span class="post-toc-text">总结</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E4%B8%80%E7%9C%8B%E5%B0%B1%E6%98%8E%E7%99%BD%E7%9A%84Go%E8%AF%AD%E8%A8%80%E5%B9%B6%E5%8F%91%E6%95%99%E7%A8%8B"><span class="post-toc-text">一看就明白的Go语言并发教程</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Go%E7%BA%BF%E7%A8%8B%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86"><span class="post-toc-text">Go线程实现原理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Go%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E4%B8%89%E8%A6%81%E7%B4%A0"><span class="post-toc-text">Go线程模型的三要素</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Go%E8%B0%83%E5%BA%A6%E5%99%A8"><span class="post-toc-text">Go调度器</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%8D%8F%E7%A8%8B-Goroutine"><span class="post-toc-text">并发与协程(Goroutine)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Goroutine%E7%AE%80%E4%BB%8B"><span class="post-toc-text">Goroutine简介</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#GO%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0%E5%8D%8F%E7%A8%8B"><span class="post-toc-text">GO语言实现协程</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%8D%8F%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1"><span class="post-toc-text">协程间通信</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Channel"><span class="post-toc-text">Channel</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%BA%BF%E7%A8%8B%E5%90%8C%E6%AD%A5WaitGroup"><span class="post-toc-text">线程同步WaitGroup</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Go%E8%AF%AD%E8%A8%80%E5%90%8C%E6%AD%A5"><span class="post-toc-text">Go语言同步</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E9%94%81"><span class="post-toc-text">锁</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E4%BA%92%E6%96%A5%E9%94%81Mutex"><span class="post-toc-text">互斥锁Mutex</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E8%AF%BB%E5%86%99%E9%94%81RWMutex"><span class="post-toc-text">读写锁RWMutex</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%9D%A1%E4%BB%B6%E5%8F%98%E9%87%8FCond"><span class="post-toc-text">条件变量Cond</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Cond%E7%AE%80%E4%BB%8B"><span class="post-toc-text">Cond简介</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Cond%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="post-toc-text">Cond使用场景</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Go%E8%AF%AD%E8%A8%80sync-Cond"><span class="post-toc-text">Go语言sync.Cond</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%8E%9F%E5%AD%90%E6%93%8D%E4%BD%9C"><span class="post-toc-text">原子操作</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%8E%9F%E5%AD%90%E5%A2%9E-%E5%87%8F"><span class="post-toc-text">原子增&#x2F;减</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E6%AF%94%E8%BE%83%E5%92%8C%E4%BA%A4%E6%8D%A2CAS"><span class="post-toc-text">比较和交换CAS</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%8E%9F%E5%AD%90%E8%BD%BD%E5%85%A5-%E5%AD%98%E5%82%A8"><span class="post-toc-text">原子载入&#x2F;存储</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%80%BB%E7%BB%93"><span class="post-toc-text">总结</span></a></li></ol></li></ol>
         </nav>
     </aside>
     
 
 <nav id="article-nav">
   
-    <a href="/2023/08/29/(U)%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E7%9A%84%E5%8E%9F%E7%90%86%E4%B8%8E%E5%AE%9E%E8%B7%B5/" id="article-nav-newer" class="article-nav-link-wrap">
-
-      <span class="article-nav-title">
-        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
-        
-          消息队列的原理与实践
-        
-      </span>
-    </a>
   
-  
-    <a href="/2023/08/20/(U)%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84/" id="article-nav-older" class="article-nav-link-wrap">
-      <span class="article-nav-title">架构初探与微服务架构</span>
+    <a href="/2023/08/10/GORM%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%E4%B8%8E%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">GORM入门教程与最佳实践</span>
       <i class="fa fa-hand-o-right" aria-hidden="true"></i>
     </a>
   
@@ -468,10 +458,10 @@
 <div class="sidebar-menu-box" id="sidebar-menu-box">
     <div class="sidebar-menu-box-container">
         <div id="sidebar-menu-box-categories">
-            <a class="category-link" href="/categories/notes/">notes</a>
+            
         </div>
         <div id="sidebar-menu-box-tags">
-            <a href="/tags/GORM/" style="font-size: 10px;">GORM</a> <a href="/tags/Go/" style="font-size: 16.67px;">Go</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/go/" style="font-size: 10px;">go</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/tag1/" style="font-size: 10px;">tag1</a> <a href="/tags/%E5%90%8E%E7%AB%AF/" style="font-size: 20px;">后端</a> <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 16.67px;">笔记</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 13.33px;">计算机网络</a>
+            <a href="/tags/GORM/" style="font-size: 10px;">GORM</a> <a href="/tags/Go/" style="font-size: 16.67px;">Go</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/go/" style="font-size: 10px;">go</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/%E5%90%8E%E7%AB%AF/" style="font-size: 20px;">后端</a> <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 13.33px;">笔记</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 10px;">计算机网络</a>
         </div>
     </div>
     <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
@@ -504,7 +494,7 @@
     <div class="mobile-header-tag-container">
         <span class="title">Tags</span>
         <div id="mobile-header-container-tags">
-            <a href="/tags/GORM/" style="font-size: 10px;">GORM</a> <a href="/tags/Go/" style="font-size: 16.67px;">Go</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/go/" style="font-size: 10px;">go</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/tag1/" style="font-size: 10px;">tag1</a> <a href="/tags/%E5%90%8E%E7%AB%AF/" style="font-size: 20px;">后端</a> <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 16.67px;">笔记</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 13.33px;">计算机网络</a>
+            <a href="/tags/GORM/" style="font-size: 10px;">GORM</a> <a href="/tags/Go/" style="font-size: 16.67px;">Go</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/go/" style="font-size: 10px;">go</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/%E5%90%8E%E7%AB%AF/" style="font-size: 20px;">后端</a> <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 13.33px;">笔记</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 10px;">计算机网络</a>
         </div>
     </div>
 </div>
