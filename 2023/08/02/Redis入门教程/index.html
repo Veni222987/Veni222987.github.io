@@ -146,24 +146,24 @@
       
             
             <p>Redis（Remote Dictionary Server）是一个开源的内存数据存储系统，也可以被看作是一个键值（key-value）存储数据库。它支持多种数据结构，如字符串（String）、哈希（Hash）、列表（List）、集合（Set）、有序集合（Sorted Set）等，并且提供了丰富的操作命令。<span id="more"></span>另外，出于码字方便以及redis指令均为小写等原因，下文中Redis均写作redis，不喜勿喷。</p>
-<h1 id="Redis入门教程"><a href="#Redis入门教程" class="headerlink" title="Redis入门教程"></a>Redis入门教程</h1><h2 id="redis基本理解和工作原理"><a href="#redis基本理解和工作原理" class="headerlink" title="redis基本理解和工作原理"></a>redis基本理解和工作原理</h2><p>redis可以一个特殊的数据库，它运行在内存之中，只有两个字段：键和值。其中的值可以是多种数据类型。</p>
+<h1><span id="redis入门教程">Redis入门教程</span></h1><h2><span id="redis基本理解和工作原理">redis基本理解和工作原理</span></h2><p>redis可以一个特殊的数据库，它运行在内存之中，只有两个字段：键和值。其中的值可以是多种数据类型。</p>
 <p>redis和数据库一样，都需要配置访问权限，默认的访问权限为本地主机，即127.0.0.1，默认端口是6379。</p>
-<h3 id="redis工作原理"><a href="#redis工作原理" class="headerlink" title="redis工作原理"></a>redis工作原理</h3><ul>
+<h3><span id="redis工作原理">redis工作原理</span></h3><ul>
 <li>AOF文件（Append-Only File）：用于实现数据的持久化，包含一系列的Redis命令，每个命令都以一种特定的格式写入到文件中，这些命令表示了Redis服务器接收到的写操作，新的命令会不断地追加到文件末尾。当服务器崩溃时，就可以重放AOF文件恢复数据。</li>
 <li>RDB文件（Redis Database）：将数据库某个时间节点的状态保存到一个二进制文件中，相当于备份。如果服务器崩溃，在最后一次生成 RDB 文件和崩溃之间的数据可能会丢失。这时候就需要AOF文件来进一步保护和恢复数据。</li>
 </ul>
 <p>看完上述两个持久化的方法之后，我相信善于思考的你对redis持久化已经有了初步的想法了。其基本工作流程基本如下：</p>
 <p><code>在每一次的写操作中，往AOF文件添加操作记录，当保存了RDB文件之后，就及时清除AOF文件，防止其文件体积过大。当发生崩溃的时候，先加载RDB文件，然后重现AOF文件，最终恢复redis。</code>这个过程就好像数据库的恢复系统，可以比较记忆。</p>
-<h2 id="配置，启动，操作，关闭redis"><a href="#配置，启动，操作，关闭redis" class="headerlink" title="配置，启动，操作，关闭redis"></a>配置，启动，操作，关闭redis</h2><h3 id="redis配置"><a href="#redis配置" class="headerlink" title="redis配置"></a>redis配置</h3><ul>
+<h2><span id="配置启动操作关闭redis">配置，启动，操作，关闭redis</span></h2><h3><span id="redis配置">redis配置</span></h3><ul>
 <li><p>控制访问权限：在配置文件中修改bind属性，一般来说配置文件位于&#x2F;etc&#x2F;redis.conf</p>
 </li>
 <li><p>redis也可以设置账号密码，在Redis配置文件中，找到并编辑<code>requirepass</code>属性。如果该属性被注释掉了（以<code>#</code>开头），需要取消注释，并在等号后面设置一个密码。例如，可以设置<code>requirepass mypassword</code>，其中<code>mypassword</code>是你想要设置的密码。</p>
 </li>
 </ul>
-<h3 id="redis启动"><a href="#redis启动" class="headerlink" title="redis启动"></a>redis启动</h3><p>三种方法：默认配置，运行配置，配置文件启动（<strong>推荐使用配置文件使用</strong>）</p>
+<h3><span id="redis启动">redis启动</span></h3><p>三种方法：默认配置，运行配置，配置文件启动（<strong>推荐使用配置文件使用</strong>）</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-server /etc/redis.conf</span><br></pre></td></tr></table></figure>
 
-<h3 id="redis操作"><a href="#redis操作" class="headerlink" title="redis操作"></a>redis操作</h3><p>可以使用redis-cli连接服务器，有如下两种方法：交互式和命令式。</p>
+<h3><span id="redis操作">redis操作</span></h3><p>可以使用redis-cli连接服务器，有如下两种方法：交互式和命令式。</p>
 <ul>
 <li>交互式：</li>
 </ul>
@@ -175,28 +175,28 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">redis-cli -h 127.0.0.1 -p 6379 get hello</span><br><span class="line">&quot;world&quot;</span><br></pre></td></tr></table></figure>
 
 <p>如果缺省了-h和-p两个参数，那么默认是链接127.0.0.1:6379。</p>
-<h3 id="redis选择数据库"><a href="#redis选择数据库" class="headerlink" title="redis选择数据库"></a>redis选择数据库</h3><p>使用<code>SELECT &lt;index&gt;</code>可以选择某个特定的数据库。redis共有16个数据库可以使用，默认使用DB 0工作。</p>
+<h3><span id="redis选择数据库">redis选择数据库</span></h3><p>使用<code>SELECT &lt;index&gt;</code>可以选择某个特定的数据库。redis共有16个数据库可以使用，默认使用DB 0工作。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; <span class="keyword">select</span> 1</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379[1]&gt; keys *</span><br><span class="line">(empty list or <span class="built_in">set</span>)</span><br></pre></td></tr></table></figure>
 
-<h3 id="redis关闭"><a href="#redis关闭" class="headerlink" title="redis关闭"></a>redis关闭</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-cli shutdown</span><br></pre></td></tr></table></figure>
+<h3><span id="redis关闭">redis关闭</span></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-cli shutdown</span><br></pre></td></tr></table></figure>
 
 <p>redis关闭的过程：断开客户端连接，持久化文件生成。这要求我们自己生成持久化文件，redis并不会自动做这件事。这种情况是特殊情况主动关闭redis的操作，就好像关机之前需要保存工作区一样。</p>
-<h2 id="redis使用"><a href="#redis使用" class="headerlink" title="redis使用"></a>redis使用</h2><h3 id="查看所有键"><a href="#查看所有键" class="headerlink" title="查看所有键"></a>查看所有键</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; keys *</span><br><span class="line">1) &quot;backup2&quot;</span><br><span class="line">2) &quot;backup3&quot;</span><br><span class="line">3) &quot;backup4&quot;</span><br><span class="line">4) &quot;backup1&quot;</span><br></pre></td></tr></table></figure>
+<h2><span id="redis使用">redis使用</span></h2><h3><span id="查看所有键">查看所有键</span></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; keys *</span><br><span class="line">1) &quot;backup2&quot;</span><br><span class="line">2) &quot;backup3&quot;</span><br><span class="line">3) &quot;backup4&quot;</span><br><span class="line">4) &quot;backup1&quot;</span><br></pre></td></tr></table></figure>
 
-<h3 id="键总数"><a href="#键总数" class="headerlink" title="键总数"></a>键总数</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; dbsize</span><br><span class="line">(integer) 4</span><br></pre></td></tr></table></figure>
+<h3><span id="键总数">键总数</span></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; dbsize</span><br><span class="line">(integer) 4</span><br></pre></td></tr></table></figure>
 
-<h3 id="检查键是否存在"><a href="#检查键是否存在" class="headerlink" title="检查键是否存在"></a>检查键是否存在</h3><p><code>exists [keys]</code>，如果键存在则返回1，否则返回0。</p>
+<h3><span id="检查键是否存在">检查键是否存在</span></h3><p><code>exists [keys]</code>，如果键存在则返回1，否则返回0。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; exists backup1</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; exists backup1 backup5</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; exists backup1 backup2</span><br><span class="line">(integer) 2</span><br></pre></td></tr></table></figure>
 
 <p>可以检查多个键，但是返回值是一个整数，表示查询的键中存在的个数。</p>
-<h3 id="删除键"><a href="#删除键" class="headerlink" title="删除键"></a>删除键</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">del [keys]</span><br></pre></td></tr></table></figure>
+<h3><span id="删除键">删除键</span></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">del [keys]</span><br></pre></td></tr></table></figure>
 
 <p>返回值是成功删除的键的个数，如果删除失败，返回0，否则返回1。使用的语法和返回结果与上述的exists类似，不加赘述。</p>
-<h3 id="键过期"><a href="#键过期" class="headerlink" title="键过期"></a>键过期</h3><p>redis支持使用<code>expire key seconds</code>对键添加过期时间，当超过过期时间后，会自动删除该键：</p>
+<h3><span id="键过期">键过期</span></h3><p>redis支持使用<code>expire key seconds</code>对键添加过期时间，当超过过期时间后，会自动删除该键：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; set hello world</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; expire hello 20</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; ttl hello</span><br><span class="line">(integer) 14</span><br></pre></td></tr></table></figure>
 
 <p>使用ttl指令可以查看键的剩余时间。</p>
-<h3 id="键的数据结构类型和具体操作"><a href="#键的数据结构类型和具体操作" class="headerlink" title="键的数据结构类型和具体操作"></a>键的数据结构类型和具体操作</h3><p>前面说过，一个值的数据类型只有五种：string,hash,list,set,zset（有序集合）。下面是这五种数据类型的插入示例:</p>
+<h3><span id="键的数据结构类型和具体操作">键的数据结构类型和具体操作</span></h3><p>前面说过，一个值的数据类型只有五种：string,hash,list,set,zset（有序集合）。下面是这五种数据类型的插入示例:</p>
 <ul>
 <li>字符串string：</li>
 </ul>
@@ -233,7 +233,7 @@
 
 
 
-<h3 id="数据结构的编码方式"><a href="#数据结构的编码方式" class="headerlink" title="数据结构的编码方式"></a>数据结构的编码方式</h3><p>在redis中，每种数据结构都有多种编码方式。Redis 会根据数据大小、类型以及具体的操作情况来自动选择和转换编码方式，以达到最佳的内存使用和性能效果。一旦有了更高效的编码方式，就可以直接修改内部编码，无需修改外部代码。</p>
+<h3><span id="数据结构的编码方式">数据结构的编码方式</span></h3><p>在redis中，每种数据结构都有多种编码方式。Redis 会根据数据大小、类型以及具体的操作情况来自动选择和转换编码方式，以达到最佳的内存使用和性能效果。一旦有了更高效的编码方式，就可以直接修改内部编码，无需修改外部代码。</p>
 <ol>
 <li><strong>字符串（String）</strong>：<ul>
 <li><code>raw</code>：简单字符串的默认编码，适用于存储一般文本数据。</li>
@@ -263,7 +263,7 @@
 </ul>
 </li>
 </ol>
-<h2 id="单线程架构"><a href="#单线程架构" class="headerlink" title="单线程架构"></a>单线程架构</h2><p>当第一次看到redis是单线程架构的时候我惊呆了，但是redis的单线程并没有影响他的高性能。实际上，redis内部使用了多线程来处理不同的任务。首先，redis是单线程这是因为redis的核心是一个<strong>事件循环</strong>，这个单线程循环处理所有客户端请求，数据读写，命令解析等任务。redis的单线程架构使用<strong>非阻塞I&#x2F;O模型</strong>，使用<strong>任务切换</strong>处理事件循环中的不同任务，使用<strong>多路复用技术</strong>监听不同的socket(ip+port)。</p>
+<h2><span id="单线程架构">单线程架构</span></h2><p>当第一次看到redis是单线程架构的时候我惊呆了，但是redis的单线程并没有影响他的高性能。实际上，redis内部使用了多线程来处理不同的任务。首先，redis是单线程这是因为redis的核心是一个<strong>事件循环</strong>，这个单线程循环处理所有客户端请求，数据读写，命令解析等任务。redis的单线程架构使用<strong>非阻塞I&#x2F;O模型</strong>，使用<strong>任务切换</strong>处理事件循环中的不同任务，使用<strong>多路复用技术</strong>监听不同的socket(ip+port)。</p>
 
             <div class="post-copyright">
     <div class="content">
@@ -387,7 +387,7 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Redis%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B"><span class="post-toc-text">Redis入门教程</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#redis%E5%9F%BA%E6%9C%AC%E7%90%86%E8%A7%A3%E5%92%8C%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="post-toc-text">redis基本理解和工作原理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#redis%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="post-toc-text">redis工作原理</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E9%85%8D%E7%BD%AE%EF%BC%8C%E5%90%AF%E5%8A%A8%EF%BC%8C%E6%93%8D%E4%BD%9C%EF%BC%8C%E5%85%B3%E9%97%ADredis"><span class="post-toc-text">配置，启动，操作，关闭redis</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#redis%E9%85%8D%E7%BD%AE"><span class="post-toc-text">redis配置</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#redis%E5%90%AF%E5%8A%A8"><span class="post-toc-text">redis启动</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#redis%E6%93%8D%E4%BD%9C"><span class="post-toc-text">redis操作</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#redis%E9%80%89%E6%8B%A9%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="post-toc-text">redis选择数据库</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#redis%E5%85%B3%E9%97%AD"><span class="post-toc-text">redis关闭</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#redis%E4%BD%BF%E7%94%A8"><span class="post-toc-text">redis使用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%9F%A5%E7%9C%8B%E6%89%80%E6%9C%89%E9%94%AE"><span class="post-toc-text">查看所有键</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E9%94%AE%E6%80%BB%E6%95%B0"><span class="post-toc-text">键总数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%A3%80%E6%9F%A5%E9%94%AE%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8"><span class="post-toc-text">检查键是否存在</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%88%A0%E9%99%A4%E9%94%AE"><span class="post-toc-text">删除键</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E9%94%AE%E8%BF%87%E6%9C%9F"><span class="post-toc-text">键过期</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E9%94%AE%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%85%B7%E4%BD%93%E6%93%8D%E4%BD%9C"><span class="post-toc-text">键的数据结构类型和具体操作</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9A%84%E7%BC%96%E7%A0%81%E6%96%B9%E5%BC%8F"><span class="post-toc-text">数据结构的编码方式</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%8D%95%E7%BA%BF%E7%A8%8B%E6%9E%B6%E6%9E%84"><span class="post-toc-text">单线程架构</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link"><span class="post-toc-text">Redis入门教程</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link"><span class="post-toc-text">redis基本理解和工作原理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link"><span class="post-toc-text">redis工作原理</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link"><span class="post-toc-text">配置，启动，操作，关闭redis</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link"><span class="post-toc-text">redis配置</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link"><span class="post-toc-text">redis启动</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link"><span class="post-toc-text">redis操作</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link"><span class="post-toc-text">redis选择数据库</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link"><span class="post-toc-text">redis关闭</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link"><span class="post-toc-text">redis使用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link"><span class="post-toc-text">查看所有键</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link"><span class="post-toc-text">键总数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link"><span class="post-toc-text">检查键是否存在</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link"><span class="post-toc-text">删除键</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link"><span class="post-toc-text">键过期</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link"><span class="post-toc-text">键的数据结构类型和具体操作</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link"><span class="post-toc-text">数据结构的编码方式</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link"><span class="post-toc-text">单线程架构</span></a></li></ol></li></ol>
         </nav>
     </aside>
     
@@ -555,6 +555,15 @@
 
   <script>
      $(".article-entry p img").popImg();
+  </script>
+
+
+
+  <script src='https://unpkg.com/mermaid@10.4.0/dist/mermaid.min.js'></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({theme: 'forest'});
+    }
   </script>
 
   </div>
