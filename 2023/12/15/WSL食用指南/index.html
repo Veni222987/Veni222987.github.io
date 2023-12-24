@@ -3,22 +3,27 @@
 <head>
   <meta charset="utf-8">
   
-  <title>VeniceBlog</title>
+  <title>WSL食用指南 | VeniceBlog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
     <meta name="keywords" content="Veni,Veni's Blog" />
   
-  <meta name="description" content="一些记录里程碑  2002：开启人生游戏  2018-09：开启广东肇庆中学副本  2021-04：获得云云奖学金  2021-09：开启华南理工大学副本  2021-10：通过面试成为团委科技创新部干事  2022-10-08：获得全国大学生数学建模竞赛广东省二等奖  2022-10-15：获得“优秀干事”称号，同期成为团委科技创新部副部长  2023-03：获得保利威“直播+”软件设计大赛一等">
-<meta property="og:type" content="website">
-<meta property="og:title" content="VeniceBlog">
-<meta property="og:url" content="https://veni222987.github.io/diary/index.html">
+  <meta name="description" content="这是一个WSL开发的使用指南，可以享受Linux的开发环境和Windows的办公环境（主要是买不起Mac）。下面是使用WSL开发的基本指南。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WSL食用指南">
+<meta property="og:url" content="https://veni222987.github.io/2023/12/15/WSL%E9%A3%9F%E7%94%A8%E6%8C%87%E5%8D%97/index.html">
 <meta property="og:site_name" content="VeniceBlog">
-<meta property="og:description" content="一些记录里程碑  2002：开启人生游戏  2018-09：开启广东肇庆中学副本  2021-04：获得云云奖学金  2021-09：开启华南理工大学副本  2021-10：通过面试成为团委科技创新部干事  2022-10-08：获得全国大学生数学建模竞赛广东省二等奖  2022-10-15：获得“优秀干事”称号，同期成为团委科技创新部副部长  2023-03：获得保利威“直播+”软件设计大赛一等">
+<meta property="og:description" content="这是一个WSL开发的使用指南，可以享受Linux的开发环境和Windows的办公环境（主要是买不起Mac）。下面是使用WSL开发的基本指南。">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-10-28T07:09:51.018Z">
-<meta property="article:modified_time" content="2023-10-28T07:09:51.018Z">
+<meta property="og:image" content="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202312152331769.webp">
+<meta property="og:image" content="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202312152340280.webp">
+<meta property="og:image" content="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202312160029651.webp">
+<meta property="article:published_time" content="2023-12-15T15:25:19.000Z">
+<meta property="article:modified_time" content="2023-12-24T14:01:22.056Z">
 <meta property="article:author" content="Veni">
+<meta property="article:tag" content="工具">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202312152331769.webp">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -112,57 +117,77 @@
     </div>
 </header>
       <div class="outer">
-        <section id="main" class="body-wrap"><article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
+        <section id="main" class="body-wrap"><article id="post-WSL食用指南" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
-    <div class="article-entry " itemprop="articleBody">
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      WSL食用指南
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/tools/">tools</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2023-12-15
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
       
             
-            <h1><span id="一些记录">一些记录</span></h1><h2><span id="里程碑">里程碑</span></h2><blockquote>
+            <p>这是一个WSL开发的使用指南，可以享受Linux的开发环境和Windows的办公环境（主要是买不起Mac）。下面是使用WSL开发的基本指南。<span id="more"></span></p>
+<h1><span id="wsl食用指南">WSL食用指南</span></h1><h2><span id="基础配置篇">基础配置篇</span></h2><p>由于CentOS已经停止维护，推荐使用Debian，轻量且稳定。</p>
+<p>要想使用Debian开发，需要完成下面几件事情：</p>
+<ol>
+<li>更换apt源，阿里源或者清华源都可（如果是云服务器则不需要手动换源，一般对应厂商已经换好）。</li>
+<li>apt install build-essentials，各种开发的基础。</li>
+</ol>
+<h2><span id="开发篇">开发篇</span></h2><h3><span id="网络调试">网络调试</span></h3><p>使用WSL开发后端，进行接口调试的时候可以有多种方式。</p>
+<h4><span id="ide端口转发">IDE端口转发</span></h4><p>一种是直接使用IDEA(或其他IDE的类似功能)的端口转发。如下图所示：将2345端口转发到主机的13151端口，之后调用localhost:13151端口访问。每次启动都会改变端口，推荐前端使用此方法调用，例如开发Vue等项目需要运行的时候，可以使用本机浏览器测试。</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202312152331769.webp" alt="image-20231215233103387"></p>
+<h4><span id="使用netsh-interface-portproxy转发">使用netsh interface portproxy转发</span></h4><p>另外一种是放行WSL的防火墙，进行接口调试。这种方法设置的ip长期有效，端口固定，在使用APIFOX的时候不用每次都修改端口号。推荐后端开发使用此方法。步骤如下：</p>
+<p>查看WSL的ip地址：<code>ip address</code>：</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202312152340280.webp" alt="image-20231215234033137"></p>
+<p>修改Windows网络转发规则：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netsh interface portproxy add v4tov4 listenport=<span class="number">5354</span> listenaddress=<span class="number">0</span>.<span class="number">0</span>.<span class="number">0</span>.<span class="number">0</span> connectport=<span class="number">5354</span> connectaddress=<span class="number">172</span>.<span class="number">18</span>.<span class="number">157</span>.<span class="number">129</span></span><br></pre></td></tr></table></figure>
+
+<p><code>listenport</code>, 表示要监听的 Windows 端口<br><code>listenaddress</code>, 表示监听地址, 0.0.0.0 表示匹配所有地址, 比如Windows 既有Wifi网卡, 又有有线网卡, 那么访问任意两个网卡, 都会被监听到,当然也可以指定其中之一的IP的地址<br><code>connectaddress</code> ,要转发的地址, 这里设置为localhost, 是因为,我们可以通过localhost来访问WSL2, 如果暂不支持, 这里需要指定为 WSL2的IP地址<br><code>connectport</code>, 要转发到的目标端口，即虚拟机监听的端口</p>
+<p>附netsh的常用指令：</p>
+<p>查看端口转发：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netsh interface portproxy show all</span><br></pre></td></tr></table></figure>
+
+<p>删除端口转发：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netsh interface portproxy delete v4tov4 listenport=<span class="number">5354</span> listenaddress=<span class="number">0</span>.<span class="number">0</span>.<span class="number">0</span>.<span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<p>这个时候，对于本机而言，使用127.0.0.1:5354访问和使用172.18.157.129:5354访问的结果是一样的，都可以正常访问WSL中启动的后端项目。</p>
 <ul>
-<li><p>2002：开启人生游戏</p>
-</li>
-<li><p>2018-09：开启广东肇庆中学副本</p>
-</li>
-<li><p>2021-04：获得云云奖学金</p>
-</li>
-<li><p>2021-09：开启华南理工大学副本</p>
-</li>
-<li><p>2021-10：通过面试成为团委科技创新部干事</p>
-</li>
-<li><p>2022-10-08：获得全国大学生数学建模竞赛广东省二等奖</p>
-</li>
-<li><p>2022-10-15：获得“优秀干事”称号，同期成为团委科技创新部副部长</p>
-</li>
-<li><p>2023-03：获得保利威“直播+”软件设计大赛一等奖</p>
-</li>
-<li><p>2023-03-24：取得机动车驾驶证</p>
-</li>
-<li><p>2023-05：获得“富途杯”软件设计大赛三等奖</p>
-</li>
-<li><p>2023-05-04：获得华南理工大学“优秀共青团员”荣誉称号</p>
-</li>
-<li><p>2023-06：获得Mathorcup高校数学建模挑战赛全国二等奖</p>
-</li>
-<li><p>2023-06-05：获批一项软著“学生预习反馈分析系统”</p>
-</li>
-<li><p>2023-09：获得获得华南理工大学“互联网+”大赛优胜奖</p>
-</li>
-<li><p>2023-10-08：获得字节跳动青训营结营证书</p>
-</li>
-<li><p>2023-10-16：获国家励志奖学金</p>
-</li>
-<li><p>2023-10-25：通过深信服云计算工程师SCCA-C认证</p>
-</li>
+<li>局域网访问：使用防火墙配置入站规则，放行对应端口后，重启电脑即可。</li>
 </ul>
-</blockquote>
-<h2><span id="唠嗑日记">唠嗑日记</span></h2><h3><span id="1026">10.26</span></h3><p>整理了一下我的博客网站，封面图就按照categories来设置好了。然后引导栏上面的一切英文均为小写，避免因为大小写而找不到文件或者归类错乱。</p>
-<p>另外发现了一个Bug，就是同一张图片如果直接重命名就部署到github page上会无法更新，需要修改一下文件尺寸等等，再重命名，这样才会正确更新到博客。</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202312160029651.webp" alt="image-20231216002903288"></p>
+<h4><span id="使用容器转发">使用容器转发</span></h4><p>使用容器,来配置web服务,显然是最佳选择,这个时候你就会遇到本文的问题,因为你可能希望让其他主机来访问你的容器服务!但是还未实践，此处略过。</p>
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2023年10月28日 15:09</p>
-        <p>原始链接： <a class="post-url" href="/diary/index.html" title="">https://veni222987.github.io/diary/index.html</a></p>
+        <p>最后更新： 2023年12月24日 22:01</p>
+        <p>原始链接： <a class="post-url" href="/2023/12/15/WSL%E9%A3%9F%E7%94%A8%E6%8C%87%E5%8D%97/" title="WSL食用指南">https://veni222987.github.io/2023/12/15/WSL%E9%A3%9F%E7%94%A8%E6%8C%87%E5%8D%97/</a></p>
         <footer>
             <a href="https://Veni222987.github.io">
                 <img src="/images/avatar.png" alt="Veni">
@@ -219,7 +244,7 @@
     <div class="post-share-list" id="share-list">
         <ul class="share-icons">
           <li>
-            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://veni222987.github.io/diary/&title=VeniceBlog&pic=https://Veni222987.github.ioimages/avatar.png" data-title="微博">
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://veni222987.github.io/2023/12/15/WSL%E9%A3%9F%E7%94%A8%E6%8C%87%E5%8D%97/&title=《WSL食用指南》 — VeniceBlog&pic=images/cover/tools.jpg" data-title="微博">
               <i class="fa fa-weibo"></i>
             </a>
           </li>
@@ -229,22 +254,22 @@
             </a>
           </li>
           <li>
-            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://veni222987.github.io/diary/&title=VeniceBlog&source=" data-title="QQ">
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://veni222987.github.io/2023/12/15/WSL%E9%A3%9F%E7%94%A8%E6%8C%87%E5%8D%97/&title=《WSL食用指南》 — VeniceBlog&source=这是一个WSL开发的使用指南，可以享受Linux的开发环境和Windows的办公环境（主要是买不起Mac）。下面是使用WSL开发的基本指南。" data-title="QQ">
               <i class="fa fa-qq"></i>
             </a>
           </li>
           <li>
-            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://veni222987.github.io/diary/" data-title="Facebook">
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://veni222987.github.io/2023/12/15/WSL%E9%A3%9F%E7%94%A8%E6%8C%87%E5%8D%97/" data-title="Facebook">
               <i class="fa fa-facebook"></i>
             </a>
           </li>
           <li>
-            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=VeniceBlog&url=https://veni222987.github.io/diary/&via=https://Veni222987.github.io" data-title="Twitter">
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《WSL食用指南》 — VeniceBlog&url=https://veni222987.github.io/2023/12/15/WSL%E9%A3%9F%E7%94%A8%E6%8C%87%E5%8D%97/&via=https://Veni222987.github.io" data-title="Twitter">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
           <li>
-            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://veni222987.github.io/diary/" data-title="Google+">
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://veni222987.github.io/2023/12/15/WSL%E9%A3%9F%E7%94%A8%E6%8C%87%E5%8D%97/" data-title="Google+">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -254,7 +279,7 @@
 <div class="post-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;" id="wxShare-close">×</a>
     <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://veni222987.github.io/diary/" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://veni222987.github.io/2023/12/15/WSL%E9%A3%9F%E7%94%A8%E6%8C%87%E5%8D%97/" alt="微信分享二维码">
 </div>
 
 <div class="mask"></div>
@@ -263,6 +288,13 @@
         <ul class="article-footer-menu">
             
             
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/工具/" class="color3">工具</a>
+      
+  </li>
+
         </ul>
         
     </footer>
@@ -272,10 +304,30 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link"><span class="post-toc-text">一些记录</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link"><span class="post-toc-text">里程碑</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link"><span class="post-toc-text">唠嗑日记</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link"><span class="post-toc-text">10.26</span></a></li></ol></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link"><span class="post-toc-text">WSL食用指南</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link"><span class="post-toc-text">基础配置篇</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link"><span class="post-toc-text">开发篇</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link"><span class="post-toc-text">网络调试</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link"><span class="post-toc-text">IDE端口转发</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link"><span class="post-toc-text">使用netsh interface portproxy转发</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link"><span class="post-toc-text">使用容器转发</span></a></li></ol></li></ol></li></ol></li></ol>
         </nav>
     </aside>
     
+
+<nav id="article-nav">
+  
+    <a href="/2023/12/17/Web%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          Web应用开发
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2023/10/18/%E3%80%90Sangfor%E3%80%91%E6%B7%B1%E4%BF%A1%E6%9C%8D%E8%B6%85%E8%9E%8D%E5%90%88HCI/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">【Sangfor】深信服产品介绍与最佳实践</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
 
 
 
