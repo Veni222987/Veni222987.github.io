@@ -1,0 +1,650 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>高性能计算与云计算复习 | Veni's Blog</title><meta name="author" content="Veni"><meta name="copyright" content="Veni"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="高性能计算与云计算复习互联网络互联网络分为静态互联网络和动态互联网络。 静态网络是指各节点之间有固定连接的一类网络。程序执行期间，网络连接不改变。动态网络是用开关单元构成的，可以动态改变连接状态的网络。 静态互联网络的特征 网络规模：网络的节点个数  节点度数：单向网络中，入射和出射边之和称为节点度  网络直径：任意两个节点之间的最长距离  对剖宽度：将网络对分所必须移除的边的数目，如果是奇数个的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="高性能计算与云计算复习">
+<meta property="og:url" content="https://veni222987.github.io/2023/12/25/%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%E4%B8%8E%E4%BA%91%E8%AE%A1%E7%AE%97%E5%A4%8D%E4%B9%A0/index.html">
+<meta property="og:site_name" content="Veni&#39;s Blog">
+<meta property="og:description" content="高性能计算与云计算复习互联网络互联网络分为静态互联网络和动态互联网络。 静态网络是指各节点之间有固定连接的一类网络。程序执行期间，网络连接不改变。动态网络是用开关单元构成的，可以动态改变连接状态的网络。 静态互联网络的特征 网络规模：网络的节点个数  节点度数：单向网络中，入射和出射边之和称为节点度  网络直径：任意两个节点之间的最长距离  对剖宽度：将网络对分所必须移除的边的数目，如果是奇数个的">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://opentalk-blog.b0.upaiyun.com/prod/2021-05-19/cfc5ac0f1f89ed28e5c1a90c65eb1e3e">
+<meta property="article:published_time" content="2023-12-25T09:11:42.000Z">
+<meta property="article:modified_time" content="2024-01-14T15:39:44.000Z">
+<meta property="article:author" content="Veni">
+<meta property="article:tag" content="云计算">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://opentalk-blog.b0.upaiyun.com/prod/2021-05-19/cfc5ac0f1f89ed28e5c1a90c65eb1e3e"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://veni222987.github.io/2023/12/25/%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%E4%B8%8E%E4%BA%91%E8%AE%A1%E7%AE%97%E5%A4%8D%E4%B9%A0/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.12.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.32/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Error',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: 'days',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.0/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '高性能计算与云计算复习',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: true,
+  isToc: true,
+  postUpdate: '2024-01-14 23:39:44'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/header-numbering.css"><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">16</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">13</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">7</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://opentalk-blog.b0.upaiyun.com/prod/2021-05-19/cfc5ac0f1f89ed28e5c1a90c65eb1e3e')"><nav id="nav"><span id="blog-info"><a href="/" title="Veni's Blog"><span class="site-name">Veni's Blog</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">高性能计算与云计算复习</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2023-12-25T09:11:42.000Z" title="Created 2023-12-25 17:11:42">2023-12-25</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2024-01-14T15:39:44.000Z" title="Updated 2024-01-14 23:39:44">2024-01-14</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/notes/">notes</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word Count:</span><span class="word-count">7.3k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading Time:</span><span>25mins</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="高性能计算与云计算复习"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="高性能计算与云计算复习"><a href="#高性能计算与云计算复习" class="headerlink" title="高性能计算与云计算复习"></a>高性能计算与云计算复习</h1><h2 id="互联网络"><a href="#互联网络" class="headerlink" title="互联网络"></a>互联网络</h2><p>互联网络分为静态互联网络和动态互联网络。</p>
+<p>静态网络是指各节点之间有固定连接的一类网络。程序执行期间，网络连接不改变。动态网络是用开关单元构成的，可以动态改变连接状态的网络。</p>
+<h3 id="静态互联网络的特征"><a href="#静态互联网络的特征" class="headerlink" title="静态互联网络的特征"></a>静态互联网络的特征</h3><ul>
+<li><p>网络规模：网络的节点个数</p>
+</li>
+<li><p>节点度数：单向网络中，入射和出射边之和称为节点度</p>
+</li>
+<li><p>网络直径：任意两个节点之间的最长距离</p>
+</li>
+<li><p>对剖宽度：将网络对分所必须移除的边的数目，如果是奇数个的话理解成可以把某个点切开，如二叉树，N&#x3D;3的线性阵列</p>
+</li>
+<li><p>对称：从任何一个节点观看网络都一样，称为对称。（有限个网络的场景，网孔、线性阵列是非对称的）</p>
+</li>
+</ul>
+<h3 id="静态互联网络特征比较"><a href="#静态互联网络特征比较" class="headerlink" title="静态互联网络特征比较"></a>静态互联网络特征比较</h3><table>
+<thead>
+<tr>
+<th align="center">网络名</th>
+<th align="center">网络规模</th>
+<th align="center">节点度数</th>
+<th align="center">网络直径</th>
+<th align="center">对剖宽度</th>
+<th align="center">对称</th>
+<th align="center">链路数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">线性阵列</td>
+<td align="center">N</td>
+<td align="center">2</td>
+<td align="center">N-1</td>
+<td align="center">1</td>
+<td align="center">非</td>
+<td align="center">N-1</td>
+</tr>
+<tr>
+<td align="center">环形</td>
+<td align="center">N</td>
+<td align="center">2</td>
+<td align="center">&#x3D;&#x3D;$\lfloor N&#x2F;2 \rfloor$&#x3D;&#x3D;</td>
+<td align="center">2</td>
+<td align="center">是</td>
+<td align="center">N</td>
+</tr>
+<tr>
+<td align="center">&#x3D;&#x3D;2D网孔&#x3D;&#x3D;</td>
+<td align="center">$N&#x3D;n^2$</td>
+<td align="center">4</td>
+<td align="center">&#x3D;&#x3D;2(n-1)&#x3D;&#x3D;</td>
+<td align="center">n</td>
+<td align="center">非</td>
+<td align="center">&#x3D;&#x3D;$2(N-n)$&#x3D;&#x3D;先补再减</td>
+</tr>
+<tr>
+<td align="center">&#x3D;&#x3D;Illiac网孔&#x3D;&#x3D;</td>
+<td align="center">$N&#x3D;n^2$</td>
+<td align="center">4</td>
+<td align="center">n-1</td>
+<td align="center">2n</td>
+<td align="center">非</td>
+<td align="center">$2n$</td>
+</tr>
+<tr>
+<td align="center">&#x3D;&#x3D;2D环绕&#x3D;&#x3D;</td>
+<td align="center">$N&#x3D;n^2$</td>
+<td align="center">4</td>
+<td align="center">$2 \lfloor n&#x2F;2 \rfloor$</td>
+<td align="center">2n</td>
+<td align="center">是</td>
+<td align="center">$2n$</td>
+</tr>
+<tr>
+<td align="center">二叉树</td>
+<td align="center">N</td>
+<td align="center">3</td>
+<td align="center">$2(\lceil log_2N \rceil-1)$</td>
+<td align="center">1</td>
+<td align="center">非</td>
+<td align="center">N-1</td>
+</tr>
+<tr>
+<td align="center">星型</td>
+<td align="center">N</td>
+<td align="center">n-1或1</td>
+<td align="center">2</td>
+<td align="center">$\lfloor N&#x2F;2 \rfloor$</td>
+<td align="center">非</td>
+<td align="center">N-1</td>
+</tr>
+<tr>
+<td align="center">超立方</td>
+<td align="center">$N&#x3D;2^n$</td>
+<td align="center">$log_2N&#x3D;n$</td>
+<td align="center">n</td>
+<td align="center">N&#x2F;2</td>
+<td align="center">是</td>
+<td align="center">nN&#x2F;2</td>
+</tr>
+<tr>
+<td align="center">k-立方环</td>
+<td align="center">$N&#x3D;k*2^k$</td>
+<td align="center">3</td>
+<td align="center">$2k-1+\lfloor k&#x2F;2 \rfloor$</td>
+<td align="center">N&#x2F;(2k)</td>
+<td align="center">是</td>
+<td align="center">3N&#x2F;2</td>
+</tr>
+</tbody></table>
+<h2 id="并行计算的分类"><a href="#并行计算的分类" class="headerlink" title="并行计算的分类"></a>并行计算的分类</h2><h3 id="Flynn分类"><a href="#Flynn分类" class="headerlink" title="Flynn分类"></a>Flynn分类</h3><p>又叫指令流&#x2F;数据流分类法，即费林(Flynn)分类法。先来看一些概念：</p>
+<ul>
+<li>指令流：机器执行的指令序列</li>
+<li>数据流：指令调用的数据序列，包括输入数据、中间结果等</li>
+<li>多倍性：在系统性能平静部件上同时处于同一执行阶段的指令或数据的最大可能个数。</li>
+</ul>
+<p>于是，根据指令流和数据流的不同组织形式，将计算机系统分为四类：</p>
+<ul>
+<li>单指令单数据流（SISD）：硬件不支持任何形式的并行计算</li>
+<li>单指令多数据流（SIMD）：有多个处理单元，按照同一指令流的要求为他们<strong>分配各不相同的数据流</strong>并进行处理。</li>
+<li>多指令单数据流（MISD）：每个处理单元按照多条不同的指令要求<strong>同时对同一数据流作不同处理</strong>。</li>
+<li>多指令多数据流（MIMD）：能将指令，数据任务等全方面并行计算的系统，将主任务分解成众多子任务以缩短时间。</li>
+</ul>
+<h3 id="MIMD计算机细分"><a href="#MIMD计算机细分" class="headerlink" title="MIMD计算机细分"></a>MIMD计算机细分</h3><p>MIMD计算机的主要分类如下：</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202312272020214.webp" alt="image-20231227202042036"></p>
+<p>共享内存和分布式内存的系统架构如下：</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202312271451425.webp" alt="image-20231227145130232"></p>
+<p>共享内存的工作原理：具有一个所有处理器都可以访问的全局物理内存，具备有如下性质：</p>
+<ol>
+<li>对称性：系统中的任何处理器等效访问内存和IO</li>
+<li>单地址：内存中的每个位置都有唯一地址值</li>
+<li>低通信延迟：处理器之间的通信可以利用共享内存来交换数据</li>
+<li>高速缓存及其一致性：多级缓存可以提高速度，&#x3D;&#x3D;一致性由硬件来增强(?)&#x3D;&#x3D;</li>
+</ol>
+<p>两种模型的分类大致如下，下面将会详细介绍这五种内存访问模型：</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202312271721645.webp" alt="image-20231227172148509"></p>
+<h4 id="并行计算机五种访存模型"><a href="#并行计算机五种访存模型" class="headerlink" title="并行计算机五种访存模型"></a>并行计算机五种访存模型</h4><p>并行计算机访存模型主要有以下五种：</p>
+<ul>
+<li>UMA(Uniform Memory Access)：均匀存储访问模型</li>
+</ul>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202312271513171.webp" alt="image-20231227151312065"></p>
+<p>共享内存属于一种经典的均匀访问模型。主要特点：**对称多处理(Symmetric Multiprocessing, SMP)**，使用的是微处理器和高速缓存。每台处理器可以带有私有的Cache，外围设备也可以共享。发生访存竞争的时候，仲裁策略对所有节点平等。所以叫做均匀存储访问模型。（就是计算机组成中的经典模型）</p>
+<blockquote>
+<p>在SMP中，内存模块和处理器对称地分布在互联网络的两侧。并且只有单一的操作系统镜像，负责处理各个处理器的负载，动态将进程分配到不同的处理器，保持各处理器之间的负载平衡。</p>
+</blockquote>
+<ul>
+<li>NUMA(Non-Uniform Memory Access)：非均匀存储访问模型</li>
+</ul>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202312271528446.webp" alt="image-20231227152813342"></p>
+<p>被共享的存储器在物理上是分布存储在所有处理器中的，其所有本地存储器的集合就组成了全局地址空间。处理器访问存储器的时间是不一样的。</p>
+<blockquote>
+<p>存储器的访问时间是指从发起访问请求到数据可用的时间间隔。简单理解就是，处理器访问离自己比较近的内存速度比其他内存更快。</p>
+</blockquote>
+<p>如果缓存一致性能够得到维护，那么就可以成为CC-NUMA，否则成为NCC-NUMA。</p>
+<ul>
+<li>CC-NUMA(Coherent-Cache Nonuniform Memory Access)：高速缓存一致性 非均匀存储访问模型</li>
+</ul>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202312271606334.webp" alt="image-20231227160607209"></p>
+<p>CC-NUMA使用基于目录的高速缓存一致性协议；保留了SMP结构易于编程的优点，改善常规SMP的可扩放性。实际上是一个分布式共享存储的DSM多处理机系统，最显著的优点是程序员无需明确在节点上分配数据，在运行期间，高速缓存一致性硬件会自动将数据迁移到需要用到的地方。</p>
+<ul>
+<li>COMA(Cache-Only Memory Access)：全高速缓存存储访问</li>
+</ul>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202312271618283.webp" alt="image-20231227161837118"></p>
+<p>COMA各个处理器节点&#x3D;&#x3D;没有存储层次结构&#x3D;&#x3D;。对比NUMA和CC-NUMA，发现：COMA只有cache，NUMA只有memory，CC-NUMA二者兼有，而UMA则是将内存连接在总线上的。</p>
+<ul>
+<li>NORMA(No-Remote Memory Access)：非远程存储访问模型。属于分布式内存模型。</li>
+</ul>
+<p>架构图如下：</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202312271625818.webp" alt="image-20231227162538671"></p>
+<p>优点：内存可以随着CPU的数量进行等比例扩展；各个处理器可以无冲突地快速访问自己的内存，不存在维护缓存一致性的开销；可以使用商用、现成的处理器和网络。</p>
+<p>局限性：程序员要负责所有处理器之间的数据通信细节问题；很难从基于全局内存空间建立其分布式内存管理的映射，写一个程序有一个全局的地址空间，程序员需要建立全局地址空间到分布式内存的管理，也就是解决什么数据去哪里取的问题；非一致性的内存访问时间使远程节点访问比本地节点访问需要更长的时间。</p>
+<h4 id="大规模并行处理机-Massively-Parallel-Processor-MPP"><a href="#大规模并行处理机-Massively-Parallel-Processor-MPP" class="headerlink" title="大规模并行处理机(Massively Parallel Processor, MPP)"></a>大规模并行处理机(Massively Parallel Processor, MPP)</h4><p>由大规模的紧密互联的节点组成，内存访问属于非远程存储访问模型(NORMA)，也就是属于分布式存储系统。</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202312271952272.webp" alt="image-20231227195214091"></p>
+<p>每个节点配有局部cache，并通过局部总线与局部内存、局部IO相连，通过互联网络与IO相连。各节点之间的内存模块相互独立，且不存在全局内存单元的统一硬件编址。</p>
+<p>每个节点都有不同的操作系统映像。</p>
+<p>仅支持消息传递等程序设计（如MPI），不支持全局共享的OpenMP并行程序设计模式。</p>
+<h4 id="集群（机群）"><a href="#集群（机群）" class="headerlink" title="集群（机群）"></a>集群（机群）</h4><p>集群是一种松耦合的计算机组成方式，采用分布式存储，每一个节点是完整的计算机。</p>
+<p>集群的优点是：投资风险小、系统结构灵活、能充分利用分散的计算资源</p>
+<p>集群的缺点是：通信性能和并行编程环境不佳</p>
+<p>和MPP的比较如下图，左边是MPP，右边是Cluster，重点关注：有无磁盘、总线类型</p>
+<p>Cluster有磁盘，MPP没有；Cluster各点连接在IO总线(IOB)上，而MPP各点连接在存储总线MB上。</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202312271959198.webp" alt="image-20231227195911973"></p>
+<h4 id="DSM-Distributed-Shared-Memory"><a href="#DSM-Distributed-Shared-Memory" class="headerlink" title="DSM(Distributed Shared Memory)"></a>DSM(Distributed Shared Memory)</h4><p>属于非一致性内存访问模型(NUMA)，<strong>内存模块放在各个节点的内部，并且被所有节点共享</strong>。这样，可以较好改善多处理共享存储并行机的可扩展能力。</p>
+<p>节点之间通过高性能互联网络连接，内存模块分布在各节点中，避免了SMP中的访问总线的带宽瓶颈。具有单一的内存地址空间（硬件统一编址，各个节点可以相互访问）。</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202312272012397.webp" alt="image-20231227201214227"></p>
+<p><code>注意和MPP对比，多了一个DIR：Cache Directory。</code></p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>各种访存模型：</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202312272020214.webp" alt="image-20231227202042036"></p>
+<p>五种结构特性：</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202312272022765.webp" alt="image-20231227202227550"></p>
+<h2 id="并行计算模型-LogP重点"><a href="#并行计算模型-LogP重点" class="headerlink" title="并行计算模型(LogP重点)"></a>并行计算模型(LogP重点)</h2><p>将并行计算机的基本特征抽象出来，形成一个抽象的计算模型，作为并行算法分析、设计和性能预测的基础。</p>
+<p>主要的并行计算模型有：PRAM模型、BSP模型和logP模型。</p>
+<ul>
+<li><strong>PRAM模型</strong>：又称SIMD-SM模型，有一个集中的共享存储器和一个指令器，通过SM的R&#x2F;W交换数据，隐式同步计算。模型的架构图如下：</li>
+</ul>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202312281427027.webp" alt="image-20231228142714882"></p>
+<p>优点是适合并行算法的表示和复杂性分析，易于使用，隐藏了并行机的通讯、同步等区别。</p>
+<p>缺点是不适合MIMD并行机，忽略了SM的竞争、通讯延迟等因素。</p>
+<ul>
+<li><strong>BSP模型</strong></li>
+</ul>
+<p>“块”同步模型，异步MIMD-DM模型，支持消息传递系统，块内异步并行，块间显式同步。</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202312281435932.webp" alt="image-20231228143521823"></p>
+<ul>
+<li><strong>LogP模型（重点掌握）</strong></li>
+</ul>
+<p>一种分布存储的、点到点通讯的多处理机模型，其中通讯由一组参数描述，实行隐式同步。</p>
+<p>模型参数：</p>
+<ol>
+<li>L: latency网络延迟</li>
+<li>o: 接收和发送时间</li>
+<li>g: gap&#x3D;1&#x2F;bandwidth，两个连续通信的最小间隔</li>
+<li>P: 处理器数量</li>
+</ol>
+<p>前面三个都是表示时间的参数，它们之间的关系如下图：</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202312281441216.webp" alt="image-20231228144121112"></p>
+<p>点到点通信事件：L+2o</p>
+<p>读取远程地址：2L+4o</p>
+<h2 id="性能评测"><a href="#性能评测" class="headerlink" title="性能评测"></a>性能评测</h2><h3 id="算法性能评测"><a href="#算法性能评测" class="headerlink" title="算法性能评测"></a>算法性能评测</h3><ul>
+<li><p>加速比：$S_p&#x3D;\dfrac{串行执行时间}{并行执行时间}$</p>
+</li>
+<li><p>并行效率：$E&#x3D;\dfrac{加速比}{核数}$</p>
+</li>
+</ul>
+<p>由于通信等因素，一般来说并行效率不会超过1。如果超过了1，那就是超线性加速比。那么什么时候会出现超线性加速比呢？</p>
+<p>可能出现超线性加速比的成因主要是不同处理器的高速缓存足以提供计算需要的存储量，属于硬件特性。</p>
+<p>不同约束条件下的加速比：</p>
+<ol>
+<li>固定问题规模</li>
+<li>固定时间</li>
+<li>固定存储</li>
+</ol>
+<h3 id="Amdahl定律"><a href="#Amdahl定律" class="headerlink" title="Amdahl定律"></a>Amdahl定律</h3><p><strong>描述了规模固定的加速比。</strong></p>
+<p>该定律指出，系统中对于某一部件采用更快的执行方式所能获得的性能改进程度，取决于这种执行方式被使用的频率。</p>
+<p>$W_s$是串行化部分运行的时间，$W_p$是并行化部分采用串行化的方法需要的时间。<strong>f是使用串行化的任务占比</strong>，p是并行核数。</p>
+<p>$S_{pc}&#x3D;\dfrac{优化前耗时}{优化后耗时}&#x3D;\dfrac{W_s+W_p}{W_s+W_p&#x2F;p}&#x3D;\dfrac{f+(1-f)}{f+\frac{1-f}{p}}&#x3D;\dfrac{p}{1+f(p-1)}$，当p-&gt;$\infin$时，等于$1&#x2F;f$。</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202312281607856.webp" alt="image-20231228160723744"></p>
+<p>例如，上图中，f&#x3D;1&#x2F;3，p&#x3D;2，那么加速比就是：Spc&#x3D;6&#x2F;5，也就是300&#x2F;250。</p>
+<p>增强的Amdahl定律，考虑了并行和通信的开销，推导式如下：</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202312281628586.webp" alt="image-20231228162841483"></p>
+<p>所以，Amdahl定律用一句话总结就是：&#x3D;&#x3D;并行计算模型的加速比不会超过串行化占比的倒数&#x3D;&#x3D;。</p>
+<h3 id="Gustafson定律"><a href="#Gustafson定律" class="headerlink" title="Gustafson定律"></a>Gustafson定律</h3><p>描述了时间固定的加速比。</p>
+<p>Gustafson定律也表明处理器个数、并行比例和加速比之间的关系。它描述了，<strong>在串行部分比例固定的前提下，加速比会随着处理器个数增加而增加</strong>。</p>
+<p>见公式Amdahl推导式的$\dfrac{W_s+W_p}{W_s+W_p&#x2F;p}$，当p变大的时候，加速比自然变大，但是有渐近线逼近。</p>
+<p>考虑到并行开销的Gustafson定律，了解即可。</p>
+<h3 id="Sun-Ni定律"><a href="#Sun-Ni定律" class="headerlink" title="Sun&amp;Ni定律"></a>Sun&amp;Ni定律</h3><p>描述了存储受限的加速比。</p>
+<p>推导公式：$\begin{aligned}S_{MC}&#x3D;\frac{Work(p)&#x2F;Time(p)}{Work(l)&#x2F;Time(l)}&#x3D;\frac{fW+(1-f)G(p)W}{fW+(1-f)G(p)W&#x2F;p}&#x3D;\frac{f+(1-f)G(p)}{f+(1-f)G(p)&#x2F;p}\end{aligned}$</p>
+<p>当G(p)&#x3D;1的时候就是Amdahl加速定律，G(p)&#x3D;p时变为f+p(1-f)，就是Gustafson加速定律。</p>
+<h3 id="可扩展性评测标准"><a href="#可扩展性评测标准" class="headerlink" title="可扩展性评测标准"></a>可扩展性评测标准</h3><p>增加系统规模（处理器个数）会增大额外开销和降低处理器利用率，所以对于一个特定的并行处理系统（算法或程序），它们能否有效利用不断增加的处理器的能力应是受限的，而度量这种能力的就是可扩展性这一指标。可扩展性更关心在&#x3D;&#x3D;系统规模和数据规模&#x3D;&#x3D;变化时的&#x3D;&#x3D;执行时间&#x3D;&#x3D;，是{性能、系统规模、数据规模}的综合量度。</p>
+<p>可扩展性的三种量化方式：</p>
+<ul>
+<li>等效率&#x3D;$\dfrac{加速比}{处理器数}$，分析简单</li>
+<li>等速度：每秒处理的数据量，便于通过实验数据得到结果。</li>
+<li>平均时延：理想并行时间和实际并行时间的差距，便于通过实验数据得到结果。</li>
+</ul>
+<h4 id="等效率函数"><a href="#等效率函数" class="headerlink" title="等效率函数"></a>等效率函数</h4><p>考虑有并行开销的并行效率，加速比$\begin{aligned}S&#x3D;\dfrac{T_e}{T_p}&#x3D;\dfrac{T_e}{\dfrac{T_e+T_o}p}&#x3D;\dfrac{P}{1+\dfrac{T_o}{T_e}}&#x3D;\dfrac{P}{1+\dfrac{W_o}W}\end{aligned}$，等效率：$\begin{aligned}E&#x3D;\frac{S}{P}&#x3D;\frac{1}{1+\dfrac{T_o}{T_e}}&#x3D;\frac{1}{1+\dfrac{W_o}{W}}\end{aligned}$。</p>
+<p>如果保持问题规模W不变，处理器数目p增加，开销$T_o$增大，$W_o$增大，效率E下降。为了维持等效率，在增加处理器的时候，问题规模W也应该增大。</p>
+<p>下图是等效率曲线。曲线1表示可扩放性较好，曲线2表示算法可以扩放，曲线3表示算法不可扩放。</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202312291508752.webp" alt="image-20231229150855542"></p>
+<p>按照等效率函数的定义，对于某一并行算法(或并行程序),为了维持运行效率保持不变，随着处理器数目的增加，若只需增加较小的工作量(即问题规模),比如说$W$随$P$呈线性或亚线性增长，则表示该算法具有良好的可扩放性；若需增加非常大的问题规模，比如说$W$随$P$呈指数级增长，则表示该算法是不可扩放的。</p>
+<h2 id="PCAM设计方法学"><a href="#PCAM设计方法学" class="headerlink" title="PCAM设计方法学"></a>PCAM设计方法学</h2><p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202312291902876.webp" alt="image-20231229190206700"></p>
+<h3 id="划分"><a href="#划分" class="headerlink" title="划分"></a>划分</h3><p>划分可以分为两类划分：<strong>域分解（数据分解）和功能分解</strong>。域分解划分的是数据，功能分解划分的是计算。</p>
+<p>划分之后，研究不同任务所需要的数据。如果这些数据不相交，则划分是成功的，否则需要重新进行域分解。</p>
+<p>划分的标准：</p>
+<ul>
+<li>划分的任务数，是否至少高于目标机上处理器数量一个量级。（灵活性）若否，则后续的设计步骤缺少灵活性。</li>
+<li>是否避免冗余的计算和存储要求（可扩放性）若否，算法的扩放性较差。</li>
+<li>划分的任务尺寸是否大致相当（均衡）若否，分配处理器时难以做到工作量均衡。</li>
+<li>任务数是否与问题尺寸成正比，理想情况下，问题尺寸的增加应该引起任务数的增加而不是任务尺寸的增加。</li>
+</ul>
+<h3 id="通信"><a href="#通信" class="headerlink" title="通信"></a>通信</h3><p>功能分解决定了各个任务之间的数据流，各任务是并发执行的，通信则限制了这种并发性。</p>
+<p>四种通信模式：<strong>局结态步</strong></p>
+<ul>
+<li>局部&#x2F;全局通信</li>
+</ul>
+<p>局部通信是指通信限制在一个邻域内，只与较少的几个近邻通信。</p>
+<p>全局通信是指许多任务参与的通信，例如星型，全相联的图。</p>
+<ul>
+<li>结构化&#x2F;非结构化通信</li>
+</ul>
+<p>结构化通信：每个任务的通信模式是相同的。</p>
+<p>非结构化通信：每个任务的通信模式不同，无统一的结构。</p>
+<ul>
+<li>静态&#x2F;动态通信</li>
+</ul>
+<p>静态通信是指通信伙伴的身份不会随着时间的改变而改变的通信。</p>
+<p>动态通信伙伴的身份由计算时的数据决定，并且是可变的。</p>
+<ul>
+<li>同步&#x2F;异步通信</li>
+</ul>
+<p>同步通信：双方知道何时进行通信，发送方显式地发给接收方</p>
+<p>异步通信：接收方明确的从发送方请求数据。</p>
+<p>了解通信的标准。</p>
+<h3 id="组合"><a href="#组合" class="headerlink" title="组合"></a>组合</h3><p>组合是抽象到具体的过程，使得任务在同一类并行机上有效地执行。</p>
+<p>合并小尺寸的任务，减少任务数，如果任务数恰好等于处理器数量，也就完成了映射的过程。</p>
+<blockquote>
+<p>通信量与任务子集的表面成正比，计算量与任务子集的体积成正比。</p>
+</blockquote>
+<p>增加重复计算有可能减少通讯量。</p>
+<h3 id="映射"><a href="#映射" class="headerlink" title="映射"></a>映射</h3><p>每个任务需要映射到具体的处理器上，定位到运行机器上，存在负载均衡和任务调度的问题。实际上是一个NP完全问题。</p>
+<p>映射的目标：减少算法的执行时间。主要有两点原则:</p>
+<ol>
+<li>并发的任务：分配到不同的处理器</li>
+<li>高通信的任务：分配到相同的处理器</li>
+</ol>
+<ul>
+<li>负载均衡的算法：</li>
+</ul>
+<h2 id="矩阵乘法"><a href="#矩阵乘法" class="headerlink" title="矩阵乘法"></a>矩阵乘法</h2><p>有三种并行算法，分别是简单分块算法、Cannons算法和DNS算法，主要学习Cannon矩阵乘法。</p>
+<h3 id="Cannon矩阵乘法"><a href="#Cannon矩阵乘法" class="headerlink" title="Cannon矩阵乘法"></a>Cannon矩阵乘法</h3><ul>
+<li><p>起始对准：A矩阵第i行左移i位（i从0开始），B矩阵第i列上移i位（i从0开始）。</p>
+</li>
+<li><p>循环位移：每次A向左移动，B向上移动一个单位，再做一次乘法然后相加。</p>
+</li>
+</ul>
+<h2 id="OpenMP并行编程"><a href="#OpenMP并行编程" class="headerlink" title="OpenMP并行编程"></a>OpenMP并行编程</h2><p>OpenMP是&#x3D;&#x3D;共享存储体系&#x3D;&#x3D;上的一个编程模型，应用于unix, Windows等多种平台上。OpenMP的API是基于&#x3D;&#x3D;编译制导&#x3D;&#x3D;，具备简单、移植性好和可扩展等优点，是共享存储系统编程（主要针对SMP平台）的一个工业标准。</p>
+<blockquote>
+<p>编译制导（compiler directive）是一种特殊的注释或指令，用于指导编译器在源代码的编译过程中进行特定的处理或优化。</p>
+</blockquote>
+<p>OpenMP使用FORK-JOIN并行执行模型，所有的OpenMP程序开始于一个单独的主线程，直到遇见第一个并行域，然后并行域中的代码在不同的线程组中并行执行(FORK)。当各个线程在并行域执行完成之后，最后只有主线程在执行(JOIN)。</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202312301611127.webp" alt="image-20231230161102974"></p>
+<h3 id="OpenMP基本用法"><a href="#OpenMP基本用法" class="headerlink" title="OpenMP基本用法"></a>OpenMP基本用法</h3><p>当计算机上安装了gcc之后，就可以直接开始OpenMP编程了。下面是一个hello_world代码示例：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="keyword">include</span> <span class="string">&lt;omp.h&gt;</span></span></span><br><span class="line"><span class="meta"># <span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">void</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="type">int</span> nthreads,tid;</span><br><span class="line">    <span class="type">char</span> buf[<span class="number">32</span>];</span><br><span class="line">    <span class="comment">/* 编译制导语句 */</span></span><br><span class="line">    <span class="meta"># <span class="keyword">pragma</span> omp parallel private(nthreads,tid)</span></span><br><span class="line">    &#123;</span><br><span class="line">        tid=omp_get_thread_num();</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;Hello World from thread %d\n&quot;</span>,tid);</span><br><span class="line">        <span class="keyword">if</span>(tid==<span class="number">0</span>)&#123;</span><br><span class="line">            nthreads=omp_get_num_threads();</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;Number of threads = %d\n&quot;</span>,nthreads);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>private(nthreads, tid)</code>: 这个子句定义了私有变量。在并行执行期间，每个线程都会拥有自己的私有副本。在这个例子中，<code>nthreads</code>和<code>tid</code>是私有变量,私有副本避免了竞争条件。其中由<code># pragma omp</code>开头的语句就是编译制导语句，编译制导语句格式解释如下：</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202312301635717.webp" alt="image-20231230163502200"></p>
+<p>并行域的写法如下：</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202312301641289.webp" alt="image-20231230164110177"></p>
+<p>一个并行域就是一个能够被多个进程执行的程序块当一个线程运行到parallel的时候，会创建一个线程组并成为该组的主线程，tid为0。当并行域开始时，程序代码被复制，&#x3D;&#x3D;每个线程都会执行该代码&#x3D;&#x3D;。</p>
+<p>并行的线程数按照如下因素决定，优先级递减：</p>
+<ol>
+<li>使用库函数omp_set_num_threads</li>
+<li>设置环境变量OPM_NUM_THREADS</li>
+<li>由实现决定的默认值</li>
+</ol>
+<h3 id="共享任务结构"><a href="#共享任务结构" class="headerlink" title="共享任务结构"></a>共享任务结构</h3><p>共享任务结构将它所包含的代码划分给线程组内各个成员执行，不产生新的线程，在共享任务结构的入口处没有路障，但是在任务结束处有一个隐含的路障。共享任务结构有三种类型：</p>
+<ol>
+<li>for：线程组共享一个循环，表现出“数据并行性”</li>
+<li>sections：把任务分成离散段，每段由一个线程执行，表现“功能并行性”</li>
+<li>single：串行执行一段代码</li>
+</ol>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202312301657319.webp" alt="image-20231230165746202"></p>
+<h4 id="for结构"><a href="#for结构" class="headerlink" title="for结构"></a>for结构</h4><p>语句格式：</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202312301700572.webp" alt="image-20231230170039469"></p>
+<p>schedule子句描述如何将循环的迭代划分给线程组中的线程。其参数type为static类型的时候，循环会被划分成大小为chunk的块，静态分配给各线程，若未指定chunk，则会被尽可能均衡地划分。</p>
+<p>下面是一个使用for结构并行计算一个向量的案例：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="type">int</span> i;</span><br><span class="line">    <span class="type">float</span> a[N],b[N],c[N];</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;N;i++)</span><br><span class="line">        a[i]=b[i]=c[i]=i*<span class="number">1.0</span>;</span><br><span class="line">    <span class="comment">// 使用for结构之前必须先初始化并行域</span></span><br><span class="line">    <span class="meta"># <span class="keyword">pragma</span> omp parallel shared(a,b,c) private(i)</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="meta"># <span class="keyword">pragma</span> omp for schedule(dynamic,CHUNKSIZE) nowait</span></span><br><span class="line">        <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;N;i++)</span><br><span class="line">            c[i]=a[i]+b[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;N;i++)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%f\n&quot;</span>,c[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="section结构"><a href="#section结构" class="headerlink" title="section结构"></a>section结构</h4><p>sections编译制导语句是非迭代共享任务结构，指定内部的代码划分给线程组中的各线程。嵌套在sections语句中的每个section编译制导语句，由线程组中的一个线程执行。</p>
+<p>语句格式：</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202312301737971.webp" alt="image-20231230173719857"></p>
+<p>使用两个section计算向量加法，分别计算前后半段。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="type">int</span> i;</span><br><span class="line">    <span class="type">float</span> a[N],b[N],c[N];</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;N;i++)</span><br><span class="line">        a[i]=b[i]=c[i]=i*<span class="number">1.0</span>;</span><br><span class="line">    <span class="meta"># <span class="keyword">pragma</span> omp parallel shared(a,b,c) private(i)</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="meta"># <span class="keyword">pragma</span> omp sections nowait</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="meta"># <span class="keyword">pragma</span> omp section</span></span><br><span class="line">            <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;N/<span class="number">2</span>;i++)</span><br><span class="line">                a[i]=b[i]+c[i];</span><br><span class="line">            <span class="meta"># <span class="keyword">pragma</span> omp section</span></span><br><span class="line">            <span class="keyword">for</span>(i=N/<span class="number">2</span>;i&lt;N;i++)</span><br><span class="line">                a[i]=b[i]+c[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;N;i++)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%f\n&quot;</span>,a[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="single结构"><a href="#single结构" class="headerlink" title="single结构"></a>single结构</h4><p>single编译制导的语句制定内部的代码只有线程组中的一个线程执行，对于非线程安全的代码（比如输入&#x2F;输出），这个语句比较有用。除非是用了nowait语句，否则线程组中没有执行single语句的线程会一直等到代码块结束。</p>
+<p>代码格式：</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202312301747222.webp" alt="image-20231230174735115"></p>
+<h4 id="parallel-for"><a href="#parallel-for" class="headerlink" title="parallel for"></a>parallel for</h4><p>创建一个并行域并包含一个for语句，也就是把parallel和for结合起来。</p>
+<h4 id="parallel-section"><a href="#parallel-section" class="headerlink" title="parallel section"></a>parallel section</h4><p>创建一个并行域并包含一个sections语句。</p>
+<h3 id="同步结构"><a href="#同步结构" class="headerlink" title="同步结构"></a>同步结构</h3><ul>
+<li>master</li>
+</ul>
+<p>master语句指定的代码段将只由主线程执行，该线程组中的其他线程将忽略该代码段。</p>
+<ul>
+<li>critical</li>
+</ul>
+<p>critical指定的代码段在同一时刻只能有一个线程执行。</p>
+<ul>
+<li>barrier</li>
+</ul>
+<p>barrier语句用来同步线程组中的所有线程，在barrier语句处先到达的线程将会被阻塞，直到所有线程到达。</p>
+<ul>
+<li>atomic</li>
+</ul>
+<p>指定的存储单元将被原子地更新，而不允许多个线程同时执行更新操作。</p>
+<ul>
+<li>flush</li>
+</ul>
+<p>用于表示一个同步点，确保所有线程都看到一致的存储器视图。</p>
+<ul>
+<li>ordered</li>
+</ul>
+<p>被指定地代码段如同在船形的处理器上执行，任何时候只能有一个线程执行被ordered所限定的部分。只能出现在for中。</p>
+<ul>
+<li>reduction</li>
+</ul>
+<p>语法<code>reduction([ reduction-modifier, ] reduction-identifier : list)</code>。归约（reduction）操作用于将多个线程或进程计算得到的部分结果合并为一个最终结果，可以看成是一个不会丢失修改的多线程加法。</p>
+<h3 id="计算PI的openMP程序"><a href="#计算PI的openMP程序" class="headerlink" title="计算PI的openMP程序"></a>计算PI的openMP程序</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">static</span> <span class="type">long</span> steps = <span class="number">1000000000</span>;</span><br><span class="line"><span class="type">double</span> step;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span> <span class="params">(<span class="type">int</span> argc, <span class="type">const</span> <span class="type">char</span> *argv[])</span> &#123;</span><br><span class="line">    <span class="type">int</span> i,j;</span><br><span class="line">    <span class="type">double</span> x;</span><br><span class="line">    <span class="type">double</span> pi, sum = <span class="number">0.0</span>;</span><br><span class="line">    <span class="type">double</span> start, delta;</span><br><span class="line">    step = <span class="number">1.0</span>/(<span class="type">double</span>) steps;</span><br><span class="line">    <span class="comment">// 从1到MAX_THREADS循环，每次循环设置线程数，计算PI值</span></span><br><span class="line">    <span class="keyword">for</span> (j=<span class="number">1</span>; j&lt;= MAX_THREADS; j++) &#123;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot; running on %d threads: &quot;</span>, j);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 设置线程数</span></span><br><span class="line">        omp_set_num_threads(j);</span><br><span class="line"></span><br><span class="line">        sum = <span class="number">0.0</span>;</span><br><span class="line">        <span class="type">double</span> start = omp_get_wtime();</span><br><span class="line"></span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">        reduction(+:sum)：变量sum被声明为共享变量，通过+操作符进行归约。</span></span><br><span class="line"><span class="comment">        */</span></span><br><span class="line">        <span class="meta">#<span class="keyword">pragma</span> omp parallel for reduction(+:sum) private(x)</span></span><br><span class="line">        <span class="keyword">for</span> (i=<span class="number">0</span>; i &lt; steps; i++) &#123;</span><br><span class="line">            x = (i+<span class="number">0.5</span>)*step;</span><br><span class="line">            sum += <span class="number">4.0</span> / (<span class="number">1.0</span>+x*x);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 计算PI值</span></span><br><span class="line">        pi = step * sum;</span><br><span class="line">        delta = omp_get_wtime() - start;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;PI = %.16g computed in %.4g seconds\n&quot;</span>, pi, delta);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="MPI编程"><a href="#MPI编程" class="headerlink" title="MPI编程"></a>MPI编程</h2><p>MPI(Message Passing Interface)是&#x3D;&#x3D;分布存储并行模型&#x3D;&#x3D;下的一个消息传递接口。MPI不是一个独立的自包含系统，而是建立在本地并行程序设计环境之上，进程管理和IO均由本地并行程序设计环境提供的。</p>
+<h3 id="安装、编译、运行"><a href="#安装、编译、运行" class="headerlink" title="安装、编译、运行"></a>安装、编译、运行</h3><p>安装：以Debian为例，使用apt安装</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install mpich</span><br></pre></td></tr></table></figure>
+
+<p>编译：使用mpicc编译</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mpicc -o out/$1 $1.c</span><br></pre></td></tr></table></figure>
+
+<p>运行：使用mpirun运行</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mpirun -np $2 out/$1</span><br></pre></td></tr></table></figure>
+
+<p>可用参数：</p>
+<p>-np：指定进程数</p>
+<p>-host：指定主机列表</p>
+<p>-npernode：每个计算节点的进程数</p>
+<h3 id="基本结构"><a href="#基本结构" class="headerlink" title="基本结构"></a>基本结构</h3><p>一个MPI程序有六个基本函数：</p>
+<ul>
+<li>MPI启动：调用该函数进入MPI环境，完成初始化工作。</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">MPI_Init</span><span class="params">(<span class="type">int</span> *argc, <span class="type">char</span> ***argv)</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>MPI结束：调用该函数从MPI环境中退出，是MPI程序的最后一个调用。</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">MPI_Finalize</span><span class="params">(<span class="type">void</span>)</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>获取进程编号：获取当前进程在指定通信域中的编号</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">MPI_Comm_rank</span><span class="params">(MPI_Comm comm, <span class="type">int</span> *rank)</span><span class="comment">// 结果存储在rank中，而不是返回值的int</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>获取进程数：获取指定通信域中的进程个数</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">MPI_Comm_size</span><span class="params">(MPI_Comm comm, <span class="type">int</span> *size)</span><span class="comment">// 结果存储在size中</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>消息发送：MPI_send函数用于发送一个消息到目标进程，将起始地址为buf的count个datatype类型的数据发送给目标进程。</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">MPI_Send</span><span class="params">(<span class="type">const</span> <span class="type">void</span> *buf, <span class="type">int</span> count, MPI_Datatype datatype, <span class="type">int</span> dest, <span class="type">int</span> tag, MPI_Comm comm)</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>消息接收：MPI_Recv用于接收数据，如果数据大于缓冲区，则会</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">MPI_Recv</span><span class="params">(<span class="type">void</span> *buf, <span class="type">int</span> count, MPI_Datatype datatype, <span class="type">int</span> source, <span class="type">int</span> tag, MPI_Comm comm, MPI_Status *status)</span></span><br></pre></td></tr></table></figure>
+
+<p>MPI_Comm是MPI中表示通信域（communication domain）的数据类型。它用于定义进程之间的通信关系，指定通信操作的参与进程组。通信域可以是全局通信域(MPI_COMM_WORLD)或自定义的子通信域。通信域定义了一组进程，它们可以通过发送和接收消息进行相互通信。</p>
+<p>MPI_Status是MPI中表示通信状态的数据类型。它用于在MPI通信操作中存储有关消息的信息，如发送者、接收者、消息长度等。定义如下，了解即可。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">MPI_Status</span> &#123;</span></span><br><span class="line">    <span class="type">int</span> count_lo;</span><br><span class="line">    <span class="type">int</span> count_hi_and_cancelled;</span><br><span class="line">    <span class="type">int</span> MPI_SOURCE;</span><br><span class="line">    <span class="type">int</span> MPI_TAG;</span><br><span class="line">    <span class="type">int</span> MPI_ERROR;</span><br><span class="line">&#125; MPI_Status;</span><br></pre></td></tr></table></figure>
+
+<p>一个MPI程序：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span> **argv)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> rank, size, tag = <span class="number">1</span>;</span><br><span class="line">    <span class="type">int</span> sendData, recvData = <span class="number">0</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// MPI相关接口</span></span><br><span class="line">    MPI_Status status;</span><br><span class="line">    MPI_Init(&amp;argc, &amp;argv);               <span class="comment">// MPI初始化</span></span><br><span class="line">    MPI_Comm_rank(MPI_COMM_WORLD, &amp;rank); <span class="comment">// 该进程的编号</span></span><br><span class="line">    MPI_Comm_size(MPI_COMM_WORLD, &amp;size); <span class="comment">// 总进程数目</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (rank == <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        sendData = <span class="number">9999</span>;</span><br><span class="line">        <span class="comment">// MPI发送信息</span></span><br><span class="line">        MPI_Send(&amp;sendData, <span class="number">1</span>, MPI_INT, <span class="number">1</span>, tag, MPI_COMM_WORLD); <span class="comment">// 发送数据到进程1</span></span><br><span class="line">        </span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d进程发送\n&quot;</span>, rank);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// MPI接收信息</span></span><br><span class="line">        MPI_Recv(&amp;recvData, <span class="number">1</span>, MPI_INT, <span class="number">0</span>, tag, MPI_COMM_WORLD, &amp;status);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d进程接收到：%d\n&quot;</span>, rank, recvData);</span><br><span class="line">    &#125;</span><br><span class="line">    MPI_Finalize();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Docker和hadoop"><a href="#Docker和hadoop" class="headerlink" title="Docker和hadoop"></a>Docker和hadoop</h2><p><strong>Hadoop</strong> 是一个开源的分布式计算框架，它可以处理大规模数据集并将其分配到多台计算机上进行处理。Hadoop主要掌握两个核心组件、Map&#x2F;Reduce的思想。</p>
+<p>Hadoop的两个核心，就是HDFS和MapReduce。HDFS为海量数据提供了<strong>存储</strong>，而MapReduce为海量数据提供了<strong>计算框架</strong>。</p>
+<p>Hadoop的生态圈示意图如下：</p>
+<img src="https://www.eduxiji.net/assets/files/2020-04-30/1588236269-937828-hadoop-0.png" />
+
+<h3 id="Map-Reduce"><a href="#Map-Reduce" class="headerlink" title="Map&#x2F;Reduce"></a>Map&#x2F;Reduce</h3><ul>
+<li>整体结构：</li>
+</ul>
+<p><code>extends Mapper&lt;Object, Text, Text, IntWritable&gt;</code>，四个范型参数是输入键、输入值、输出键、输出值。</p>
+<p>重写<code>void map(Object key, Text value, Context context)</code>。</p>
+<p><code>extends Reducer&lt;Text, IntWritable, Text, IntWritable&gt;</code>，四个范型参数是输入键、输入值、输出键、输出值。</p>
+<p>重写<code>void reduce(Text key, Iterable&lt;IntWritable&gt; values, Context context)</code>。</p>
+<ul>
+<li>两种数据类型：</li>
+</ul>
+<p><code>IntWritable</code>整形，<code>Text</code>表示字符串，这两种数据结构可以放在context中。</p>
+<ul>
+<li>处理逻辑：</li>
+</ul>
+<p>map函数</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">StringTokenizer</span> <span class="variable">itr</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringTokenizer</span>(value.toString());</span><br><span class="line"><span class="keyword">while</span> (itr.hasMoreTokens()) &#123;</span><br><span class="line">    word.set(itr.nextToken());</span><br><span class="line">    context.write(word, one);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>reduce函数</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">sum</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> (IntWritable val : values) &#123;</span><br><span class="line">    sum += val.get();</span><br><span class="line">&#125;</span><br><span class="line">result.set(sum);</span><br><span class="line">context.write(key, result);</span><br></pre></td></tr></table></figure>
+
+<p>主函数：JJ,MCR,KV,IO</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Configuration</span> <span class="variable">conf</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Configuration</span>();</span><br><span class="line"><span class="type">Job</span> <span class="variable">job</span> <span class="operator">=</span> Job.getInstance(conf, <span class="string">&quot;word count&quot;</span>);</span><br><span class="line">job.setJarByClass(WordCount.class);</span><br><span class="line"></span><br><span class="line">job.setMapperClass(TokenizerMapper.class);</span><br><span class="line">job.setCombinerClass(IntSumReducer.class);</span><br><span class="line">job.setReducerClass(IntSumReducer.class);</span><br><span class="line"></span><br><span class="line">job.setOutputKeyClass(Text.class);</span><br><span class="line">job.setOutputValueClass(IntWritable.class);</span><br><span class="line"></span><br><span class="line">FileInputFormat.addInputPath(job, <span class="keyword">new</span> <span class="title class_">Path</span>(args[<span class="number">0</span>]));</span><br><span class="line">FileOutputFormat.setOutputPath(job, <span class="keyword">new</span> <span class="title class_">Path</span>(args[<span class="number">1</span>]));</span><br><span class="line"></span><br><span class="line">System.exit(job.waitForCompletion(<span class="literal">true</span>) ? <span class="number">0</span> : <span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h3><p>Docker是开源的容器引擎。容器技术是一种虚拟化技术，用于将应用程序及其所有依赖项打包成独立的运行时环境，称为容器。每个容器都是相互隔离的，拥有自己的文件系统、进程空间和网络接口。容器可以理解成为“运行在一个操作系统上的一个独立系统”。</p>
+<blockquote>
+<p>和虚拟机的区别：</p>
+<p>部署速度、资源消耗、隔离性、部署管理</p>
+</blockquote>
+<p>服务器虚拟化由多种技术架构，其中主要的四种如下：</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202310181751512.webp" alt="image-20231018173203055"></p>
+<p>云计算关键技术：</p>
+<p>虚多弹分分</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="https://Veni222987.github.io">Veni</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="https://veni222987.github.io/2023/12/25/%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%E4%B8%8E%E4%BA%91%E8%AE%A1%E7%AE%97%E5%A4%8D%E4%B9%A0/">https://veni222987.github.io/2023/12/25/%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%E4%B8%8E%E4%BA%91%E8%AE%A1%E7%AE%97%E5%A4%8D%E4%B9%A0/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E4%BA%91%E8%AE%A1%E7%AE%97/">云计算</a></div><div class="post_share"><div class="social-share" data-image="https://opentalk-blog.b0.upaiyun.com/prod/2021-05-19/cfc5ac0f1f89ed28e5c1a90c65eb1e3e" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/12/29/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%A4%8D%E4%B9%A0/" title="软件工程复习"><img class="cover" src="/img/mycover.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous</div><div class="prev_info">软件工程复习</div></div></a></div><div class="next-post pull-right"><a href="/2023/12/17/Web%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/" title="Web应用开发"><img class="cover" src="https://ts1.cn.mm.bing.net/th/id/R-C.363458fe9ff9196cbb7426ff61466033?rik=F%2bwoW8yrX3An0w&amp;riu=http%3a%2f%2fp7.qhmsg.com%2fdr%2f270_500_%2ft01bedc70ec43d9d0ac.jpg&amp;ehk=3nP941eRQPyTA%2fLrZXxy6Xx5Ek09rI06uQYE7sOZawA%3d&amp;risl=&amp;pid=ImgRaw&amp;r=0" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next</div><div class="next_info">Web应用开发</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2023/10/16/%E3%80%90Sangfor%E3%80%91%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%BF%83%E4%B8%8E%E4%BA%91%E8%AE%A1%E7%AE%97/" title="【Sangfor】数据中心与云计算"><img class="cover" src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/mycover.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-10-16</div><div class="title">【Sangfor】数据中心与云计算</div></div></a></div><div><a href="/2023/10/18/%E3%80%90Sangfor%E3%80%91%E6%B7%B1%E4%BF%A1%E6%9C%8D%E8%B6%85%E8%9E%8D%E5%90%88HCI/" title="【Sangfor】深信服产品介绍与最佳实践"><img class="cover" src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/mycover.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-10-18</div><div class="title">【Sangfor】深信服产品介绍与最佳实践</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%E4%B8%8E%E4%BA%91%E8%AE%A1%E7%AE%97%E5%A4%8D%E4%B9%A0"><span class="toc-number">1.</span> <span class="toc-text">高性能计算与云计算复习</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%92%E8%81%94%E7%BD%91%E7%BB%9C"><span class="toc-number">1.1.</span> <span class="toc-text">互联网络</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%99%E6%80%81%E4%BA%92%E8%81%94%E7%BD%91%E7%BB%9C%E7%9A%84%E7%89%B9%E5%BE%81"><span class="toc-number">1.1.1.</span> <span class="toc-text">静态互联网络的特征</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%99%E6%80%81%E4%BA%92%E8%81%94%E7%BD%91%E7%BB%9C%E7%89%B9%E5%BE%81%E6%AF%94%E8%BE%83"><span class="toc-number">1.1.2.</span> <span class="toc-text">静态互联网络特征比较</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B9%B6%E8%A1%8C%E8%AE%A1%E7%AE%97%E7%9A%84%E5%88%86%E7%B1%BB"><span class="toc-number">1.2.</span> <span class="toc-text">并行计算的分类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Flynn%E5%88%86%E7%B1%BB"><span class="toc-number">1.2.1.</span> <span class="toc-text">Flynn分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MIMD%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%86%E5%88%86"><span class="toc-number">1.2.2.</span> <span class="toc-text">MIMD计算机细分</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B9%B6%E8%A1%8C%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BA%94%E7%A7%8D%E8%AE%BF%E5%AD%98%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.2.2.1.</span> <span class="toc-text">并行计算机五种访存模型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%A7%E8%A7%84%E6%A8%A1%E5%B9%B6%E8%A1%8C%E5%A4%84%E7%90%86%E6%9C%BA-Massively-Parallel-Processor-MPP"><span class="toc-number">1.2.2.2.</span> <span class="toc-text">大规模并行处理机(Massively Parallel Processor, MPP)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9B%86%E7%BE%A4%EF%BC%88%E6%9C%BA%E7%BE%A4%EF%BC%89"><span class="toc-number">1.2.2.3.</span> <span class="toc-text">集群（机群）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#DSM-Distributed-Shared-Memory"><span class="toc-number">1.2.2.4.</span> <span class="toc-text">DSM(Distributed Shared Memory)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">1.2.3.</span> <span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B9%B6%E8%A1%8C%E8%AE%A1%E7%AE%97%E6%A8%A1%E5%9E%8B-LogP%E9%87%8D%E7%82%B9"><span class="toc-number">1.3.</span> <span class="toc-text">并行计算模型(LogP重点)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%A7%E8%83%BD%E8%AF%84%E6%B5%8B"><span class="toc-number">1.4.</span> <span class="toc-text">性能评测</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E6%80%A7%E8%83%BD%E8%AF%84%E6%B5%8B"><span class="toc-number">1.4.1.</span> <span class="toc-text">算法性能评测</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Amdahl%E5%AE%9A%E5%BE%8B"><span class="toc-number">1.4.2.</span> <span class="toc-text">Amdahl定律</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Gustafson%E5%AE%9A%E5%BE%8B"><span class="toc-number">1.4.3.</span> <span class="toc-text">Gustafson定律</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Sun-Ni%E5%AE%9A%E5%BE%8B"><span class="toc-number">1.4.4.</span> <span class="toc-text">Sun&amp;Ni定律</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%AF%E6%89%A9%E5%B1%95%E6%80%A7%E8%AF%84%E6%B5%8B%E6%A0%87%E5%87%86"><span class="toc-number">1.4.5.</span> <span class="toc-text">可扩展性评测标准</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AD%89%E6%95%88%E7%8E%87%E5%87%BD%E6%95%B0"><span class="toc-number">1.4.5.1.</span> <span class="toc-text">等效率函数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PCAM%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95%E5%AD%A6"><span class="toc-number">1.5.</span> <span class="toc-text">PCAM设计方法学</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%92%E5%88%86"><span class="toc-number">1.5.1.</span> <span class="toc-text">划分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E4%BF%A1"><span class="toc-number">1.5.2.</span> <span class="toc-text">通信</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%84%E5%90%88"><span class="toc-number">1.5.3.</span> <span class="toc-text">组合</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%98%A0%E5%B0%84"><span class="toc-number">1.5.4.</span> <span class="toc-text">映射</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95"><span class="toc-number">1.6.</span> <span class="toc-text">矩阵乘法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Cannon%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95"><span class="toc-number">1.6.1.</span> <span class="toc-text">Cannon矩阵乘法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OpenMP%E5%B9%B6%E8%A1%8C%E7%BC%96%E7%A8%8B"><span class="toc-number">1.7.</span> <span class="toc-text">OpenMP并行编程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#OpenMP%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95"><span class="toc-number">1.7.1.</span> <span class="toc-text">OpenMP基本用法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B1%E4%BA%AB%E4%BB%BB%E5%8A%A1%E7%BB%93%E6%9E%84"><span class="toc-number">1.7.2.</span> <span class="toc-text">共享任务结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#for%E7%BB%93%E6%9E%84"><span class="toc-number">1.7.2.1.</span> <span class="toc-text">for结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#section%E7%BB%93%E6%9E%84"><span class="toc-number">1.7.2.2.</span> <span class="toc-text">section结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#single%E7%BB%93%E6%9E%84"><span class="toc-number">1.7.2.3.</span> <span class="toc-text">single结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#parallel-for"><span class="toc-number">1.7.2.4.</span> <span class="toc-text">parallel for</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#parallel-section"><span class="toc-number">1.7.2.5.</span> <span class="toc-text">parallel section</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%8C%E6%AD%A5%E7%BB%93%E6%9E%84"><span class="toc-number">1.7.3.</span> <span class="toc-text">同步结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97PI%E7%9A%84openMP%E7%A8%8B%E5%BA%8F"><span class="toc-number">1.7.4.</span> <span class="toc-text">计算PI的openMP程序</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MPI%E7%BC%96%E7%A8%8B"><span class="toc-number">1.8.</span> <span class="toc-text">MPI编程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E3%80%81%E7%BC%96%E8%AF%91%E3%80%81%E8%BF%90%E8%A1%8C"><span class="toc-number">1.8.1.</span> <span class="toc-text">安装、编译、运行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84"><span class="toc-number">1.8.2.</span> <span class="toc-text">基本结构</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Docker%E5%92%8Chadoop"><span class="toc-number">1.9.</span> <span class="toc-text">Docker和hadoop</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Map-Reduce"><span class="toc-number">1.9.1.</span> <span class="toc-text">Map&#x2F;Reduce</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Docker"><span class="toc-number">1.9.2.</span> <span class="toc-text">Docker</span></a></li></ol></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2023 - 2024 By Veni</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi, welcome to my blog!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="Toggle Between Traditional Chinese And Simplified Chinese">繁</button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.12.0"></script><script src="/js/main.js?v=4.12.0"></script><script src="/js/tw_cn.js?v=4.12.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.32/dist/fancybox/fancybox.umd.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-pjax"></div><script src="/js/headerNumbering.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.12.0"></script></div></div></body></html>

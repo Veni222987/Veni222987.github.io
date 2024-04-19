@@ -1,0 +1,599 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>【Sangfor】深信服产品介绍与最佳实践 | Veni's Blog</title><meta name="author" content="Veni"><meta name="copyright" content="Veni"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="通过本文，你将了解到深信服产品的技术以及学习深信服产品的最佳实践，包括HCI、aDesk、EDS和AD等产品。。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【Sangfor】深信服产品介绍与最佳实践">
+<meta property="og:url" content="https://veni222987.github.io/2023/10/18/%E3%80%90Sangfor%E3%80%91%E6%B7%B1%E4%BF%A1%E6%9C%8D%E8%B6%85%E8%9E%8D%E5%90%88HCI/index.html">
+<meta property="og:site_name" content="Veni&#39;s Blog">
+<meta property="og:description" content="通过本文，你将了解到深信服产品的技术以及学习深信服产品的最佳实践，包括HCI、aDesk、EDS和AD等产品。。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/mycover.jpg">
+<meta property="article:published_time" content="2023-10-18T11:17:39.000Z">
+<meta property="article:modified_time" content="2023-10-28T07:12:34.000Z">
+<meta property="article:author" content="Veni">
+<meta property="article:tag" content="云计算">
+<meta property="article:tag" content="深信服">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/mycover.jpg"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://veni222987.github.io/2023/10/18/%E3%80%90Sangfor%E3%80%91%E6%B7%B1%E4%BF%A1%E6%9C%8D%E8%B6%85%E8%9E%8D%E5%90%88HCI/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.12.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.32/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Error',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: 'days',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.0/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '【Sangfor】深信服产品介绍与最佳实践',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-10-28 15:12:34'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/header-numbering.css"><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">16</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">13</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">7</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/mycover.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Veni's Blog"><span class="site-name">Veni's Blog</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">【Sangfor】深信服产品介绍与最佳实践</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2023-10-18T11:17:39.000Z" title="Created 2023-10-18 19:17:39">2023-10-18</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-10-28T07:12:34.000Z" title="Updated 2023-10-28 15:12:34">2023-10-28</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/notes/">notes</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word Count:</span><span class="word-count">8.2k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading Time:</span><span>24mins</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="【Sangfor】深信服产品介绍与最佳实践"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>通过本文，你将了解到深信服产品的技术以及学习深信服产品的最佳实践，包括HCI、aDesk、EDS和AD等产品。。<span id="more"></span></p>
+<h1 id="深信服超融合HCI"><a href="#深信服超融合HCI" class="headerlink" title="深信服超融合HCI"></a>深信服超融合HCI</h1><h2 id="HCI产品简介"><a href="#HCI产品简介" class="headerlink" title="HCI产品简介"></a>HCI产品简介</h2><h3 id="HCI产品基础"><a href="#HCI产品基础" class="headerlink" title="HCI产品基础"></a>HCI产品基础</h3><p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202310211628796.webp" alt="image-20231021162852689"></p>
+<p>深信服HCI(Hyper-Converged Infrastructure)定位云平台的软硬件，聚焦服务器、虚拟化、数据中心和交付等。深信服的HCI只需要通用的服务器和交换机软件，就可以利用软件技术构建计算、存储、网络和安全的统一资源池，实现基础架构的简化。</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202310181936850.webp" alt="image-20231018193613643"></p>
+<p>与传统的云基础架构（烟囱架构）相比，HCI只需要两种设备即可实现IT的基础要求，而传统的云平台需要服务器、存储设备、网络设备等等，维护成本高，运维复杂。</p>
+<p>深信服HCI具有极简、可靠、高性能、更安全等特点。</p>
+<p>深信服HCI的应用场景：</p>
+<ul>
+<li>新建数据中心</li>
+<li>数据中心改造场景</li>
+<li>CPU应用承载</li>
+<li>K8S应用承载</li>
+</ul>
+<h3 id="HCI关键特性"><a href="#HCI关键特性" class="headerlink" title="HCI关键特性"></a>HCI关键特性</h3><p>深信服HCI关键特性可以由下图概括：</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202310181951996.webp" alt="image-20231018195137766"></p>
+<p>包括了安全特性，平台特性和高可用性等方面。</p>
+<h4 id="aSV服务器虚拟化"><a href="#aSV服务器虚拟化" class="headerlink" title="aSV服务器虚拟化"></a>aSV服务器虚拟化</h4><p>aSV是深信服服务器虚拟化技术，具备了<strong>热迁移、HA高可用、动态资源调度DRS和动态资源添加DRX</strong>的四个基础功能。还有一些其他的优势特性和功能。</p>
+<p>aSV（包括其他的服务器虚拟化）解决了什么问题？</p>
+<ol>
+<li>提供资源利用率：一台服务器可以运行多台虚拟机，彼此独立运行，互不影响</li>
+<li>提高扩展能力：根据负载情况手动调整资源</li>
+<li>提高生产效率：硬件故障、软件故障（重装系统）等速度快</li>
+<li>提高业务可用性：热迁移保障可用性</li>
+<li>提高运维效率：硬件资源、虚拟机资源可视化和统一管理</li>
+</ol>
+<h5 id="热迁移"><a href="#热迁移" class="headerlink" title="热迁移"></a>热迁移</h5><p>热迁移保障了业务的高可用性，当管理员需要进行硬件维护、主机变更等操作的时候，aSV可以在不影响业务的情况下完成迁移操作。</p>
+<ul>
+<li>关键技术：无需外置存储、零宕机时间、兼容外部存储</li>
+<li>支持场景：集群内热迁移、集群内跨存储热迁移、跨集群热迁移</li>
+</ul>
+<h5 id="HA-High-Availability-高可用"><a href="#HA-High-Availability-高可用" class="headerlink" title="HA(High Availability)高可用"></a>HA(High Availability)高可用</h5><p>HA（High Availability）高可用是指在系统或服务出现故障时，能够保持持续可用性和稳定性的能力。HA的目标是确保系统的连续性，最小化服务中断和数据丢失的风险。虚拟机实现HA的前提条件：</p>
+<ol>
+<li>虚拟化集群服务器不少于2台。</li>
+<li>必须配置共享存储（磁盘阵列、分布式存储均可）。</li>
+<li>剩余主机必须有足够的资源供业务恢复使用。</li>
+</ol>
+<blockquote>
+<p>在软件质量架构中，”Availability”（可用性）属性是指系统或应用程序在所需的时间内正常运行和提供服务的能力。它是衡量系统可靠性和可用性的重要指标之一。</p>
+</blockquote>
+<p>应用场景：虚拟机系统异常卡死、操作系统无响应，虚拟机蓝屏、黑屏等等。</p>
+<p>虚拟机HA实现了当业务故障的时候自动、迅速切换到另外的云计算资源上，保持业务的高可用，业务恢复耗时在分钟级。</p>
+<ul>
+<li>分布式管理平台</li>
+<li>平台内置WAF等安全功能</li>
+<li>同意可视化资源管理和运维</li>
+<li>纳管VMware和业务双向迁移</li>
+<li>集群环境一键检测</li>
+<li>行业应用向导</li>
+</ul>
+<h4 id="aSAN存储虚拟化"><a href="#aSAN存储虚拟化" class="headerlink" title="aSAN存储虚拟化"></a>aSAN存储虚拟化</h4><p>aSAN(Storage Area Network)深信服分布式存储的技术，是一款自主开发的分布式存储系统，利用虚拟化技术“池化”集群存储卷内的磁盘，实现存储资源统一管理，向上提供NFS&#x2F;iSCSI存储接口，广泛应用于HCI，aDesk和EDS三大系统。</p>
+<p>aSAN具备防脑裂仲裁机制，但是集群内必须部署3台以上的设备。读一下脑裂的定义就明白了，如果只有两台主机，那么顶多有一条边。当子节点无法通讯的时候，相当于删除一条边，那么集群就分裂成为了两个独立的子集群。</p>
+<blockquote>
+<p>脑裂（brain split）是指在分布式计算环境中，发生了网络或硬件故障导致集群中的节点无法相互通信，从而导致集群分裂成多个独立的子集。这种情况下，每个子集都认为其他子集中的节点已经失效，因此会独立地继续运行和处理任务。</p>
+</blockquote>
+<h5 id="数据副本机制"><a href="#数据副本机制" class="headerlink" title="数据副本机制"></a>数据副本机制</h5><p>主要功能特征：</p>
+<ol>
+<li>每份数据在存储层保留2-3副本</li>
+<li>副本所存放的位置必须满足主机互斥原则，不能将两个副本同时存放在同一台主机上（不然一台物理主机崩溃就会丢失全部数据）</li>
+<li>支持以虚拟机或虚拟磁盘为单位设置副本，支持灵活修改副本数</li>
+</ol>
+<h5 id="数据快速重建"><a href="#数据快速重建" class="headerlink" title="数据快速重建"></a>数据快速重建</h5><ul>
+<li>应用场景：</li>
+</ul>
+<p>当集群内硬盘或主机出现故障，部分数据处于单副本状态，可以通过故障重建的方式恢复损坏的数据。</p>
+<ul>
+<li>可容忍的故障程度：</li>
+</ul>
+<p>两副本：可容忍集群内单台主机硬盘全部故障</p>
+<p>三副本：可容忍集群内两台主机硬盘全部故障，可容忍集群内非同一主机下2块硬盘故障</p>
+<ul>
+<li>特性：</li>
+</ul>
+<ol>
+<li>全局参与，多并发：从多个源端磁盘读取，往多个目的磁盘写入</li>
+<li>智能重建：根据上层的I&#x2F;O情况动态调整重建所用的I&#x2F;O</li>
+<li>分级重建：优先保障重要数据，分等级上传</li>
+</ol>
+<h5 id="亚健康检测和处理"><a href="#亚健康检测和处理" class="headerlink" title="亚健康检测和处理"></a>亚健康检测和处理</h5><p>亚健康介质包括慢盘、坏道过多、寿命到期的SSD等等，亚健康对于系统的危害十分严重。</p>
+<p>处理方法：</p>
+<ol>
+<li>读写算法降级：降低算法的优先级，不在从该盘读写</li>
+<li>亚健康数据迁移：将数据迁到健康的介质</li>
+<li>主动对坏道扫描：及时修理</li>
+</ol>
+<h5 id="克隆技术"><a href="#克隆技术" class="headerlink" title="克隆技术"></a>克隆技术</h5><ul>
+<li>链接克隆：利用快照技术，基于原镜像生成<strong>映射关系</strong>秒级拉起虚拟机，缺点是存在依赖关系，有额外性能开销</li>
+<li>全量克隆：基于原计算克隆一份新的镜像后开机，缺点是启动速度满</li>
+<li>快速全量克隆：利用快照技术拉起虚拟机后，持续拷贝原镜像数据，拷贝完成后，脱离依赖关系</li>
+</ul>
+<h5 id="高性能技术——磁盘分卷"><a href="#高性能技术——磁盘分卷" class="headerlink" title="高性能技术——磁盘分卷"></a>高性能技术——磁盘分卷</h5><p>将多个硬盘分成不同的卷，深信服的分卷包括全闪卷和混闪卷。</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202310182120588.webp" alt="image-20231018212026173"></p>
+<h5 id="高性能技术——存储分层"><a href="#高性能技术——存储分层" class="headerlink" title="高性能技术——存储分层"></a>高性能技术——存储分层</h5><p>分层是aSAN缓存系统中最主要的性能层，SSD分层的核心思想是：</p>
+<ol>
+<li>写操作可以快速地写入分层中，立即向上返回写入成功，然后再将数据写到HDD中。</li>
+<li>读操作尽可能直接从分层中读取数据，无需从HDD中读取。</li>
+</ol>
+<p>存储分层的工作原理如下：</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202310182127000.webp" alt="image-20231018212714653"></p>
+<h5 id="高性能技术——智能条带化"><a href="#高性能技术——智能条带化" class="headerlink" title="高性能技术——智能条带化"></a>高性能技术——智能条带化</h5><p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202310182130668.webp" alt="image-20231018213056259"></p>
+<p>此外aSAN还具有AI硬盘故障检测的能力，以及提供存储容量、硬盘寿命分析的能力。</p>
+<h4 id="aNET网络虚拟化"><a href="#aNET网络虚拟化" class="headerlink" title="aNET网络虚拟化"></a>aNET网络虚拟化</h4><p>aNET是深信服网络安全虚拟化的一项技术，具备四个关键特性：<strong>网络虚拟化、网络功能虚拟化、分布式虚拟防火墙、业务逻辑拓扑</strong>。</p>
+<ul>
+<li>网络虚拟化技术：采用分布式虚拟交换机aSwitch和虚拟路由器</li>
+<li>网络功能虚拟化：虚拟路由器具备NAT，DNS等等网络功能</li>
+</ul>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202310182140353.webp" alt="image-20231018214001970"></p>
+<ul>
+<li>分布式防火墙：</li>
+</ul>
+<p>面向虚拟机的安全策略部署</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202310182138016.webp" alt="image-20231018213834692"></p>
+<ul>
+<li>业务逻辑拓扑——所画即所得</li>
+</ul>
+<p>在画网络拓扑图的过程中采用智能算法、优化网络拓扑结构。</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202310182139280.webp" alt="image-20231018213926916"></p>
+<h4 id="aSAN注意事项"><a href="#aSAN注意事项" class="headerlink" title="aSAN注意事项"></a>aSAN注意事项</h4><p>aSAN平衡的实现方式中，目标磁盘不可以是多个，只能是单个。</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202310211535391.webp" alt="image-20231021153529235"></p>
+<h2 id="HCI最佳实践"><a href="#HCI最佳实践" class="headerlink" title="HCI最佳实践"></a>HCI最佳实践</h2><p>这里仅记录一下不同的产品服务的注意事项，各位读者可以自行去实操体验。</p>
+<h3 id="HCI性能最佳实践"><a href="#HCI性能最佳实践" class="headerlink" title="HCI性能最佳实践"></a>HCI性能最佳实践</h3><h4 id="硬件配置"><a href="#硬件配置" class="headerlink" title="硬件配置"></a>硬件配置</h4><ul>
+<li>磁盘：深信服一体机系统盘默认最低使用128G SSD盘。</li>
+<li>RAID卡：使用aSAN，缓存盘和数据盘必须配置成non-raid或者jbod模式。</li>
+<li>网卡：支持巨帧，推荐配置6*GE，2*10GE（6个千兆口，2个万兆口）</li>
+<li>交换机：建议每个网络平面采用堆叠的两个交换机，在端口足够的情况下考虑交换机复用</li>
+</ul>
+<h4 id="虚拟机配置"><a href="#虚拟机配置" class="headerlink" title="虚拟机配置"></a>虚拟机配置</h4><ul>
+<li>vCPU配置</li>
+</ul>
+<ol>
+<li>随着vCPU的增加，性能提升是非线性的，而是对数增长。需要配置虚拟插槽数和每个插槽的核数。配置时，虚拟插槽数不要超过物理CPU个数，插槽核数也不要超过单个CPU的核数。</li>
+<li>启用NUMA调度：vCPU本地内存访问，不会跨NUMA节点。</li>
+<li>推荐默认不使用Host CPU，只有当虚拟机性能不足时才启用。</li>
+</ol>
+<ul>
+<li>内存配置</li>
+</ul>
+<p>配置内存是指最大的可用内存。配置内存时，不能超过集群中单台主机的最大物理内存。建议关闭内存回收。</p>
+<p>极端情况下虚拟机的内存超过主机内存，这时大量使用了交换分区。推荐内存不超配，所有开机虚拟机配置内存不要超过物理机的0.9。</p>
+<p>内存分配的注意事项：如果配置了aSAN，预留32G，否则预留12G。Swap分区大小<code>swap=memory&lt;96GB?memory*2:memory</code>，不超过系统盘剩余空间的50%，最低8GB，最高256GB。</p>
+<p>内存分配公式：<code>分配内存=总内存-预留内存+swap*0.2</code>。</p>
+<ul>
+<li>虚拟磁盘配置</li>
+</ul>
+<ol>
+<li>虚拟磁盘的个数多少与虚拟磁盘的性能无直接关系，例如一块2T的和两块1T的硬盘性能是一样的（不考虑条带化等技术）。</li>
+<li>裸磁盘映射的大小和性能都由裸磁盘本身决定，无调优参数。</li>
+<li>预分配可以大幅提升IOPS和吞吐，但是会浪费一些存储空间。对于数据库等对IO要求高的应用，建议使用预分配，一般虚拟机不建议使用，浪费空间。</li>
+</ol>
+<h4 id="虚拟网络配置"><a href="#虚拟网络配置" class="headerlink" title="虚拟网络配置"></a>虚拟网络配置</h4><ul>
+<li>VXLAN网络通信：虚拟网络内部集群内同一网段内部的虚拟机之间的跨主机流量成为“东西向流量”，深信服在企业服务器内设置了隧道，增加VXLAN报头封装虚拟机跨主机二层通信报文，通过vxlan隧道实现跨主机通信。</li>
+<li>物理出口：用来连接虚拟网络和物理网络，每台服务器至少配置2*GE网口作为物理出口，并做网口聚合绑定。交换机需要关闭stp协议，保障网络稳定性。</li>
+</ul>
+<h4 id="虚拟存储配置"><a href="#虚拟存储配置" class="headerlink" title="虚拟存储配置"></a>虚拟存储配置</h4><ul>
+<li>推荐存储网络使用2*10GE两个万兆口</li>
+<li>SSD缓存盘：SSD可为其磁盘组下的HDD提供缓存加速的能力。SSD和HDD的个数比推荐值为1：3，不能低于1：7。</li>
+<li>存储卷：使用存储多卷，要求每个存储卷的主机数量至少为3台。建议一个集群内不配置超过3个卷，单个卷内主机数不超过12台。</li>
+<li>建议使用三台以上的主机组成一个虚拟存储卷，可以获得条带化的效果和仲裁机制。</li>
+</ul>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202310211559795.webp" alt="image-20231021155928654"></p>
+<h4 id="HCI管理（重点！）"><a href="#HCI管理（重点！）" class="headerlink" title="HCI管理（重点！）"></a>HCI管理（重点！）</h4><p>HCI初始化有如下的条件：</p>
+<ol>
+<li>根据集群内所有主机的CPU颗数购买充足的首选。</li>
+<li>单主机不支持虚拟存储；普通集群至少要求2台以上的主机，如果需要虚拟存储的条带化功能或使用虚拟存储多卷功能，则需要3台以上的主机。</li>
+<li>延伸集群至少需要4主机起步，加上一个仲裁节点。</li>
+<li>禁止单台主机部署HCI。</li>
+</ol>
+<p>HCI有USE-Key（离线）授权和vKEY（在线）授权两种方式。</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202310211601457.webp" alt="image-20231021160128322"></p>
+<h2 id="HCI产品功能"><a href="#HCI产品功能" class="headerlink" title="HCI产品功能"></a>HCI产品功能</h2><h3 id="集群资源调度DRS"><a href="#集群资源调度DRS" class="headerlink" title="集群资源调度DRS"></a>集群资源调度DRS</h3><p>DRS全称是Distributed Resource Scheduler，指集群资源调度，顾名思义，在特定场景下会调度集群资源，这里的资源指的是虚拟机。我们的DRS会设置CPU和内存阈值，如果超过阈值，就会触发DRS。</p>
+<p>DRS有自动和手动两种，对于选了自动的虚拟机，DRS会配置自动选择合适的主机来运行。而对于那些指定了运行位置的虚拟机，DRS不会对其进行操作。</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202310211508535.webp" alt="image-20231021150843382"></p>
+<h3 id="集群资源动态热添加DRX"><a href="#集群资源动态热添加DRX" class="headerlink" title="集群资源动态热添加DRX"></a>集群资源动态热添加DRX</h3><p>DRX全称是Dynamic Resource Extension，指动态资源拓展。虚拟机资源不足，主机资源空闲的时候，自动为虚拟机添加CPU或者内存。</p>
+<h2 id="HCI产品应用场景"><a href="#HCI产品应用场景" class="headerlink" title="HCI产品应用场景"></a>HCI产品应用场景</h2><h3 id="信服云迁移工具"><a href="#信服云迁移工具" class="headerlink" title="信服云迁移工具"></a>信服云迁移工具</h3><p>信服云迁移工具可以供业务迁移能力(P2V，V2V)，可满足以下的业务场景要求：</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202310211528787.webp" alt="image-20231021152837489"></p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202310211531494.webp" alt="image-20231021153154351"></p>
+<p>注意是不会影响被迁移，不是不会被热迁移。蓝屏，USB和接受迁移目标资源不足都会影响虚拟机被热迁移。</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202310211602968.webp" alt="image-20231021160223851"></p>
+<h2 id="HCI产品运维"><a href="#HCI产品运维" class="headerlink" title="HCI产品运维"></a>HCI产品运维</h2><h1 id="深信服桌面云aDesk"><a href="#深信服桌面云aDesk" class="headerlink" title="深信服桌面云aDesk"></a>深信服桌面云aDesk</h1><ul>
+<li>在深信服Webconsole界面中，<strong>sock</strong>命令与<strong>telnet</strong>命令相似。</li>
+</ul>
+<p>VMP（Virtualization Management Platform）是虚拟化管理平台的缩写。VDC(Virtual Desktop Controller)是桌面控制系统的缩写。VDI是虚拟桌面基础设施（Virtual Desktop Infrastructure）的缩写。它是一种技术和架构，用于在服务器上创建和管理虚拟桌面环境，从而提供集中式的桌面虚拟化解决方案。</p>
+<p>可以与VMware对比的是VMP平台都用于管理虚拟机，VDC相当于一个C&#x2F;S架构应用程序的服务器端，VDI是客户端。</p>
+<p>所以，使用aDesk之前必须要先完成VMP的部署和VDC的部署，而这两个平台的部署都是基于HCI的，所以在此之前还需要完成HCI的部署。下面是完成HCI部署之后的平台部署流程图：</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202310201835012.webp" alt="image-20231020183431435"></p>
+<h2 id="VMP安装"><a href="#VMP安装" class="headerlink" title="VMP安装"></a>VMP安装</h2><p>VMP叫做虚拟化管理平台，理论上每一台虚拟机都应该安装VMP。而HCI将这些虚拟资源整合在一起，形成一个统一的平台，用于构建和管理虚拟化环境。<strong>HCI通常由多台物理服务器组成</strong>，每台服务器上运行着虚拟化软件，并通过网络进行通信和数据共享。</p>
+<p>安装VMP的过程和安装HCI类似，都是获取到了iso镜像之后，在系统启动之时进入BIOS安装。</p>
+<ul>
+<li>前提条件</li>
+</ul>
+<ol>
+<li>VMP系统镜像</li>
+<li>U盘&#x2F;刻录光盘</li>
+<li>普通PC（用于控制，制作iso镜像）</li>
+<li>需要安装VMP的服务器</li>
+</ol>
+<p>VMP硬件配置要求：</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202310201409517.webp" alt="image-20231020140937268"></p>
+<ul>
+<li>VMP授权管理：</li>
+</ul>
+<p>VMP除了可以使用Key授权之外，还可以借助aCenter实现对VMP和VDC的统一授权，在多集群&#x2F;多分支情况下，随意回收和修改授权。</p>
+<ol>
+<li>aCenter已经通过了Key进行授权，并且VMP节点已经加入了aCenter。</li>
+<li>通过aCenter下发授权至分支节点后，该分支节点原有的授权无效，只继承aCenter所下发的授权。</li>
+<li>通过aCenter进行统一的授权后，分支节点的授权key可拔出回收。</li>
+<li>修改授权后，VDC会重启服务来更新授权信息。</li>
+</ol>
+<h2 id="VMP创建VDC"><a href="#VMP创建VDC" class="headerlink" title="VMP创建VDC"></a>VMP创建VDC</h2><p>再复习一下，VDC(Virtual Desktop Controller)是桌面控制系统的缩写。</p>
+<p>在上一步完成了VMP的安装之后，就可以登录VMP控制台，设置ip等信息创建全新的虚拟机，然后创建VDC，一般VDC运行在4430端口上。如果想要更好的理解，可以把VMware想象成为一个Web应用，那么VDC就是服务器，VDI就是客户端。</p>
+<ul>
+<li>VDC集群的介绍</li>
+</ul>
+<p>VDC集群的各个节点（VDC设备）由一个分发器和一组真实服务器组成，分发器和真实服务器都是VDC设备。网络客户接入VDI的时候，会由分发器合理的分配给集群中最空闲的真实服务器为客户提供服务。</p>
+<ul>
+<li><font>VDC集群的要求：</font></li>
+</ul>
+<ol>
+<li>存在两台VDC并且版本是一致的，确认VDC的ip地址处在同一个内网网段内。</li>
+<li>每台VDC设备上均需要启用集群部署，并且需要配置相同的集群ip。</li>
+<li><strong>软件VDC和硬件VDC可以组件集群</strong>。</li>
+<li>禁止将克隆出的软件VDC和克隆前的软件VDC组件集群。</li>
+</ol>
+<ul>
+<li>VDC用户认证管理</li>
+</ul>
+<p>VDC用户认证管理的主要方式有三种：本地密码认证、LDAP认证和第三方接口认证，可以看aDesk用户管理的部分。</p>
+<p>授权码的注意事项如下：</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202310201906572.webp" alt="image-20231020190602207"></p>
+<ul>
+<li>创建VDC步骤：</li>
+</ul>
+<ol>
+<li>win操作机登录HCI</li>
+<li>选择存储——本地存储</li>
+<li>系统管理——端口管理——桌面云接入服务</li>
+<li>虚拟机导入界面，导入虚拟机的vma镜像文件</li>
+<li>点击转到虚拟机，开机，选择NetworkSetup Wizard，配置ip为VDC的管理ip。</li>
+<li>部署完成后，浏览器访问<a href="https://VDCip:4430即进入VDC。">https://VDCip:4430即进入VDC。</a></li>
+<li>新建虚拟化管理平台控制器，输入控制器地址，测试连接。</li>
+</ol>
+<ul>
+<li>VDC管理</li>
+</ul>
+<p>在VDC管理过程中，每个用户拥有的硬件特征码个数默认为5个（五种设备？？？）。</p>
+<h2 id="VMP创建VDI"><a href="#VMP创建VDI" class="headerlink" title="VMP创建VDI"></a>VMP创建VDI</h2><ul>
+<li>创建VDI的步骤：</li>
+</ul>
+<ol>
+<li>win操作机登录HCI</li>
+<li>选择上面的虚拟机（VDC已经创建好的）</li>
+<li>选择下面的桌面应用，创建全新VDI虚拟机</li>
+<li>填写VDI虚拟机信息</li>
+<li>安装系统，配置网络</li>
+</ol>
+<ul>
+<li>最佳实践：</li>
+</ul>
+<p>VDI5.4.1开始支持多卷功能，如果是单主机或者双主机只允许创建一个卷；当系统中已存在一个卷的时候，未加入主机数小于3的时候不再允许新加卷。</p>
+<p>单卷最大支持24主机，最佳实践是8-12为一个卷，VMP单集群最大支持创建3个卷。</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202310211627113.webp"></p>
+<h2 id="aCenter平台的部署"><a href="#aCenter平台的部署" class="headerlink" title="aCenter平台的部署"></a>aCenter平台的部署</h2><p>aCenter是虚拟化集中管理平台，适用于VMP集群分布式部署场景。通常将aCenter部署于企业内部，通过公网、专线等方式对各分支机构的VMP集群进行集中的监控、升级、管理和统一授权。</p>
+<ul>
+<li>aCenter安装在物理主机</li>
+</ul>
+<ol>
+<li>需要先将aCenter的ISO镜像通过UltraISO制作启动镜像。</li>
+<li>物理主机最低配置为：4GB内存，65GB硬盘，千兆网卡。</li>
+</ol>
+<ul>
+<li>aCenter安装在VMP平台：</li>
+</ul>
+<p>与VMP上安装VDC虚拟机的过程大致相同，需要在虚拟机操作系统处选虚拟化集中管理平台aCenter，并将aCenter的ISO镜像挂载到虚拟机的光驱上，后续同物理机。配置要求也一样。</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202310211557228.webp" alt="image-20231021155759093"></p>
+<h2 id="aDesk用户和用户组管理"><a href="#aDesk用户和用户组管理" class="headerlink" title="aDesk用户和用户组管理"></a>aDesk用户和用户组管理</h2><p>在aDesk上可以对VMP，VDC和VDI进行的用户进行管理。</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202310202044429.webp" alt="image-20231020204308752"></p>
+<p>主要认证还包括第三方认证。</p>
+<blockquote>
+<p>LDAP（Lightweight Directory Access Protocol）认证是一种基于网络协议的身份验证机制，用于验证用户的身份和授权其访问特定资源。LDAP是一种应用层协议，用于访问和维护分布式目录服务（如LDAP服务器）中的信息。它使用客户端-服务器模型，其中客户端发起LDAP请求，服务器响应并提供所需的信息。</p>
+<p>Radius（Remote Authentication Dial-In User Service）认证是一种网络身份验证协议，用于验证和授权用户对网络资源的访问。Radius认证是一种客户端-服务器认证协议，广泛用于网络接入服务，特别是拨号和虚拟专用网络（VPN）服务。它提供了一种中心化的认证和授权机制，允许用户通过一组凭据（例如用户名和密码）进行身份验证，并授予他们访问网络资源的权限。</p>
+</blockquote>
+<h2 id="客户端接入"><a href="#客户端接入" class="headerlink" title="客户端接入"></a>客户端接入</h2><p>常见的终端接入：<br><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202310202108380.webp" alt="image-20231020210836189"></p>
+<p>请注意，移动终端不支持登录linux虚拟机，但是可以访问windows虚拟机。 </p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202310211540608.webp" alt="image-20231021154010471"></p>
+<h2 id="分布式防火墙"><a href="#分布式防火墙" class="headerlink" title="分布式防火墙"></a>分布式防火墙</h2><ul>
+<li>传统终端安全的实现方式</li>
+</ul>
+<ol>
+<li>接入交换机ACL控制终端PC间互访流量，，防止出现一些主机沦陷病毒扩散问题。</li>
+<li>网络防火墙部署在区域边界节点控制区域互访流量。</li>
+<li>计算机软件防火墙保护计算机系统环境安全。</li>
+</ol>
+<ul>
+<li>分布式防火墙</li>
+</ul>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202310202203086.webp" alt="image-20231020220323906"></p>
+<p>分布式防火墙适用场景：</p>
+<ol>
+<li>用户对于虚拟机之间的网络有微隔离要求。</li>
+<li>出现诸如勒索病毒一类内网安全事件，需要阻断病毒横向传播场景。</li>
+<li>使用传统基于IP做策略的方式难以满足实际网络访问控制需求的场景（如池桌面）。</li>
+</ol>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202310202207266.webp" alt="image-20231020220752097"></p>
+<ul>
+<li>新增策略的三种方式：新建策略、复制策略和导入策略。</li>
+</ul>
+<h2 id="报表中心-Sangfor-VDC-Report-Center"><a href="#报表中心-Sangfor-VDC-Report-Center" class="headerlink" title="报表中心(Sangfor VDC Report Center)"></a>报表中心(Sangfor VDC Report Center)</h2><ul>
+<li>报表中心简介</li>
+</ul>
+<p>报表中心可以对VDC和VMP上的数据进行收集，存储和展示，主要包括数据查询、数据分析、报表导出等功能。</p>
+<p>针对VDC传输的数据可以分为：资产信息、管理日志、安全日志、安全策略、并发会话数。</p>
+<p>针对VMP传递的数据可以分为：服务器存储趋势、服务器负载。</p>
+<p>针对用户虚拟机的数据则提供文件导出审计页面。</p>
+<ul>
+<li>报表中心适用场景：</li>
+</ul>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202310202215944.webp" alt="image-20231020221554753"></p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202310211549911.webp" alt="image-20231021154943744"></p>
+<p>请注意，一个桌面云上的报表中心最多能关联1个VDC集群。</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202310211540065.webp" alt="image-20231021154051939"></p>
+<h2 id="显卡虚拟化3D部署"><a href="#显卡虚拟化3D部署" class="headerlink" title="显卡虚拟化3D部署"></a>显卡虚拟化3D部署</h2><ul>
+<li>桌面虚拟化的两种架构：</li>
+</ul>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202310202217225.webp" alt="image-20231020221749987"></p>
+<ul>
+<li>3D桌面显卡虚拟化(vGPU)优势</li>
+</ul>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202310202220261.webp" alt="image-20231020222010083"></p>
+<h2 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h2><h3 id="Agent安装"><a href="#Agent安装" class="headerlink" title="Agent安装"></a>Agent安装</h3><p>agent是桌面云的一个重要的组件，虚拟机的正常使用，离不开agent的正常运行。在虚拟机上安装Agent的方法是：虚拟机上面的管理栏下，有安装Agent的相关选项。</p>
+<p>注意！安装Agent后会重启虚拟机。安装Agent之前要安装vmtools：在虚拟机那一栏下拉。</p>
+<h3 id="独享桌面资源的创建"><a href="#独享桌面资源的创建" class="headerlink" title="独享桌面资源的创建"></a>独享桌面资源的创建</h3><ol>
+<li>登入HCI</li>
+<li>虚拟机模板管理——虚拟机转模板</li>
+<li>业务中心——资源管理——新建独享桌面</li>
+<li>按要求配置信息，保存</li>
+</ol>
+<h3 id="桌面云用户接入实验"><a href="#桌面云用户接入实验" class="headerlink" title="桌面云用户接入实验"></a>桌面云用户接入实验</h3><ol>
+<li>登录HCI</li>
+<li>业务中心——用户管理——新建</li>
+<li>输入用户相关信息</li>
+<li>安装VDI客户端并打开</li>
+<li>输入服务器地址，用户名和密码</li>
+</ol>
+<h1 id="深信服分布式存储EDS"><a href="#深信服分布式存储EDS" class="headerlink" title="深信服分布式存储EDS"></a>深信服分布式存储EDS</h1><p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202310211630046.webp" alt="image-20231021163014931"></p>
+<h2 id="存储常见技术"><a href="#存储常见技术" class="headerlink" title="存储常见技术"></a>存储常见技术</h2><p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202310211140380.webp" alt="image-20231021114010575"></p>
+<h3 id="备份与容灾"><a href="#备份与容灾" class="headerlink" title="备份与容灾"></a>备份与容灾</h3><p>容灾（Disaster Recovery）是一种综合性的策略和实践，旨在保护和恢复组织的关键业务和数据，以应对各种灾难性事件，如自然灾害、硬件故障、人为错误等。容灾的目标是在灾难发生时，能够尽快地恢复业务运营和数据访问，并最小化停机时间和数据丢失。</p>
+<p>备份（Backup）是一种数据保护的措施，旨在创建数据的副本并存储在另一个位置，以防止数据丢失或损坏。备份可以用于恢复单个文件、文件夹、数据库或整个系统。</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202310192046268.webp" alt="image-20231019204626041"></p>
+<blockquote>
+<p>RTO（恢复时间目标）是指在发生灾难性事件后，系统需要恢复正常运行所需的时间。它代表了从灾难发生到系统完全恢复正常运行的时间窗口。较短的RTO意味着系统能够更快地恢复，尽快恢复业务运营，减少停机时间和业务中断。RTO的衡量通常以时间为单位，例如，以小时、分钟或秒为单位。</p>
+<p>RPO（恢复点目标）是指在发生灾难性事件后，系统需要恢复到的数据恢复点。它代表了在灾难发生前的系统数据状态。较小的RPO意味着系统能够更少地丢失数据，尽可能接近灾难发生前的最新数据。RPO的衡量通常以时间为单位，例如，以小时、分钟或秒为单位。RPO越小，丢失的数据越少。</p>
+</blockquote>
+<p>EC（Erasure Coding）机制和副本机制是在分布式存储系统中用于数据可靠性和容错性的两种不同策略。</p>
+<p>EC机制是一种纠删码技术，它将原始数据分割成多个数据块，并通过添加冗余数据块来实现数据的冗余和容错。EC可以在数据丢失或损坏的情况下进行数据恢复，而<strong>不需要完全复制原始数据</strong>。</p>
+<p>副本机制是一种简单而直接的数据冗余策略，它通过完全复制数据来实现容错性。在副本机制中，<strong>原始数据会被完全复制</strong>到多个存储节点上，以确保数据的可靠性。如果某个节点发生故障或数据损坏，可以通过其他副本来恢复数据。</p>
+<h3 id="RAID介绍"><a href="#RAID介绍" class="headerlink" title="RAID介绍"></a>RAID介绍</h3><p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/image-20231019205741595.webp" alt="image-20231019205741595"></p>
+<h3 id="传统存储与分布式存储"><a href="#传统存储与分布式存储" class="headerlink" title="传统存储与分布式存储"></a>传统存储与分布式存储</h3><p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202310192102639.webp" alt="image-20231019210250465"></p>
+<h3 id="EDS架构简介"><a href="#EDS架构简介" class="headerlink" title="EDS架构简介"></a>EDS架构简介</h3><p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202310192056711.webp" alt="image-20231019205631518"></p>
+<h2 id="EDS产品应用场景"><a href="#EDS产品应用场景" class="headerlink" title="EDS产品应用场景"></a>EDS产品应用场景</h2><p>EDS产品的应用场景涵盖了块存储、文件存储和对象存储三个方面。</p>
+<h2 id="EDS产品运维"><a href="#EDS产品运维" class="headerlink" title="EDS产品运维"></a>EDS产品运维</h2><p>EDS存储巡检：存储巡检是一种定期检查和评估存储系统的健康状况和性能的过程。它旨在发现和解决潜在的问题，以确保存储系统的稳定性、可靠性和性能。</p>
+<p>进行存储巡检是商业维度，技术维度和其他维度的综合考量结果。可以使用深信服adeploy服务（一个可执行文件）进行存储巡检。</p>
+<h1 id="深信服应用交付AD平台"><a href="#深信服应用交付AD平台" class="headerlink" title="深信服应用交付AD平台"></a>深信服应用交付AD平台</h1><h2 id="网络部署"><a href="#网络部署" class="headerlink" title="网络部署"></a>网络部署</h2><ul>
+<li>深信服AD的集群部署模式种，<strong>1个浮动IP</strong>顶多在<strong>1台设备</strong>上生效。</li>
+<li>深信服AD的集群模式中，当组件集群的AD版本号不一致的时候，健康状态应为<strong>故障</strong>。</li>
+</ul>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202310211631695.webp" alt="image-20231021163102535"></p>
+<h3 id="网络部署基础"><a href="#网络部署基础" class="headerlink" title="网络部署基础"></a>网络部署基础</h3><h4 id="网口配置"><a href="#网口配置" class="headerlink" title="网口配置"></a>网口配置</h4><p>在HCI的网络部署——网口配置页面，可以配置网口的协商模式，推荐使用Auto配置。</p>
+<h4 id="端口聚合"><a href="#端口聚合" class="headerlink" title="端口聚合"></a>端口聚合</h4><p>端口聚合可以将多个物理接口当作一个单一的逻辑接口来处理，它允许两台设备之间通过多个接口并行连接同时传输数据以提供更高的带宽，更大的吞吐量和可恢复性技术。主要有如下优点：</p>
+<ol>
+<li>增加带宽：带宽相当于聚合的端口的带宽总和。</li>
+<li>增加冗余：其中一个端口坏了还能工作，只是带宽变小。</li>
+<li>负载均衡：可以在组内接口上配置，是流量在接口上自动进行负载均衡。</li>
+</ol>
+<p>操作方法：新建聚合接口——选择绑定策略——选择绑定接口。</p>
+<h4 id="VLAN子接口"><a href="#VLAN子接口" class="headerlink" title="VLAN子接口"></a>VLAN子接口</h4><p>某些情况下与AD设备对接的网口为TRUNK口，要求AD设备对应的接口也可以封装VLAN划分子接口，此时需要配置VLAN子接口。</p>
+<h4 id="端口桥接"><a href="#端口桥接" class="headerlink" title="端口桥接"></a>端口桥接</h4><p>在一些较为复杂的网络结构中，需要AD设备能将两个口划分到一个广播域内，相当于将AD设备的多个口组成一个二层交换机，此时就需要网口桥接功能。</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202310201056310.webp" alt="image-20231020105602015"></p>
+<h4 id="负载均衡"><a href="#负载均衡" class="headerlink" title="负载均衡"></a>负载均衡</h4><ul>
+<li>ECMP是传统边界路由器的运营商链路负载方式。</li>
+<li>策略路由是传统的边界路由器的运营商链路负载方式。</li>
+<li>路由器策略路由链路负载方式无法根据带宽动态调整，调度策略不灵活，资源利用率低。</li>
+</ul>
+<blockquote>
+<p>ECMP是一种路由算法，用于在网络中选择多个等价路径来转发数据流量。当存在多个具有相同开销（cost）的路径时，ECMP允许路由器将数据流量分散到这些路径上，以实现负载均衡和提高网络性能。ECMP通常在网络中的内部路由中使用，例如在数据中心网络中。</p>
+<p>策略路由是一种根据特定的策略或条件，动态选择路由路径的方法。与传统的静态路由不同，策略路由可以根据网络中的不同因素（如流量负载、链路状态、服务质量要求等）来选择最佳路径，以实现更灵活的路由控制。</p>
+</blockquote>
+<h3 id="部署模式"><a href="#部署模式" class="headerlink" title="部署模式"></a>部署模式</h3><p>部署模式使之设备以什么样的工作方式部署到用户的网络中去，不同的部署方式对于网络影响各不相同。AD支持两种部署模式：网关模式和旁路模式。注意，配置AD设备的时候不需要在界面上选择部署模式，以什么样的方式接入客户网络就是什么部署模式。</p>
+<h4 id="网关部署模式"><a href="#网关部署模式" class="headerlink" title="网关部署模式"></a>网关部署模式</h4><p>一般是将AD部署在互联网出口或者是内网服务器前端，逻辑网络层面，设备有两个或多个接口连接到网络内，数据经过路由转发会穿过设备。设备配置里，既有WAN接口，也有LAN属性接口。</p>
+<ul>
+<li>优点：AD的功能都能满足（出战负载、全局负载、应用负载等等）</li>
+<li>缺点：此种部署对网络的改动比较大，建议在新建网络或者网络改造的时候部署。</li>
+</ul>
+<h4 id="旁路模式部署"><a href="#旁路模式部署" class="headerlink" title="旁路模式部署"></a>旁路模式部署</h4><p>一般是AD旁路在接入或者核心交换机上</p>
+<ul>
+<li>优点：无需改变原网络拓扑结构，只需要单臂挂在核心交换机，进行配置即可，对现有网络无影响</li>
+<li>缺点：无法实现链路负载</li>
+</ul>
+<h4 id="三角传输模式"><a href="#三角传输模式" class="headerlink" title="三角传输模式"></a>三角传输模式</h4><p>一般是AD旁路部署在业务服务器同一台二层交换机下或同一个二层网络中，通过AD虚拟服务关闭DNAT和SNAT功能，服务器配置loopback口与虚拟服务相同IP实现。</p>
+<ul>
+<li><p>优点：服务端可以看到客户端源IP；减轻AD流量负担，回来的包不经过AD设备，而是直接转发回客户端</p>
+</li>
+<li><p>缺点：AD无法感知服务器的loopback口健康状态；AD必须与服务器同网段部署。</p>
+</li>
+</ul>
+<h2 id="高可用主备模式"><a href="#高可用主备模式" class="headerlink" title="高可用主备模式"></a>高可用主备模式</h2><h3 id="主备模式简介"><a href="#主备模式简介" class="headerlink" title="主备模式简介"></a>主备模式简介</h3><p>主备模式：两台AD双击部署，一台处于工作状态，另一台处于冷备状态。两台设备通过心跳口检测对端是否存在，并同步设备和会话。当主设备触发问题切换条件时，设备会自动地把业务切换到备用设备。</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202310201119366.webp" alt="image-20231020111917141"></p>
+<p>AD设备的各种部署模式都支持双机热备，以下是典型的拓扑图。</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202310201120265.webp" alt="image-20231020112024952"></p>
+<h3 id="主备模式要求"><a href="#主备模式要求" class="headerlink" title="主备模式要求"></a>主备模式要求</h3><p>主备模式部署要求：</p>
+<ol>
+<li>网口个数一样</li>
+<li>内存大小一样</li>
+<li>序列号一致</li>
+<li>软件版本一致</li>
+</ol>
+<h3 id="主备模式的基本元素"><a href="#主备模式的基本元素" class="headerlink" title="主备模式的基本元素"></a>主备模式的基本元素</h3><h4 id="心跳口"><a href="#心跳口" class="headerlink" title="心跳口"></a>心跳口</h4><p>又叫HA口，主要功能是检测对端是否还存活，通常两台设备的心跳口通过网线直连，并且通过周期性地发送心跳口包来检测对端是否存活，并且有冗余保障机制。</p>
+<h4 id="故障切换"><a href="#故障切换" class="headerlink" title="故障切换"></a>故障切换</h4><p>用来检测主设备发生故障时，进行主备设备切换保证业务的连续稳定运行，切换条件可以由用户自己定义。</p>
+<h4 id="同步对象"><a href="#同步对象" class="headerlink" title="同步对象"></a>同步对象</h4><h2 id="ACL访问控制策略配置"><a href="#ACL访问控制策略配置" class="headerlink" title="ACL访问控制策略配置"></a>ACL访问控制策略配置</h2><p>ACL(Access Control List)访问控制列表，ACL基于数据连接的五元组来实现外到内或内到外的数据访问控制，可以提升网络的安全性。主要应用场景是禁止内网指定用户访问AD设备或禁止访问互联网，禁止外部主机访问设备或者AD设备发布的内网业务。</p>
+<p>相关的配置在HCI的网络部署——网络安全——ACL配置路径。</p>
+<h2 id="健康检测"><a href="#健康检测" class="headerlink" title="健康检测"></a>健康检测</h2><p>深信服AD设备对某节点业务健康检查失败之后的处理动作：标记该节点异常；AD会将健康检查失败的节点从资源池中剔除；健康检查失败的节点将不能继续提供业务访问。但是<strong>会在资源池中继续进行健康检查</strong>。</p>
+<p>在AD巡检的过程中，进行外观检查的时候，<strong>备机的alarm灯闪属于正常现象</strong>。主设备的alarm灯亮属于告警现象。</p>
+<h2 id="AD产品应用场景"><a href="#AD产品应用场景" class="headerlink" title="AD产品应用场景"></a>AD产品应用场景</h2><h3 id="智能路由"><a href="#智能路由" class="headerlink" title="智能路由"></a>智能路由</h3><ul>
+<li>适用场景</li>
+</ul>
+<p>外网多条线路时，部署的传统路由器总是出现：链路调度不均衡，跨运营商访问慢</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="https://Veni222987.github.io">Veni</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="https://veni222987.github.io/2023/10/18/%E3%80%90Sangfor%E3%80%91%E6%B7%B1%E4%BF%A1%E6%9C%8D%E8%B6%85%E8%9E%8D%E5%90%88HCI/">https://veni222987.github.io/2023/10/18/%E3%80%90Sangfor%E3%80%91%E6%B7%B1%E4%BF%A1%E6%9C%8D%E8%B6%85%E8%9E%8D%E5%90%88HCI/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E4%BA%91%E8%AE%A1%E7%AE%97/">云计算</a><a class="post-meta__tags" href="/tags/%E6%B7%B1%E4%BF%A1%E6%9C%8D/">深信服</a></div><div class="post_share"><div class="social-share" data-image="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/mycover.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/12/15/WSL%E9%A3%9F%E7%94%A8%E6%8C%87%E5%8D%97/" title="WSL食用指南"><img class="cover" src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/mycover.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous</div><div class="prev_info">WSL食用指南</div></div></a></div><div class="next-post pull-right"><a href="/2023/10/17/Linux%E7%AE%80%E6%98%8E%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" title="Linux简明使用教程"><img class="cover" src="https://www.chenwenguan.com/wp-content/uploads/2021/03/linux-logo-e1615825628735.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next</div><div class="next_info">Linux简明使用教程</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2023/10/16/%E3%80%90Sangfor%E3%80%91%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%BF%83%E4%B8%8E%E4%BA%91%E8%AE%A1%E7%AE%97/" title="【Sangfor】数据中心与云计算"><img class="cover" src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/mycover.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-10-16</div><div class="title">【Sangfor】数据中心与云计算</div></div></a></div><div><a href="/2023/12/25/%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%E4%B8%8E%E4%BA%91%E8%AE%A1%E7%AE%97%E5%A4%8D%E4%B9%A0/" title="高性能计算与云计算复习"><img class="cover" src="https://opentalk-blog.b0.upaiyun.com/prod/2021-05-19/cfc5ac0f1f89ed28e5c1a90c65eb1e3e" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-12-25</div><div class="title">高性能计算与云计算复习</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B7%B1%E4%BF%A1%E6%9C%8D%E8%B6%85%E8%9E%8D%E5%90%88HCI"><span class="toc-number">1.</span> <span class="toc-text">深信服超融合HCI</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#HCI%E4%BA%A7%E5%93%81%E7%AE%80%E4%BB%8B"><span class="toc-number">1.1.</span> <span class="toc-text">HCI产品简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#HCI%E4%BA%A7%E5%93%81%E5%9F%BA%E7%A1%80"><span class="toc-number">1.1.1.</span> <span class="toc-text">HCI产品基础</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HCI%E5%85%B3%E9%94%AE%E7%89%B9%E6%80%A7"><span class="toc-number">1.1.2.</span> <span class="toc-text">HCI关键特性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#aSV%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%99%9A%E6%8B%9F%E5%8C%96"><span class="toc-number">1.1.2.1.</span> <span class="toc-text">aSV服务器虚拟化</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%83%AD%E8%BF%81%E7%A7%BB"><span class="toc-number">1.1.2.1.1.</span> <span class="toc-text">热迁移</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#HA-High-Availability-%E9%AB%98%E5%8F%AF%E7%94%A8"><span class="toc-number">1.1.2.1.2.</span> <span class="toc-text">HA(High Availability)高可用</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#aSAN%E5%AD%98%E5%82%A8%E8%99%9A%E6%8B%9F%E5%8C%96"><span class="toc-number">1.1.2.2.</span> <span class="toc-text">aSAN存储虚拟化</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%89%AF%E6%9C%AC%E6%9C%BA%E5%88%B6"><span class="toc-number">1.1.2.2.1.</span> <span class="toc-text">数据副本机制</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%BF%AB%E9%80%9F%E9%87%8D%E5%BB%BA"><span class="toc-number">1.1.2.2.2.</span> <span class="toc-text">数据快速重建</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BA%9A%E5%81%A5%E5%BA%B7%E6%A3%80%E6%B5%8B%E5%92%8C%E5%A4%84%E7%90%86"><span class="toc-number">1.1.2.2.3.</span> <span class="toc-text">亚健康检测和处理</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%85%8B%E9%9A%86%E6%8A%80%E6%9C%AF"><span class="toc-number">1.1.2.2.4.</span> <span class="toc-text">克隆技术</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%AB%98%E6%80%A7%E8%83%BD%E6%8A%80%E6%9C%AF%E2%80%94%E2%80%94%E7%A3%81%E7%9B%98%E5%88%86%E5%8D%B7"><span class="toc-number">1.1.2.2.5.</span> <span class="toc-text">高性能技术——磁盘分卷</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%AB%98%E6%80%A7%E8%83%BD%E6%8A%80%E6%9C%AF%E2%80%94%E2%80%94%E5%AD%98%E5%82%A8%E5%88%86%E5%B1%82"><span class="toc-number">1.1.2.2.6.</span> <span class="toc-text">高性能技术——存储分层</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%AB%98%E6%80%A7%E8%83%BD%E6%8A%80%E6%9C%AF%E2%80%94%E2%80%94%E6%99%BA%E8%83%BD%E6%9D%A1%E5%B8%A6%E5%8C%96"><span class="toc-number">1.1.2.2.7.</span> <span class="toc-text">高性能技术——智能条带化</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#aNET%E7%BD%91%E7%BB%9C%E8%99%9A%E6%8B%9F%E5%8C%96"><span class="toc-number">1.1.2.3.</span> <span class="toc-text">aNET网络虚拟化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#aSAN%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-number">1.1.2.4.</span> <span class="toc-text">aSAN注意事项</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HCI%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5"><span class="toc-number">1.2.</span> <span class="toc-text">HCI最佳实践</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#HCI%E6%80%A7%E8%83%BD%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5"><span class="toc-number">1.2.1.</span> <span class="toc-text">HCI性能最佳实践</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A1%AC%E4%BB%B6%E9%85%8D%E7%BD%AE"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">硬件配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%85%8D%E7%BD%AE"><span class="toc-number">1.2.1.2.</span> <span class="toc-text">虚拟机配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE"><span class="toc-number">1.2.1.3.</span> <span class="toc-text">虚拟网络配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F%E5%AD%98%E5%82%A8%E9%85%8D%E7%BD%AE"><span class="toc-number">1.2.1.4.</span> <span class="toc-text">虚拟存储配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#HCI%E7%AE%A1%E7%90%86%EF%BC%88%E9%87%8D%E7%82%B9%EF%BC%81%EF%BC%89"><span class="toc-number">1.2.1.5.</span> <span class="toc-text">HCI管理（重点！）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HCI%E4%BA%A7%E5%93%81%E5%8A%9F%E8%83%BD"><span class="toc-number">1.3.</span> <span class="toc-text">HCI产品功能</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9B%86%E7%BE%A4%E8%B5%84%E6%BA%90%E8%B0%83%E5%BA%A6DRS"><span class="toc-number">1.3.1.</span> <span class="toc-text">集群资源调度DRS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9B%86%E7%BE%A4%E8%B5%84%E6%BA%90%E5%8A%A8%E6%80%81%E7%83%AD%E6%B7%BB%E5%8A%A0DRX"><span class="toc-number">1.3.2.</span> <span class="toc-text">集群资源动态热添加DRX</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HCI%E4%BA%A7%E5%93%81%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-number">1.4.</span> <span class="toc-text">HCI产品应用场景</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%A1%E6%9C%8D%E4%BA%91%E8%BF%81%E7%A7%BB%E5%B7%A5%E5%85%B7"><span class="toc-number">1.4.1.</span> <span class="toc-text">信服云迁移工具</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HCI%E4%BA%A7%E5%93%81%E8%BF%90%E7%BB%B4"><span class="toc-number">1.5.</span> <span class="toc-text">HCI产品运维</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B7%B1%E4%BF%A1%E6%9C%8D%E6%A1%8C%E9%9D%A2%E4%BA%91aDesk"><span class="toc-number">2.</span> <span class="toc-text">深信服桌面云aDesk</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#VMP%E5%AE%89%E8%A3%85"><span class="toc-number">2.1.</span> <span class="toc-text">VMP安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VMP%E5%88%9B%E5%BB%BAVDC"><span class="toc-number">2.2.</span> <span class="toc-text">VMP创建VDC</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VMP%E5%88%9B%E5%BB%BAVDI"><span class="toc-number">2.3.</span> <span class="toc-text">VMP创建VDI</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#aCenter%E5%B9%B3%E5%8F%B0%E7%9A%84%E9%83%A8%E7%BD%B2"><span class="toc-number">2.4.</span> <span class="toc-text">aCenter平台的部署</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#aDesk%E7%94%A8%E6%88%B7%E5%92%8C%E7%94%A8%E6%88%B7%E7%BB%84%E7%AE%A1%E7%90%86"><span class="toc-number">2.5.</span> <span class="toc-text">aDesk用户和用户组管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%8E%A5%E5%85%A5"><span class="toc-number">2.6.</span> <span class="toc-text">客户端接入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E5%B8%83%E5%BC%8F%E9%98%B2%E7%81%AB%E5%A2%99"><span class="toc-number">2.7.</span> <span class="toc-text">分布式防火墙</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8A%A5%E8%A1%A8%E4%B8%AD%E5%BF%83-Sangfor-VDC-Report-Center"><span class="toc-number">2.8.</span> <span class="toc-text">报表中心(Sangfor VDC Report Center)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%98%BE%E5%8D%A1%E8%99%9A%E6%8B%9F%E5%8C%963D%E9%83%A8%E7%BD%B2"><span class="toc-number">2.9.</span> <span class="toc-text">显卡虚拟化3D部署</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C"><span class="toc-number">2.10.</span> <span class="toc-text">实验</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Agent%E5%AE%89%E8%A3%85"><span class="toc-number">2.10.1.</span> <span class="toc-text">Agent安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8B%AC%E4%BA%AB%E6%A1%8C%E9%9D%A2%E8%B5%84%E6%BA%90%E7%9A%84%E5%88%9B%E5%BB%BA"><span class="toc-number">2.10.2.</span> <span class="toc-text">独享桌面资源的创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A1%8C%E9%9D%A2%E4%BA%91%E7%94%A8%E6%88%B7%E6%8E%A5%E5%85%A5%E5%AE%9E%E9%AA%8C"><span class="toc-number">2.10.3.</span> <span class="toc-text">桌面云用户接入实验</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B7%B1%E4%BF%A1%E6%9C%8D%E5%88%86%E5%B8%83%E5%BC%8F%E5%AD%98%E5%82%A8EDS"><span class="toc-number">3.</span> <span class="toc-text">深信服分布式存储EDS</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%98%E5%82%A8%E5%B8%B8%E8%A7%81%E6%8A%80%E6%9C%AF"><span class="toc-number">3.1.</span> <span class="toc-text">存储常见技术</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%87%E4%BB%BD%E4%B8%8E%E5%AE%B9%E7%81%BE"><span class="toc-number">3.1.1.</span> <span class="toc-text">备份与容灾</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RAID%E4%BB%8B%E7%BB%8D"><span class="toc-number">3.1.2.</span> <span class="toc-text">RAID介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%A0%E7%BB%9F%E5%AD%98%E5%82%A8%E4%B8%8E%E5%88%86%E5%B8%83%E5%BC%8F%E5%AD%98%E5%82%A8"><span class="toc-number">3.1.3.</span> <span class="toc-text">传统存储与分布式存储</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#EDS%E6%9E%B6%E6%9E%84%E7%AE%80%E4%BB%8B"><span class="toc-number">3.1.4.</span> <span class="toc-text">EDS架构简介</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#EDS%E4%BA%A7%E5%93%81%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-number">3.2.</span> <span class="toc-text">EDS产品应用场景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#EDS%E4%BA%A7%E5%93%81%E8%BF%90%E7%BB%B4"><span class="toc-number">3.3.</span> <span class="toc-text">EDS产品运维</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B7%B1%E4%BF%A1%E6%9C%8D%E5%BA%94%E7%94%A8%E4%BA%A4%E4%BB%98AD%E5%B9%B3%E5%8F%B0"><span class="toc-number">4.</span> <span class="toc-text">深信服应用交付AD平台</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E9%83%A8%E7%BD%B2"><span class="toc-number">4.1.</span> <span class="toc-text">网络部署</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E9%83%A8%E7%BD%B2%E5%9F%BA%E7%A1%80"><span class="toc-number">4.1.1.</span> <span class="toc-text">网络部署基础</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BD%91%E5%8F%A3%E9%85%8D%E7%BD%AE"><span class="toc-number">4.1.1.1.</span> <span class="toc-text">网口配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AB%AF%E5%8F%A3%E8%81%9A%E5%90%88"><span class="toc-number">4.1.1.2.</span> <span class="toc-text">端口聚合</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#VLAN%E5%AD%90%E6%8E%A5%E5%8F%A3"><span class="toc-number">4.1.1.3.</span> <span class="toc-text">VLAN子接口</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AB%AF%E5%8F%A3%E6%A1%A5%E6%8E%A5"><span class="toc-number">4.1.1.4.</span> <span class="toc-text">端口桥接</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1"><span class="toc-number">4.1.1.5.</span> <span class="toc-text">负载均衡</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2%E6%A8%A1%E5%BC%8F"><span class="toc-number">4.1.2.</span> <span class="toc-text">部署模式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BD%91%E5%85%B3%E9%83%A8%E7%BD%B2%E6%A8%A1%E5%BC%8F"><span class="toc-number">4.1.2.1.</span> <span class="toc-text">网关部署模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%97%81%E8%B7%AF%E6%A8%A1%E5%BC%8F%E9%83%A8%E7%BD%B2"><span class="toc-number">4.1.2.2.</span> <span class="toc-text">旁路模式部署</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%89%E8%A7%92%E4%BC%A0%E8%BE%93%E6%A8%A1%E5%BC%8F"><span class="toc-number">4.1.2.3.</span> <span class="toc-text">三角传输模式</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%AB%98%E5%8F%AF%E7%94%A8%E4%B8%BB%E5%A4%87%E6%A8%A1%E5%BC%8F"><span class="toc-number">4.2.</span> <span class="toc-text">高可用主备模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BB%E5%A4%87%E6%A8%A1%E5%BC%8F%E7%AE%80%E4%BB%8B"><span class="toc-number">4.2.1.</span> <span class="toc-text">主备模式简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BB%E5%A4%87%E6%A8%A1%E5%BC%8F%E8%A6%81%E6%B1%82"><span class="toc-number">4.2.2.</span> <span class="toc-text">主备模式要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BB%E5%A4%87%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%85%83%E7%B4%A0"><span class="toc-number">4.2.3.</span> <span class="toc-text">主备模式的基本元素</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BF%83%E8%B7%B3%E5%8F%A3"><span class="toc-number">4.2.3.1.</span> <span class="toc-text">心跳口</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%85%E9%9A%9C%E5%88%87%E6%8D%A2"><span class="toc-number">4.2.3.2.</span> <span class="toc-text">故障切换</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%8C%E6%AD%A5%E5%AF%B9%E8%B1%A1"><span class="toc-number">4.2.3.3.</span> <span class="toc-text">同步对象</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ACL%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6%E7%AD%96%E7%95%A5%E9%85%8D%E7%BD%AE"><span class="toc-number">4.3.</span> <span class="toc-text">ACL访问控制策略配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%81%A5%E5%BA%B7%E6%A3%80%E6%B5%8B"><span class="toc-number">4.4.</span> <span class="toc-text">健康检测</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AD%E4%BA%A7%E5%93%81%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-number">4.5.</span> <span class="toc-text">AD产品应用场景</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%99%BA%E8%83%BD%E8%B7%AF%E7%94%B1"><span class="toc-number">4.5.1.</span> <span class="toc-text">智能路由</span></a></li></ol></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2023 - 2024 By Veni</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi, welcome to my blog!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="Toggle Between Traditional Chinese And Simplified Chinese">繁</button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.12.0"></script><script src="/js/main.js?v=4.12.0"></script><script src="/js/tw_cn.js?v=4.12.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.32/dist/fancybox/fancybox.umd.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-pjax"></div><script src="/js/headerNumbering.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.12.0"></script></div></div></body></html>

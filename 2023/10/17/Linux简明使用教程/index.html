@@ -1,0 +1,566 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Linux简明使用教程 | Veni's Blog</title><meta name="author" content="Veni"><meta name="copyright" content="Veni"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="下面是Linux操作系统的简单，覆盖了Linux基本使用的常用指令。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux简明使用教程">
+<meta property="og:url" content="https://veni222987.github.io/2023/10/17/Linux%E7%AE%80%E6%98%8E%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/index.html">
+<meta property="og:site_name" content="Veni&#39;s Blog">
+<meta property="og:description" content="下面是Linux操作系统的简单，覆盖了Linux基本使用的常用指令。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://www.chenwenguan.com/wp-content/uploads/2021/03/linux-logo-e1615825628735.jpg">
+<meta property="article:published_time" content="2023-10-17T05:40:19.000Z">
+<meta property="article:modified_time" content="2024-01-02T12:38:56.000Z">
+<meta property="article:author" content="Veni">
+<meta property="article:tag" content="Linux">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.chenwenguan.com/wp-content/uploads/2021/03/linux-logo-e1615825628735.jpg"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://veni222987.github.io/2023/10/17/Linux%E7%AE%80%E6%98%8E%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.12.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.32/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Error',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: 'days',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.0/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Linux简明使用教程',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-01-02 20:38:56'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/header-numbering.css"><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">16</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">13</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">7</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://www.chenwenguan.com/wp-content/uploads/2021/03/linux-logo-e1615825628735.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Veni's Blog"><span class="site-name">Veni's Blog</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Linux简明使用教程</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2023-10-17T05:40:19.000Z" title="Created 2023-10-17 13:40:19">2023-10-17</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2024-01-02T12:38:56.000Z" title="Updated 2024-01-02 20:38:56">2024-01-02</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/notes/">notes</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word Count:</span><span class="word-count">6k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading Time:</span><span>19mins</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Linux简明使用教程"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>下面是Linux操作系统的简单，覆盖了Linux基本使用的常用指令。<span id="more"></span></p>
+<h1 id="Linux简明使用教程"><a href="#Linux简明使用教程" class="headerlink" title="Linux简明使用教程"></a>Linux简明使用教程</h1><h2 id="基本命令"><a href="#基本命令" class="headerlink" title="基本命令"></a>基本命令</h2><h3 id="命令行和快捷键"><a href="#命令行和快捷键" class="headerlink" title="命令行和快捷键"></a>命令行和快捷键</h3><ul>
+<li>补全命令：使用Tab键可以补全命令</li>
+<li><code>Ctrl+A</code>：光标移动到最前，<code>Ctrl+E</code>：光标移动到最后，<code>Ctrl+L</code>：清除当前窗口</li>
+<li><code>ls -a -l -t</code>和<code>ls -alt</code>是一样的</li>
+</ul>
+<h3 id="Linux文件"><a href="#Linux文件" class="headerlink" title="Linux文件"></a>Linux文件</h3><ul>
+<li>查看文件</li>
+</ul>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202310171516725.webp" alt="image-20231017151632556"></p>
+<ul>
+<li><p>创建文件：使用mknod或者touch创建文件，使用mkdir创建目录</p>
+</li>
+<li><p>删除文件：使用<code>rm &lt;文件名&gt;</code>指令，使用<code>rm -r &lt;文件名&gt;</code>可以删除目录</p>
+</li>
+<li><p>移动与复制：使用<code>mv &lt;源文件&gt; &lt;目标目录&gt;</code>移动文件，使用<code>cp &lt;源文件&gt; &lt;目标目录&gt;</code>实现复制文件并移动。</p>
+</li>
+<li><p>创建链接文件：<code>ln -s &lt;A&gt; &lt;B&gt;</code></p>
+</li>
+<li><p>常见的文件类型标识：</p>
+</li>
+</ul>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202310171526100.webp" alt="image-20231017152604976"></p>
+<ul>
+<li><code>chmod</code>是一个用于修改文件或目录权限的命令。它可以更改文件的读取、写入和执行权限，以及文件所有者和所属组的权限。</li>
+</ul>
+<p>例如，将sh设置为可执行的指令为：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod -x script.sh</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Vim编辑器的使用"><a href="#Vim编辑器的使用" class="headerlink" title="Vim编辑器的使用"></a>Vim编辑器的使用</h2><p>Vim有输入模式，命令模式和底行模式三种，其中命令模式和底行模式的区别在于<code>:</code>。</p>
+<p>Vim的基础用法不加赘述，下面是Vim的底行模式的一些命令：</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202310171529532.webp" alt="image-20231017152932416"></p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202310171529690.webp" alt="image-20231017152951580"></p>
+<h2 id="磁盘管理"><a href="#磁盘管理" class="headerlink" title="磁盘管理"></a>磁盘管理</h2><h3 id="查看磁盘空间：df指令"><a href="#查看磁盘空间：df指令" class="headerlink" title="查看磁盘空间：df指令"></a>查看磁盘空间：<code>df</code>指令</h3><p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202310171533093.webp" alt="image-20231017153314957"></p>
+<p>使用<code>df -i</code>查看磁盘INodes使用情况，<code>df -h</code>使用合适的单位显示文件系统信息。</p>
+<h3 id="磁盘分区"><a href="#磁盘分区" class="headerlink" title="磁盘分区"></a>磁盘分区</h3><p>使用<code>fdisk</code>指令可以对磁盘进行分区管理，但是只能划分小于2T的分区。由于磁盘分区使用频率较低，故不详细展开，使用时查阅fdisk指令即可。</p>
+<h3 id="磁盘挂载"><a href="#磁盘挂载" class="headerlink" title="磁盘挂载"></a>磁盘挂载</h3><p>在完成磁盘的分区和格式化之后，还需要挂载到系统路径，才可以使用。</p>
+<p>使用mount命令可以手动挂载，示例如下：</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202310171547780.webp" alt="image-20231017154713601"></p>
+<p>然而使用mount指令手动挂载的分区，在系统重启之后会取消挂载，要实现开机自动挂载的方法是使用配置文件&#x2F;etc&#x2F;fstab。</p>
+<h2 id="用户管理"><a href="#用户管理" class="headerlink" title="用户管理"></a>用户管理</h2><p>Linux有三类不同的用户：root用户，一般用户和服务用户。用户的管理文件在&#x2F;etc&#x2F;passwd文件中。一般而言，一个用户的home目录在<code>/home/&lt;用户名&gt;</code>。</p>
+<ul>
+<li>新增用户：使用<code>useradd</code>指令。</li>
+</ul>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202310171555253.webp" alt="image-20231017155501128"></p>
+<ul>
+<li>删除用户：userdel指令，-r可以一并删除用户的home目录。</li>
+<li>Linux用户创建完成以后，默认是没有密码的，设置密码的指令是<code>passwd username</code></li>
+</ul>
+<h2 id="Linux压缩与解压缩"><a href="#Linux压缩与解压缩" class="headerlink" title="Linux压缩与解压缩"></a>Linux压缩与解压缩</h2><h3 id="Linux常见的压缩包格式"><a href="#Linux常见的压缩包格式" class="headerlink" title="Linux常见的压缩包格式"></a>Linux常见的压缩包格式</h3><p>打包在linux下一般是tar，而压缩则可以是zip，gz等等。一般而言，在网上下载某些SDK的时候，最常见的压缩包格式就是tar.gz包。</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202310171601997.webp" alt="image-20231017160148882"></p>
+<blockquote>
+<p>打包和压缩的区别：</p>
+<p>打包是将多个文件和目录合并成为一个；</p>
+<p>压缩是将单个文件使用压缩算法减小空间；</p>
+</blockquote>
+<h3 id="常见的压缩工具"><a href="#常见的压缩工具" class="headerlink" title="常见的压缩工具"></a>常见的压缩工具</h3><h4 id="zip压缩工具"><a href="#zip压缩工具" class="headerlink" title="zip压缩工具"></a>zip压缩工具</h4><p>zip可以压缩文件和目录，并且zip不会删除压缩的文件。</p>
+<ul>
+<li>压缩方法：<code>zip &lt;生成文件&gt; &lt;原始文件&gt;</code>，使用-r可以递归压缩，也就是压缩目录。</li>
+<li>解压方法：<code>unzip &lt;压缩文件&gt; -d &lt;解压路径&gt;</code>，如果不使用-d参数，则会解压到当前路径。</li>
+</ul>
+<h4 id="gzip压缩工具"><a href="#gzip压缩工具" class="headerlink" title="gzip压缩工具"></a>gzip压缩工具</h4><p>gzip是用来压缩和解压缩.gz格式的文件的。</p>
+<ul>
+<li>压缩方法：<code>gzip &lt;文件名&gt;</code>，使用-#可以指定压缩等级1~9，默认为6。</li>
+<li>解压方法：<code>gzip -d &lt;文件名&gt;</code></li>
+</ul>
+<p>注意：gzip压缩和解压缩都会删除源文件。</p>
+<h4 id="bzip2压缩工具"><a href="#bzip2压缩工具" class="headerlink" title="bzip2压缩工具"></a>bzip2压缩工具</h4><p>bzip2是用来压缩和解压缩.bz2格式的文件的。</p>
+<ul>
+<li>压缩方法：<code>bzip2 -z &lt;文件名&gt;</code> ，不用-z指令也可以压缩</li>
+<li>解压方法：<code>bzip2 -d &lt;文件名&gt;</code></li>
+</ul>
+<blockquote>
+<p>注意：gzip和bzip2都不能压缩目录，因此需要使用tar将其进行打包。而使用tar打包成为一个文件后，则zip也就失去了打包目录的优势。所以tar一般配合gzip和bzip2使用。</p>
+</blockquote>
+<h3 id="打包和解包工具——tar"><a href="#打包和解包工具——tar" class="headerlink" title="打包和解包工具——tar"></a>打包和解包工具——tar</h3><p>熟记下面的参数，即可流畅使用tar。</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202310171627644.webp" alt="image-20231017162706505"></p>
+<p>记忆方法：</p>
+<p><code>-z -j -J</code>三选一，标识压缩方式，分别是gz, bz2和xz；<code>-x</code>表示解包，<code>-c</code>表示打包，不能同时出现。<code>-v -f</code>一般都有，方便指定文件和观察打包&#x2F;解包过程。如果是打包，则指令格式为：<code>tar -cvf &lt;目标文件名&gt; &lt;源文件名&gt;</code>，而解包后面可以直接接文件名，默认是解包到当前文件夹，如果需要打包到指定文件夹，则指令后面需要加上<code>-C &lt;目标路径&gt;</code>。</p>
+<h2 id="Linux软件安装"><a href="#Linux软件安装" class="headerlink" title="Linux软件安装"></a>Linux软件安装</h2><h3 id="安装包管理"><a href="#安装包管理" class="headerlink" title="安装包管理"></a>安装包管理</h3><p>在早期的Linux系统中，如果想要添加软件，必须获取源码，然后编译成二进制代码再运行，这种软件包通常是一个压缩包，比如tar.gz模式。直到现在，某些个人开发者开发的软件也还在使用这种打包方式。</p>
+<p>后来，为了解决从压缩包安装软件的麻烦，软件包发展出了RPM包和Deb包两种形式。</p>
+<ul>
+<li>RPM包：最初是Red Hat Package Manager，后被重命名为RPM，是SUSE，Red Hat和Centos等发行版的首选软件包格式。</li>
+<li>Deb包：基于Debian GNU&#x2F;linux的管理包文件，常用于Debian发行版本比如Ubuntu，Linux mint等等。</li>
+</ul>
+<h3 id="包管理工具"><a href="#包管理工具" class="headerlink" title="包管理工具"></a>包管理工具</h3><h4 id="apt-Advanced-Package-Tool-："><a href="#apt-Advanced-Package-Tool-：" class="headerlink" title="apt(Advanced Package Tool)："></a>apt(Advanced Package Tool)：</h4><ol>
+<li>apt是Debian和Ubuntu等基于Debian的Linux发行版中的包管理工具。</li>
+<li>apt通过命令行工具apt-get和apt-cache提供了用户友好的接口，用于搜索、安装、升级和删除软件包。</li>
+<li>apt使用.deb软件包格式。</li>
+<li>apt还提供了aptitude和Synaptic等图形化前端工具，简化了软件包管理过程，具备自动下载和安装依赖的能力。</li>
+</ol>
+<h4 id="yum-Yellowdog-Updater-Modified"><a href="#yum-Yellowdog-Updater-Modified" class="headerlink" title="yum(Yellowdog Updater Modified)"></a>yum(Yellowdog Updater Modified)</h4><ol>
+<li>yum是Red Hat、CentOS和Fedora等基于Red Hat的Linux发行版中的软件包管理工具。</li>
+<li>yum通过命令行工具yum提供了用户友好的接口。</li>
+<li>yum使用.rpm软件包格式。</li>
+<li>yum还具有自动解决依赖关系的能力，可以自动下载和安装软件包的依赖项。</li>
+</ol>
+<h3 id="源码安装软件"><a href="#源码安装软件" class="headerlink" title="源码安装软件"></a>源码安装软件</h3><p>有一些开源软件，需要自行使用gcc等编译，这种场景无法统一，可以查阅官方文档结合日志搜索解决。</p>
+<h2 id="Linux网络配置"><a href="#Linux网络配置" class="headerlink" title="Linux网络配置"></a>Linux网络配置</h2><p>将单一的桌面PC连接到网络是一件容易的事情，但是将Linux服务器连接到网络，比如静态IP，VPN和代理服务器等等。学习网络配置管理，不仅要学会使用网络，更重要的是掌握网络状态，排查系统问题。</p>
+<p>传统的Linux网络配置通过network.service来实现，常见的命令有<code>ifconfig, ifup, ifdown</code>，用于查看，启动和关闭某个网络接口，比如eth0等等。</p>
+<p>后来，Linux系统诞生了NetworkManager这样的管理工具，但是两种工具使用一种即可，否则会有冲突。</p>
+<h3 id="NetwotkManager管理网络"><a href="#NetwotkManager管理网络" class="headerlink" title="NetwotkManager管理网络"></a>NetwotkManager管理网络</h3><h4 id="通过nmtui管理网络"><a href="#通过nmtui管理网络" class="headerlink" title="通过nmtui管理网络"></a>通过nmtui管理网络</h4><p>想通过nmtui管理网络的前提是网卡可以直接被NetworkManager管理，在Debian发行版下，下载安装NetworkManager的指令如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install network-manager</span><br></pre></td></tr></table></figure>
+
+<p>安装完成后，可以使用<code>nmcli device</code>查看网络设备:</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202310171812813.webp" alt="image-20231017181234679"></p>
+<p>直接输入nmtui即可使用GUI管理网络，也可以通过修改配置文件直接管理网络。</p>
+<blockquote>
+<p>nmtui是NetworkManager Text User Interface的缩写，是一个基于文本的图形界面工具，用于配置和管理网络连接。而nmcli则是通过命令行的形式管理计算机网络。</p>
+</blockquote>
+<p>在修改网络之后，需要重启网络服务以生效：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart network</span><br></pre></td></tr></table></figure>
+
+<h4 id="其他网络指令"><a href="#其他网络指令" class="headerlink" title="其他网络指令"></a>其他网络指令</h4><ul>
+<li>netstat：使用netstat可以查看整个Linux系统的网络情况</li>
+</ul>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202310171824263.webp" alt="image-20231017182432059"></p>
+<p>最常用的指令<code>netstat -antp</code>，运行结果如下：</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202310171826399.webp" alt="image-20231017182650172"></p>
+<ul>
+<li>ss命令：SocketStatistics的缩写，用来获取socket的统计信息</li>
+</ul>
+<p>当服务器的socket连接数量变得非常大的时候，无论是使用netstat命令还是直接cat &#x2F;proc&#x2F;net&#x2F;tcp，执行速度都会很慢，ss用到了TCP协议栈中的tcp_diag，可以获得linux内核的第一手信息，效率极高。</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202310171830301.webp" alt="image-20231017183018127"></p>
+<p>最常用指令：<code>ss -lntp</code>，以数字形式显示tcp连接，并显示进程名：</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202310171831280.webp" alt="image-20231017183137109"></p>
+<h2 id="进程管理"><a href="#进程管理" class="headerlink" title="进程管理"></a>进程管理</h2><p>Linux的进程在&#x2F;proc目录下，相关信息存在于以ID命名的目录中。</p>
+<blockquote>
+<p>Linux一切皆文件！</p>
+</blockquote>
+<ul>
+<li>查看进程：ps指令</li>
+</ul>
+<p><code>ps ux|less</code>：查看系统当前用户的所有进程，| less是管道处理，分页显示结果</p>
+<p><code>ps -A</code>查看所有进程</p>
+<ul>
+<li>关闭和修改进程：kill指令</li>
+</ul>
+<p>使用kill指令可以对某个进程发出信号，常见的信号如下：</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202310171839352.webp" alt="image-20231017183953235"></p>
+<p>例如，在确保安全的情况下，可以使用<code>kill -9 1234</code>强制关闭1234进程。</p>
+<p>使用killall指令可以直接根据进程名杀死进程，例如<code>killall bash</code>。</p>
+<ul>
+<li>修改CPU使用优先级：nice指令</li>
+</ul>
+<p>Linux使用nice值定义进程访问CPU的优先级，位于[-20,19]区间，默认取值为0。</p>
+<ol>
+<li>nice值越低，访问CPU优先级越高，默认0。</li>
+<li>普通用户只能将自己的进程nice设为0~19。</li>
+<li>普通用户只能设置nice值变高。</li>
+<li>普通用户只能在自己的进程上设置nice。</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nice -5 vim &amp;</span><br></pre></td></tr></table></figure>
+
+<p>将vim进程放在后台运行，并且设置nice值为0+5</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">renice -n -5 1234</span><br></pre></td></tr></table></figure>
+
+<p>对进程ID为1234的nice减少5。</p>
+<ul>
+<li>守护进程：所有进程之母</li>
+</ul>
+<p>一般守护进程是init或systemd，位于进程表的第一行，Linux内核中有一个PID为0的进程，表示内核，守护进程的PID则设置为1。</p>
+<blockquote>
+<p>守护进程（daemon）是在操作系统后台运行的一种特殊类型的进程。它们通常在系统引导时启动，并且在整个系统运行期间持续运行。守护进程通常不与用户交互，而是在后台执行特定的任务或提供某种服务。它们被设计为在系统启动时自动运行，并且通常会一直运行，直到系统关闭或手动停止。</p>
+</blockquote>
+<ul>
+<li>服务管理：</li>
+</ul>
+<p>Linux下服务管理有两个指令，分别是service和systemctl指令，systemctl是Linux的最新初始化系统，兼容了service的指令。</p>
+<blockquote>
+<p>service和systemctl指令的本质都是执行&#x2F;etc&#x2F;init.d目录下的脚本</p>
+</blockquote>
+<p>systemctl常用方法如下：</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202310171852378.webp" alt="image-20231017185227218"></p>
+<h2 id="Linux运维管理"><a href="#Linux运维管理" class="headerlink" title="Linux运维管理"></a>Linux运维管理</h2><h3 id="性能与服务"><a href="#性能与服务" class="headerlink" title="性能与服务"></a>性能与服务</h3><ul>
+<li>系统状态监控：<code>vmstat</code>，直接使用则输出当前的系统状态，第一个数字是持续输出的间隔秒数，第二个数字是持续时长秒数。例如<code>vmstat 1 5</code>表示间隔1s持续执行5次。</li>
+</ul>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202310171855446.webp" alt="image-20231017185513224"></p>
+<ul>
+<li>内存资源监控：<code>free</code></li>
+</ul>
+<p>使用free指令可以查看系统的内存使用状态，如下图</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202310171857589.webp" alt="image-20231017185749475"></p>
+<h3 id="计划任务"><a href="#计划任务" class="headerlink" title="计划任务"></a>计划任务</h3><p>使用<code>crontab</code>可以编辑计划任务，选项如下：</p>
+<ol>
+<li>-u 指定用户名，不指定为当前用户</li>
+<li>-e 编辑计划任务</li>
+<li>-l 列出计划任务</li>
+<li>-r 删除所有计划任务</li>
+</ol>
+<p>创建单个计划任务的方法如下：</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202310171901769.webp" alt="image-20231017190131628"></p>
+<p>如需要周期性地执行某些计划任务，则可以写成如下形式：</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202310171903248.webp" alt="image-20231017190308070"></p>
+<h3 id="系统服务管理"><a href="#系统服务管理" class="headerlink" title="系统服务管理"></a>系统服务管理</h3><p>系统服务是在操作系统中以守护进程形式运行的软件组件，用于提供特定的功能或服务。这些服务在系统启动时自动启动，并在后台持续运行，以响应系统和用户的需求。</p>
+<p>Linux的系统服务一般位于<code>/usr/lib/systemd/system</code>路径下，具有每个系统服务的内容：</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202310171907744.webp" alt="image-20231017190730361"></p>
+<blockquote>
+<p>后缀名解释：</p>
+<p>service:系统服务，如crond，sshd都是服务，包括自己安装的mysql-server等。</p>
+<p>target:多个unit组成（unit是一个逻辑概念，该目录下的都可以叫做unit，比如service等，target就是组合的unit）</p>
+<p>device:硬件设备</p>
+<p>mount:文件系统挂载点</p>
+<p>automount:自动挂载点</p>
+</blockquote>
+<ul>
+<li>创建系统服务：</li>
+</ul>
+<p>在服务路径下创建.service文件，该文件由三部分组成：</p>
+<ol>
+<li>[Unit]描述、文档等等</li>
+<li>[Service]类型，环境变量，具体指令</li>
+<li>[Install]服务安装到的target</li>
+</ol>
+<p>例如，某个service文件如下：</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202310171915497.webp" alt="image-20231017191507265"></p>
+<p>使用不同的target可以设置不同的运行级别，使用<code>systemctl get-default</code>可以查看当前的运行级别。</p>
+<ul>
+<li>自启动服务</li>
+</ul>
+<p>使用<code>systemctl enable &lt;服务&gt;</code>可以设置服务自启动，反之，使用<code>systemctl disable &lt;服务&gt;</code>可以禁止服务自启动。</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202310171920730.webp" alt="image-20231017192014594"></p>
+<h3 id="防火墙"><a href="#防火墙" class="headerlink" title="防火墙"></a>防火墙</h3><p>Linux下管理防火墙的软件比较多，在CentOS的5，6版本和Debian中主要使用iptables，在CentOS 7默认的防火墙管理工具是firewalld。主要学习iptables的配置方法，学有余力可以学习其改进版Shorewall。</p>
+<p>iptables是Linux系统中最常用的防火墙管理工具之一。它是一个基于内核的防火墙管理工具，通过操作netfilter框架实现网络包过滤和网络地址转换。Shorewall是一个基于iptables的高级防火墙管理工具，适用于各种Linux发行版。它提供了一个配置文件来定义防火墙规则，可以简化复杂的防火墙配置。Shorewall支持多种方式的配置，包括命令行和文本配置文件。</p>
+<h4 id="iptables"><a href="#iptables" class="headerlink" title="iptables"></a>iptables</h4><p>iptables由四个表，分别是：</p>
+<ol>
+<li>filter:默认表，用常用于过滤数据包</li>
+<li>nat:用于地址转换，侧重于连接管理</li>
+<li>mangle:侧重于每一个数据包管理，比如修改TTL</li>
+<li>raw:异常处理</li>
+</ol>
+<p>iptables五个链：</p>
+<ol>
+<li>input:处理进入系统的网络包</li>
+<li>output:处理从系统发送出去的网络包</li>
+<li>forward:处理通过系统转发的网络包</li>
+<li>prerouting:在路由决策之前处理进入系统的网络包</li>
+<li>postrouting:在路由决策之后处理即将离开系统的网络包</li>
+</ol>
+<p>iptables四表五链的对应关系：</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202310171934972.webp" alt="image-20231017193410854"></p>
+<p>四表五链关系理解：</p>
+<ol>
+<li>filter表是最常用的表格，用于过滤网络包。它包含了三个默认的链（chains）：INPUT、OUTPUT和FORWARD。这些链用于处理进入系统、离开系统和通过系统转发的网络包。通过在这些链上配置规则，可以控制网络包的接受、拒绝、转发等。</li>
+<li>nat表用于网络地址转换（Network Address Translation，NAT）。它包含了三个默认的链：PREROUTING、OUTPUT和POSTROUTING。这些链用于在网络包进入和离开系统之前或之后修改包的源地址、目标地址、端口等。</li>
+<li>mangle表用于修改网络包的特定字段。它包含了五个默认的链：PREROUTING、INPUT、FORWARD、OUTPUT和POSTROUTING。这些链用于在不同的阶段对网络包进行修改，例如修改TTL字段、标记包、更改包的QoS等。</li>
+<li>raw表用于进行特定的包处理，如连接追踪（connection tracking）和数据包跳过（packet bypass）。它包含了两个默认的链：PREROUTING和OUTPUT。这些链允许在数据包进入和离开系统之前进行特定的处理和跳过。</li>
+</ol>
+<p>数据包的处理顺序如下：</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202310171941869.webp" alt="image-20231017194101680"></p>
+<p>流量包通过防火墙，实际就是在这个处理顺序中检验是否满足规则，定义iptables规则的方法如下：</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202310171942799.webp" alt="image-20231017194230628"></p>
+<ul>
+<li>iptables查看规则：<code>iptables -nvL --line-number</code></li>
+</ul>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202310171947100.webp" alt="image-20231017194700960"></p>
+<p>该指令可以查看不同的链上的所有规则信息。</p>
+<ul>
+<li>iptables规则编写：</li>
+</ul>
+<p>新建一条规则，禁止目标端口为TCP22的访问，放在INPUT链的最后：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -A INPUT -p tcp --dport 22 -j DROP</span><br></pre></td></tr></table></figure>
+
+<p>指定某个规则序号删除指定规则，可以先使用上面的查看规则的指令获取序号，然后删除规则：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -D INPUT 1</span><br></pre></td></tr></table></figure>
+
+<p>其他示例：</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202310171951292.webp" alt="image-20231017195128127"></p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202310171952499.webp" alt="image-20231017195206347"></p>
+<h2 id="FTP服务器配置"><a href="#FTP服务器配置" class="headerlink" title="FTP服务器配置"></a>FTP服务器配置</h2><p>FTP(文本传输协议)，是一个用于在计算机网络上进行文件传输的应用层协议，一般运行在TCP20和TCP21两个端口，20端口用于在客户端和服务器之间传输数据流，21端口用于传输控制流，并且通向FTP服务器入口。</p>
+<p>FTP有两种工作模式，主动模式下，客户端开启端口，服务器主动连接客户端的端口；被动模式下，服务器开启端口，被动等待客户端连接。</p>
+<h3 id="FTP配置：vsftpd"><a href="#FTP配置：vsftpd" class="headerlink" title="FTP配置：vsftpd"></a>FTP配置：vsftpd</h3><p>在Linux中，一般使用vsftpd进行FTP服务配置，vsftpd是很多发行版本的默认软件，但是如果系统没有安装，则需要自行安装。在Debian系统上，配置vsftpd的文件位于&#x2F;etc&#x2F;vsftpd.conf。打开配置文件，可以发现：主动模式默认使用20端口进行连接。</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202310172008330.webp" alt="image-20231017200833224"></p>
+<h3 id="vsftpd账号配置"><a href="#vsftpd账号配置" class="headerlink" title="vsftpd账号配置"></a>vsftpd账号配置</h3><p>vsftpd使用三种账号访问，匿名帐号，linux本地帐号和虚拟账号，推荐使用虚拟账号访问。使用虚拟账号访问的时候，建议关闭匿名帐号的相关权限，修改方法同样是编辑vsftpd.conf文件：</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202310172013571.webp" alt="image-20231017201301462"></p>
+<p>开启了虚拟账号登录之后，我们需要对虚拟账号进行管理，首先需要配置vsftpd.conf：</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202310172021363.webp" alt="image-20231017202150233"></p>
+<p>接下来就是准备上面配置中的东西，首先是创建一个虚拟账号对应的系统用户名，使用-s禁止该用户登录：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">useradd virtual_ftpuser -s /sbin/nologin</span><br></pre></td></tr></table></figure>
+
+<p>接下来在&#x2F;etc&#x2F;vsftpd&#x2F;vsftpd_login文件下加入用户信息，创建test1和test2两个账号，并且指定其密码。<br><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202310172025851.webp" alt="image-20231017202521753"></p>
+<p>然后生成账号的数据库文件，在Debian发行系统中需要自行安装db_load或使用其他命令（如db_load5.3）替代。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db_load -T -t hash -f /etc/vsftpd/vsftpd_login /etc/vsftpd/vsftpd_login.db</span><br></pre></td></tr></table></figure>
+
+<p>接下来配置两个用户的权限：在下面的目录创建两个文件：</p>
+<p>&#x2F;etc&#x2F;vsftpd&#x2F;virtual_ftpuser_conf&#x2F;test1</p>
+<p>&#x2F;etc&#x2F;vsftpd&#x2F;virtual_ftpuser_conf&#x2F;test2</p>
+<p>然后输入以下内容：</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs%2Fvblog%2Fimage-20231017220552283.webp?q-sign-algorithm=sha1&q-ak=AKIDCbLd2jCUzkODBH4_S889m9PJWVKQ4ALCobKv1siJvZ8t0ACnZnNEXCIWIKoQZk0d&q-sign-time=1697551818;1697555418&q-key-time=1697551818;1697555418&q-header-list=&q-url-param-list=ci-process&q-signature=dcebd997749108a08bdcdb3e1c2ddc5df5ae450f&x-cos-security-token=r1H4WgNZExkVuYObwUtENLIhx2aBgJza091351a026a984b1330be7a6566bc7a8Z9fn7Qa58nqDuWUebadOp82oSHapqWPvXiPJAZFUxB9Np--oPJHQmK9oLQ1a_cbfiZ1VLpRUaN8PZ3BhrYxshlh4zeZ-epvl1SN2NZNVVFrXh3X3fB-Tp_EFrl8hU-luVRsdVpXCYfPfxHDdoWjeq9rE7EGUYWRghiHuRMAcu3M7fAha0pvdMWdobCR0XqSv&ci-process=originImage"></p>
+<p>接下来创建文件和目录，分别所谓两个虚拟用户的访问根目录，并且在里面生成两个文件，当这两个用户登陆的时候，最开始看到的应该就是自己对应的文件。<br><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202310172212442.webp" alt="image-20231017221212222"></p>
+<p>完成了创建账户之后，我们就可以调用这些账号进行认证了，认证方法如下：</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202310172213436.webp" alt="image-20231017221335233"></p>
+<p>接下来重启系统服务即可：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart vsftpd</span><br></pre></td></tr></table></figure>
+
+<p>后面就可以使用ftp访问当前服务器了，并且可以实现虚拟用户登录。</p>
+<h2 id="Shell脚本"><a href="#Shell脚本" class="headerlink" title="Shell脚本"></a>Shell脚本</h2><h3 id="Shell脚本简介"><a href="#Shell脚本简介" class="headerlink" title="Shell脚本简介"></a>Shell脚本简介</h3><p>shell脚本在Linux的shell中工作，并不是一门编程语言，而是命令的集合，类似windows的bat文件。</p>
+<blockquote>
+<p>shell和bash之间的关系：</p>
+<p>Shell是一种命令行解释器（command-line interpreter），它是操作系统与用户之间的接口，用于解释和执行用户输入的命令。而Bash（Bourne Again Shell）是一种Unix shell，它是Shell的一种实现，也是目前最常用的Shell之一。</p>
+</blockquote>
+<p>在编写好shell脚本之后，需要赋予执行权限，才可以直接运行：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">chmod -x test.sh</span><br><span class="line"></span><br><span class="line">./test.sh</span><br></pre></td></tr></table></figure>
+
+<p>下面编写一个shell脚本示例：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/bash</span></span><br><span class="line">d=`date +%H:%M:%S`</span><br><span class="line">echo &quot;script start at $d&quot;</span><br><span class="line">echo &#x27;wait 2 secs&#x27;</span><br><span class="line">sleep 2</span><br><span class="line">d1=`date +%H:%M:%S`</span><br><span class="line">echo &quot;the script end at $d1&quot;</span><br></pre></td></tr></table></figure>
+
+<p>`date +%H:%M:%S`是一个整体的命令，需要用反引号括起来，表示获取当前时间的HHMMSS格式，echo是将内容送到控制台，当echo显示的内容有变量的时候，需要使用双引号，否则单引号即可。$表示获取变量。</p>
+<p>执行结果如下：</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202310180958386.webp" alt="image-20231018095811226"></p>
+<h3 id="Shell脚本语法"><a href="#Shell脚本语法" class="headerlink" title="Shell脚本语法"></a>Shell脚本语法</h3><h4 id="数学运算"><a href="#数学运算" class="headerlink" title="数学运算"></a>数学运算</h4><p>数学运算需要用中括号括起来，要赋值的话还要加$号，例如：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a=1</span><br><span class="line">b=2</span><br><span class="line">sum=$[$a+$b]</span><br><span class="line">echo &quot;$a+$b=$sum&quot;</span><br></pre></td></tr></table></figure>
+
+<h4 id="用户输入"><a href="#用户输入" class="headerlink" title="用户输入"></a>用户输入</h4><p>获取用户交互输入：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">read -p &quot;please input a number x :&quot; x</span><br><span class="line">read -p &quot;please input a number y :&quot; y</span><br><span class="line">sum=$[$x+$y]</span><br><span class="line">echo &quot;x+y=$sum&quot;</span><br></pre></td></tr></table></figure>
+
+<p>其中-p是设置一条提示消息，用于提示用户需要输入的内容，其后直接跟变量名，无需声明。</p>
+<h4 id="脚本参数和脚本选项"><a href="#脚本参数和脚本选项" class="headerlink" title="脚本参数和脚本选项"></a>脚本参数和脚本选项</h4><p>编写一个脚本，获取其脚本参数的值并相加</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sum=$[$1+$2]</span><br></pre></td></tr></table></figure>
+
+<p>其中$1和$2代表第1个和第2个参数，而$0则表示该脚本名字本身。</p>
+<p>脚本则是带<code>-</code>的参数，比如<code>ls -l</code>，在实际执行脚本的时候，可以省略脚本选项。一般来说需要使用额外的脚本选项解析工具如getopt来解析，例如：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">while getopts &quot;:a:b:c&quot; opt; do</span><br><span class="line">  case $opt in</span><br><span class="line">    a)</span><br><span class="line">      echo &quot;Option -a selected with value $OPTARG&quot;</span><br><span class="line">      ;;</span><br><span class="line">    b)</span><br><span class="line">      echo &quot;Option -b selected with value $OPTARG&quot;</span><br><span class="line">      ;;</span><br><span class="line">    c)</span><br><span class="line">      echo &quot;Option -c selected&quot;</span><br><span class="line">      ;;</span><br><span class="line">    \?)</span><br><span class="line">      echo &quot;Invalid option: -$OPTARG&quot;</span><br><span class="line">      ;;</span><br><span class="line">  esac</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+
+<p>在上面的示例中，<code>getopts</code>命令用于循环遍历脚本的选项。每个选项都通过<code>case</code>语句进行处理，其中<code>$opt</code>表示当前选项，<code>$OPTARG</code>表示选项的参数值。</p>
+<h4 id="条件判断"><a href="#条件判断" class="headerlink" title="条件判断"></a>条件判断</h4><ul>
+<li>if语句逻辑判断：</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">read -p &quot;input your score : &quot; a</span><br><span class="line">if [ $a -gt 80 ];then</span><br><span class="line">	echo &quot;good job&quot;</span><br><span class="line">elif [ $a -gt 60 ];then</span><br><span class="line">	echo &quot;you pass the exam&quot;</span><br><span class="line">else</span><br><span class="line">	echo &quot;you failed&quot;</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+
+<p>逻辑表达式使用[]括起来，并且中括号内部两侧都需要有一个空格。-gt是greater than的缩写，其他的证书比较缩写如下图：</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202310181029738.webp" alt="image-20231018102922511"></p>
+<ul>
+<li>case条件判断</li>
+</ul>
+<p>case的语法如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">case $Num in</span><br><span class="line">	1) echo &#x27;Select 1&#x27;</span><br><span class="line">	;;</span><br><span class="line">	2) echo &#x27;Select 2&#x27;</span><br><span class="line">	;;</span><br><span class="line">	4|5) echo &#x27;Select 4 or 5&#x27;</span><br><span class="line">	;;</span><br><span class="line">	*) echo &#x27;Select othor&#x27;</span><br><span class="line">	;;</span><br><span class="line">esac</span><br></pre></td></tr></table></figure>
+
+<p>shell脚本有严格的语法限制，注意分号的位置为下一行的开始，使用*表示其他的任意匹配。</p>
+<h4 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h4><ul>
+<li>for循环</li>
+</ul>
+<p>for循环是一个十分常用的循环结构，常见的用法如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">for &lt;var&gt; in &lt;cases&gt; ;do</span><br><span class="line">	command</span><br><span class="line">done</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>while循环</li>
+</ul>
+<p>while循环在实际使用中可能会写成一个死循环，用于监控脚本,while语句的格式如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">while &lt;条件&gt;; do</span><br><span class="line">	command</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>until循环，语法和while循环一样，但是满足条件的时候终止循环。</li>
+<li>break用于中断，continue用于循环。</li>
+</ul>
+<p>下面有一些简单的练习，可供读者熟悉shell脚本编程:</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202310181105774.webp" alt="image-20231018110505536"></p>
+<h2 id="grep，sed和awk"><a href="#grep，sed和awk" class="headerlink" title="grep，sed和awk"></a>grep，sed和awk</h2><p><code>grep</code>、<code>sed</code>和<code>awk</code>是在Unix&#x2F;Linux环境中常用的文本处理工具，它们具有不同的特点和用途。</p>
+<h3 id="grep"><a href="#grep" class="headerlink" title="grep"></a>grep</h3><p>grep命令用于查找文件里面符合条件的字符串，或用于查找内容里包含指定范式的文件。</p>
+<ul>
+<li>查找文件内容</li>
+</ul>
+<p>语法为</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep &lt;选项&gt; &lt;目标文字&gt; &lt;目标文件&gt;</span><br></pre></td></tr></table></figure>
+
+<p>例如：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep tcpdump /etc/passwd</span><br></pre></td></tr></table></figure>
+
+<p>查找passwd中tcpdump用户的相关信息。</p>
+<ul>
+<li>查找指令内容，例如<code>ls -l | grep m*</code></li>
+</ul>
+<p>此外，所有的查找内容都可以使用正则表达式匹配。正则表达式的联系可以到<a target="_blank" rel="noopener" href="https://tool.oschina.net/regex/">网站</a>练习。</p>
+<h3 id="sed"><a href="#sed" class="headerlink" title="sed"></a>sed</h3><p><code>sed</code>是一个流式文本编辑器，可用于对文本进行替换、删除、插入、查找等操作。它使用简单的命令来操作文本，并且可以通过正则表达式进行模式匹配和替换。<code>sed</code>通常用于在脚本中批量处理文本数据，或者通过管道操作处理文本流。</p>
+<p>例如，一个使用sed将文本中的foo替换成为bar的示例：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;foo foo foo&quot; | sed &#x27;s/foo/bar/&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：<code>s/foo/bar/</code>。</p>
+<h3 id="awk"><a href="#awk" class="headerlink" title="awk"></a>awk</h3><p><code>awk</code>是一种用于处理和分析文本数据的强大工具。它是一种完整的编程语言，具有变量、循环、条件语句等常见编程特性。<code>awk</code>通过对输入文本逐行处理，并根据指定的模式和动作来提取和操作数据。</p>
+<p>使用awk命令从文本数据中提取第一列的示例：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;1,John,Doe&quot; | awk -F&#x27;,&#x27; &#x27;&#123; print $1 &#125;&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为1。</p>
+<h1 id="Vscode免密登录"><a href="#Vscode免密登录" class="headerlink" title="Vscode免密登录"></a>Vscode免密登录</h1><ol>
+<li>使用ssh-keygen创建密钥对</li>
+<li>将公钥追加到authorized_keys，然后修改权限，重启sshd</li>
+<li>将密钥下载到本地主机</li>
+<li>配置.ssh&#x2F;_config</li>
+</ol>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/vblog/202401021836117.webp" alt="image-20240102183647945"></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="https://Veni222987.github.io">Veni</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="https://veni222987.github.io/2023/10/17/Linux%E7%AE%80%E6%98%8E%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">https://veni222987.github.io/2023/10/17/Linux%E7%AE%80%E6%98%8E%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Linux/">Linux</a></div><div class="post_share"><div class="social-share" data-image="https://www.chenwenguan.com/wp-content/uploads/2021/03/linux-logo-e1615825628735.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/10/18/%E3%80%90Sangfor%E3%80%91%E6%B7%B1%E4%BF%A1%E6%9C%8D%E8%B6%85%E8%9E%8D%E5%90%88HCI/" title="【Sangfor】深信服产品介绍与最佳实践"><img class="cover" src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/mycover.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous</div><div class="prev_info">【Sangfor】深信服产品介绍与最佳实践</div></div></a></div><div class="next-post pull-right"><a href="/2023/10/16/%E3%80%90Sangfor%E3%80%91%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%BF%83%E4%B8%8E%E4%BA%91%E8%AE%A1%E7%AE%97/" title="【Sangfor】数据中心与云计算"><img class="cover" src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/mycover.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next</div><div class="next_info">【Sangfor】数据中心与云计算</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Linux%E7%AE%80%E6%98%8E%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B"><span class="toc-number">1.</span> <span class="toc-text">Linux简明使用教程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4"><span class="toc-number">1.1.</span> <span class="toc-text">基本命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%92%8C%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="toc-number">1.1.1.</span> <span class="toc-text">命令行和快捷键</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux%E6%96%87%E4%BB%B6"><span class="toc-number">1.1.2.</span> <span class="toc-text">Linux文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vim%E7%BC%96%E8%BE%91%E5%99%A8%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">1.2.</span> <span class="toc-text">Vim编辑器的使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86"><span class="toc-number">1.3.</span> <span class="toc-text">磁盘管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E7%A3%81%E7%9B%98%E7%A9%BA%E9%97%B4%EF%BC%9Adf%E6%8C%87%E4%BB%A4"><span class="toc-number">1.3.1.</span> <span class="toc-text">查看磁盘空间：df指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A3%81%E7%9B%98%E5%88%86%E5%8C%BA"><span class="toc-number">1.3.2.</span> <span class="toc-text">磁盘分区</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A3%81%E7%9B%98%E6%8C%82%E8%BD%BD"><span class="toc-number">1.3.3.</span> <span class="toc-text">磁盘挂载</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86"><span class="toc-number">1.4.</span> <span class="toc-text">用户管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux%E5%8E%8B%E7%BC%A9%E4%B8%8E%E8%A7%A3%E5%8E%8B%E7%BC%A9"><span class="toc-number">1.5.</span> <span class="toc-text">Linux压缩与解压缩</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux%E5%B8%B8%E8%A7%81%E7%9A%84%E5%8E%8B%E7%BC%A9%E5%8C%85%E6%A0%BC%E5%BC%8F"><span class="toc-number">1.5.1.</span> <span class="toc-text">Linux常见的压缩包格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84%E5%8E%8B%E7%BC%A9%E5%B7%A5%E5%85%B7"><span class="toc-number">1.5.2.</span> <span class="toc-text">常见的压缩工具</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#zip%E5%8E%8B%E7%BC%A9%E5%B7%A5%E5%85%B7"><span class="toc-number">1.5.2.1.</span> <span class="toc-text">zip压缩工具</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#gzip%E5%8E%8B%E7%BC%A9%E5%B7%A5%E5%85%B7"><span class="toc-number">1.5.2.2.</span> <span class="toc-text">gzip压缩工具</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#bzip2%E5%8E%8B%E7%BC%A9%E5%B7%A5%E5%85%B7"><span class="toc-number">1.5.2.3.</span> <span class="toc-text">bzip2压缩工具</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%93%E5%8C%85%E5%92%8C%E8%A7%A3%E5%8C%85%E5%B7%A5%E5%85%B7%E2%80%94%E2%80%94tar"><span class="toc-number">1.5.3.</span> <span class="toc-text">打包和解包工具——tar</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85"><span class="toc-number">1.6.</span> <span class="toc-text">Linux软件安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E5%8C%85%E7%AE%A1%E7%90%86"><span class="toc-number">1.6.1.</span> <span class="toc-text">安装包管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7"><span class="toc-number">1.6.2.</span> <span class="toc-text">包管理工具</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#apt-Advanced-Package-Tool-%EF%BC%9A"><span class="toc-number">1.6.2.1.</span> <span class="toc-text">apt(Advanced Package Tool)：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#yum-Yellowdog-Updater-Modified"><span class="toc-number">1.6.2.2.</span> <span class="toc-text">yum(Yellowdog Updater Modified)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%BA%90%E7%A0%81%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6"><span class="toc-number">1.6.3.</span> <span class="toc-text">源码安装软件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE"><span class="toc-number">1.7.</span> <span class="toc-text">Linux网络配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#NetwotkManager%E7%AE%A1%E7%90%86%E7%BD%91%E7%BB%9C"><span class="toc-number">1.7.1.</span> <span class="toc-text">NetwotkManager管理网络</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%9A%E8%BF%87nmtui%E7%AE%A1%E7%90%86%E7%BD%91%E7%BB%9C"><span class="toc-number">1.7.1.1.</span> <span class="toc-text">通过nmtui管理网络</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E7%BD%91%E7%BB%9C%E6%8C%87%E4%BB%A4"><span class="toc-number">1.7.1.2.</span> <span class="toc-text">其他网络指令</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86"><span class="toc-number">1.8.</span> <span class="toc-text">进程管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux%E8%BF%90%E7%BB%B4%E7%AE%A1%E7%90%86"><span class="toc-number">1.9.</span> <span class="toc-text">Linux运维管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%A7%E8%83%BD%E4%B8%8E%E6%9C%8D%E5%8A%A1"><span class="toc-number">1.9.1.</span> <span class="toc-text">性能与服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A1%E5%88%92%E4%BB%BB%E5%8A%A1"><span class="toc-number">1.9.2.</span> <span class="toc-text">计划任务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E6%9C%8D%E5%8A%A1%E7%AE%A1%E7%90%86"><span class="toc-number">1.9.3.</span> <span class="toc-text">系统服务管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%98%B2%E7%81%AB%E5%A2%99"><span class="toc-number">1.9.4.</span> <span class="toc-text">防火墙</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#iptables"><span class="toc-number">1.9.4.1.</span> <span class="toc-text">iptables</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#FTP%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE"><span class="toc-number">1.10.</span> <span class="toc-text">FTP服务器配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#FTP%E9%85%8D%E7%BD%AE%EF%BC%9Avsftpd"><span class="toc-number">1.10.1.</span> <span class="toc-text">FTP配置：vsftpd</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vsftpd%E8%B4%A6%E5%8F%B7%E9%85%8D%E7%BD%AE"><span class="toc-number">1.10.2.</span> <span class="toc-text">vsftpd账号配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Shell%E8%84%9A%E6%9C%AC"><span class="toc-number">1.11.</span> <span class="toc-text">Shell脚本</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Shell%E8%84%9A%E6%9C%AC%E7%AE%80%E4%BB%8B"><span class="toc-number">1.11.1.</span> <span class="toc-text">Shell脚本简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Shell%E8%84%9A%E6%9C%AC%E8%AF%AD%E6%B3%95"><span class="toc-number">1.11.2.</span> <span class="toc-text">Shell脚本语法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E5%AD%A6%E8%BF%90%E7%AE%97"><span class="toc-number">1.11.2.1.</span> <span class="toc-text">数学运算</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E8%BE%93%E5%85%A5"><span class="toc-number">1.11.2.2.</span> <span class="toc-text">用户输入</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%84%9A%E6%9C%AC%E5%8F%82%E6%95%B0%E5%92%8C%E8%84%9A%E6%9C%AC%E9%80%89%E9%A1%B9"><span class="toc-number">1.11.2.3.</span> <span class="toc-text">脚本参数和脚本选项</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%AD"><span class="toc-number">1.11.2.4.</span> <span class="toc-text">条件判断</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BE%AA%E7%8E%AF"><span class="toc-number">1.11.2.5.</span> <span class="toc-text">循环</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#grep%EF%BC%8Csed%E5%92%8Cawk"><span class="toc-number">1.12.</span> <span class="toc-text">grep，sed和awk</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#grep"><span class="toc-number">1.12.1.</span> <span class="toc-text">grep</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sed"><span class="toc-number">1.12.2.</span> <span class="toc-text">sed</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#awk"><span class="toc-number">1.12.3.</span> <span class="toc-text">awk</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Vscode%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95"><span class="toc-number">2.</span> <span class="toc-text">Vscode免密登录</span></a></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2023 - 2024 By Veni</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi, welcome to my blog!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="Toggle Between Traditional Chinese And Simplified Chinese">繁</button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.12.0"></script><script src="/js/main.js?v=4.12.0"></script><script src="/js/tw_cn.js?v=4.12.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.32/dist/fancybox/fancybox.umd.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-pjax"></div><script src="/js/headerNumbering.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.12.0"></script></div></div></body></html>
