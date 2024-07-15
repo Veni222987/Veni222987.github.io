@@ -1,0 +1,443 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>如何在项目中开启上帝视角——由浅入深研究监控系统 | Veni's Blog</title><meta name="author" content="Veni"><meta name="copyright" content="Veni"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="监控系统俗称“第三只眼”，几乎是我们每天都会打交道的系统。本文将会从一个简单的监控系统开始，讲解系统模块组成，监控数据流向，由浅入深，研究典型监控系统的设计，最后比较一下两个监控系统的架构设计和场景表现。由于作者本人也是刚入门的新手，文章中如有错漏，欢迎随时指正。 监控系统的工作原理关于监控系统信息的分类，目前还没有比较统一的说法。本文将监控信息分为三类：基本信息、主机（容器）资源信息和应用（服务">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何在项目中开启上帝视角——由浅入深研究监控系统">
+<meta property="og:url" content="https://veni222987.github.io/2024/07/15/%E5%A6%82%E4%BD%95%E5%9C%A8%E9%A1%B9%E7%9B%AE%E4%B8%AD%E5%BC%80%E5%90%AF%E4%B8%8A%E5%B8%9D%E8%A7%86%E8%A7%92%E2%80%94%E2%80%94%E7%94%B1%E6%B5%85%E5%85%A5%E6%B7%B1%E7%A0%94%E7%A9%B6%E7%9B%91%E6%8E%A7%E7%B3%BB%E7%BB%9F/index.html">
+<meta property="og:site_name" content="Veni&#39;s Blog">
+<meta property="og:description" content="监控系统俗称“第三只眼”，几乎是我们每天都会打交道的系统。本文将会从一个简单的监控系统开始，讲解系统模块组成，监控数据流向，由浅入深，研究典型监控系统的设计，最后比较一下两个监控系统的架构设计和场景表现。由于作者本人也是刚入门的新手，文章中如有错漏，欢迎随时指正。 监控系统的工作原理关于监控系统信息的分类，目前还没有比较统一的说法。本文将监控信息分为三类：基本信息、主机（容器）资源信息和应用（服务">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://inzite.com/blog/content/images/size/w2000/2020/06/shutterstock_1006041127-3.jpg">
+<meta property="article:published_time" content="2024-07-15T14:03:34.000Z">
+<meta property="article:modified_time" content="2024-07-15T15:18:08.234Z">
+<meta property="article:author" content="Veni">
+<meta property="article:tag" content="监控系统">
+<meta property="article:tag" content="Prometheus">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://inzite.com/blog/content/images/size/w2000/2020/06/shutterstock_1006041127-3.jpg"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://veni222987.github.io/2024/07/15/%E5%A6%82%E4%BD%95%E5%9C%A8%E9%A1%B9%E7%9B%AE%E4%B8%AD%E5%BC%80%E5%90%AF%E4%B8%8A%E5%B8%9D%E8%A7%86%E8%A7%92%E2%80%94%E2%80%94%E7%94%B1%E6%B5%85%E5%85%A5%E6%B7%B1%E7%A0%94%E7%A9%B6%E7%9B%91%E6%8E%A7%E7%B3%BB%E7%BB%9F/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.12.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.32/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Error',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: 'days',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.0/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '如何在项目中开启上帝视角——由浅入深研究监控系统',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-07-15 23:18:08'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/header-numbering.css"><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">17</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">15</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">7</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://inzite.com/blog/content/images/size/w2000/2020/06/shutterstock_1006041127-3.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Veni's Blog"><span class="site-name">Veni's Blog</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">如何在项目中开启上帝视角——由浅入深研究监控系统</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2024-07-15T14:03:34.000Z" title="Created 2024-07-15 22:03:34">2024-07-15</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2024-07-15T15:18:08.234Z" title="Updated 2024-07-15 23:18:08">2024-07-15</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Exp/">Exp</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word Count:</span><span class="word-count">6.5k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading Time:</span><span>23mins</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="如何在项目中开启上帝视角——由浅入深研究监控系统"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>监控系统俗称“第三只眼”，几乎是我们每天都会打交道的系统。本文将会从一个简单的监控系统开始，讲解系统模块组成，监控数据流向，由浅入深，研究典型监控系统的设计，最后比较一下两个监控系统的架构设计和场景表现。由于作者本人也是刚入门的新手，文章中如有错漏，欢迎随时指正。</p>
+<h1 id="监控系统的工作原理"><a href="#监控系统的工作原理" class="headerlink" title="监控系统的工作原理"></a>监控系统的工作原理</h1><p>关于监控系统信息的分类，目前还没有比较统一的说法。本文将监控信息分为三类：基本信息、主机（容器）资源信息和应用（服务）信息，上述三种分类刚好对应了三类具有不同特点的信息：</p>
+<table>
+<thead>
+<tr>
+<th>分类</th>
+<th>特点</th>
+<th>举例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>基本信息</td>
+<td>由计算机本身确定、长期不变、通常只需要采集一次</td>
+<td>CPU频率、内存大小、磁盘空间、网络地址等</td>
+</tr>
+<tr>
+<td>主机（容器）资源信息</td>
+<td>随时改变、客观存在、用户不可定义和修改</td>
+<td>CPU利用率、内存利用率、磁盘利用率、网络传输速率等</td>
+</tr>
+<tr>
+<td>应用（服务）信息</td>
+<td>类型多样、用户可自定义和修改、每台主机都不一样</td>
+<td>服务技术栈，metrics信息</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>Prometheus对于Metrics的定义如下：</p>
+<p>Metrics are numerical measurements in layperson terms. The term time series refers to the recording of changes over time.</p>
+<p>……</p>
+<p>For a web server, it could be request times; for a database, it could be the number of active connections or active queries, and so on.</p>
+<p>简单来说，metrics就是一系列随着时间改变的测量数据。可以是接口请求次数，也可以是数据库的连接次数。</p>
+</blockquote>
+<h2 id="监控系统基本框架"><a href="#监控系统基本框架" class="headerlink" title="监控系统基本框架"></a>监控系统基本框架</h2><p>下面是一个简单的监控系统(PiMonitor)整体架构图，包含四个模块：</p>
+<ol>
+<li>PiMetric模块用于采集和导出指标监控信息。</li>
+<li>Agent部署在用户的计算机上，用于获取计算机的基本信息、资源利用率、和本机所有服务指标监控信息。</li>
+<li>Server模块负责存储和查询数据，和Agent、Web两端交互。</li>
+<li>Web模块负责数据的展示。</li>
+</ol>
+<p>这一部分内容将会以PiMonitor监控系统为例，聚焦于Agent模块、PiMetric模块和数据层（主要是时序数据库InfluxDB），讲述监控系统的工作原理。其他次要模块（帐号系统、团队系统和Web展示模块）不会多做介绍。</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/image-20240715220848894.png" alt="image-20240715220848894"></p>
+<blockquote>
+<p>上述架构图源于我的一个课程设计，麻雀虽小五脏俱全，它省略了抓取池、注册表等概念，简化了Metric设计，用最简单的例子说明监控系统的工作原理。有相关基础的读者可以选择性跳过部分内容。</p>
+<p>感兴趣话可以看看这里：<a target="_blank" rel="noopener" href="https://github.com/Veni222987/PiMonitor">https://github.com/Veni222987/PiMonitor</a></p>
+</blockquote>
+<h2 id="监控信息从哪里来"><a href="#监控信息从哪里来" class="headerlink" title="监控信息从哪里来"></a>监控信息从哪里来</h2><p>监控信息的获取主要有两大类的方法：非侵入式和侵入式的。非侵入式是指不在业务逻辑中写监控信息记录有关的代码，例如获取内存大小和利用率这类信息只需要调用系统接口获取即可。而侵入式是指需要在业务逻辑中写监控代码，例如统计某个接口的调用次数，通常的做法是在调用接口的时候对计数器进行自增操作。接下来我们看看上述三种分类信息是如何获取的。</p>
+<p>基本信息和主机（容器）资源信息主要是使用系统提供的接口获取的，当然也可以使用第三方工具（如psutil获取）。例如，使用gopsutil可以获取系统的基本信息和资源信息。</p>
+<blockquote>
+<p><strong>gopsutil (go process and system utilities):</strong> Go语言主流的系统与进程信息获取工具，目前GitHub上已有10k+ stars。</p>
+<p>GitHub地址：<a target="_blank" rel="noopener" href="https://github.com/shirou/gopsutil">https://github.com/shirou/gopsutil</a></p>
+</blockquote>
+<p>在引入了gopsutil的mem模块之后，获取计算机内存总量的代码十分简洁：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">getMemory</span><span class="params">()</span></span> (<span class="type">uint64</span>, <span class="type">error</span>) &#123;</span><br><span class="line">	memStat, _ := mem.VirtualMemory()</span><br><span class="line">	<span class="keyword">return</span> memStat.Total, <span class="literal">nil</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>获取内存利用率的代码也类似：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取内存使用率</span></span><br><span class="line">memStat, _ := mem.VirtualMemory()</span><br><span class="line">pfm.MemPercent = memStat.UsedPercent</span><br></pre></td></tr></table></figure>
+
+<p>可以观察到，获取内存总量和获取内存利用率实际上都是由mem包的VirtualMemory获取的，但是在我们自己搭建监控系统的时候，一定不想把CPU型号、核数、频率等长期不变的数据每一次都上传一份重复的信息。因此，通常的设计是计算机运行一个agent，由这个agent分开获取不同类型的数据，计算机信息单独获取并且调用对应的接口获取一次，资源利用率、应用（服务）监控等信息由一个单独的协程持续获取并且上传。</p>
+<p>应用（服务）信息获取一般都是侵入式的，简单来说，就是当我们想要在某个一业务中往监控系统中记录信息的时候，这里必须要写一些和监控系统操作相关的代码。例如：想要获取某一个接口的调用次数，就需要在调用接口之后对计数器进行自增操作：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 调用接口传出去</span></span><br><span class="line"><span class="keyword">if</span> err := repo.UploadPerformance(pfm); err != <span class="literal">nil</span> &#123;</span><br><span class="line"><span class="comment">// (省略部分代码)......    </span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// metrics自增</span></span><br><span class="line">pimstore.CounterOf(<span class="string">&quot;send_message_counter&quot;</span>).Incr()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>总结一下监控信息从哪里来这个问题：</p>
+<ol>
+<li>对于由计算机本身确定的信息，无论是基本信息还是资源信息，都可以通过gopsutil这类工具直接从系统获取。其中基本信息可以一次性获取，资源利用率信息需要一个单独的协程持续获取。</li>
+<li>对于应用（服务）的信息，通常是需要在代码中侵入式地接入对应的监控系统模块，埋点记录监控指标对应的值，然后持续获取、存储和上传。</li>
+</ol>
+<p>根据上面的描述，作出时序图如下：</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/image-20240715221237749.png" alt="image-20240715221237749"></p>
+<p>这个时候再回头看看上面的监控系统架构图中的Agent模块，基本信息、资源监控、指标监控三个子模块应该就好理解多了。左侧的是辅助包，顶部repo用于上传数据到服务端，剩下的三个子模块就是获取三类不同监控信息的模块。</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/image-20240715221255928.png" alt="image-20240715221255928"></p>
+<h2 id="监控信息如何导出和传输"><a href="#监控信息如何导出和传输" class="headerlink" title="监控信息如何导出和传输"></a>监控信息如何导出和传输</h2><p>上面说完了监控信息是如何获取的，接下来我们看一下监控信息是如何导出的。还是以上面提到的pimetric为例，理解一下监控信息如何从应用到agent。</p>
+<p>当监控系统获取到监控信息的时候，就需要先把信息展示保存起来。最简单的方式就是直接在内存中保存起来，当数据导出的时候再清理并释放内存。在pimetric中，我采用了最简单直接的方法：使用map保存不同类型的metric数据。</p>
+<p>当我们可以保存和获取监控数据之后，下一步就可以考虑如何把这些监控数据导出给用户。通常的做法是：在服务中引用这个模块，对外提供监控数据，通过一个agent收集本机的数据并且通过push或pull的形式上传到服务器作持久化存储（下面会讲）。这里先看一下数据是如何导出的。</p>
+<p>在pimetric中，主要有两种方式导出数据：</p>
+<ol>
+<li>只导出一个handler，由服务自行注册到对应的监听端口上，通常适用于http服务。下面的代码片段展示了如何生成一个handler并且在项目中使用。</li>
+</ol>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// GenHandler 指定appName生成handler，可以绑定到已有端口的特定路由上</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">GenHandler</span><span class="params">(appName <span class="type">string</span>)</span></span> <span class="function"><span class="keyword">func</span><span class="params">(w http.ResponseWriter, r *http.Request)</span></span> &#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="function"><span class="keyword">func</span><span class="params">(w http.ResponseWriter, r *http.Request)</span></span> &#123;</span><br><span class="line">		w.Header().Set(<span class="string">&quot;Content-Type&quot;</span>, <span class="string">&quot;application/json&quot;</span>)</span><br><span class="line">		resBytes, err := json.Marshal(Metricx&#123;</span><br><span class="line">        <span class="comment">// ......</span></span><br><span class="line">		&#125;)</span><br><span class="line">		<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">			w.Write([]<span class="type">byte</span>(err.Error()))</span><br><span class="line">			<span class="keyword">return</span></span><br><span class="line">		&#125;</span><br><span class="line">		w.Write(resBytes)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用示例：</span></span><br><span class="line"><span class="comment">// http.HandleFunc(&quot;/metrics&quot;, pimetric.GenHandler(&quot;gateway_svr&quot;))</span></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>监听新端口导出数据，适用于不开放http端口的服务，例如RPC服务、消费者服务等等。</li>
+</ol>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ExportMetrics 监听新端口导出数据</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">ExportMetrics</span><span class="params">(appName <span class="type">string</span>)</span></span> &#123;</span><br><span class="line">	http.HandleFunc(<span class="string">&quot;/metrics&quot;</span>, GenHandler(appName))</span><br><span class="line">	err := http.ListenAndServe(<span class="string">&quot;:62888&quot;</span>, <span class="literal">nil</span>)</span><br><span class="line">	<span class="keyword">for</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		err = http.ListenAndServe(getRandomPort(), <span class="literal">nil</span>)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用示例：</span></span><br><span class="line"><span class="comment">// pimetric.ExportMetrics(gateway_svr)</span></span><br></pre></td></tr></table></figure>
+
+<p>当这些信息全部都可以通过本地接口调用获取的时候，Agent就会扫描本机的端口，获取本机所有监控信息。这样用户侧的工作基本完成了，这时候再回顾上文的架构图中用户侧的两个模块，基本上就能理解Agent模块和PiMetric模块是如何协调工作的了。</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/image-20240715221421845.png" alt="image-20240715221421845"></p>
+<h2 id="监控信息如何持久化存储"><a href="#监控信息如何持久化存储" class="headerlink" title="监控信息如何持久化存储"></a>监控信息如何持久化存储</h2><p>上面的局部图中有一个REST API，这个API就是用来做监控信息持久化存储的。Agent采用主动push的方式，每隔一段时间就会向监控系统服务器推送本机的所有监控数据。服务端收到上传的数据之后，经过Agent注册信息等检测，就会将数据写到Kafka中，再由Kafka消费者写入InfluxDB。</p>
+<p>InfluxDB是一个时序数据库，它采用了一种时间序列数据模型，这意味着它特别适合存储与时间有关的数据。要理解InfluxDB需要理解几个比较关键的概念：</p>
+<ul>
+<li><p>measurement：一组测量数据，相当于SQL中的一张表。</p>
+</li>
+<li><p>point：一个数据记录点，相当于SQL中的一行数据。</p>
+</li>
+<li><p>field：测量值，一般而言是数据，没有索引，不可以根据field查找。</p>
+</li>
+<li><p>tag：标签，可以理解成为SQL中带有索引的列，可以根据tag快速查找。</p>
+</li>
+</ul>
+<p>与SQL不同的是，InfluxDB不需要预先定义measurement，而是在插入数据的时候自动处理field，这就是“时间就是一切”的思想，文档中有这样一句话：</p>
+<p>InfluxDB还会认识到您的schema可能随时间而改变。在InfluxDB中，您不需要在前面定义schema。数据点可以有一个measurement的field的一个，也可以有这个measurement的所有field，或其间的任何数字。 您可以在写数据的时候为该measurement添加一个新的field。</p>
+<p>理解了上述几个概念之后，我们可以制定三类数据的持久化存储方式：</p>
+<table>
+<thead>
+<tr>
+<th>数据类型</th>
+<th>存储模块</th>
+<th>存储方式设计</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>计算机基本信息</td>
+<td>MySQL</td>
+<td>一个agent对应记录一行数据，包括CPU型号、频率、内存、磁盘等字段</td>
+</tr>
+<tr>
+<td>资源利用率信息</td>
+<td>InfluxDB</td>
+<td>一台agent对应一个measurement，fields是CPU利用率，内存利用率等信息，每次push上传一次数据作为一个point</td>
+</tr>
+<tr>
+<td>应用（服务）信息</td>
+<td>InfluxDB</td>
+<td>一台agent对应一个measurement，使用tag区分不同的服务，fields是不同的服务对应的metrics。</td>
+</tr>
+</tbody></table>
+<p>例如，Metric在InfluxDB中存储的形式是这样的：</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">name: agent1_metrics</span><br><span class="line">tags: service=gateway_svr</span><br><span class="line">time                           #_counter.http_request    #_gauge.tcp_connection</span><br><span class="line">----                           ------------              ------------</span><br><span class="line">2015-04-16T12:00:00Z           0                        1</span><br><span class="line">2015-04-16T12:00:01Z           3                        1</span><br><span class="line">2015-04-16T12:00:02Z           15                       2</span><br><span class="line">2015-04-16T12:00:03Z           15                       3</span><br></pre></td></tr></table></figure>
+
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>这一部分主要以一个简单的监控系统(PiMonitor)入手，逐步解析了监控系统的模块设计和数据结构，能看懂上面的四个小节基本上就能理解监控系统的工作原理了。接下来将会研究一下目前主流的监控系统Prometheus设计。</p>
+<h1 id="Prometheus设计研究"><a href="#Prometheus设计研究" class="headerlink" title="Prometheus设计研究"></a>Prometheus设计研究</h1><p>现在最主流的监控系统应该就是Promethues+Grafana搭建的监控系统了。其中Promethues负责数据采集与存储，Grafana负责数据的展示。下面我们将会深入看一下这一套监控系统的设计细节。首先看看Prometheus的架构图：</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/image-20240715221708799.png" alt="image-20240715221708799"></p>
+<h2 id="数据传输方式设计"><a href="#数据传输方式设计" class="headerlink" title="数据传输方式设计"></a>数据传输方式设计</h2><p>Prometheus提供了两种数据传输的方式：分别是pull模式和push模式。这里主要讲讲pull模式是如何工作的。</p>
+<p>Prometehus使用了一个target类型的结构记录一个监控节点，target类型的结构包括节点的标签、上次拉取时间、Metric元数据等等：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Target refers to a singular HTTP or HTTPS endpoint.</span></span><br><span class="line"><span class="keyword">type</span> Target <span class="keyword">struct</span> &#123;</span><br><span class="line">	<span class="comment">// Labels before any processing.</span></span><br><span class="line">	discoveredLabels labels.Labels</span><br><span class="line">	<span class="comment">// Any labels that are added to this target and its metrics.</span></span><br><span class="line">	labels labels.Labels</span><br><span class="line">	<span class="comment">// Additional URL parameters that are part of the target URL.</span></span><br><span class="line">	params url.Values</span><br><span class="line"></span><br><span class="line">	mtx                sync.RWMutex</span><br><span class="line">	lastError          <span class="type">error</span></span><br><span class="line">	lastScrape         time.Time</span><br><span class="line">	lastScrapeDuration time.Duration       </span><br><span class="line">	health             TargetHealth        <span class="comment">//表示节点健康状态的字符串</span></span><br><span class="line">	metadata           MetricMetadataStore <span class="comment">//包含节点metric数据的大小、metric数据切片等结构</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>除了target，Prometehus的数据拉取模块还有几个关键的结构：</p>
+<ul>
+<li><strong>Manager:</strong> 负责管理所有抓取任务和target集合的更新，包括加载配置，启动和停止循环等。Manager根据配置文件创建scrapePool，然后交给scrapePool负责具体的抓取工作，期间可能会执行Sync同步配置文件的target更新。</li>
+<li><strong>scrapePool:</strong> 管理一组目标抓取任务，通常对应一个抓取配置分组。scrapePool为targetGroup下的每个target，创建1个scrapeLoop，然后让scrapeLoop抓取数据。</li>
+<li><strong>scrapeLoop:</strong> 负责定期从target中抓取监控数据，包括scrape抓取数据，append写入存储模块等等。</li>
+</ul>
+<p>用户通过一个yaml配置文件管理一个Manager，Manager依次往下管理scrapePool，scrapeLoop，最后把请求发到target。不同的Loop使用不同的协程独立获取target信息，确保了系统的高效性和稳定性。下面的示意图可以很清楚地展示服务端拉取数据的工作流程：</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/image-20240715221829516.png" alt="image-20240715221829516"></p>
+<blockquote>
+<p>Prometheus的服务端仓库的地址：<a target="_blank" rel="noopener" href="https://github.com/prometheus/prometheus">https://github.com/prometheus/prometheus</a></p>
+<p>Prometheus对不同的语言提供了不同的客户端，go语言版本的仓库地址：<a target="_blank" rel="noopener" href="https://github.com/prometheus/client_golang">https://github.com/prometheus/client_golang</a></p>
+</blockquote>
+<p>看完了server侧的拉取原理，接下来看看client侧的工作原理。同样的，先介绍一下client侧几个重要的概念：</p>
+<ul>
+<li><strong>Registry</strong>：用于注册和管理所有的指标。可以使用默认的全局注册表，也可以创建自定义注册表，注册表是指标数据的集合体。</li>
+<li><strong>Collector：</strong>表示可以被 Prometheus 收集的指标，包括Describe和Collect函数，Registry 实现了Collector接口。client_golang内置了一些Collector，例如GoCollector，ProcessCollector等。</li>
+<li><strong>Gatherer****：</strong>用于收集所有注册的指标。Registry 实现了 Gatherer 接口，包含一个Gather函数，该函数返回一个MetricFamily结构体，包含各种类型的Metric信息，结构体定义可以自行到源码中查看。</li>
+</ul>
+<p>client_golang中，监听HTTP端口并且暴露metrics端点的代码如下，reg是一个Registry注册表，当用户发送一个HTTP GET请求到 *<strong>ip:port&#x2F;metrics*</strong> 的时候，请求的返回结果就是这个注册表中的Metrics。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">m := http.NewServeMux()</span><br><span class="line"><span class="comment">// Create HTTP handler for Prometheus metrics.</span></span><br><span class="line">m.Handle(<span class="string">&quot;/metrics&quot;</span>, promhttp.HandlerFor(</span><br><span class="line">  reg, promhttp.HandlerOpts&#123;</span><br><span class="line">    <span class="comment">// Opt into OpenMetrics e.g. to support exemplars.</span></span><br><span class="line">    EnableOpenMetrics: <span class="literal">true</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">))</span><br></pre></td></tr></table></figure>
+
+<p>至此，client侧的工作原理也基本清楚了，整理得出client侧工作流程图如下，最终形成的target就是上文中服务侧scrapeLoop需要调用的target。</p>
+<p><img src="https://vblog-1315512378.cos.ap-guangzhou.myqcloud.com/imgs/image-20240715222027951.png" alt="image-20240715222027951"></p>
+<p>由于暂时没有深入研究prometheus的push模式源码，这里只做简单的描述，prometheus的push模式实现方法是：对于一些短作业，把监控数据push到一个专门的gateway，再由服务器从这个gateway拉取数据。感兴趣的读者也可以自己阅读学习一下。</p>
+<h2 id="Metric类型设计"><a href="#Metric类型设计" class="headerlink" title="Metric类型设计"></a>Metric类型设计</h2><p>从宏观角度看，所有的metric都包含一个对外导出的接口，以及一个实现该接口的结构体。这里挑了三个最具代表性的类型详细研究一下，分别是：counter, gauge和histogram。</p>
+<h3 id="Counter"><a href="#Counter" class="headerlink" title="Counter"></a>Counter</h3><p>counter是一种只能上升的指标，通常用于记录接口的请求次数，失败次数等。因此，Counter接口只包含了两个自定义函数：Inc和Add。Counter类型的接口还继承了Metric接口和Collector接口，Metric接口用于获取Metric的描述等信息。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Counter <span class="keyword">interface</span> &#123;</span><br><span class="line">	Metric</span><br><span class="line">	Collector</span><br><span class="line"></span><br><span class="line">	Inc()</span><br><span class="line">	Add(<span class="type">float64</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>下面是Counter接口的实现结构，有几个值得关注的地方：</p>
+<ul>
+<li>为什么有两个val值？而且均使用了uint64结构？</li>
+</ul>
+<p>valBits代表一个float64的比特位，valInt代表一个精确的整数，两者均用uint64表示是为了在原子操作中保持一致。</p>
+<ul>
+<li>selfCollector是什么？有什么作用？</li>
+</ul>
+<p>counter并没有直接实现Collector接口，而是由selfCollector实现了Collector接口，selfCollector是一个与Metric无关的结构体，在其他Metric中也存在，这样的设计简化了代码。</p>
+<ul>
+<li>exemplar是什么？</li>
+</ul>
+<p>exemplar是一个基于原子量进行读写的结构，可以为metrics添加trace信息，这样metrics和tracing就可以关联起来。不过我认为，Prometheus对于trace的支持不是很好，这一部分可以去看看其他的监控系统。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> counter <span class="keyword">struct</span> &#123;</span><br><span class="line">	valBits <span class="type">uint64</span></span><br><span class="line">	valInt  <span class="type">uint64</span></span><br><span class="line"></span><br><span class="line">	selfCollector</span><br><span class="line">	desc *Desc</span><br><span class="line"></span><br><span class="line">	createdTs  *timestamppb.Timestamp</span><br><span class="line">	labelPairs []*dto.LabelPair</span><br><span class="line">	exemplar   atomic.Value <span class="comment">// Containing nil or a *dto.Exemplar.</span></span><br><span class="line">	now <span class="function"><span class="keyword">func</span><span class="params">()</span></span> time.Time</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Gauge"><a href="#Gauge" class="headerlink" title="Gauge"></a>Gauge</h3><p>gauge类型的接口设计如下，同样继承了Metric和Collector两个接口，并且定义了一些gauge类型独有的操作。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Gauge <span class="keyword">interface</span> &#123;</span><br><span class="line">	Metric</span><br><span class="line">	Collector</span><br><span class="line"></span><br><span class="line">	Set(<span class="type">float64</span>)</span><br><span class="line">	Inc()</span><br><span class="line">	Dec()</span><br><span class="line">	Add(<span class="type">float64</span>)</span><br><span class="line">	Sub(<span class="type">float64</span>)</span><br><span class="line">	SetToCurrentTime()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>gauge类型的结构体定义如下，valBits也是使用unit64记录的float64值，相比于counter，gauge结构体少了valInt，exemplar等，因为gauge本身的定义就是一系列随时间变化的测量数据，绝大多数情况下是非整形的，所以只需要一个float64类型的数据即可。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> gauge <span class="keyword">struct</span> &#123;</span><br><span class="line">	valBits <span class="type">uint64</span></span><br><span class="line"></span><br><span class="line">	selfCollector</span><br><span class="line"></span><br><span class="line">	desc       *Desc</span><br><span class="line">	labelPairs []*dto.LabelPair</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="Histogram"><a href="#Histogram" class="headerlink" title="Histogram"></a>Histogram</h3><p>histogram相当于统计数据，一般适用于记录一些能够做成统计直方图的数据。histogram类型同样继承了Metric和Collector接口，并且只包含一个Observe函数，该函数用于将一个观测值加入到histogram统计数据中。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Histogram <span class="keyword">interface</span> &#123;</span><br><span class="line">	Metric</span><br><span class="line">	Collector</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Observe adds a single observation to the histogram. Observations are</span></span><br><span class="line">	<span class="comment">// usually positive or zero. Negative observations are accepted but</span></span><br><span class="line">	<span class="comment">// prevent current versions of Prometheus from properly detecting</span></span><br><span class="line">	<span class="comment">// counter resets in the sum of observations. (The experimental Native</span></span><br><span class="line">	<span class="comment">// Histograms handle negative observations properly.) See</span></span><br><span class="line">	<span class="comment">// https://prometheus.io/docs/practices/histograms/#count-and-sum-of-observations</span></span><br><span class="line">	<span class="comment">// for details.</span></span><br><span class="line">	Observe(<span class="type">float64</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>histogram的结构体比较复杂，包含的数据结构很多，重点关注一下countAndHotIdx, counts, upperBounds这几个与数据存储紧密相关的字段下面主要讲histogram类型的数据存储的实现。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> histogram <span class="keyword">struct</span> &#123;</span><br><span class="line">	<span class="comment">// countAndHotIdx enables lock-free writes with use of atomic updates.</span></span><br><span class="line">	<span class="comment">// The most significant bit is the hot index [0 or 1] of the count field</span></span><br><span class="line">	<span class="comment">// below. Observe calls update the hot one. All remaining bits count the</span></span><br><span class="line">	<span class="comment">// number of Observe calls. Observe starts by incrementing this counter,</span></span><br><span class="line">	<span class="comment">// and finish by incrementing the count field in the respective</span></span><br><span class="line">	<span class="comment">// histogramCounts, as a marker for completion.</span></span><br><span class="line">	<span class="comment">//</span></span><br><span class="line">	<span class="comment">// Calls of the Write method (which are non-mutating reads from the</span></span><br><span class="line">	<span class="comment">// perspective of the histogram) swap the hot–cold under the writeMtx</span></span><br><span class="line">	<span class="comment">// lock. A cooldown is awaited (while locked) by comparing the number of</span></span><br><span class="line">	<span class="comment">// observations with the initiation count. Once they match, then the</span></span><br><span class="line">	<span class="comment">// last observation on the now cool one has completed. All cold fields must</span></span><br><span class="line">	<span class="comment">// be merged into the new hot before releasing writeMtx.</span></span><br><span class="line">	<span class="comment">//</span></span><br><span class="line">	<span class="comment">// Fields with atomic access first! See alignment constraint:</span></span><br><span class="line">	<span class="comment">// http://golang.org/pkg/sync/atomic/#pkg-note-BUG</span></span><br><span class="line">	countAndHotIdx <span class="type">uint64</span></span><br><span class="line"></span><br><span class="line">	selfCollector</span><br><span class="line">	desc *Desc</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Only used in the Write method and for sparse bucket management.</span></span><br><span class="line">	mtx sync.Mutex</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Two counts, one is &quot;hot&quot; for lock-free observations, the other is</span></span><br><span class="line">	<span class="comment">// &quot;cold&quot; for writing out a dto.Metric. It has to be an array of</span></span><br><span class="line">	<span class="comment">// pointers to guarantee 64bit alignment of the histogramCounts, see</span></span><br><span class="line">	<span class="comment">// http://golang.org/pkg/sync/atomic/#pkg-note-BUG.</span></span><br><span class="line">	counts [<span class="number">2</span>]*histogramCounts</span><br><span class="line"></span><br><span class="line">	upperBounds                     []<span class="type">float64</span></span><br><span class="line">	labelPairs                      []*dto.LabelPair</span><br><span class="line">	exemplars                       []atomic.Value <span class="comment">// One more than buckets (to include +Inf), each a *dto.Exemplar.</span></span><br><span class="line">	nativeHistogramSchema           <span class="type">int32</span>          <span class="comment">// The initial schema. Set to math.MinInt32 if no sparse buckets are used.</span></span><br><span class="line">	nativeHistogramZeroThreshold    <span class="type">float64</span>        <span class="comment">// The initial zero threshold.</span></span><br><span class="line">	nativeHistogramMaxZeroThreshold <span class="type">float64</span></span><br><span class="line">	nativeHistogramMaxBuckets       <span class="type">uint32</span></span><br><span class="line">	nativeHistogramMinResetDuration time.Duration</span><br><span class="line">	<span class="comment">// lastResetTime is protected by mtx. It is also used as created timestamp.</span></span><br><span class="line">	lastResetTime time.Time</span><br><span class="line">	<span class="comment">// resetScheduled is protected by mtx. It is true if a reset is</span></span><br><span class="line">	<span class="comment">// scheduled for a later time (when nativeHistogramMinResetDuration has</span></span><br><span class="line">	<span class="comment">// passed).</span></span><br><span class="line">	resetScheduled  <span class="type">bool</span></span><br><span class="line">	nativeExemplars nativeExemplars</span><br><span class="line"></span><br><span class="line">	<span class="comment">// now is for testing purposes, by default it&#x27;s time.Now.</span></span><br><span class="line">	now <span class="function"><span class="keyword">func</span><span class="params">()</span></span> time.Time</span><br><span class="line"></span><br><span class="line">	<span class="comment">// afterFunc is for testing purposes, by default it&#x27;s time.AfterFunc.</span></span><br><span class="line">	afterFunc <span class="function"><span class="keyword">func</span><span class="params">(time.Duration, <span class="keyword">func</span>()</span></span>) *time.Timer</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我们将从它唯一的Observe函数入手，研究一下数据的存储方式。首先我们假定已经定义好了存储桶bucket，存储桶是一系列的用于分隔数据范围的浮点数，例如默认的存储桶为：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> DefBuckets = []<span class="type">float64</span>&#123;<span class="number">.005</span>, <span class="number">.01</span>, <span class="number">.025</span>, <span class="number">.05</span>, <span class="number">.1</span>, <span class="number">.25</span>, <span class="number">.5</span>, <span class="number">1</span>, <span class="number">2.5</span>, <span class="number">5</span>, <span class="number">10</span>&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后观察Observe函数的实现，Observe函数接受唯一的float64类型输入，表示一个观测值，findBucket函数用于查找当前的观测值位于哪一个存储桶中：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(h *histogram)</span></span> Observe(v <span class="type">float64</span>) &#123;</span><br><span class="line">	h.observe(v, h.findBucket(v))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>获取存储桶的序号之后，就会调用一个内部函数observe，该函数的实现如下，n是一个原子自增的计数器，后面的右移63位表示只根据最高位取出热桶(热桶只有两个，可以看上面的结构体定义中的counts字段)，然后调用该热桶的observe方法。doSparse是判断是否使用稀疏桶的布尔值，用于处理一些边界数据。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// observe is the implementation for Observe without the findBucket part.</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(h *histogram)</span></span> observe(v <span class="type">float64</span>, bucket <span class="type">int</span>) &#123;</span><br><span class="line">	<span class="comment">// Do not add to sparse buckets for NaN observations.</span></span><br><span class="line">	doSparse := h.nativeHistogramSchema &gt; math.MinInt32 &amp;&amp; !math.IsNaN(v)</span><br><span class="line">	<span class="comment">// We increment h.countAndHotIdx so that the counter in the lower</span></span><br><span class="line">	<span class="comment">// 63 bits gets incremented. At the same time, we get the new value</span></span><br><span class="line">	<span class="comment">// back, which we can use to find the currently-hot counts.</span></span><br><span class="line">	n := atomic.AddUint64(&amp;h.countAndHotIdx, <span class="number">1</span>)</span><br><span class="line">	hotCounts := h.counts[n&gt;&gt;<span class="number">63</span>]</span><br><span class="line">	hotCounts.observe(v, bucket, doSparse)</span><br><span class="line">	<span class="keyword">if</span> doSparse &#123;</span><br><span class="line">		h.limitBuckets(hotCounts, v, bucket)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>最终的存储单位是histogramCounts的buckets，这个切片记录了每一个bucket区间内的数据总量。histogram并不保存原始数据，只关心数据的分布状况，因此会产生一定程度的信息丢失。如果在展示中出现的有关histogram的统计数值，一般是使用数学模型拟合出来的，与原始数据存在误差。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(hc *histogramCounts)</span></span> observe(v <span class="type">float64</span>, bucket <span class="type">int</span>, doSparse <span class="type">bool</span>) &#123;</span><br><span class="line">	<span class="keyword">if</span> bucket &lt; <span class="built_in">len</span>(hc.buckets) &#123;</span><br><span class="line">		atomic.AddUint64(&amp;hc.buckets[bucket], <span class="number">1</span>)</span><br><span class="line">	&#125;</span><br><span class="line">	atomicAddFloat(&amp;hc.sumBits, v)</span><br><span class="line">	<span class="keyword">if</span> doSparse &amp;&amp; !math.IsNaN(v) &#123;</span><br><span class="line">		<span class="comment">// 省略中间的稀疏桶处理逻辑</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// Increment count last as we take it as a signal that the observation is complete.</span></span><br><span class="line">	atomic.AddUint64(&amp;hc.count, <span class="number">1</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这一部分介绍了三种主要的Metric的设计，总的来说还是有许多值得参考学习的地方的。其他Metric和一些具体细节也可以自己到client_golang源码中查看。</p>
+<h2 id="TSDB与PromQL"><a href="#TSDB与PromQL" class="headerlink" title="TSDB与PromQL"></a>TSDB与PromQL</h2><p>Prometheus有一个专用的时间序列数据库，位于prometheus&#x2F;tsdb目录下，此外，他还提供了一种针对这个时序数据库的查询语言，称为PromQL，位于prometheus&#x2F;promql目录下。由于上一部分中已经介绍过了InfluxDB，并且这两部分的源代码比较复杂，这里就简单介绍一下TSDB和PromQL的特性和功能。</p>
+<p>在TSDB中，时间序列中的每一个点称为一个样本（sample），样本由以下三部分组成:</p>
+<ul>
+<li>指标(metric)：metric name和描述当前样本特征的labelsets;</li>
+<li>时间戳(timestamp)：毫秒级时间戳;</li>
+<li>样本值(value)： 一个float64的浮点型数据表示当前样本的值。</li>
+</ul>
+<p>例如：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;--------------- metric ---------------------&gt;&lt;-timestamp -&gt;&lt;-value-&gt;</span><br><span class="line">http_request_total&#123;status=<span class="string">&quot;200&quot;</span>, method=<span class="string">&quot;GET&quot;</span>&#125;@<span class="number">1434417560938</span> =&gt; <span class="number">94355</span></span><br><span class="line">http_request_total&#123;status=<span class="string">&quot;200&quot;</span>, method=<span class="string">&quot;GET&quot;</span>&#125;@<span class="number">1434417561287</span> =&gt; <span class="number">94334</span></span><br><span class="line"></span><br><span class="line">http_request_total&#123;status=<span class="string">&quot;404&quot;</span>, method=<span class="string">&quot;GET&quot;</span>&#125;@<span class="number">1434417560938</span> =&gt; <span class="number">38473</span></span><br><span class="line">http_request_total&#123;status=<span class="string">&quot;404&quot;</span>, method=<span class="string">&quot;GET&quot;</span>&#125;@<span class="number">1434417561287</span> =&gt; <span class="number">38544</span></span><br><span class="line"></span><br><span class="line">http_request_total&#123;status=<span class="string">&quot;200&quot;</span>, method=<span class="string">&quot;POST&quot;</span>&#125;@<span class="number">1434417560938</span> =&gt; <span class="number">4748</span></span><br><span class="line">http_request_total&#123;status=<span class="string">&quot;200&quot;</span>, method=<span class="string">&quot;POST&quot;</span>&#125;@<span class="number">1434417561287</span> =&gt; <span class="number">4785</span></span><br></pre></td></tr></table></figure>
+
+<p>由于prometheus的TSDB是专门为它自己服务的，所以整体设计上会比InfluxDB要简单一些。它使用了Metric代替InfluxDB的measurement的概念，原生支持记录Metric的时间序列记录，减少了自己转换结构和设计数据字段的工作。</p>
+<p>当数据存入TSDB之后，就可以使用PromQL查询某个Metric数据。这里有两个关键的概念：</p>
+<ul>
+<li>Engine: 负责管理多次查询的整个生命周期，可以配置超时时间、日志等。</li>
+<li>Query: 是一个接口，负责管理一次查询，包括查询语句、执行、取消、关闭等操作。</li>
+</ul>
+<p>本质上，PromQL(Prometheus Query Language)就是一个针对TSDB的QL，其功能和用法都类似SQL，一般而言在搭建可视化平台的时候就写好的，后期改动较少，这里就不加赘述了。</p>
+<h1 id="架构差异与功能比较"><a href="#架构差异与功能比较" class="headerlink" title="架构差异与功能比较"></a>架构差异与功能比较</h1><p>上文介绍了两个监控系统：PiMonitor和Prometheus，两者的架构设计最大的区别在于是否有单独Agent代理，这个区别导致了某些场景下两个监控系统有不同的表现：</p>
+<table>
+<thead>
+<tr>
+<th>功能</th>
+<th>PiMonitor</th>
+<th>Prometheus</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>计算机信息采集</td>
+<td>原生支持采集计算机基本信息和资源利用率</td>
+<td>需要启动额外的Exporter</td>
+</tr>
+<tr>
+<td>服务与框架集成</td>
+<td>需要在服务中手动指定所有监控指标</td>
+<td>许多服务和框架都预留了Prometheus监控集成功能</td>
+</tr>
+<tr>
+<td>信息传输方式</td>
+<td>仅支持通过Agent上传的push模式</td>
+<td>以pull模式为主，push模式为辅</td>
+</tr>
+<tr>
+<td>新增服务</td>
+<td>可以监控所有使用pimetric模块的服务，启动后无需额外操作</td>
+<td>每次增加新服务都需要修改服务端拉取目标的配置文件</td>
+</tr>
+</tbody></table>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>本文由浅入深，从自己的监控系统入手，讲述了监控系统的基本组成部分和数据流向，让读者对于监控系统的工作原理有了基本的认识。然后研究了社区最活跃的监控系统Prometheus，学习其架构设计和底层实现，尽管只研究了冰山一角，但也让人获益匪浅。</p>
+<p>本文也有一定的局限性，由于Prometheus是一个以Metric为核心的监控系统，对于日志(Log)、调用链(Trace)的支持不佳，难以打造一个全方位的监控系统，这篇文章也因此缺少了这两部分可观测对象监控的工作原理。</p>
+<p>感谢大家的阅读，如有错误，欢迎指出。</p>
+<blockquote>
+<p>参考资料</p>
+<p>Prometheus官方文档：<a target="_blank" rel="noopener" href="https://prometheus.io/docs/introduction/overview/">https://prometheus.io/docs/introduction/overview/</a></p>
+<p>InfluxDB中文文档：<a target="_blank" rel="noopener" href="https://jasper-zhang1.gitbooks.io/influxdb/content/">https://jasper-zhang1.gitbooks.io/influxdb/content/</a></p>
+<p>技术文章：</p>
+<ul>
+<li><p>exemplar：<a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000043394360">https://segmentfault.com/a/1190000043394360</a></p>
+</li>
+<li><p>监控系统选型：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/qdhxhz/p/16289758.html">https://www.cnblogs.com/qdhxhz/p/16289758.html</a></p>
+</li>
+<li><p>histogram：<a target="_blank" rel="noopener" href="https://juejin.cn/post/7152837166190739486">https://juejin.cn/post/7152837166190739486</a></p>
+</li>
+</ul>
+</blockquote>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="https://Veni222987.github.io">Veni</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="https://veni222987.github.io/2024/07/15/%E5%A6%82%E4%BD%95%E5%9C%A8%E9%A1%B9%E7%9B%AE%E4%B8%AD%E5%BC%80%E5%90%AF%E4%B8%8A%E5%B8%9D%E8%A7%86%E8%A7%92%E2%80%94%E2%80%94%E7%94%B1%E6%B5%85%E5%85%A5%E6%B7%B1%E7%A0%94%E7%A9%B6%E7%9B%91%E6%8E%A7%E7%B3%BB%E7%BB%9F/">https://veni222987.github.io/2024/07/15/%E5%A6%82%E4%BD%95%E5%9C%A8%E9%A1%B9%E7%9B%AE%E4%B8%AD%E5%BC%80%E5%90%AF%E4%B8%8A%E5%B8%9D%E8%A7%86%E8%A7%92%E2%80%94%E2%80%94%E7%94%B1%E6%B5%85%E5%85%A5%E6%B7%B1%E7%A0%94%E7%A9%B6%E7%9B%91%E6%8E%A7%E7%B3%BB%E7%BB%9F/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%9B%91%E6%8E%A7%E7%B3%BB%E7%BB%9F/">监控系统</a><a class="post-meta__tags" href="/tags/Prometheus/">Prometheus</a></div><div class="post_share"><div class="social-share" data-image="https://inzite.com/blog/content/images/size/w2000/2020/06/shutterstock_1006041127-3.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2024/04/11/%E3%80%90Exp%E3%80%91%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Go%E8%AF%AD%E8%A8%80%E5%87%BD%E6%95%B0%E4%B8%8E%E6%96%B9%E6%B3%95/" title="【Exp】深入理解Go语言函数与方法"><img class="cover" src="https://th.bing.com/th/id/R.21fa5dfc7b4388af6eea1ebc49980db8?rik=JJQgQ9mjDCwCVg&amp;pid=ImgRaw&amp;r=0" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next</div><div class="next_info">【Exp】深入理解Go语言函数与方法</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%9B%91%E6%8E%A7%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="toc-number">1.</span> <span class="toc-text">监控系统的工作原理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%91%E6%8E%A7%E7%B3%BB%E7%BB%9F%E5%9F%BA%E6%9C%AC%E6%A1%86%E6%9E%B6"><span class="toc-number">1.1.</span> <span class="toc-text">监控系统基本框架</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%91%E6%8E%A7%E4%BF%A1%E6%81%AF%E4%BB%8E%E5%93%AA%E9%87%8C%E6%9D%A5"><span class="toc-number">1.2.</span> <span class="toc-text">监控信息从哪里来</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%91%E6%8E%A7%E4%BF%A1%E6%81%AF%E5%A6%82%E4%BD%95%E5%AF%BC%E5%87%BA%E5%92%8C%E4%BC%A0%E8%BE%93"><span class="toc-number">1.3.</span> <span class="toc-text">监控信息如何导出和传输</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%91%E6%8E%A7%E4%BF%A1%E6%81%AF%E5%A6%82%E4%BD%95%E6%8C%81%E4%B9%85%E5%8C%96%E5%AD%98%E5%82%A8"><span class="toc-number">1.4.</span> <span class="toc-text">监控信息如何持久化存储</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%8F%E7%BB%93"><span class="toc-number">1.5.</span> <span class="toc-text">小结</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Prometheus%E8%AE%BE%E8%AE%A1%E7%A0%94%E7%A9%B6"><span class="toc-number">2.</span> <span class="toc-text">Prometheus设计研究</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E4%BC%A0%E8%BE%93%E6%96%B9%E5%BC%8F%E8%AE%BE%E8%AE%A1"><span class="toc-number">2.1.</span> <span class="toc-text">数据传输方式设计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Metric%E7%B1%BB%E5%9E%8B%E8%AE%BE%E8%AE%A1"><span class="toc-number">2.2.</span> <span class="toc-text">Metric类型设计</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Counter"><span class="toc-number">2.2.1.</span> <span class="toc-text">Counter</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Gauge"><span class="toc-number">2.2.2.</span> <span class="toc-text">Gauge</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Histogram"><span class="toc-number">2.2.3.</span> <span class="toc-text">Histogram</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TSDB%E4%B8%8EPromQL"><span class="toc-number">2.3.</span> <span class="toc-text">TSDB与PromQL</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9E%B6%E6%9E%84%E5%B7%AE%E5%BC%82%E4%B8%8E%E5%8A%9F%E8%83%BD%E6%AF%94%E8%BE%83"><span class="toc-number">3.</span> <span class="toc-text">架构差异与功能比较</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">4.</span> <span class="toc-text">总结</span></a></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2023 - 2024 By Veni</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi, welcome to my blog!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="Toggle Between Traditional Chinese And Simplified Chinese">繁</button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.12.0"></script><script src="/js/main.js?v=4.12.0"></script><script src="/js/tw_cn.js?v=4.12.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.32/dist/fancybox/fancybox.umd.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-pjax"></div><script src="/js/headerNumbering.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.12.0"></script></div></div></body></html>
