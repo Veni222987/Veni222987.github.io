@@ -1,6 +1,6 @@
 ---
 title: WSL食用指南
-cover_picture: images/cover/tools.jpg
+cover_picture: https://img1.baidu.com/it/u=751563930,437961120&fm=253&fmt=auto&app=138&f=JPEG?w=600&h=338
 author: Veni
 categories: tools
 tags:

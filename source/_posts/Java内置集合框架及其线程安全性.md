@@ -3,7 +3,7 @@ title: Java内置集合框架及其线程安全性
 tags:
   - Java
 categories: Java
-cover: https://th.bing.com/th/id/OIP.hjd744sEnqR1-T8Svv3KCgHaEo?rs=1&pid=ImgDetMain
+cover: https://pic2.zhimg.com/v2-a2633457210478f979c51c78959de5c5_r.jpg
 highlight_shrink: false
 date: 2024-02-22 19:41:30
 ---

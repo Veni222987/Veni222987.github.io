@@ -104,7 +104,7 @@ theme: butterfly
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  repository: https://github.com/Veni222987/Veni222987.github.io.git
+  repository: git@github.com:Veni222987/Veni222987.github.io.git
   branch: main
 
 jsonContent:

@@ -10,7 +10,7 @@ tags:
 
 Go语言（也称为Golang）是一门由Google开发的开源编程语言。Go语言的设计目标是提供一种简单、高效、可靠的编程语言，适用于大规模系统开发。<!-- more -->
 
-# Go语言基础语法
+# 语法
 
 Go语言特点：
 
@@ -23,49 +23,41 @@ Go语言特点：
 
 ## 基础语法
 
-### 变量命名与赋值
+过于基础的for if else在这里就不介绍了，这里主要讲一些有特点的语法。
 
-- 常量可以不显式指定数据类型，编译器可以根据上下文自动确定
+### 数组与切片
 
-```go
-var a = 1
-var b int = 2
-```
+#### 数组
 
-注意！！！在Go语言中赋值有两种方法：=和:=，其中=只是单纯的赋值，而:=表示声明并赋值，如果变量先前已经声明，则可以直接使用=，否则需使用:=。
-
-### 条件控制语句
-
-#### if语句
-
-语法格式如下：
+数组长度是固定的，具有内置的操作函数。而且数组在函数传递的时候传递的方式是值传递。
 
 ```go
-if <bool> {
-
-} else if <bool> {
-
-} else{
-
-}
+var arr [5]int
+fmt.Println(arr[0],len(a))
 ```
 
-注意，`if`后面的`bool`语句不用打括号，并且`else if` 和`else`必须写在上一个大括号的同一行（？？）
+#### 切片
 
-#### for语句
+有点类似C++的Vector，但不是一个对象。len和append函数不能直接使用'.'获取，而是以函数的形式封装在标准包里面。切片是长度可变的数组，用法如下：
 
-在GO语言中，没有while和do while语句，只有for语句，for语句可以缺省任何一部分值，例如
+```go
+s := make([]string,3)
+fmt.Println(s[0],len(s));
+s=append(s,'f')
 
-```GO
-for {
-    //表示死循环
-}
-for i:=1;i<10;i++ {
-    //从1-9的遍历
-}
+//选择数组长度的方法
+fmt.Println(s[1:5])
+fmt.Println(s[:5])
+fmt.Println(s[1:])
 ```
 
-#### switch语句
+切片是go中最常用的数据结构，具有两个重要的属性：长度和容量，直接使用 len获取的是
+
+### channel
+
+
+
+### switch和select语句
 
 ```go
 switch a{
@@ -86,6 +78,8 @@ switch {
     default:
 }
 ```
+
+select语句是专门针对channel的，
 
 ### 数组与切片
 
@@ -111,87 +105,6 @@ s=append(s,'f')
 fmt.Println(s[1:5])
 fmt.Println(s[:5])
 fmt.Println(s[1:])
-```
-
-### Map键值对
-
-```go
-m := make(map[string]int)
-```
-
-### range
-
-在不关心某个切片或者数组索引的时候，可以直接遍历里面的元素，写法如下：
-
-``` go
-nums := []int{2, 3, 4}
-sum := 0
-for _, num := range nums {
-    sum += num
-}
-fmt.Println("sum:", sum)
-```
-
-### 函数
-
-```go
-//基本形式为func (结构体) <函数名> (函数参数) <返回类型>
-//具体看结构体方法部分的代码
-```
-
-### 指针
-
-```go
-//Go语言的指针使用比较简单，就是C++中的指针传递方法，可以用于在函数中修改指针的值，比如
-func test(str *string) string{
-    return str+"。"
-}
-```
-
-### 结构体
-
-```go
-//结构体声明
-type user struct{
-    name string
-    psw string
-}
-
-//结构体初始化
-a:=user(name:"Veni",psw:"1111")
-a:=user("Veni","1111")
-```
-
-### 结构体方法
-
-类似类成员函数，定义方法：
-
-```go
-//非结构体方法的函数定义：
-func checkPassword(u user,password string) bool{
-    return u.password==password
-}
-
-//结构体方法的函数定义
-func (u user) checkPassword(password string) bool{
-    return u.password==password
-}
-fmt.Println(a.checkPassword("1111"))//return true or false
-```
-
-### 错误处理
-
-在函数返回值的时候可以定义返回值err，同时return两个值，比如
-
-```go
-func findUser(users []user,name string)(v *user,err error){
-    for _,u :=range users{
-        if(u.name==name){
-            return &u,nil
-        }
-    }
-    return nil,error.New("Not Found")
-}
 ```
 
 ### 字符串函数
@@ -273,7 +186,7 @@ t:=time.Now()
 
 
 
-## 输入输出
+## 标准输入输出
 
 ### 输入的几种方法
 
@@ -299,29 +212,6 @@ fmt.Println(a)                              // 输出: 456
 fmt.Sscan("456 World", &b, &s)
 fmt.Println(b, s)                           // 输出: 456 World
 ```
-
-- 格式化扫描输入
-
-```go
-// 从 控制台(os.Stdin) 格式化扫描输入
-var a int
-fmt.Scanf("%d", &a)                         // 输入: 123<回车>
-fmt.Println(a)                              // 输出: 123
-
-var b int
-var s string
-fmt.Scanf("%d%s", &b, &s)                   // 输入: 123 Hello<回车>
-fmt.Println(b, s)                           // 输出: 123 Hello
-
-// 从 字符串(string) 格式化扫描输出
-fmt.Sscanf("456", "%d", &a)
-fmt.Println(a)                              // 输出: 456
-
-fmt.Sscanf("456 World", "%d%s", &b, &s)
-fmt.Println(b, s)                           // 输出: 456 World
-```
-
-事实上，`%d%s`只是用来格式化的一个占位符，在GO语言中可以使用`%v`代替，没怎么写过C语言的选手也可以用好Scanf啦！
 
 #### 从标准输入(`os.Stdin`)直接读取数据
 
@@ -363,7 +253,7 @@ if scan.Scan() {
 }
 ```
 
-字节训练营中的一段bug码，在这段代码中会读取换行符和回车键`\r\n`，需要手动去除。
+一段bug码，在这段代码中会读取换行符和回车键`\r\n`，需要手动去除。
 
 ```go
 reader := bufio.NewReader(os.Stdin)
@@ -378,175 +268,11 @@ input = strings.Trim(input, "\n")
 
 
 
-# <center> GO基础小项目
-
-## 猜数字
-
-### 基本原理：
-
-生成随机数，循环输入直至猜对为止，又叫人力二分法。
-
-### 代码
-
-```go
-package main
-
-import (
-	"fmt"
-	"math/rand"
-	"time"
-)
-
-func main() {
-	maxNum := 100
-    //这里需要设置随机数种子，避免每次生成都是一样的结果
-	rand.Seed(time.Now().UnixNano())
-	secretNumber := rand.Intn(maxNum)
-	fmt.Println("The secret num is", secretNumber)
-	fmt.Println("请输入你的猜测数字")
-
-	var guess int
-	for {
-		fmt.Scan(&guess)
-		fmt.Println("你猜测的数字是：", guess)
-		if guess > secretNumber {
-			fmt.Println("大了")
-		} else if guess < secretNumber {
-			fmt.Println("小了")
-		} else {
-			fmt.Println("对了")
-			break
-		}
-	}
-	fmt.Println("Game Over!")
-}
-```
-
-## 在线字典
-
-### 基本原理
-
-首先找到一个发送请求，然后使用`convertCurlToGo`将请求转化为Go语言代码，这是模拟前端发送的请求，构建序列化请求。
-
-然后接收返回的json请求，通过一个结构体反序列化，接受结果并输出，生成结构体可以使用`OKTool`里面的`Json转Golang Struct`工具。
-
-### 代码
-
-```go
-package main
-
-import (
-	"bytes"
-	"encoding/json"
-	"fmt"
-	"io"
-	"log"
-	"net/http"
-	"os"
-)
-
-type DictRequest struct {
-	TransType string `json:"trans_type"`
-	Source    string `json:"source"`
-	UserID    string `json:"user_id"`
-}
-
-type DictResponse struct {
-	Rc   int `json:"rc"`
-	Wiki struct {
-	} `json:"wiki"`
-	Dictionary struct {
-		Prons struct {
-			EnUs string `json:"en-us"`
-			En   string `json:"en"`
-		} `json:"prons"`
-		Explanations []string      `json:"explanations"`
-		Synonym      []string      `json:"synonym"`
-		Antonym      []string      `json:"antonym"`
-		WqxExample   [][]string    `json:"wqx_example"`
-		Entry        string        `json:"entry"`
-		Type         string        `json:"type"`
-		Related      []interface{} `json:"related"`
-		Source       string        `json:"source"`
-	} `json:"dictionary"`
-}
-
-func query(word string) {
-	//var word string
-	//fmt.Println("请输入要翻译的词")
-	//fmt.Scan(&word)
-	//请求的序列化------------------------------------------------------------
-	client := &http.Client{}
-	//var data = strings.NewReader(`{"trans_type":"en2zh","source":"good"}`)
-	request := DictRequest{TransType: "en2zh", Source: word}
-	buf, err := json.Marshal(request)
-	if err != nil {
-		log.Fatal(err)
-	}
-	var data = bytes.NewReader(buf)
-	req, err := http.NewRequest("POST", "https://api.interpreter.caiyunai.com/v1/dict", data)
-	if err != nil {
-		log.Fatal(err)
-	}
-	req.Header.Set("authority", "api.interpreter.caiyunai.com")
-	req.Header.Set("accept", "application/json, text/plain, */*")
-	req.Header.Set("accept-language", "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6")
-	req.Header.Set("app-name", "xy")
-	req.Header.Set("content-type", "application/json;charset=UTF-8")
-	req.Header.Set("device-id", "b3d49ffbe071b93bbcc3758f5bd40247")
-	req.Header.Set("origin", "https://fanyi.caiyunapp.com")
-	req.Header.Set("os-type", "web")
-	req.Header.Set("os-version", "")
-	req.Header.Set("referer", "https://fanyi.caiyunapp.com/")
-	req.Header.Set("sec-ch-ua", `"Not/A)Brand";v="99", "Microsoft Edge";v="115", "Chromium";v="115"`)
-	req.Header.Set("sec-ch-ua-mobile", "?0")
-	req.Header.Set("sec-ch-ua-platform", `"Windows"`)
-	req.Header.Set("sec-fetch-dest", "empty")
-	req.Header.Set("sec-fetch-mode", "cors")
-	req.Header.Set("sec-fetch-site", "cross-site")
-	req.Header.Set("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36 Edg/115.0.1901.183")
-	req.Header.Set("x-authorization", "token:qgemv4jr1y38jyq6vhvi")
-	resp, err := client.Do(req)
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer resp.Body.Close()
-	bodyText, err := io.ReadAll(resp.Body)
-	if err != nil {
-		log.Fatal(err)
-	}
-	//fmt.Printf("%s\n", bodyText)
-
-	//将返回结果反序列化-----------------------------------------------
-	var dictResponse DictResponse
-	//注意要加&号
-	err = json.Unmarshal(bodyText, &dictResponse)
-	if err != nil {
-		log.Fatal(err)
-	}
-	//fmt.Printf("%#v\n", dictResponse)
-
-	//打印结果
-	fmt.Println(word, "UK:", dictResponse.Dictionary.Prons.En, "US:", dictResponse.Dictionary.Prons.EnUs)
-	for _, item := range dictResponse.Dictionary.Explanations {
-		fmt.Println(item)
-	}
-}
-
-func main() {
-	if len(os.Args) != 2 {
-		fmt.Fprintf(os.Stderr, `usage:simpleDict WORD example:simpleDict hello`)
-	}
-	word := os.Args[1]
-	query(word)
-}
-```
-
-## 高质量编程
+# 高质量编程
 
 下面简单说说高质量编程需要注意的一些事情，算是一些经验之谈。
 
-### 高质量编程简介
+## 高质量编程简介
 
 编写的代码正确可靠，简洁清晰。说白了就是具备安全性、稳定性、简洁性。可以从下面三个角度考量：
 
@@ -557,7 +283,7 @@ func main() {
 
 还应该加一点就是代码执行效率，或者说是算法复杂度，比如说能用优先队列的地方就不要每次都遍历插入删除了，在后端开发的过程中性能是很关键的。
 
-### 代码规范
+## 代码规范
 
 代码规范主要包括代码格式，注释，命名规范，控制流程，错误和异常处理的标准。
 
@@ -569,7 +295,7 @@ func main() {
 - 优先处理错误和特殊情况，尽早返回可以减少嵌套。
 - 错误和异常处理：panic，recover和error。若问题可以被屏蔽和解决可以使用error，main函数可以使用panic。三者区别：error尽可能提供简明的上下文信息链，方便定位问题；panic用于真正异常的情况；recover在当前goroutine的被defer的函数中生效，即恢复到错误发生的上一个函数。
 
-### 性能优化建议
+## 性能优化
 
 #### 使用Benchmark检查性能
 

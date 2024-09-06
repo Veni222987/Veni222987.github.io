@@ -1,6 +1,6 @@
 ---
 title: 【Sangfor】数据中心与云计算
-cover_picture: images/cover/notes.jpg
+cover_picture: https://img0.baidu.com/it/u=1695559041,492878697&fm=253&fmt=auto&app=120&f=JPEG?w=570&h=342
 author: Veni
 categories: notes
 tags:
